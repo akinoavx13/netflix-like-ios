@@ -33,6 +33,7 @@ extension Details.Response {
         let title: String
         let backgroundURL: String
         let pictureURL: String
+        let date: String
     }
     struct Error { let errorMessage: String }
 }
@@ -42,6 +43,7 @@ extension Details.DisplayData {
         let title: String
         let backgroundURL: String
         let pictureURL: String
+        let date: String
     }
     struct Error { let errorMessage: String }
 }

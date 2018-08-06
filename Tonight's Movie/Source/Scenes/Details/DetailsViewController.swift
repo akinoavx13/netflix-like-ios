@@ -34,6 +34,23 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.text = ""
+            titleLabel.textColor = .white
+            titleLabel.numberOfLines = 2
+            titleLabel.font = Fonts.bodyMedium
+        }
+    }
+    
+    @IBOutlet weak var dateLabel: UILabel! {
+        didSet {
+            dateLabel.text = ""
+            dateLabel.textColor = .white
+            dateLabel.font = Fonts.small
+        }
+    }
+    
     // MARK: - Lifecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,10 +97,12 @@ extension DetailsViewController: DetailsPresenterOutput {
     func display(_ displayModel: Details.DisplayData.DetailsFetched) {
         UIView.animate(withDuration: 0.2) {
             self.title = displayModel.title
+            self.titleLabel.text = displayModel.title
+            self.dateLabel.text = displayModel.date
             self.view.layoutIfNeeded()
         }
         
-        backgroundImageView.setImage(url: "https://image.tmdb.org/t/p/w500\(displayModel.backgroundURL)")
+        backgroundImageView.setImage(url: "https://image.tmdb.org/t/p/original\(displayModel.backgroundURL)")
         pictureImageView.setImage(url: "https://image.tmdb.org/t/p/w500\(displayModel.pictureURL)")
     }
     

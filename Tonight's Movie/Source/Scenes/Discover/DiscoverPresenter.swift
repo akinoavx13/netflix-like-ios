@@ -90,7 +90,7 @@ extension DiscoverPresenter: DiscoverPresenterInput {
 // INTERACTOR -> PRESENTER (indirect)
 extension DiscoverPresenter: DiscoverInteractorOutput {
     func present(_ response: Discover.Response.MoviesFetched) {
-        movies = Array(response.movies.prefix(4))
+        movies = Array(response.movies.prefix(6))
         output?.display(Discover.DisplayData.Movies(movies: movies))
     }
     

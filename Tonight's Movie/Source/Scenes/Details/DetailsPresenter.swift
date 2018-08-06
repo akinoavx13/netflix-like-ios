@@ -53,7 +53,8 @@ extension DetailsPresenter: DetailsInteractorOutput {
         output?.display(Details.DisplayData.DetailsFetched(
             title: response.title,
             backgroundURL: response.backgroundURL,
-            pictureURL: response.pictureURL
+            pictureURL: response.pictureURL,
+            date: response.date.format(from: "yyyy-MM-dd", to: "dd MMM yyyy")
         ))
     }
     

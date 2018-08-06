@@ -34,7 +34,8 @@ extension DetailsInteractor: DetailsInteractorInput {
                     self.output?.present(Details.Response.DetailsFetched(
                         title: movie.title,
                         backgroundURL: movie.backgroundURL,
-                        pictureURL: movie.pictureURL
+                        pictureURL: movie.pictureURL,
+                        date: movie.date
                     ))
                 case .failure(let error):
                     self.output?.present(Details.Response.Error(errorMessage: error.localizedDescription))
@@ -51,7 +52,8 @@ extension DetailsInteractor: DetailsInteractorInput {
                     self.output?.present(Details.Response.DetailsFetched(
                         title: tvShow.name,
                         backgroundURL: tvShow.backgroundURL,
-                        pictureURL: tvShow.pictureURL
+                        pictureURL: tvShow.pictureURL,
+                        date: tvShow.date
                     ))
                 case .failure(let error):
                     self.output?.present(Details.Response.Error(errorMessage: error.localizedDescription))

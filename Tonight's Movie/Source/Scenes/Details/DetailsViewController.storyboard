@@ -36,14 +36,32 @@
                                                     <constraint firstAttribute="height" constant="180" id="NlM-3U-hGS"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSm-OM-rOp">
+                                                <rect key="frame" x="152" y="258" width="215" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfO-TW-7Vc">
+                                                <rect key="frame" x="152" y="283" width="215" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="dfO-TW-7Vc" firstAttribute="trailing" secondItem="lSm-OM-rOp" secondAttribute="trailing" id="1SC-Gq-Lbj"/>
                                             <constraint firstItem="GXC-UY-RH6" firstAttribute="leading" secondItem="V3H-F5-WON" secondAttribute="leading" id="6KU-NP-wJU"/>
+                                            <constraint firstItem="dfO-TW-7Vc" firstAttribute="top" secondItem="lSm-OM-rOp" secondAttribute="bottom" constant="4" id="9Ip-4p-hEP"/>
+                                            <constraint firstAttribute="trailing" secondItem="lSm-OM-rOp" secondAttribute="trailing" constant="8" id="BxM-7v-ugq"/>
                                             <constraint firstAttribute="height" constant="1000" id="Hjx-8K-UfH"/>
+                                            <constraint firstItem="lSm-OM-rOp" firstAttribute="top" secondItem="GXC-UY-RH6" secondAttribute="bottom" constant="8" id="N7H-uD-F2a"/>
                                             <constraint firstAttribute="trailing" secondItem="GXC-UY-RH6" secondAttribute="trailing" id="pMA-1L-9Y2"/>
                                             <constraint firstItem="wiP-Au-aCK" firstAttribute="leading" secondItem="V3H-F5-WON" secondAttribute="leading" constant="9" id="rfP-TV-CrX"/>
+                                            <constraint firstItem="dfO-TW-7Vc" firstAttribute="leading" secondItem="lSm-OM-rOp" secondAttribute="leading" id="viI-nG-fYx"/>
                                             <constraint firstItem="wiP-Au-aCK" firstAttribute="top" secondItem="GXC-UY-RH6" secondAttribute="bottom" constant="-90" id="xV8-AW-rEX"/>
+                                            <constraint firstItem="lSm-OM-rOp" firstAttribute="leading" secondItem="wiP-Au-aCK" secondAttribute="trailing" constant="8" id="zBG-Rx-U4e"/>
                                             <constraint firstItem="GXC-UY-RH6" firstAttribute="top" secondItem="V3H-F5-WON" secondAttribute="top" id="zmq-Bq-x8f"/>
                                         </constraints>
                                     </view>
@@ -70,7 +88,9 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="GXC-UY-RH6" id="i71-kM-ixB"/>
                         <outlet property="contentView" destination="V3H-F5-WON" id="WVC-Fi-Ieb"/>
+                        <outlet property="dateLabel" destination="dfO-TW-7Vc" id="i0i-QZ-DJS"/>
                         <outlet property="pictureImageView" destination="wiP-Au-aCK" id="iZ7-Bz-nLS"/>
+                        <outlet property="titleLabel" destination="lSm-OM-rOp" id="O7a-eM-FJH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FyU-Lz-LgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
