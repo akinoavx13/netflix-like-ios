@@ -10,6 +10,11 @@ import Foundation
 
 struct Translation {
     
+    struct Default {
+        static let error = NSLocalizedString("Error", comment: "")
+        static let ok = NSLocalizedString("Ok", comment: "")
+    }
+    
     struct Discover {
         static let title = NSLocalizedString("Discover", comment: "")
     }

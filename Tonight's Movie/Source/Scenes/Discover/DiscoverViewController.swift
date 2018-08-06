@@ -31,6 +31,12 @@ class DiscoverViewController: UIViewController {
         presenter.viewCreated()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        presenter.viewWillDisappear()
+    }
+    
     // MARK: - Methods -
     class func instantiate(with presenter: DiscoverPresenterInput) -> DiscoverViewController {
         let name = "\(DiscoverViewController.self)"
@@ -46,11 +52,13 @@ class DiscoverViewController: UIViewController {
 
 extension DiscoverViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return presenter.numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(DiscoverCell.self)", for: indexPath) as? DiscoverCell else { return UICollectionViewCell() }
+        
+        presenter.configure(item: cell, at: indexPath)
         
         return cell
     }
@@ -58,7 +66,9 @@ extension DiscoverViewController: UICollectionViewDataSource {
 
 extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 150)
+        let width = (UIScreen.main.bounds.width / 2) - 24
+        
+        return CGSize(width: width, height: width * 1.8)
     }
 }
 
@@ -66,5 +76,11 @@ extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
 
 // PRESENTER -> VIEW
 extension DiscoverViewController: DiscoverPresenterOutput {
-
+    func display(_ displayModel: Discover.DisplayData.Movies) {
+        collectionView.reloadData()
+    }
+    
+    func display(_ displayModel: Discover.DisplayData.Error) {
+        showAlertError(message: displayModel.errorMessage)
+    }
 }

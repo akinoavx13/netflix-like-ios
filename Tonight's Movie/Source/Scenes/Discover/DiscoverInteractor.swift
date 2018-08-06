@@ -12,10 +12,37 @@ class DiscoverInteractor {
     
     // MARK: - Properties -
     weak var output: DiscoverInteractorOutput?
+    
+    private let dependencies: FullDependencies
+    
+    // MARK: - Lifecycle -
+    init(dependencies: FullDependencies = Dependencies.shared) {
+        self.dependencies = dependencies
+    }
 }
 
 // MARK: - Business Logic -
 
 // PRESENTER -> INTERACTOR
 extension DiscoverInteractor: DiscoverInteractorInput {
+    
+    func perform(_ request: Discover.Request.FetchMovies) {
+        dependencies
+            .repository
+            .getAllMovies(page: request.page) { (result) in
+                switch result {
+                case .success(let movies):
+                    self.output?.present(Discover.Response.MoviesFetched(movies: movies))
+                case .failure(let error):
+                    self.output?.present(Discover.Response.Error(errorMessage: error.localizedDescription))
+                }
+            }
+    }
+    
+    func cancel(_ request: Discover.Cancelable.FetchMovies) {
+        dependencies
+            .requestsManager
+            .cancelFetchMoviesRequests()
+    }
+    
 }

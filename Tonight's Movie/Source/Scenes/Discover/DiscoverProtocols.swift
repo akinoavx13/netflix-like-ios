@@ -24,22 +24,32 @@ protocol DiscoverCoordinatorInput: class {
 
 // PRESENTER -> INTERACTOR
 protocol DiscoverInteractorInput {
-    // func perform(_ request: Discover.Request.Work)
+    func perform(_ request: Discover.Request.FetchMovies)
+    func cancel(_ request: Discover.Cancelable.FetchMovies)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
 protocol DiscoverInteractorOutput: class {
-    // func present(_ response: Discover.Response.Work)
+    func present(_ response: Discover.Response.MoviesFetched)
+    func present(_ response: Discover.Response.Error)
 }
 
 // ======== Presenter ======== //
 
 // VIEW -> PRESENTER
 protocol DiscoverPresenterInput {
+    
+    // MARK: - Properties -
+    var numberOfItems: Int { get }
+    
+    // MARK: - Methods -
     func viewCreated()
+    func viewWillDisappear()
+    func configure(item: DiscoverCellProtocol, at indexPath: IndexPath)
 }
 
 // PRESENTER -> VIEW
 protocol DiscoverPresenterOutput: class {
-    // func display(_ displayModel: Discover.DisplayData.Work)
+    func display(_ displayModel: Discover.DisplayData.Movies)
+    func display(_ displayModel: Discover.DisplayData.Error)
 }
