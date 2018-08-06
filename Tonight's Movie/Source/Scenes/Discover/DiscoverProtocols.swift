@@ -17,7 +17,7 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol DiscoverCoordinatorInput: class {
-    func showDetailsOfMovie(movieId: Int)
+    func showDetailsOf(id: Int, type: Details.ContentType)
 }
 
 // ======== Interactor ======== //
@@ -53,7 +53,7 @@ protocol DiscoverPresenterInput {
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath)
     func configure(item: DiscoverHeaderViewProtocol, at indexPath: IndexPath)
     func configure(item: DiscoverFooterViewProtocol, at indexPath: IndexPath)
-    func showDetailsOfMovie(at indexPath: IndexPath)
+    func showDetails(at indexPath: IndexPath)
 }
 
 // PRESENTER -> VIEW

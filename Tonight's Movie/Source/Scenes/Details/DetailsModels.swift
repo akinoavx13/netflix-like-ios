@@ -1,5 +1,5 @@
 //
-//  MovieDetailsModels.swift
+//  DetailsModels.swift
 //  Tonight's Movie
 //
 //  Created by Maxime Maheo on 06/08/2018.
@@ -8,20 +8,23 @@
 
 import Foundation
 
-enum MovieDetails {
+enum Details {
+    enum ContentType {
+        case Movie, TVShow
+    }
     enum Request { }
     enum Response { }
     enum DisplayData { }
 }
 
-extension MovieDetails.Request {
+extension Details.Request {
 
 }
 
-extension MovieDetails.Response {
+extension Details.Response {
 
 }
 
-extension MovieDetails.DisplayData {
+extension Details.DisplayData {
     
 }

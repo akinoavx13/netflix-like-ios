@@ -1,5 +1,5 @@
 //
-//  MovieDetailsViewController.swift
+//  DetailsViewController.swift
 //  Tonight's Movie
 //
 //  Created by Maxime Maheo on 06/08/2018.
@@ -8,10 +8,12 @@
 
 import UIKit
 
-class MovieDetailsViewController: UIViewController {
+class DetailsViewController: UIViewController {
 
     // MARK: - Properties -
-    private var presenter: MovieDetailsPresenterInput!
+    private var presenter: DetailsPresenterInput!
+
+    // MARK: - Outlets -
     
     // MARK: - Lifecycle -
     override func viewDidLoad() {
@@ -27,21 +29,22 @@ class MovieDetailsViewController: UIViewController {
     }
     
     // MARK: - Methods -
-    class func instantiate(with presenter: MovieDetailsPresenterInput) -> MovieDetailsViewController {
-        let name = "\(MovieDetailsViewController.self)"
+    class func instantiate(with presenter: DetailsPresenterInput) -> DetailsViewController {
+        let name = "\(DetailsViewController.self)"
         let storyboard = UIStoryboard(name: name, bundle: nil)
         // swiftlint:disable:next force_cast
-        let viewController = storyboard.instantiateViewController(withIdentifier: name) as! MovieDetailsViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: name) as! DetailsViewController
         viewController.presenter = presenter
         
         return viewController
     }
     
+    // MARK: - Actions -
 }
 
 // MARK: - Display Logic -
 
 // PRESENTER -> VIEW
-extension MovieDetailsViewController: MovieDetailsPresenterOutput {
+extension DetailsViewController: DetailsPresenterOutput {
 
 }

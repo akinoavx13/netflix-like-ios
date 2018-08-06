@@ -130,9 +130,7 @@ extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            presenter.showDetailsOfMovie(at: indexPath)
-        }
+        presenter.showDetails(at: indexPath)
     }
 }
 

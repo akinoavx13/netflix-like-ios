@@ -76,10 +76,12 @@ extension DiscoverPresenter: DiscoverPresenterInput {
         item.display(title: "\(Translation.Discover.showMore) ...")
     }
     
-    func showDetailsOfMovie(at indexPath: IndexPath) {
-        let movie = movies[indexPath.row]
-        
-        coordinator?.showDetailsOfMovie(movieId: movie.id)
+    func showDetails(at indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            coordinator?.showDetailsOf(id: movies[indexPath.row].id, type: Details.ContentType.Movie)
+        } else {
+            coordinator?.showDetailsOf(id: tvShows[indexPath.row].id, type: Details.ContentType.TVShow)
+        }
     }
 }
 

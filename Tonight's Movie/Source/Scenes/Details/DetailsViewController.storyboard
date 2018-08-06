@@ -12,7 +12,7 @@
         <!--scene Name View Controller-->
         <scene sceneID="i0m-iF-p80">
             <objects>
-                <viewController storyboardIdentifier="MovieDetailsViewController" id="F2H-rH-Lsj" customClass="MovieDetailsViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="F2H-rH-Lsj" customClass="DetailsViewController" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2ev-QE-M02">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

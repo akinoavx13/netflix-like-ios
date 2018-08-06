@@ -1,5 +1,5 @@
 //
-//  MovieDetailsProtocols.swift
+//  DetailsProtocols.swift
 //  Tonight's Movie
 //
 //  Created by Maxime Maheo on 06/08/2018.
@@ -11,35 +11,35 @@ import UIKit
 
 // ======== Coordinator ======== //
 
-//protocol MovieDetailsCoordinatorDelegate: class {
+//protocol DetailsCoordinatorDelegate: class {
 //    func coordinator(_ coordinator: Coordinator, finishedWithSuccess success: Bool)
 //}
 
 // PRESENTER -> COORDINATOR
-protocol MovieDetailsCoordinatorInput: class {
+protocol DetailsCoordinatorInput: class {
 
 }
 
 // ======== Interactor ======== //
 
 // PRESENTER -> INTERACTOR
-protocol MovieDetailsInteractorInput {
-    // func perform(_ request: MovieDetails.Request.Work)
+protocol DetailsInteractorInput {
+    // func perform(_ request: Details.Request.Work)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
-protocol MovieDetailsInteractorOutput: class {
-    // func present(_ response: MovieDetails.Response.Work)
+protocol DetailsInteractorOutput: class {
+    // func present(_ response: Details.Response.Work)
 }
 
 // ======== Presenter ======== //
 
 // VIEW -> PRESENTER
-protocol MovieDetailsPresenterInput {
+protocol DetailsPresenterInput {
     func viewCreated()
 }
 
 // PRESENTER -> VIEW
-protocol MovieDetailsPresenterOutput: class {
-    // func display(_ displayModel: MovieDetails.DisplayData.Work)
+protocol DetailsPresenterOutput: class {
+    // func display(_ displayModel: Details.DisplayData.Work)
 }
