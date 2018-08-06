@@ -31,6 +31,7 @@
 		2067A61A2118B0AB00E9B2C5 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067A6132118B0AB00E9B2C5 /* DetailsViewController.swift */; };
 		2067A61B2118B0AB00E9B2C5 /* DetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067A6142118B0AB00E9B2C5 /* DetailsProtocols.swift */; };
 		2067A61C2118B0AB00E9B2C5 /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067A6152118B0AB00E9B2C5 /* DetailsInteractor.swift */; };
+		206BEEAC2118E26300CED785 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206BEEAB2118E26300CED785 /* Kingfisher.framework */; };
 		20B9E41A21187D0D002EACDA /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E41921187D0D002EACDA /* Movie.swift */; };
 		20B9E42221187F9A002EACDA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E42121187F9A002EACDA /* Repository.swift */; };
 		20B9E42421187FBC002EACDA /* RemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E42321187FBC002EACDA /* RemoteRepository.swift */; };
@@ -74,6 +75,7 @@
 		2067A6132118B0AB00E9B2C5 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		2067A6142118B0AB00E9B2C5 /* DetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsProtocols.swift; sourceTree = "<group>"; };
 		2067A6152118B0AB00E9B2C5 /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
+		206BEEAB2118E26300CED785 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		20B9E41921187D0D002EACDA /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		20B9E41E21187F56002EACDA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		20B9E42121187F9A002EACDA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				206BEEAC2118E26300CED785 /* Kingfisher.framework in Frameworks */,
 				20B9E42C21188997002EACDA /* Springbok.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +235,7 @@
 		20B9E41D21187F56002EACDA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				206BEEAB2118E26300CED785 /* Kingfisher.framework */,
 				20B9E42B21188997002EACDA /* Springbok.framework */,
 				20B9E41E21187F56002EACDA /* Alamofire.framework */,
 			);
@@ -362,6 +366,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Springbok.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (

@@ -132,6 +132,12 @@ extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter.showDetails(at: indexPath)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? DiscoverCell else { return }
+        
+        presenter.didEndDisplaying(item: cell)
+    }
 }
 
 // MARK: - Display Logic -

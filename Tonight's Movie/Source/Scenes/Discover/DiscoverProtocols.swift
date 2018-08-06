@@ -53,6 +53,7 @@ protocol DiscoverPresenterInput {
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath)
     func configure(item: DiscoverHeaderViewProtocol, at indexPath: IndexPath)
     func configure(item: DiscoverFooterViewProtocol, at indexPath: IndexPath)
+    func didEndDisplaying(item: DiscoverCellProtocol)
     func showDetails(at indexPath: IndexPath)
 }
 

@@ -76,6 +76,10 @@ extension DiscoverPresenter: DiscoverPresenterInput {
         item.display(title: "\(Translation.Discover.showMore) ...")
     }
     
+    func didEndDisplaying(item: DiscoverCellProtocol) {
+        item.didEndDisplaying()
+    }
+    
     func showDetails(at indexPath: IndexPath) {
         if indexPath.section == 0 {
             coordinator?.showDetailsOf(id: movies[indexPath.row].id, type: Details.ContentType.Movie)

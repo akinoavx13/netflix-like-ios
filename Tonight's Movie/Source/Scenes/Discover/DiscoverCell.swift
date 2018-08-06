@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol DiscoverCellProtocol {
     func display(title: String, date: String, pictureURL: String)
+    func didEndDisplaying()
 }
 
 final class DiscoverCell: UICollectionViewCell {
@@ -46,10 +48,6 @@ final class DiscoverCell: UICollectionViewCell {
         backgroundColor = Colors.blueNightsDarker
         layer.cornerRadius = 4
     }
-    
-    override func prepareForReuse() {
-        pictureImageView.cancelDownloadTask()
-    }
 }
 
 extension DiscoverCell: DiscoverCellProtocol {
@@ -60,6 +58,12 @@ extension DiscoverCell: DiscoverCellProtocol {
             self.layoutIfNeeded()
         }
 
-        pictureImageView.setImage(url: "https://image.tmdb.org/t/p/w500\(pictureURL)")
+        if let pictureURL = URL(string: "https://image.tmdb.org/t/p/w500\(pictureURL)") {
+            pictureImageView.kf.setImage(with: pictureURL)
+        }
+    }
+    
+    func didEndDisplaying() {
+        pictureImageView.kf.cancelDownloadTask()
     }
 }

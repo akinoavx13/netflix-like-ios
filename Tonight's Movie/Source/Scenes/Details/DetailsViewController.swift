@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailsViewController: UIViewController {
 
@@ -39,7 +40,7 @@ class DetailsViewController: UIViewController {
             titleLabel.text = ""
             titleLabel.textColor = .white
             titleLabel.numberOfLines = 2
-            titleLabel.font = Fonts.bodyMedium
+            titleLabel.font = Fonts.bodySemibold
         }
     }
     
@@ -48,6 +49,23 @@ class DetailsViewController: UIViewController {
             dateLabel.text = ""
             dateLabel.textColor = .white
             dateLabel.font = Fonts.small
+        }
+    }
+    
+    @IBOutlet weak var overviewTitleLabel: UILabel! {
+        didSet {
+            overviewTitleLabel.text = ""
+            overviewTitleLabel.textColor = .white
+            overviewTitleLabel.font = Fonts.bodySemibold
+        }
+    }
+    
+    @IBOutlet weak var overviewLabel: UILabel! {
+        didSet {
+            overviewLabel.text = ""
+            overviewLabel.numberOfLines = 0
+            overviewLabel.textColor = .white
+            overviewLabel.font = Fonts.body
         }
     }
     
@@ -72,8 +90,8 @@ class DetailsViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         presenter.viewWillDisappear()
-        backgroundImageView.cancelDownloadTask()
-        pictureImageView.cancelDownloadTask()
+        backgroundImageView.kf.cancelDownloadTask()
+        pictureImageView.kf.cancelDownloadTask()
     }
     
     // MARK: - Methods -
@@ -99,11 +117,19 @@ extension DetailsViewController: DetailsPresenterOutput {
             self.title = displayModel.title
             self.titleLabel.text = displayModel.title
             self.dateLabel.text = displayModel.date
+            self.overviewTitleLabel.text = Translation.Discover.overview
+            self.overviewLabel.text = displayModel.overview
+            
             self.view.layoutIfNeeded()
         }
+                
+        if let backgroundURL = URL(string: "https://image.tmdb.org/t/p/original\(displayModel.backgroundURL)") {
+            backgroundImageView.kf.setImage(with: backgroundURL)
+        }
         
-        backgroundImageView.setImage(url: "https://image.tmdb.org/t/p/original\(displayModel.backgroundURL)")
-        pictureImageView.setImage(url: "https://image.tmdb.org/t/p/w500\(displayModel.pictureURL)")
+        if let pictureURL = URL(string: "https://image.tmdb.org/t/p/w500\(displayModel.pictureURL)") {
+            pictureImageView.kf.setImage(with: pictureURL)
+        }
     }
     
     func display(_ displayModel: Details.DisplayData.Error) {

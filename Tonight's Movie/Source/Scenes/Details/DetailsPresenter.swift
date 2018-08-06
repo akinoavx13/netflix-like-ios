@@ -54,7 +54,8 @@ extension DetailsPresenter: DetailsInteractorOutput {
             title: response.title,
             backgroundURL: response.backgroundURL,
             pictureURL: response.pictureURL,
-            date: response.date.format(from: "yyyy-MM-dd", to: "dd MMM yyyy")
+            date: response.date.format(from: "yyyy-MM-dd", to: "dd MMM yyyy"),
+            overview: response.overview
         ))
     }
     

@@ -35,7 +35,8 @@ extension DetailsInteractor: DetailsInteractorInput {
                         title: movie.title,
                         backgroundURL: movie.backgroundURL,
                         pictureURL: movie.pictureURL,
-                        date: movie.date
+                        date: movie.date,
+                        overview: movie.overview
                     ))
                 case .failure(let error):
                     self.output?.present(Details.Response.Error(errorMessage: error.localizedDescription))
@@ -53,7 +54,8 @@ extension DetailsInteractor: DetailsInteractorInput {
                         title: tvShow.name,
                         backgroundURL: tvShow.backgroundURL,
                         pictureURL: tvShow.pictureURL,
-                        date: tvShow.date
+                        date: tvShow.date,
+                        overview: tvShow.overview
                     ))
                 case .failure(let error):
                     self.output?.present(Details.Response.Error(errorMessage: error.localizedDescription))

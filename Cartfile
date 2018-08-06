@@ -1,1 +1,2 @@
 github "nodes-ios/Springbok"
+github "onevcat/Kingfisher" ~> 4.0
