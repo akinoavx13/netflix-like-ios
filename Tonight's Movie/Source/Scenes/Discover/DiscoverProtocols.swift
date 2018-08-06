@@ -49,7 +49,10 @@ protocol DiscoverPresenterInput {
     // MARK: - Methods -
     func viewCreated()
     func viewWillDisappear()
+    func displayMoviesAndShows()
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath)
+    func configure(item: DiscoverHeaderViewProtocol, at indexPath: IndexPath)
+    func configure(item: DiscoverFooterViewProtocol, at indexPath: IndexPath)
 }
 
 // PRESENTER -> VIEW

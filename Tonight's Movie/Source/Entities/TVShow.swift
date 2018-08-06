@@ -20,19 +20,6 @@ struct TVShow: Codable {
         
         case id, name
     }
-    
-    // MARK: - Methods -
-    func formattedDate() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        guard let date = dateFormatter.date(from: self.date) else {
-            return ""
-        }
-        
-        dateFormatter.dateFormat = "dd MMM yyyy"
-        return dateFormatter.string(from: date)
-    }
 }
 
 

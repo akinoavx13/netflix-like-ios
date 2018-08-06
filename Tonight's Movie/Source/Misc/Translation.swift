@@ -19,6 +19,7 @@ struct Translation {
         static let title = NSLocalizedString("Discover", comment: "")
         static let movies = NSLocalizedString("Movies", comment: "")
         static let tvShows = NSLocalizedString("TV Shows", comment: "")
+        static let showMore = NSLocalizedString("Show more", comment: "")
     }
         
 }

@@ -23,6 +23,7 @@
 		2055C44521186E060096DAA8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C44421186E060096DAA8 /* Icons.swift */; };
 		2055C44721186EA20096DAA8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C44621186EA20096DAA8 /* Colors.swift */; };
 		2055C449211878440096DAA8 /* DiscoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C448211878440096DAA8 /* DiscoverCell.swift */; };
+		206741DE21189E7F00105AF4 /* String+DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206741DD21189E7F00105AF4 /* String+DateFormat.swift */; };
 		20B9E41A21187D0D002EACDA /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E41921187D0D002EACDA /* Movie.swift */; };
 		20B9E42221187F9A002EACDA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E42121187F9A002EACDA /* Repository.swift */; };
 		20B9E42421187FBC002EACDA /* RemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E42321187FBC002EACDA /* RemoteRepository.swift */; };
@@ -34,6 +35,7 @@
 		20B9E43121188F2D002EACDA /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E43021188F2D002EACDA /* Fonts.swift */; };
 		20B9E4332118935C002EACDA /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E4322118935C002EACDA /* TVShow.swift */; };
 		20B9E43521189731002EACDA /* DiscoverHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E43421189731002EACDA /* DiscoverHeaderView.swift */; };
+		20B9E43721189AA4002EACDA /* DiscoverFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E43621189AA4002EACDA /* DiscoverFooterView.swift */; };
 		20BEB6292118636500CA891E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEB6282118636500CA891E /* AppDelegate.swift */; };
 		20BEB6302118636600CA891E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB62F2118636600CA891E /* Assets.xcassets */; };
 		20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB6312118636600CA891E /* LaunchScreen.storyboard */; };
@@ -56,6 +58,7 @@
 		2055C44421186E060096DAA8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		2055C44621186EA20096DAA8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2055C448211878440096DAA8 /* DiscoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCell.swift; sourceTree = "<group>"; };
+		206741DD21189E7F00105AF4 /* String+DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateFormat.swift"; sourceTree = "<group>"; };
 		20B9E41921187D0D002EACDA /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		20B9E41E21187F56002EACDA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		20B9E42121187F9A002EACDA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		20B9E43021188F2D002EACDA /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		20B9E4322118935C002EACDA /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
 		20B9E43421189731002EACDA /* DiscoverHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHeaderView.swift; sourceTree = "<group>"; };
+		20B9E43621189AA4002EACDA /* DiscoverFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverFooterView.swift; sourceTree = "<group>"; };
 		20BEB6252118636500CA891E /* Tonight's Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tonight's Movie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BEB6282118636500CA891E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20BEB62F2118636600CA891E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				2055C42F211869E70096DAA8 /* DiscoverInteractor.swift */,
 				2055C448211878440096DAA8 /* DiscoverCell.swift */,
 				20B9E43421189731002EACDA /* DiscoverHeaderView.swift */,
+				20B9E43621189AA4002EACDA /* DiscoverFooterView.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 			children = (
 				2055C43B21186A640096DAA8 /* UIWindow+RootViewController.swift */,
 				20B9E429211881CD002EACDA /* UIViewController+Alert.swift */,
+				206741DD21189E7F00105AF4 /* String+DateFormat.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -360,10 +366,12 @@
 				20BEB6292118636500CA891E /* AppDelegate.swift in Sources */,
 				2055C433211869E70096DAA8 /* DiscoverModels.swift in Sources */,
 				2055C436211869E70096DAA8 /* DiscoverInteractor.swift in Sources */,
+				20B9E43721189AA4002EACDA /* DiscoverFooterView.swift in Sources */,
 				2055C43C21186A640096DAA8 /* UIWindow+RootViewController.swift in Sources */,
 				20B9E42221187F9A002EACDA /* Repository.swift in Sources */,
 				2055C435211869E70096DAA8 /* DiscoverProtocols.swift in Sources */,
 				2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */,
+				206741DE21189E7F00105AF4 /* String+DateFormat.swift in Sources */,
 				2055C430211869E70096DAA8 /* DiscoverCoordinator.swift in Sources */,
 				2055C44321186CC30096DAA8 /* Translation.swift in Sources */,
 			);

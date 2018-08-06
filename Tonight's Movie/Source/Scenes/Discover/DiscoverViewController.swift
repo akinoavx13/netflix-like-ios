@@ -19,14 +19,24 @@ class DiscoverViewController: UIViewController {
             collectionView.backgroundColor = Colors.electromagnetic
             collectionView.dataSource = self
             collectionView.delegate = self
+            collectionView.showsVerticalScrollIndicator = false
         }
     }
+    
+    private let refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .white
+        
+        return refreshControl
+    }()
     
     // MARK: - Lifecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = Colors.electromagnetic
+        
+        setupRefreshControl()
         
         presenter.viewCreated()
     }
@@ -48,6 +58,17 @@ class DiscoverViewController: UIViewController {
         return viewController
     }
     
+    private func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+    
+    // MARK: - Actions -
+    @objc
+    public func handleRefresh() {
+        refreshControl.beginRefreshing()
+        presenter.displayMoviesAndShows()
+    }
 }
 
 extension DiscoverViewController: UICollectionViewDataSource {
@@ -72,9 +93,15 @@ extension DiscoverViewController: UICollectionViewDataSource {
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "\(DiscoverHeaderView.self)", for: indexPath) as! DiscoverHeaderView
             
-            headerView.titleLabel.text = indexPath.section == 0 ? Translation.Discover.movies : Translation.Discover.tvShows
+            presenter.configure(item: headerView, at: indexPath)
             
             return headerView
+        case UICollectionView.elementKindSectionFooter:
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "\(DiscoverFooterView.self)", for: indexPath) as! DiscoverFooterView
+            
+            presenter.configure(item: footerView, at: indexPath)
+            
+            return footerView
         default:
             fatalError("Unexpected element kind")
         }
@@ -91,6 +118,10 @@ extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: 70)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 60)
+    }
 }
 
 // MARK: - Display Logic -
@@ -98,10 +129,18 @@ extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
 // PRESENTER -> VIEW
 extension DiscoverViewController: DiscoverPresenterOutput {
     func display(_ displayModel: Discover.DisplayData.Movies) {
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
+        
         collectionView.reloadData()
     }
     
     func display(_ displayModel: Discover.DisplayData.TVShows) {
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
+        
         collectionView.reloadData()
     }
     

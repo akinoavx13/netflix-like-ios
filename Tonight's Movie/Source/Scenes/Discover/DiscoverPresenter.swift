@@ -43,8 +43,7 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     
     // MARK: - Methods -
     func viewCreated() {
-        interactor.perform(Discover.Request.FetchMovies(page: 1))
-        interactor.perform(Discover.Request.FetchTVShows(page: 1))
+        displayMoviesAndShows()
     }
     
     func viewWillDisappear() {
@@ -52,16 +51,29 @@ extension DiscoverPresenter: DiscoverPresenterInput {
         interactor.cancel(Discover.Cancelable.FetchTVShows())
     }
     
+    func displayMoviesAndShows() {
+        interactor.perform(Discover.Request.FetchMovies(page: 1))
+        interactor.perform(Discover.Request.FetchTVShows(page: 1))
+    }
+    
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath) {
         if indexPath.section == 0 {
             let movie = movies[indexPath.row]
             
-            item.display(title: movie.title, date: movie.formattedDate(), pictureURL: movie.pictureURL)
+            item.display(title: movie.title, date: movie.date.format(from: "yyyy-MM-dd", to: "dd MMM yyyy"), pictureURL: movie.pictureURL)
         } else {
             let tvShow = tvShows[indexPath.row]
             
-            item.display(title: tvShow.name, date: tvShow.formattedDate(), pictureURL: tvShow.pictureURL)
+            item.display(title: tvShow.name, date: tvShow.date.format(from: "yyyy-MM-dd", to: "dd MMM yyyy"), pictureURL: tvShow.pictureURL)
         }
+    }
+    
+    func configure(item: DiscoverHeaderViewProtocol, at indexPath: IndexPath) {
+        item.display(title: indexPath.section == 0 ? Translation.Discover.movies : Translation.Discover.tvShows)
+    }
+    
+    func configure(item: DiscoverFooterViewProtocol, at indexPath: IndexPath) {
+        item.display(title: "\(Translation.Discover.showMore) \(indexPath.section == 0 ? Translation.Discover.movies.lowercased() : Translation.Discover.tvShows.lowercased()) ...")
     }
 }
 

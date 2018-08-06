@@ -8,7 +8,11 @@
 
 import UIKit
 
-class DiscoverHeaderView: UICollectionReusableView {
+protocol DiscoverHeaderViewProtocol {
+    func display(title: String)
+}
+
+final class DiscoverHeaderView: UICollectionReusableView {
     
     // MARK: - Outlets -
     @IBOutlet weak var titleLabel: UILabel! {
@@ -19,4 +23,10 @@ class DiscoverHeaderView: UICollectionReusableView {
         }
     }
     
+}
+
+extension DiscoverHeaderView: DiscoverHeaderViewProtocol {
+    func display(title: String) {
+        titleLabel.text = title
+    }
 }
