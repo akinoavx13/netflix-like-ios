@@ -46,6 +46,7 @@ final class TabBarCoordinator: Coordinator {
         switch tab {
         case .discover:
             coordinator = DiscoverCoordinator(navigationController: navigationController)
+            navigationController.tabBarItem = UITabBarItem(title: Translation.Discover.title, image: nil, selectedImage: nil)
         }
         
         children.append(coordinator)

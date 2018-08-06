@@ -18,6 +18,8 @@
 		2055C436211869E70096DAA8 /* DiscoverInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C42F211869E70096DAA8 /* DiscoverInteractor.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
 		2055C43C21186A640096DAA8 /* UIWindow+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43B21186A640096DAA8 /* UIWindow+RootViewController.swift */; };
+		2055C43F21186C910096DAA8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2055C44121186C910096DAA8 /* Localizable.strings */; };
+		2055C44321186CC30096DAA8 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C44221186CC30096DAA8 /* Translation.swift */; };
 		20BEB6292118636500CA891E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEB6282118636500CA891E /* AppDelegate.swift */; };
 		20BEB6302118636600CA891E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB62F2118636600CA891E /* Assets.xcassets */; };
 		20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB6312118636600CA891E /* LaunchScreen.storyboard */; };
@@ -35,6 +37,8 @@
 		2055C42F211869E70096DAA8 /* DiscoverInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverInteractor.swift; sourceTree = "<group>"; };
 		2055C43821186A340096DAA8 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		2055C43B21186A640096DAA8 /* UIWindow+RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+RootViewController.swift"; sourceTree = "<group>"; };
+		2055C44021186C910096DAA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2055C44221186CC30096DAA8 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		20BEB6252118636500CA891E /* Tonight's Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tonight's Movie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BEB6282118636500CA891E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20BEB62F2118636600CA891E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 				20BEB62F2118636600CA891E /* Assets.xcassets */,
 				20BEB6312118636600CA891E /* LaunchScreen.storyboard */,
 				20BEB6342118636600CA891E /* Info.plist */,
+				2055C44121186C910096DAA8 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				2055C4232118698D0096DAA8 /* Coordinator.swift */,
+				2055C44221186CC30096DAA8 /* Translation.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2055C432211869E70096DAA8 /* DiscoverViewController.storyboard in Resources */,
+				2055C43F21186C910096DAA8 /* Localizable.strings in Resources */,
 				20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */,
 				20BEB6302118636600CA891E /* Assets.xcassets in Resources */,
 			);
@@ -237,12 +244,21 @@
 				2055C435211869E70096DAA8 /* DiscoverProtocols.swift in Sources */,
 				2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */,
 				2055C430211869E70096DAA8 /* DiscoverCoordinator.swift in Sources */,
+				2055C44321186CC30096DAA8 /* Translation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		2055C44121186C910096DAA8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2055C44021186C910096DAA8 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		20BEB6312118636600CA891E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
