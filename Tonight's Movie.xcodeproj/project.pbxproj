@@ -20,6 +20,9 @@
 		2055C43C21186A640096DAA8 /* UIWindow+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43B21186A640096DAA8 /* UIWindow+RootViewController.swift */; };
 		2055C43F21186C910096DAA8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2055C44121186C910096DAA8 /* Localizable.strings */; };
 		2055C44321186CC30096DAA8 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C44221186CC30096DAA8 /* Translation.swift */; };
+		2055C44521186E060096DAA8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C44421186E060096DAA8 /* Icons.swift */; };
+		2055C44721186EA20096DAA8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C44621186EA20096DAA8 /* Colors.swift */; };
+		2055C449211878440096DAA8 /* DiscoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C448211878440096DAA8 /* DiscoverCell.swift */; };
 		20BEB6292118636500CA891E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEB6282118636500CA891E /* AppDelegate.swift */; };
 		20BEB6302118636600CA891E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB62F2118636600CA891E /* Assets.xcassets */; };
 		20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB6312118636600CA891E /* LaunchScreen.storyboard */; };
@@ -39,6 +42,9 @@
 		2055C43B21186A640096DAA8 /* UIWindow+RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+RootViewController.swift"; sourceTree = "<group>"; };
 		2055C44021186C910096DAA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2055C44221186CC30096DAA8 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
+		2055C44421186E060096DAA8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		2055C44621186EA20096DAA8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		2055C448211878440096DAA8 /* DiscoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCell.swift; sourceTree = "<group>"; };
 		20BEB6252118636500CA891E /* Tonight's Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tonight's Movie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BEB6282118636500CA891E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20BEB62F2118636600CA891E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +99,8 @@
 			children = (
 				2055C4232118698D0096DAA8 /* Coordinator.swift */,
 				2055C44221186CC30096DAA8 /* Translation.swift */,
+				2055C44421186E060096DAA8 /* Icons.swift */,
+				2055C44621186EA20096DAA8 /* Colors.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -116,6 +124,7 @@
 				2055C42D211869E70096DAA8 /* DiscoverViewController.swift */,
 				2055C42E211869E70096DAA8 /* DiscoverProtocols.swift */,
 				2055C42F211869E70096DAA8 /* DiscoverInteractor.swift */,
+				2055C448211878440096DAA8 /* DiscoverCell.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -233,8 +242,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2055C44521186E060096DAA8 /* Icons.swift in Sources */,
+				2055C449211878440096DAA8 /* DiscoverCell.swift in Sources */,
 				2055C431211869E70096DAA8 /* DiscoverPresenter.swift in Sources */,
 				2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */,
+				2055C44721186EA20096DAA8 /* Colors.swift in Sources */,
 				2055C434211869E70096DAA8 /* DiscoverViewController.swift in Sources */,
 				2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */,
 				20BEB6292118636500CA891E /* AppDelegate.swift in Sources */,

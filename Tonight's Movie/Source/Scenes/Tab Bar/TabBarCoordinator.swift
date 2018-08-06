@@ -25,6 +25,8 @@ final class TabBarCoordinator: Coordinator {
         self.window = window
         tabBarController = UITabBarController()
         children = []
+        
+        setupTabBar()
     }
     
     // MARK: - Methods -
@@ -34,8 +36,14 @@ final class TabBarCoordinator: Coordinator {
         window.updateRootViewController(with: tabBarController)
     }
     
+    func setupTabBar() {
+        tabBarController.tabBar.barTintColor = Colors.blueNights
+        tabBarController.tabBar.tintColor = .white
+    }
+    
     private func addScene(with tab: Tab) {
         let navigationController = UINavigationController()
+        navigationController.setNavigationBarHidden(true, animated: false)
         
         var viewControllers = tabBarController.viewControllers ?? []
         viewControllers += [navigationController]
@@ -46,7 +54,7 @@ final class TabBarCoordinator: Coordinator {
         switch tab {
         case .discover:
             coordinator = DiscoverCoordinator(navigationController: navigationController)
-            navigationController.tabBarItem = UITabBarItem(title: Translation.Discover.title, image: nil, selectedImage: nil)
+            navigationController.tabBarItem = UITabBarItem(title: Translation.Discover.title, image: Icons.discover, selectedImage: nil)
         }
         
         children.append(coordinator)

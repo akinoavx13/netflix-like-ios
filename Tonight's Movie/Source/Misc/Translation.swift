@@ -11,7 +11,7 @@ import Foundation
 struct Translation {
     
     struct Discover {
-        static var title = NSLocalizedString("Discover", comment: "")
+        static let title = NSLocalizedString("Discover", comment: "")
     }
     
 }

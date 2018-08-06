@@ -14,10 +14,20 @@ class DiscoverViewController: UIViewController {
     private var presenter: DiscoverPresenterInput!
 
     // MARK: - Outlets -
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet {
+            collectionView.backgroundColor = Colors.electromagnetic
+            collectionView.dataSource = self
+            collectionView.delegate = self
+        }
+    }
     
     // MARK: - Lifecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = Colors.electromagnetic
+        
         presenter.viewCreated()
     }
     
@@ -32,7 +42,24 @@ class DiscoverViewController: UIViewController {
         return viewController
     }
     
-    // MARK: - Actions -
+}
+
+extension DiscoverViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(DiscoverCell.self)", for: indexPath) as? DiscoverCell else { return UICollectionViewCell() }
+        
+        return cell
+    }
+}
+
+extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 150)
+    }
 }
 
 // MARK: - Display Logic -
