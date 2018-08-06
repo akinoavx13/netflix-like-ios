@@ -37,5 +37,9 @@ class DiscoverCoordinator: Coordinator {
 
 // PRESENTER -> COORDINATOR
 extension DiscoverCoordinator: DiscoverCoordinatorInput {
-
+    func showDetailsOfMovie(movieId: Int) {
+        let coordinator = MovieDetailsCoordinator(navigationController: navigationController)
+        children.append(coordinator)
+        coordinator.start()
+    }
 }

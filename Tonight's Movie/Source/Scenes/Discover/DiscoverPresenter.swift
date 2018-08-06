@@ -75,6 +75,12 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     func configure(item: DiscoverFooterViewProtocol, at indexPath: IndexPath) {
         item.display(title: "\(Translation.Discover.showMore) ...")
     }
+    
+    func showDetailsOfMovie(at indexPath: IndexPath) {
+        let movie = movies[indexPath.row]
+        
+        coordinator?.showDetailsOfMovie(movieId: movie.id)
+    }
 }
 
 // MARK: - Presentation Logic -

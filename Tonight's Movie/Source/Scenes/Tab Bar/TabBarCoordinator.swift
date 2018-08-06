@@ -43,7 +43,6 @@ final class TabBarCoordinator: Coordinator {
     
     private func addScene(with tab: Tab) {
         let navigationController = UINavigationController()
-        navigationController.setNavigationBarHidden(true, animated: false)
         
         var viewControllers = tabBarController.viewControllers ?? []
         viewControllers += [navigationController]
