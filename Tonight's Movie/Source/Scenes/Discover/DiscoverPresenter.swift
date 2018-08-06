@@ -73,7 +73,7 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     }
     
     func configure(item: DiscoverFooterViewProtocol, at indexPath: IndexPath) {
-        item.display(title: "\(Translation.Discover.showMore) \(indexPath.section == 0 ? Translation.Discover.movies.lowercased() : Translation.Discover.tvShows.lowercased()) ...")
+        item.display(title: "\(Translation.Discover.showMore) ...")
     }
 }
 
@@ -87,7 +87,7 @@ extension DiscoverPresenter: DiscoverInteractorOutput {
     }
     
     func present(_ response: Discover.Response.TVShowsFetched) {
-        tvShows = response.tvShows
+        tvShows = Array(response.tvShows.prefix(10))
         output?.display(Discover.DisplayData.TVShows(tvShows: tvShows))
     }
     

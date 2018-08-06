@@ -21,6 +21,7 @@ final class RemoteRepository: Repository {
         baseURL = "https://api.themoviedb.org/3"
         defaultParameters = [:]
         defaultParameters["api_key"] = "4cb1eeab94f45affe2536f2c684a5c9e"
+        defaultParameters["language"] = "\(Locale.preferredLanguages.first ?? "en-US")"
     }
     
     // MARK: - Methods -
