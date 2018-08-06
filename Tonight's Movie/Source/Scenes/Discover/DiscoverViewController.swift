@@ -51,8 +51,12 @@ class DiscoverViewController: UIViewController {
 }
 
 extension DiscoverViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.numberOfItems
+        return section == 0 ? presenter.numberOfMovies : presenter.numberOfTVShows
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,6 +66,19 @@ extension DiscoverViewController: UICollectionViewDataSource {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "\(DiscoverHeaderView.self)", for: indexPath) as! DiscoverHeaderView
+            
+            headerView.titleLabel.text = indexPath.section == 0 ? Translation.Discover.movies : Translation.Discover.tvShows
+            
+            return headerView
+        default:
+            fatalError("Unexpected element kind")
+        }
+    }
 }
 
 extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
@@ -70,6 +87,10 @@ extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: width, height: width * 1.8)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 70)
+    }
 }
 
 // MARK: - Display Logic -
@@ -77,6 +98,10 @@ extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
 // PRESENTER -> VIEW
 extension DiscoverViewController: DiscoverPresenterOutput {
     func display(_ displayModel: Discover.DisplayData.Movies) {
+        collectionView.reloadData()
+    }
+    
+    func display(_ displayModel: Discover.DisplayData.TVShows) {
         collectionView.reloadData()
     }
     

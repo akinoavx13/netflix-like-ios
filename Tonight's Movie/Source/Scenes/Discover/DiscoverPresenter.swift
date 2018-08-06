@@ -16,7 +16,7 @@ class DiscoverPresenter {
     weak var output: DiscoverPresenterOutput?
 
     private var movies: [Movie]
-    private var page: Int
+    private var tvShows: [TVShow]
     
     // MARK: - Lifecycle -
     init(interactor: DiscoverInteractorInput, coordinator: DiscoverCoordinatorInput) {
@@ -24,7 +24,7 @@ class DiscoverPresenter {
         self.coordinator = coordinator
         
         movies = []
-        page = 1
+        tvShows = []
     }
 }
 
@@ -33,23 +33,35 @@ class DiscoverPresenter {
 extension DiscoverPresenter: DiscoverPresenterInput {
     
     // MARK: - Properties -
-    var numberOfItems: Int {
+    var numberOfMovies: Int {
         return movies.count
+    }
+    
+    var numberOfTVShows: Int {
+        return tvShows.count
     }
     
     // MARK: - Methods -
     func viewCreated() {
-        interactor.perform(Discover.Request.FetchMovies(page: page))
+        interactor.perform(Discover.Request.FetchMovies(page: 1))
+        interactor.perform(Discover.Request.FetchTVShows(page: 1))
     }
     
     func viewWillDisappear() {
         interactor.cancel(Discover.Cancelable.FetchMovies())
+        interactor.cancel(Discover.Cancelable.FetchTVShows())
     }
     
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath) {
-        let movie = movies[indexPath.row]
-        
-        item.display(title: movie.title, date: movie.formattedDate(), pictureURL: movie.pictureURL)
+        if indexPath.section == 0 {
+            let movie = movies[indexPath.row]
+            
+            item.display(title: movie.title, date: movie.formattedDate(), pictureURL: movie.pictureURL)
+        } else {
+            let tvShow = tvShows[indexPath.row]
+            
+            item.display(title: tvShow.name, date: tvShow.formattedDate(), pictureURL: tvShow.pictureURL)
+        }
     }
 }
 
@@ -58,8 +70,13 @@ extension DiscoverPresenter: DiscoverPresenterInput {
 // INTERACTOR -> PRESENTER (indirect)
 extension DiscoverPresenter: DiscoverInteractorOutput {
     func present(_ response: Discover.Response.MoviesFetched) {
-        movies = response.movies
+        movies = Array(response.movies.prefix(4))
         output?.display(Discover.DisplayData.Movies(movies: movies))
+    }
+    
+    func present(_ response: Discover.Response.TVShowsFetched) {
+        tvShows = response.tvShows
+        output?.display(Discover.DisplayData.TVShows(tvShows: tvShows))
     }
     
     func present(_ response: Discover.Response.Error) {

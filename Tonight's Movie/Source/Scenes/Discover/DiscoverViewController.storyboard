@@ -22,13 +22,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2Ud-zb-wj9">
                                     <size key="itemSize" width="136" height="231"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DiscoverCell" id="4gq-SX-rgi" customClass="DiscoverCell" customModule="Tonight_s_Movie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="136" height="231"/>
+                                        <rect key="frame" x="0.0" y="50" width="136" height="231"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="136" height="231"/>
@@ -69,6 +69,26 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DiscoverHeaderView" id="0kQ-6l-HVb" customClass="DiscoverHeaderView" customModule="Tonight_s_Movie" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqw-QL-XjA">
+                                            <rect key="frame" x="8" y="14.666666666666664" width="327" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fqw-QL-XjA" firstAttribute="centerY" secondItem="0kQ-6l-HVb" secondAttribute="centerY" id="Ft0-aq-j2G"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="fqw-QL-XjA" secondAttribute="trailing" id="ijv-e6-aDJ"/>
+                                        <constraint firstItem="fqw-QL-XjA" firstAttribute="leading" secondItem="0kQ-6l-HVb" secondAttribute="leadingMargin" id="pVI-Af-1rA"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="fqw-QL-XjA" id="dIO-m2-4Fe"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

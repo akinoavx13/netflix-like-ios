@@ -12,5 +12,5 @@ struct Fonts {
     
     static let small = UIFont.systemFont(ofSize: 12, weight: .light)
     static let bodyMedium = UIFont.systemFont(ofSize: 16, weight: .medium)
-    
+    static let header = UIFont.systemFont(ofSize: 32, weight: .heavy)
 }

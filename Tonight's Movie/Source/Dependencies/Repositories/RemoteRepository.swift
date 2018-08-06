@@ -24,20 +24,35 @@ final class RemoteRepository: Repository {
     }
     
     // MARK: - Methods -
-    
-    func getAllMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
+    func getMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
+        var parameters = defaultParameters
+        parameters["sort_by"] = "popularity.desc"
+        parameters["page"] = "\(page)"
+        
         let request = Springbok
             .request("\(baseURL)/discover/movie",
                 method: .get,
-                parameters: [
-                    "api_key": "4cb1eeab94f45affe2536f2c684a5c9e",
-                    "sort_by": "popularity.desc",
-                    "page": page
-                ]
+                parameters: parameters
             )
             .unwrap("results")
         
         requestsManager.fetchMoviesRequest(with: request)
+        request.responseCodable(completion: completion)
+    }
+    
+    func getTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
+        var parameters = defaultParameters
+        parameters["sort_by"] = "popularity.desc"
+        parameters["page"] = "\(page)"
+        
+        let request = Springbok
+            .request("\(baseURL)/discover/tv",
+                method: .get,
+                parameters: parameters
+            )
+            .unwrap("results")
+        
+        requestsManager.fetchTVShowsRequest(with: request)
         request.responseCodable(completion: completion)
     }
     

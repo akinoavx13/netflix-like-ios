@@ -29,7 +29,7 @@ extension DiscoverInteractor: DiscoverInteractorInput {
     func perform(_ request: Discover.Request.FetchMovies) {
         dependencies
             .repository
-            .getAllMovies(page: request.page) { (result) in
+            .getMovies(page: request.page) { (result) in
                 switch result {
                 case .success(let movies):
                     self.output?.present(Discover.Response.MoviesFetched(movies: movies))
@@ -43,6 +43,25 @@ extension DiscoverInteractor: DiscoverInteractorInput {
         dependencies
             .requestsManager
             .cancelFetchMoviesRequests()
+    }
+    
+    func perform(_ request: Discover.Request.FetchTVShows) {
+        dependencies
+            .repository
+            .getTVShows(page: request.page) { (result) in
+                switch result {
+                case .success(let tvShows):
+                    self.output?.present(Discover.Response.TVShowsFetched(tvShows: tvShows))
+                case .failure(let error):
+                    self.output?.present(Discover.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+    }
+    
+    func cancel(_ request: Discover.Cancelable.FetchTVShows) {
+        dependencies
+            .requestsManager
+            .cancelFetchTVShowsRequests()
     }
     
 }

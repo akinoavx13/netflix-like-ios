@@ -25,12 +25,15 @@ protocol DiscoverCoordinatorInput: class {
 // PRESENTER -> INTERACTOR
 protocol DiscoverInteractorInput {
     func perform(_ request: Discover.Request.FetchMovies)
+    func perform(_ request: Discover.Request.FetchTVShows)
     func cancel(_ request: Discover.Cancelable.FetchMovies)
+    func cancel(_ request: Discover.Cancelable.FetchTVShows)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
 protocol DiscoverInteractorOutput: class {
     func present(_ response: Discover.Response.MoviesFetched)
+    func present(_ response: Discover.Response.TVShowsFetched)
     func present(_ response: Discover.Response.Error)
 }
 
@@ -40,7 +43,8 @@ protocol DiscoverInteractorOutput: class {
 protocol DiscoverPresenterInput {
     
     // MARK: - Properties -
-    var numberOfItems: Int { get }
+    var numberOfMovies: Int { get }
+    var numberOfTVShows: Int { get }
     
     // MARK: - Methods -
     func viewCreated()
@@ -51,5 +55,6 @@ protocol DiscoverPresenterInput {
 // PRESENTER -> VIEW
 protocol DiscoverPresenterOutput: class {
     func display(_ displayModel: Discover.DisplayData.Movies)
+    func display(_ displayModel: Discover.DisplayData.TVShows)
     func display(_ displayModel: Discover.DisplayData.Error)
 }

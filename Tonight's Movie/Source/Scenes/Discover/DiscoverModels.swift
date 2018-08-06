@@ -17,18 +17,22 @@ enum Discover {
 
 extension Discover.Cancelable {
     struct FetchMovies { }
+    struct FetchTVShows { }
 }
 
 extension Discover.Request {
     struct FetchMovies { let page: Int }
+    struct FetchTVShows { let page: Int }
 }
 
 extension Discover.Response {
     struct MoviesFetched { let movies: [Movie] }
+    struct TVShowsFetched { let tvShows: [TVShow] }
     struct Error { let errorMessage: String }
 }
 
 extension Discover.DisplayData {
     struct Movies { let movies: [Movie] }
+    struct TVShows { let tvShows: [TVShow] }
     struct Error { let errorMessage: String }
 }
