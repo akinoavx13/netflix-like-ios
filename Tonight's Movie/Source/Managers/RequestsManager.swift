@@ -18,6 +18,12 @@ protocol RequestsManagerProtocol {
     
     func fetchTVShowsRequest(with request: Request)
     func cancelFetchTVShowsRequests()
+    
+    func fetchMovieRequest(with request: Request)
+    func cancelFetchMovieRequests()
+    
+    func fetchTVShowRequest(with request: Request)
+    func cancelFetchTVShowRequests()
 }
 
 final class RequestsManager {
@@ -25,11 +31,15 @@ final class RequestsManager {
     // MARK: - Properties -
     private var movies: [String: Request]
     private var tvShows: [String: Request]
+    private var movie: [String: Request]
+    private var tvShow: [String: Request]
     
     // MARK: - Lifecycle -
     init() {
         movies = [:]
         tvShows = [:]
+        movie = [:]
+        tvShow = [:]
     }
     
     // MARK: - Methods -
@@ -42,7 +52,6 @@ final class RequestsManager {
 
 extension RequestsManager: RequestsManagerProtocol {
     
-    // MARK: - All movies -
     func fetchMoviesRequest(with request: Request) {
         if let url = request.getUrl()?.absoluteString {
             movies[url] = request
@@ -63,6 +72,28 @@ extension RequestsManager: RequestsManagerProtocol {
     func cancelFetchTVShowsRequests() {
         cancel(requests: tvShows)
         tvShows.removeAll()
+    }
+    
+    func fetchMovieRequest(with request: Request) {
+        if let url = request.getUrl()?.absoluteString {
+            movie[url] = request
+        }
+    }
+    
+    func cancelFetchMovieRequests() {
+        cancel(requests: movie)
+        movie.removeAll()
+    }
+    
+    func fetchTVShowRequest(with request: Request) {
+        if let url = request.getUrl()?.absoluteString {
+            tvShow[url] = request
+        }
+    }
+    
+    func cancelFetchTVShowRequests() {
+        cancel(requests: tvShow)
+        tvShow.removeAll()
     }
     
 }

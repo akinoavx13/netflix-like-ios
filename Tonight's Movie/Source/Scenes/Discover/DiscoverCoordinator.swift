@@ -38,7 +38,7 @@ class DiscoverCoordinator: Coordinator {
 // PRESENTER -> COORDINATOR
 extension DiscoverCoordinator: DiscoverCoordinatorInput {
     func showDetailsOf(id: Int, type: Details.ContentType) {
-        let coordinator = DetailsCoordinator(navigationController: navigationController)
+        let coordinator = DetailsCoordinator(navigationController: navigationController, type: type, id: id)
         children.append(coordinator)
         coordinator.start()
     }

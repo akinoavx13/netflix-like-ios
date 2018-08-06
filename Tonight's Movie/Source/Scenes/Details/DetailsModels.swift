@@ -9,6 +9,7 @@
 import Foundation
 
 enum Details {
+    enum Cancelable { }
     enum ContentType {
         case Movie, TVShow
     }
@@ -17,14 +18,30 @@ enum Details {
     enum DisplayData { }
 }
 
-extension Details.Request {
+extension Details.Cancelable {
+    struct FetchMovies { }
+    struct FetchTVShows { }
+}
 
+extension Details.Request {
+    struct FetchMovie { let id: Int }
+    struct FetchTVShow { let id: Int }
 }
 
 extension Details.Response {
-
+    struct DetailsFetched {
+        let title: String
+        let backgroundURL: String
+        let pictureURL: String
+    }
+    struct Error { let errorMessage: String }
 }
 
 extension Details.DisplayData {
-    
+    struct DetailsFetched {
+        let title: String
+        let backgroundURL: String
+        let pictureURL: String
+    }
+    struct Error { let errorMessage: String }
 }

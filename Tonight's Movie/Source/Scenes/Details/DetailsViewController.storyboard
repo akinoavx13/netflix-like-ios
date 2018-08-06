@@ -1,28 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--scene Name View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="i0m-iF-p80">
             <objects>
-                <viewController storyboardIdentifier="DetailsViewController" id="F2H-rH-Lsj" customClass="DetailsViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="F2H-rH-Lsj" customClass="DetailsViewController" customModule="Tonight_s_Movie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2ev-QE-M02">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7R-Up-rXm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3H-F5-WON">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GXC-UY-RH6">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="hdX-09-yhi"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wiP-Au-aCK">
+                                                <rect key="frame" x="9" y="160" width="135" height="180"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="135" id="LIG-kb-rVs"/>
+                                                    <constraint firstAttribute="height" constant="180" id="NlM-3U-hGS"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="GXC-UY-RH6" firstAttribute="leading" secondItem="V3H-F5-WON" secondAttribute="leading" id="6KU-NP-wJU"/>
+                                            <constraint firstAttribute="height" constant="1000" id="Hjx-8K-UfH"/>
+                                            <constraint firstAttribute="trailing" secondItem="GXC-UY-RH6" secondAttribute="trailing" id="pMA-1L-9Y2"/>
+                                            <constraint firstItem="wiP-Au-aCK" firstAttribute="leading" secondItem="V3H-F5-WON" secondAttribute="leading" constant="9" id="rfP-TV-CrX"/>
+                                            <constraint firstItem="wiP-Au-aCK" firstAttribute="top" secondItem="GXC-UY-RH6" secondAttribute="bottom" constant="-90" id="xV8-AW-rEX"/>
+                                            <constraint firstItem="GXC-UY-RH6" firstAttribute="top" secondItem="V3H-F5-WON" secondAttribute="top" id="zmq-Bq-x8f"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="V3H-F5-WON" firstAttribute="top" secondItem="M7R-Up-rXm" secondAttribute="top" id="CLr-hU-tNC"/>
+                                    <constraint firstAttribute="bottom" secondItem="V3H-F5-WON" secondAttribute="bottom" id="NbF-ft-Ffh"/>
+                                    <constraint firstAttribute="trailing" secondItem="V3H-F5-WON" secondAttribute="trailing" id="f1q-zB-CtM"/>
+                                    <constraint firstItem="V3H-F5-WON" firstAttribute="leading" secondItem="M7R-Up-rXm" secondAttribute="leading" id="fuK-Rw-Vpy"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="M7R-Up-rXm" secondAttribute="bottom" id="5wv-ZO-Vtj"/>
+                            <constraint firstItem="M7R-Up-rXm" firstAttribute="leading" secondItem="Fhz-5B-qaF" secondAttribute="leading" id="9Ey-Sh-lQz"/>
+                            <constraint firstItem="V3H-F5-WON" firstAttribute="width" secondItem="2ev-QE-M02" secondAttribute="width" id="TSd-iT-4HP"/>
+                            <constraint firstItem="M7R-Up-rXm" firstAttribute="top" secondItem="2ev-QE-M02" secondAttribute="top" id="WKE-xY-O0m"/>
+                            <constraint firstItem="Fhz-5B-qaF" firstAttribute="trailing" secondItem="M7R-Up-rXm" secondAttribute="trailing" id="dFQ-Oa-EAP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Fhz-5B-qaF"/>
                     </view>
+                    <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="GXC-UY-RH6" id="i71-kM-ixB"/>
+                        <outlet property="contentView" destination="V3H-F5-WON" id="WVC-Fi-Ieb"/>
+                        <outlet property="pictureImageView" destination="wiP-Au-aCK" id="iZ7-Bz-nLS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FyU-Lz-LgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7" y="147"/>
+            <point key="canvasLocation" x="-7.2000000000000002" y="146.30541871921181"/>
         </scene>
     </scenes>
 </document>

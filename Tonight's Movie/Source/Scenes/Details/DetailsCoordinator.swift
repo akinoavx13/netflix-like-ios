@@ -12,22 +12,25 @@ import UIKit
 class DetailsCoordinator: Coordinator {
     
     // MARK: - Properties -
-    let navigationController: UINavigationController
-    // NOTE: This array is used to retain child coordinators. Don't forget to
-    // remove them when the coordinator is done.
+    private let navigationController: UINavigationController
+    
     var children: [Coordinator]
-//    weak var delegate: DetailsCoordinatorDelegate?
+    
+    private let id: Int
+    private let type: Details.ContentType
 
     // MARK: - Lifecycle -
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, type: Details.ContentType, id: Int) {
         self.navigationController = navigationController
         self.children = []
+        self.type = type
+        self.id = id
     }
 
     // MARK: - Methods -
     func start() {
         let interactor = DetailsInteractor()
-        let presenter = DetailsPresenter(interactor: interactor, coordinator: self)
+        let presenter = DetailsPresenter(interactor: interactor, coordinator: self, type: type, id: id)
         let viewController = DetailsViewController.instantiate(with: presenter)
 
         interactor.output = presenter

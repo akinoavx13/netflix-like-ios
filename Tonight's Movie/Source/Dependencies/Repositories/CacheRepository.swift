@@ -30,6 +30,13 @@ extension CacheRepository: Repository {
     func getTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
         fallbackRepository.getTVShows(page: page, completion: completion)
     }
-        
+    
+    func getMovie(id: Int, completion: @escaping (Result<Movie>) -> Void) {
+        fallbackRepository.getMovie(id: id, completion: completion)
+    }
+    
+    func getTVShow(id: Int, completion: @escaping (Result<TVShow>) -> Void) {
+        fallbackRepository.getTVShow(id: id, completion: completion)
+    }
 }
 

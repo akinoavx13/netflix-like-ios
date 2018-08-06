@@ -11,14 +11,19 @@ import Foundation
 class DetailsPresenter {
     
     // MARK: - Properties -
-    let interactor: DetailsInteractorInput
-    weak var coordinator: DetailsCoordinatorInput?
+    private let interactor: DetailsInteractorInput
+    private weak var coordinator: DetailsCoordinatorInput?
     weak var output: DetailsPresenterOutput?
 
+    private let id: Int
+    private let type: Details.ContentType
+    
     // MARK: - Lifecycle -
-    init(interactor: DetailsInteractorInput, coordinator: DetailsCoordinatorInput) {
+    init(interactor: DetailsInteractorInput, coordinator: DetailsCoordinatorInput, type: Details.ContentType, id: Int) {
         self.interactor = interactor
         self.coordinator = coordinator
+        self.type = type
+        self.id = id
     }
 }
 
@@ -26,7 +31,17 @@ class DetailsPresenter {
 
 extension DetailsPresenter: DetailsPresenterInput {
     func viewCreated() {
-
+        switch type {
+        case .Movie:
+            interactor.perform(Details.Request.FetchMovie(id: id))
+        case .TVShow:
+            interactor.perform(Details.Request.FetchTVShow(id: id))
+        }
+    }
+    
+    func viewWillDisappear() {
+        interactor.cancel(Details.Cancelable.FetchMovies())
+        interactor.cancel(Details.Cancelable.FetchTVShows())
     }
 }
 
@@ -34,5 +49,15 @@ extension DetailsPresenter: DetailsPresenterInput {
 
 // INTERACTOR -> PRESENTER (indirect)
 extension DetailsPresenter: DetailsInteractorOutput {
-
+    func present(_ response: Details.Response.DetailsFetched) {
+        output?.display(Details.DisplayData.DetailsFetched(
+            title: response.title,
+            backgroundURL: response.backgroundURL,
+            pictureURL: response.pictureURL
+        ))
+    }
+    
+    func present(_ response: Details.Response.Error) {
+        output?.display(Details.DisplayData.Error(errorMessage: response.errorMessage))
+    }
 }

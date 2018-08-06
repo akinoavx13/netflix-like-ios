@@ -57,4 +57,26 @@ final class RemoteRepository: Repository {
         request.responseCodable(completion: completion)
     }
     
+    func getMovie(id: Int, completion: @escaping (Result<Movie>) -> Void) {
+        let request = Springbok
+            .request("\(baseURL)/movie/\(id)",
+                method: .get,
+                parameters: defaultParameters
+            )
+        
+        requestsManager.fetchMovieRequest(with: request)
+        request.responseCodable(completion: completion)
+    }
+    
+    func getTVShow(id: Int, completion: @escaping (Result<TVShow>) -> Void) {
+        let request = Springbok
+            .request("\(baseURL)/tv/\(id)",
+                method: .get,
+                parameters: defaultParameters
+            )
+        
+        requestsManager.fetchTVShowRequest(with: request)
+        request.responseCodable(completion: completion)
+    }
+    
 }
