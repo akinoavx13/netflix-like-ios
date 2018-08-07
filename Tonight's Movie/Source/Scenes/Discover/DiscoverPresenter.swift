@@ -15,6 +15,7 @@ class DiscoverPresenter {
     weak var coordinator: DiscoverCoordinatorInput?
     weak var output: DiscoverPresenterOutput?
 
+    
     // MARK: - Lifecycle -
     init(interactor: DiscoverInteractorInput, coordinator: DiscoverCoordinatorInput) {
         self.interactor = interactor
@@ -26,7 +27,8 @@ class DiscoverPresenter {
 
 extension DiscoverPresenter: DiscoverPresenterInput {
     func viewCreated() {
-
+        interactor.perform(Discover.Request.FetchPlayingMovies(page: 1))
+        interactor.perform(Discover.Request.FetchOnTheAirTVShows(page: 1))
     }
 }
 
@@ -34,5 +36,15 @@ extension DiscoverPresenter: DiscoverPresenterInput {
 
 // INTERACTOR -> PRESENTER (indirect)
 extension DiscoverPresenter: DiscoverInteractorOutput {
-
+    func present(_ response: Discover.Response.PlayingMoviesFetched) {
+        
+    }
+    
+    func present(_ response: Discover.Response.OnTheAirTVShowsFetched) {
+        
+    }
+    
+    func present(_ response: Discover.Response.Error) {
+        
+    }
 }

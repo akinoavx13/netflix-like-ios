@@ -24,12 +24,15 @@ protocol DiscoverCoordinatorInput: class {
 
 // PRESENTER -> INTERACTOR
 protocol DiscoverInteractorInput {
-    // func perform(_ request: Discover.Request.Work)
+    func perform(_ request: Discover.Request.FetchPlayingMovies)
+    func perform(_ request: Discover.Request.FetchOnTheAirTVShows)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
 protocol DiscoverInteractorOutput: class {
-    // func present(_ response: Discover.Response.Work)
+    func present(_ response: Discover.Response.PlayingMoviesFetched)
+    func present(_ response: Discover.Response.OnTheAirTVShowsFetched)
+    func present(_ response: Discover.Response.Error)
 }
 
 // ======== Presenter ======== //
