@@ -54,4 +54,19 @@ final class RemoteRepository: Repository {
         request.responseCodable(completion: completion)
     }
     
+    func getUpcomingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
+        var parameters = defaultParameters
+        parameters["page"] = "\(page)"
+        parameters["region"] = Locale.current.languageCode?.uppercased()
+        
+        let request = Springbok
+            .request("\(baseURL)/movie/upcoming",
+                method: .get,
+                parameters: parameters
+            )
+            .unwrap("results")
+        
+        request.responseCodable(completion: completion)
+    }
+    
 }

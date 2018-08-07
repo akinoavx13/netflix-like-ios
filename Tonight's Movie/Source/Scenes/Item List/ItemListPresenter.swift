@@ -47,6 +47,11 @@ extension ItemListPresenter: ItemListPresenterInput {
         
         item.display(pictureURL: movie.smallPictureUrl)
     }
+    
+    func displayNext() {
+        nowPlayingMoviesPage += 1
+        interactor.perform(ItemList.Request.FetchNowPlayingMovies(page: nowPlayingMoviesPage))
+    }
 }
 
 // MARK: - Presentation Logic -
@@ -54,7 +59,8 @@ extension ItemListPresenter: ItemListPresenterInput {
 // INTERACTOR -> PRESENTER (indirect)
 extension ItemListPresenter: ItemListInteractorOutput {
     func present(_ response: ItemList.Response.NowPlayingMoviesFetched) {
-        nowPlayingMovies = response.movies
+        nowPlayingMoviesPage == 1 ? nowPlayingMovies = response.movies : nowPlayingMovies.append(contentsOf: response.movies)
+        
         output?.display(ItemList.DisplayData.Items())
     }
     

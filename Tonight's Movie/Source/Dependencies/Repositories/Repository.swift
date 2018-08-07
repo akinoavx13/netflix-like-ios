@@ -18,6 +18,7 @@ protocol Repository {
     
     func getPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void)
     func getNowPlayingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void)
+    func getUpcomingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void)
     
 }
 

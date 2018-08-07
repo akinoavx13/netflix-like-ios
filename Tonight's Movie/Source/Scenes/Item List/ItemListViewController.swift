@@ -18,6 +18,7 @@ class ItemListViewController: UIViewController {
         didSet {
             collectionView.backgroundColor = Colors.black
             collectionView.dataSource = self
+            collectionView.delegate = self
             collectionView.showsHorizontalScrollIndicator = false
         }
     }
@@ -55,6 +56,16 @@ extension ItemListViewController: UICollectionViewDataSource {
         
         return cell
     }
+}
+
+extension ItemListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == presenter.numberOfItems - 5 {
+            presenter.displayNext()
+        }
+    }
+    
 }
 
 // MARK: - Display Logic -
