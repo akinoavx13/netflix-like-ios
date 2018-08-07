@@ -25,57 +25,32 @@ final class RemoteRepository: Repository {
     }
     
     // MARK: - Methods -
-    func getMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
+    func getPlayingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
         var parameters = defaultParameters
-        parameters["sort_by"] = "popularity.desc"
+        parameters["region"] = Locale.current.languageCode?.uppercased()
         parameters["page"] = "\(page)"
         
         let request = Springbok
-            .request("\(baseURL)/discover/movie",
+            .request("\(baseURL)/movie/now_playing",
                 method: .get,
                 parameters: parameters
             )
             .unwrap("results")
         
-        requestsManager.fetchMoviesRequest(with: request)
         request.responseCodable(completion: completion)
     }
     
-    func getTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
+    func getOnTheAirTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
         var parameters = defaultParameters
-        parameters["sort_by"] = "popularity.desc"
         parameters["page"] = "\(page)"
         
         let request = Springbok
-            .request("\(baseURL)/discover/tv",
+            .request("\(baseURL)/tv/on_the_air",
                 method: .get,
                 parameters: parameters
             )
             .unwrap("results")
         
-        requestsManager.fetchTVShowsRequest(with: request)
-        request.responseCodable(completion: completion)
-    }
-    
-    func getMovie(id: Int, completion: @escaping (Result<Movie>) -> Void) {
-        let request = Springbok
-            .request("\(baseURL)/movie/\(id)",
-                method: .get,
-                parameters: defaultParameters
-            )
-        
-        requestsManager.fetchMovieRequest(with: request)
-        request.responseCodable(completion: completion)
-    }
-    
-    func getTVShow(id: Int, completion: @escaping (Result<TVShow>) -> Void) {
-        let request = Springbok
-            .request("\(baseURL)/tv/\(id)",
-                method: .get,
-                parameters: defaultParameters
-            )
-        
-        requestsManager.fetchTVShowRequest(with: request)
         request.responseCodable(completion: completion)
     }
     

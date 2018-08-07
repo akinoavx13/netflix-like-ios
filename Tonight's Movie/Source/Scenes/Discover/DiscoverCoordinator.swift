@@ -2,7 +2,7 @@
 //  DiscoverCoordinator.swift
 //  Tonight's Movie
 //
-//  Created by Maxime Maheo on 06/08/2018.
+//  Created by Maxime Maheo on 07/08/2018.
 //  Copyright (c) 2018 Maxime Maheo. All rights reserved.
 //
 
@@ -15,7 +15,7 @@ class DiscoverCoordinator: Coordinator {
     var children: [Coordinator]
     
     private let navigationController: UINavigationController
-    
+
     // MARK: - Lifecycle -
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -37,9 +37,5 @@ class DiscoverCoordinator: Coordinator {
 
 // PRESENTER -> COORDINATOR
 extension DiscoverCoordinator: DiscoverCoordinatorInput {
-    func showDetailsOf(id: Int, type: Details.ContentType) {
-        let coordinator = DetailsCoordinator(navigationController: navigationController, type: type, id: id)
-        children.append(coordinator)
-        coordinator.start()
-    }
+
 }

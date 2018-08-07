@@ -7,30 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2025B113211980420032E3D1 /* DiscoverCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B10C211980420032E3D1 /* DiscoverCoordinator.swift */; };
+		2025B114211980420032E3D1 /* DiscoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B10D211980420032E3D1 /* DiscoverPresenter.swift */; };
+		2025B115211980420032E3D1 /* DiscoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2025B10E211980420032E3D1 /* DiscoverViewController.storyboard */; };
+		2025B116211980420032E3D1 /* DiscoverModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B10F211980420032E3D1 /* DiscoverModels.swift */; };
+		2025B117211980420032E3D1 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B110211980420032E3D1 /* DiscoverViewController.swift */; };
+		2025B118211980420032E3D1 /* DiscoverProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B111211980420032E3D1 /* DiscoverProtocols.swift */; };
+		2025B119211980420032E3D1 /* DiscoverInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B112211980420032E3D1 /* DiscoverInteractor.swift */; };
 		2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C4232118698D0096DAA8 /* Coordinator.swift */; };
 		2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C425211869970096DAA8 /* AppCoordinator.swift */; };
-		2055C430211869E70096DAA8 /* DiscoverCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C429211869E70096DAA8 /* DiscoverCoordinator.swift */; };
-		2055C431211869E70096DAA8 /* DiscoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C42A211869E70096DAA8 /* DiscoverPresenter.swift */; };
-		2055C432211869E70096DAA8 /* DiscoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2055C42B211869E70096DAA8 /* DiscoverViewController.storyboard */; };
-		2055C433211869E70096DAA8 /* DiscoverModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C42C211869E70096DAA8 /* DiscoverModels.swift */; };
-		2055C434211869E70096DAA8 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C42D211869E70096DAA8 /* DiscoverViewController.swift */; };
-		2055C435211869E70096DAA8 /* DiscoverProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C42E211869E70096DAA8 /* DiscoverProtocols.swift */; };
-		2055C436211869E70096DAA8 /* DiscoverInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C42F211869E70096DAA8 /* DiscoverInteractor.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
 		2055C43C21186A640096DAA8 /* UIWindow+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43B21186A640096DAA8 /* UIWindow+RootViewController.swift */; };
 		2055C44321186CC30096DAA8 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C44221186CC30096DAA8 /* Translation.swift */; };
 		2055C44521186E060096DAA8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C44421186E060096DAA8 /* Icons.swift */; };
 		2055C44721186EA20096DAA8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C44621186EA20096DAA8 /* Colors.swift */; };
-		2055C449211878440096DAA8 /* DiscoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C448211878440096DAA8 /* DiscoverCell.swift */; };
 		206741DE21189E7F00105AF4 /* String+DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206741DD21189E7F00105AF4 /* String+DateFormat.swift */; };
 		2067A5FD2118AAA900E9B2C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2067A5FB2118AAA900E9B2C5 /* Localizable.strings */; };
-		2067A6162118B0AB00E9B2C5 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067A60F2118B0AB00E9B2C5 /* DetailsCoordinator.swift */; };
-		2067A6172118B0AB00E9B2C5 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067A6102118B0AB00E9B2C5 /* DetailsPresenter.swift */; };
-		2067A6182118B0AB00E9B2C5 /* DetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2067A6112118B0AB00E9B2C5 /* DetailsViewController.storyboard */; };
-		2067A6192118B0AB00E9B2C5 /* DetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067A6122118B0AB00E9B2C5 /* DetailsModels.swift */; };
-		2067A61A2118B0AB00E9B2C5 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067A6132118B0AB00E9B2C5 /* DetailsViewController.swift */; };
-		2067A61B2118B0AB00E9B2C5 /* DetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067A6142118B0AB00E9B2C5 /* DetailsProtocols.swift */; };
-		2067A61C2118B0AB00E9B2C5 /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067A6152118B0AB00E9B2C5 /* DetailsInteractor.swift */; };
 		206BEEAC2118E26300CED785 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206BEEAB2118E26300CED785 /* Kingfisher.framework */; };
 		20B9E41A21187D0D002EACDA /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E41921187D0D002EACDA /* Movie.swift */; };
 		20B9E42221187F9A002EACDA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E42121187F9A002EACDA /* Repository.swift */; };
@@ -42,39 +34,29 @@
 		20B9E42F21188A12002EACDA /* RequestsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E42E21188A12002EACDA /* RequestsManager.swift */; };
 		20B9E43121188F2D002EACDA /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E43021188F2D002EACDA /* Fonts.swift */; };
 		20B9E4332118935C002EACDA /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E4322118935C002EACDA /* TVShow.swift */; };
-		20B9E43521189731002EACDA /* DiscoverHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E43421189731002EACDA /* DiscoverHeaderView.swift */; };
-		20B9E43721189AA4002EACDA /* DiscoverFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E43621189AA4002EACDA /* DiscoverFooterView.swift */; };
 		20BEB6292118636500CA891E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEB6282118636500CA891E /* AppDelegate.swift */; };
 		20BEB6302118636600CA891E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB62F2118636600CA891E /* Assets.xcassets */; };
 		20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB6312118636600CA891E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2025B10C211980420032E3D1 /* DiscoverCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCoordinator.swift; sourceTree = "<group>"; };
+		2025B10D211980420032E3D1 /* DiscoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresenter.swift; sourceTree = "<group>"; };
+		2025B10E211980420032E3D1 /* DiscoverViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscoverViewController.storyboard; sourceTree = "<group>"; };
+		2025B10F211980420032E3D1 /* DiscoverModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverModels.swift; sourceTree = "<group>"; };
+		2025B110211980420032E3D1 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		2025B111211980420032E3D1 /* DiscoverProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProtocols.swift; sourceTree = "<group>"; };
+		2025B112211980420032E3D1 /* DiscoverInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverInteractor.swift; sourceTree = "<group>"; };
 		2055C4232118698D0096DAA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2055C425211869970096DAA8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		2055C429211869E70096DAA8 /* DiscoverCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCoordinator.swift; sourceTree = "<group>"; };
-		2055C42A211869E70096DAA8 /* DiscoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresenter.swift; sourceTree = "<group>"; };
-		2055C42B211869E70096DAA8 /* DiscoverViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiscoverViewController.storyboard; sourceTree = "<group>"; };
-		2055C42C211869E70096DAA8 /* DiscoverModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverModels.swift; sourceTree = "<group>"; };
-		2055C42D211869E70096DAA8 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
-		2055C42E211869E70096DAA8 /* DiscoverProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProtocols.swift; sourceTree = "<group>"; };
-		2055C42F211869E70096DAA8 /* DiscoverInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverInteractor.swift; sourceTree = "<group>"; };
 		2055C43821186A340096DAA8 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		2055C43B21186A640096DAA8 /* UIWindow+RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+RootViewController.swift"; sourceTree = "<group>"; };
 		2055C44221186CC30096DAA8 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		2055C44421186E060096DAA8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		2055C44621186EA20096DAA8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		2055C448211878440096DAA8 /* DiscoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCell.swift; sourceTree = "<group>"; };
 		206741DD21189E7F00105AF4 /* String+DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateFormat.swift"; sourceTree = "<group>"; };
 		2067A5FC2118AAA900E9B2C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2067A5FE2118AAB200E9B2C5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2067A60F2118B0AB00E9B2C5 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
-		2067A6102118B0AB00E9B2C5 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
-		2067A6112118B0AB00E9B2C5 /* DetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsViewController.storyboard; sourceTree = "<group>"; };
-		2067A6122118B0AB00E9B2C5 /* DetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModels.swift; sourceTree = "<group>"; };
-		2067A6132118B0AB00E9B2C5 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		2067A6142118B0AB00E9B2C5 /* DetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsProtocols.swift; sourceTree = "<group>"; };
-		2067A6152118B0AB00E9B2C5 /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
 		206BEEAB2118E26300CED785 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		20B9E41921187D0D002EACDA /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		20B9E41E21187F56002EACDA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -87,8 +69,6 @@
 		20B9E42E21188A12002EACDA /* RequestsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsManager.swift; sourceTree = "<group>"; };
 		20B9E43021188F2D002EACDA /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		20B9E4322118935C002EACDA /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
-		20B9E43421189731002EACDA /* DiscoverHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHeaderView.swift; sourceTree = "<group>"; };
-		20B9E43621189AA4002EACDA /* DiscoverFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverFooterView.swift; sourceTree = "<group>"; };
 		20BEB6252118636500CA891E /* Tonight's Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tonight's Movie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BEB6282118636500CA891E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20BEB62F2118636600CA891E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +89,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2025B10B211980310032E3D1 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				2025B10C211980420032E3D1 /* DiscoverCoordinator.swift */,
+				2025B10D211980420032E3D1 /* DiscoverPresenter.swift */,
+				2025B10E211980420032E3D1 /* DiscoverViewController.storyboard */,
+				2025B10F211980420032E3D1 /* DiscoverModels.swift */,
+				2025B110211980420032E3D1 /* DiscoverViewController.swift */,
+				2025B111211980420032E3D1 /* DiscoverProtocols.swift */,
+				2025B112211980420032E3D1 /* DiscoverInteractor.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
 		2055C41F211869500096DAA8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,27 +153,9 @@
 			isa = PBXGroup;
 			children = (
 				2055C43721186A260096DAA8 /* Tab Bar */,
-				2055C428211869D50096DAA8 /* Discover */,
-				2067A60E2118B08F00E9B2C5 /* Details */,
+				2025B10B211980310032E3D1 /* Discover */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		2055C428211869D50096DAA8 /* Discover */ = {
-			isa = PBXGroup;
-			children = (
-				2055C429211869E70096DAA8 /* DiscoverCoordinator.swift */,
-				2055C42A211869E70096DAA8 /* DiscoverPresenter.swift */,
-				2055C42B211869E70096DAA8 /* DiscoverViewController.storyboard */,
-				2055C42C211869E70096DAA8 /* DiscoverModels.swift */,
-				2055C42D211869E70096DAA8 /* DiscoverViewController.swift */,
-				2055C42E211869E70096DAA8 /* DiscoverProtocols.swift */,
-				2055C42F211869E70096DAA8 /* DiscoverInteractor.swift */,
-				2055C448211878440096DAA8 /* DiscoverCell.swift */,
-				20B9E43421189731002EACDA /* DiscoverHeaderView.swift */,
-				20B9E43621189AA4002EACDA /* DiscoverFooterView.swift */,
-			);
-			path = Discover;
 			sourceTree = "<group>";
 		};
 		2055C43721186A260096DAA8 /* Tab Bar */ = {
@@ -198,20 +174,6 @@
 				206741DD21189E7F00105AF4 /* String+DateFormat.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		2067A60E2118B08F00E9B2C5 /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				2067A60F2118B0AB00E9B2C5 /* DetailsCoordinator.swift */,
-				2067A6102118B0AB00E9B2C5 /* DetailsPresenter.swift */,
-				2067A6112118B0AB00E9B2C5 /* DetailsViewController.storyboard */,
-				2067A6122118B0AB00E9B2C5 /* DetailsModels.swift */,
-				2067A6132118B0AB00E9B2C5 /* DetailsViewController.swift */,
-				2067A6142118B0AB00E9B2C5 /* DetailsProtocols.swift */,
-				2067A6152118B0AB00E9B2C5 /* DetailsInteractor.swift */,
-			);
-			path = Details;
 			sourceTree = "<group>";
 		};
 		20B9E41821187CFE002EACDA /* Entities */ = {
@@ -346,10 +308,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2055C432211869E70096DAA8 /* DiscoverViewController.storyboard in Resources */,
 				2067A5FD2118AAA900E9B2C5 /* Localizable.strings in Resources */,
 				20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */,
-				2067A6182118B0AB00E9B2C5 /* DetailsViewController.storyboard in Resources */,
+				2025B115211980420032E3D1 /* DiscoverViewController.storyboard in Resources */,
 				20BEB6302118636600CA891E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,35 +348,26 @@
 				2055C44521186E060096DAA8 /* Icons.swift in Sources */,
 				20B9E42621187FE1002EACDA /* CacheRepository.swift in Sources */,
 				20B9E4332118935C002EACDA /* TVShow.swift in Sources */,
-				2055C449211878440096DAA8 /* DiscoverCell.swift in Sources */,
-				2055C431211869E70096DAA8 /* DiscoverPresenter.swift in Sources */,
 				2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */,
-				2067A6192118B0AB00E9B2C5 /* DetailsModels.swift in Sources */,
+				2025B118211980420032E3D1 /* DiscoverProtocols.swift in Sources */,
 				2055C44721186EA20096DAA8 /* Colors.swift in Sources */,
+				2025B114211980420032E3D1 /* DiscoverPresenter.swift in Sources */,
 				20B9E42A211881CD002EACDA /* UIViewController+Alert.swift in Sources */,
 				20B9E42F21188A12002EACDA /* RequestsManager.swift in Sources */,
-				2055C434211869E70096DAA8 /* DiscoverViewController.swift in Sources */,
 				20B9E41A21187D0D002EACDA /* Movie.swift in Sources */,
-				20B9E43521189731002EACDA /* DiscoverHeaderView.swift in Sources */,
 				20B9E43121188F2D002EACDA /* Fonts.swift in Sources */,
 				20B9E42821187FFE002EACDA /* Dependencies.swift in Sources */,
 				20B9E42421187FBC002EACDA /* RemoteRepository.swift in Sources */,
 				2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */,
+				2025B113211980420032E3D1 /* DiscoverCoordinator.swift in Sources */,
 				20BEB6292118636500CA891E /* AppDelegate.swift in Sources */,
-				2055C433211869E70096DAA8 /* DiscoverModels.swift in Sources */,
-				2055C436211869E70096DAA8 /* DiscoverInteractor.swift in Sources */,
-				20B9E43721189AA4002EACDA /* DiscoverFooterView.swift in Sources */,
 				2055C43C21186A640096DAA8 /* UIWindow+RootViewController.swift in Sources */,
-				2067A61A2118B0AB00E9B2C5 /* DetailsViewController.swift in Sources */,
-				2067A6172118B0AB00E9B2C5 /* DetailsPresenter.swift in Sources */,
+				2025B116211980420032E3D1 /* DiscoverModels.swift in Sources */,
 				20B9E42221187F9A002EACDA /* Repository.swift in Sources */,
-				2055C435211869E70096DAA8 /* DiscoverProtocols.swift in Sources */,
 				2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */,
+				2025B117211980420032E3D1 /* DiscoverViewController.swift in Sources */,
+				2025B119211980420032E3D1 /* DiscoverInteractor.swift in Sources */,
 				206741DE21189E7F00105AF4 /* String+DateFormat.swift in Sources */,
-				2067A61B2118B0AB00E9B2C5 /* DetailsProtocols.swift in Sources */,
-				2067A6162118B0AB00E9B2C5 /* DetailsCoordinator.swift in Sources */,
-				2055C430211869E70096DAA8 /* DiscoverCoordinator.swift in Sources */,
-				2067A61C2118B0AB00E9B2C5 /* DetailsInteractor.swift in Sources */,
 				2055C44321186CC30096DAA8 /* Translation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

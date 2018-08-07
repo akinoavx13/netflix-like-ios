@@ -21,22 +21,12 @@ final class CacheRepository {
 }
 
 extension CacheRepository: Repository {
-    
-    // MARK: - Movies -
-    func getMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
-        fallbackRepository.getMovies(page: page, completion: completion)
+    func getPlayingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
+        fallbackRepository.getPlayingMovies(page: page, completion: completion)
     }
     
-    func getTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
-        fallbackRepository.getTVShows(page: page, completion: completion)
-    }
-    
-    func getMovie(id: Int, completion: @escaping (Result<Movie>) -> Void) {
-        fallbackRepository.getMovie(id: id, completion: completion)
-    }
-    
-    func getTVShow(id: Int, completion: @escaping (Result<TVShow>) -> Void) {
-        fallbackRepository.getTVShow(id: id, completion: completion)
+    func getOnTheAirTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
+        fallbackRepository.getOnTheAirTVShows(page: page, completion: completion)
     }
 }
 

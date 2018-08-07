@@ -43,6 +43,7 @@ final class TabBarCoordinator: Coordinator {
     
     private func addScene(with tab: Tab) {
         let navigationController = UINavigationController()
+        navigationController.setNavigationBarHidden(true, animated: false)
         
         var viewControllers = tabBarController.viewControllers ?? []
         viewControllers += [navigationController]
@@ -53,7 +54,7 @@ final class TabBarCoordinator: Coordinator {
         switch tab {
         case .discover:
             coordinator = DiscoverCoordinator(navigationController: navigationController)
-            navigationController.tabBarItem = UITabBarItem(title: Translation.Discover.title, image: Icons.discover, selectedImage: nil)
+            navigationController.tabBarItem = UITabBarItem(title: Translation.Discover.discover, image: Icons.discover, selectedImage: nil)
         }
         
         children.append(coordinator)

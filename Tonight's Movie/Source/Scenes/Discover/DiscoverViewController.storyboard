@@ -1,134 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Discover View Controller-->
+        <!--scene Name View Controller-->
         <scene sceneID="i0m-iF-p80">
             <objects>
-                <viewController storyboardIdentifier="DiscoverViewController" id="F2H-rH-Lsj" customClass="DiscoverViewController" customModule="Tonight_s_Movie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscoverViewController" id="F2H-rH-Lsj" customClass="DiscoverViewController" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2ev-QE-M02">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JxZ-6M-oSI">
-                                <rect key="frame" x="16" y="60" width="343" height="718"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2Ud-zb-wj9">
-                                    <size key="itemSize" width="136" height="231"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
-                                    <size key="footerReferenceSize" width="50" height="50"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DiscoverCell" id="4gq-SX-rgi" customClass="DiscoverCell" customModule="Tonight_s_Movie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="136" height="231"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="136" height="231"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OA3-Tm-qLT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="136" height="169"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rag-Kf-YEG">
-                                                    <rect key="frame" x="8" y="177" width="120" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25Y-cn-o1q">
-                                                    <rect key="frame" x="8" y="202" width="36" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="OA3-Tm-qLT" firstAttribute="leading" secondItem="4gq-SX-rgi" secondAttribute="leading" id="0qU-Ox-OUy"/>
-                                            <constraint firstAttribute="bottom" secondItem="25Y-cn-o1q" secondAttribute="bottom" constant="8" id="5av-vq-hh1"/>
-                                            <constraint firstItem="25Y-cn-o1q" firstAttribute="leading" secondItem="Rag-Kf-YEG" secondAttribute="leading" id="E46-t3-nxS"/>
-                                            <constraint firstItem="25Y-cn-o1q" firstAttribute="top" secondItem="Rag-Kf-YEG" secondAttribute="bottom" constant="4" id="Gvb-I6-dra"/>
-                                            <constraint firstItem="OA3-Tm-qLT" firstAttribute="top" secondItem="4gq-SX-rgi" secondAttribute="top" id="XwJ-FJ-99X"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="Rag-Kf-YEG" secondAttribute="trailing" id="c6a-dz-oED"/>
-                                            <constraint firstAttribute="trailing" secondItem="OA3-Tm-qLT" secondAttribute="trailing" id="dUx-sp-qm1"/>
-                                            <constraint firstItem="Rag-Kf-YEG" firstAttribute="top" secondItem="OA3-Tm-qLT" secondAttribute="bottom" constant="8" id="kYT-XE-1Xo"/>
-                                            <constraint firstItem="Rag-Kf-YEG" firstAttribute="leading" secondItem="4gq-SX-rgi" secondAttribute="leadingMargin" id="sQM-wt-WOJ"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="dateLabel" destination="25Y-cn-o1q" id="2Xr-ce-iV4"/>
-                                            <outlet property="pictureImageView" destination="OA3-Tm-qLT" id="tXG-zB-e1l"/>
-                                            <outlet property="titleLabel" destination="Rag-Kf-YEG" id="83l-fU-EM7"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DiscoverHeaderView" id="0kQ-6l-HVb" customClass="DiscoverHeaderView" customModule="Tonight_s_Movie" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqw-QL-XjA">
-                                            <rect key="frame" x="8" y="14.666666666666664" width="327" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="fqw-QL-XjA" firstAttribute="centerY" secondItem="0kQ-6l-HVb" secondAttribute="centerY" id="Ft0-aq-j2G"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="fqw-QL-XjA" secondAttribute="trailing" id="ijv-e6-aDJ"/>
-                                        <constraint firstItem="fqw-QL-XjA" firstAttribute="leading" secondItem="0kQ-6l-HVb" secondAttribute="leadingMargin" id="pVI-Af-1rA"/>
-                                    </constraints>
-                                    <connections>
-                                        <outlet property="titleLabel" destination="fqw-QL-XjA" id="dIO-m2-4Fe"/>
-                                    </connections>
-                                </collectionReusableView>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DiscoverFooterView" id="3P2-2p-4HW" customClass="DiscoverFooterView" customModule="Tonight_s_Movie" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="281" width="343" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3z-Cp-Y56">
-                                            <rect key="frame" x="8" y="8" width="327" height="34"/>
-                                            <state key="normal" title="Button"/>
-                                            <connections>
-                                                <action selector="showMoreButtonTapped:" destination="3P2-2p-4HW" eventType="touchUpInside" id="uOX-lt-HJf"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="C3z-Cp-Y56" firstAttribute="top" secondItem="3P2-2p-4HW" secondAttribute="topMargin" id="RI5-0h-zFy"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="C3z-Cp-Y56" secondAttribute="trailing" id="YNV-4e-t4t"/>
-                                        <constraint firstItem="C3z-Cp-Y56" firstAttribute="bottom" secondItem="3P2-2p-4HW" secondAttribute="bottomMargin" id="ZfW-c1-jyz"/>
-                                        <constraint firstItem="C3z-Cp-Y56" firstAttribute="leading" secondItem="3P2-2p-4HW" secondAttribute="leadingMargin" id="qcA-Fg-Pef"/>
-                                    </constraints>
-                                    <connections>
-                                        <outlet property="showMoreButton" destination="C3z-Cp-Y56" id="rSK-9U-Be3"/>
-                                    </connections>
-                                </collectionReusableView>
-                            </collectionView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="JxZ-6M-oSI" firstAttribute="top" secondItem="Fhz-5B-qaF" secondAttribute="top" constant="16" id="e9g-DU-eYa"/>
-                            <constraint firstItem="JxZ-6M-oSI" firstAttribute="leading" secondItem="Fhz-5B-qaF" secondAttribute="leading" constant="16" id="ohE-9A-w13"/>
-                            <constraint firstItem="Fhz-5B-qaF" firstAttribute="trailing" secondItem="JxZ-6M-oSI" secondAttribute="trailing" constant="16" id="pvB-WE-LRw"/>
-                            <constraint firstItem="Fhz-5B-qaF" firstAttribute="bottom" secondItem="JxZ-6M-oSI" secondAttribute="bottom" id="qDt-UZ-BgF"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Fhz-5B-qaF"/>
                     </view>
-                    <connections>
-                        <outlet property="collectionView" destination="JxZ-6M-oSI" id="1Pl-WH-7ll"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FyU-Lz-LgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7.2000000000000002" y="145.56650246305421"/>
+            <point key="canvasLocation" x="-7" y="147"/>
         </scene>
     </scenes>
 </document>
