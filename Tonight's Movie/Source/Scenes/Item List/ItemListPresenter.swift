@@ -48,6 +48,10 @@ extension ItemListPresenter: ItemListPresenterInput {
         item.display(pictureURL: movie.smallPictureUrl)
     }
     
+    func didEndDisplaying(item: ItemListCellProtocol, at indexPath: IndexPath) {
+        item.didEndDisplaying()
+    }
+    
     func displayNext() {
         nowPlayingMoviesPage += 1
         interactor.perform(ItemList.Request.FetchNowPlayingMovies(page: nowPlayingMoviesPage))

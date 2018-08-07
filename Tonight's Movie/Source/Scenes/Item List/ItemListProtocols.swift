@@ -44,6 +44,7 @@ protocol ItemListPresenterInput {
     // MARK: - Methods -
     func viewCreated()
     func configure(item: ItemListCellProtocol, at indexPath: IndexPath)
+    func didEndDisplaying(item: ItemListCellProtocol, at indexPath: IndexPath)
     func displayNext()
 }
 

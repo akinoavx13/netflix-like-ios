@@ -10,6 +10,7 @@ import UIKit
 
 protocol ItemListCellProtocol {
     func display(pictureURL: String)
+    func didEndDisplaying()
 }
 
 final class ItemListCell: UICollectionViewCell {
@@ -35,5 +36,9 @@ extension ItemListCell: ItemListCellProtocol {
         if let url = URL(string: pictureURL) {
             pictureImageView.kf.setImage(with: url)
         }
+    }
+    
+    func didEndDisplaying() {
+        pictureImageView.kf.cancelDownloadTask()
     }
 }

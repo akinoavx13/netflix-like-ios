@@ -66,6 +66,12 @@ extension ItemListViewController: UICollectionViewDelegate {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? ItemListCell else { return }
+        
+        presenter.didEndDisplaying(item: cell, at: indexPath)
+    }
+    
 }
 
 // MARK: - Display Logic -
