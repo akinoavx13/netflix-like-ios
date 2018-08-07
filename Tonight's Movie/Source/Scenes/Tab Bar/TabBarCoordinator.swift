@@ -37,8 +37,8 @@ final class TabBarCoordinator: Coordinator {
     }
     
     func setupTabBar() {
-        tabBarController.tabBar.barTintColor = Colors.blueNights
-        tabBarController.tabBar.tintColor = .white
+        tabBarController.tabBar.barTintColor = Colors.black
+        tabBarController.tabBar.tintColor = Colors.white
     }
     
     private func addScene(with tab: Tab) {
