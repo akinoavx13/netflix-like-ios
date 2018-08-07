@@ -22,6 +22,7 @@
 		2025B12E2119B5410032E3D1 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1272119B5410032E3D1 /* ItemListViewController.swift */; };
 		2025B12F2119B5410032E3D1 /* ItemListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1282119B5410032E3D1 /* ItemListProtocols.swift */; };
 		2025B1302119B5410032E3D1 /* ItemListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1292119B5410032E3D1 /* ItemListInteractor.swift */; };
+		2025B1322119CA660032E3D1 /* ItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1312119CA660032E3D1 /* ItemListCell.swift */; };
 		2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C4232118698D0096DAA8 /* Coordinator.swift */; };
 		2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C425211869970096DAA8 /* AppCoordinator.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
@@ -63,6 +64,7 @@
 		2025B1272119B5410032E3D1 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		2025B1282119B5410032E3D1 /* ItemListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListProtocols.swift; sourceTree = "<group>"; };
 		2025B1292119B5410032E3D1 /* ItemListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListInteractor.swift; sourceTree = "<group>"; };
+		2025B1312119CA660032E3D1 /* ItemListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListCell.swift; sourceTree = "<group>"; };
 		2055C4232118698D0096DAA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2055C425211869970096DAA8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2055C43821186A340096DAA8 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				2025B1272119B5410032E3D1 /* ItemListViewController.swift */,
 				2025B1282119B5410032E3D1 /* ItemListProtocols.swift */,
 				2025B1292119B5410032E3D1 /* ItemListInteractor.swift */,
+				2025B1312119CA660032E3D1 /* ItemListCell.swift */,
 			);
 			path = "Item List";
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				2025B113211980420032E3D1 /* DiscoverCoordinator.swift in Sources */,
 				2025B1302119B5410032E3D1 /* ItemListInteractor.swift in Sources */,
 				20BEB6292118636500CA891E /* AppDelegate.swift in Sources */,
+				2025B1322119CA660032E3D1 /* ItemListCell.swift in Sources */,
 				2025B12D2119B5410032E3D1 /* ItemListModels.swift in Sources */,
 				2055C43C21186A640096DAA8 /* UIWindow+RootViewController.swift in Sources */,
 				2025B116211980420032E3D1 /* DiscoverModels.swift in Sources */,

@@ -23,5 +23,8 @@ struct Movie: Codable {
         
         case id, title, overview
     }
+    
+    var smallPictureUrl: String {
+        return "https://image.tmdb.org/t/p/w500\(pictureURL)"
+    }
 }
-

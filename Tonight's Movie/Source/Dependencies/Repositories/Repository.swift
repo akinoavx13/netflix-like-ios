@@ -16,8 +16,8 @@ protocol HasRepository {
 
 protocol Repository {
     
-    // MARK: - Movies -
     func getPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void)
+    func getNowPlayingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void)
     
 }
 
