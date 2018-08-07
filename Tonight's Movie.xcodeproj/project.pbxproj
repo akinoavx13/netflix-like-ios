@@ -188,8 +188,8 @@
 		2055C427211869C20096DAA8 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				2025B1222119B5270032E3D1 /* Item List */,
 				2055C43721186A260096DAA8 /* Tab Bar */,
+				2025B1222119B5270032E3D1 /* Item List */,
 				2025B10B211980310032E3D1 /* Discover */,
 			);
 			path = Scenes;

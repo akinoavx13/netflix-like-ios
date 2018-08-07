@@ -32,5 +32,13 @@ extension CacheRepository: Repository {
     func getUpcomingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
         fallbackRepository.getUpcomingMovies(page: page, completion: completion)
     }
+    
+    func getPopularMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
+        fallbackRepository.getPopularMovies(page: page, completion: completion)
+    }
+    
+    func getTopRatedMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
+        fallbackRepository.getTopRatedMovies(page: page, completion: completion)
+    }
 }
 

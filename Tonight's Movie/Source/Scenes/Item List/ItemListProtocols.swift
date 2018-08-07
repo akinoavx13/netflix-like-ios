@@ -25,11 +25,17 @@ protocol ItemListCoordinatorInput: class {
 // PRESENTER -> INTERACTOR
 protocol ItemListInteractorInput {
     func perform(_ request: ItemList.Request.FetchNowPlayingMovies)
+    func perform(_ request: ItemList.Request.FetchUpcomingMovies)
+    func perform(_ request: ItemList.Request.FetchPopularMovies)
+    func perform(_ request: ItemList.Request.FetchTopRatedMovies)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
 protocol ItemListInteractorOutput: class {
     func present(_ response: ItemList.Response.NowPlayingMoviesFetched)
+    func present(_ response: ItemList.Response.UpcomingMoviesFetched)
+    func present(_ response: ItemList.Response.PopularMoviesFetched)
+    func present(_ response: ItemList.Response.TopRatedMoviesFetched)
     func present(_ response: ItemList.Response.Error)
 }
 

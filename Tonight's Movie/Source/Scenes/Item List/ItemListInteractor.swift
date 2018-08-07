@@ -37,4 +37,44 @@ extension ItemListInteractor: ItemListInteractorInput {
                 }
         }
     }
+    
+    func perform(_ request: ItemList.Request.FetchUpcomingMovies) {
+        dependencies
+            .repository
+            .getUpcomingMovies(page: request.page) { (result) in
+                switch result {
+                case .success(let movies):
+                    self.output?.present(ItemList.Response.UpcomingMoviesFetched(movies: movies))
+                case .failure(let error):
+                    self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+    }
+    
+    func perform(_ request: ItemList.Request.FetchPopularMovies) {
+        dependencies
+            .repository
+            .getPopularMovies(page: request.page) { (result) in
+                switch result {
+                case .success(let movies):
+                    self.output?.present(ItemList.Response.PopularMoviesFetched(movies: movies))
+                case .failure(let error):
+                    self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+    }
+    
+    func perform(_ request: ItemList.Request.FetchTopRatedMovies) {
+        dependencies
+            .repository
+            .getTopRatedMovies(page: request.page) { (result) in
+                switch result {
+                case .success(let movies):
+                    self.output?.present(ItemList.Response.TopRatedMoviesFetched(movies: movies))
+                case .failure(let error):
+                    self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+    }
+    
 }

@@ -108,4 +108,60 @@ final class RemoteRepository: Repository {
         }
     }
     
+    func getPopularMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
+        var parameters = defaultParameters
+        parameters["page"] = "\(page)"
+        parameters["region"] = Locale.current.languageCode?.uppercased()
+        
+        Alamofire
+            .request("\(baseURL)/movie/popular", parameters: parameters)
+            .validate()
+            .responseJSON { (response) in
+                if response.error != nil {
+                    return completion(.failure(response.error!))
+                }
+                
+                guard
+                    let json = response.result.value as? [String: Any],
+                    let results = json["results"] as? [[String: Any]]
+                    else {
+                        return completion(.failure(AFError.responseSerializationFailed(reason: AFError.ResponseSerializationFailureReason.inputDataNilOrZeroLength)))
+                }
+                
+                let movies = results.compactMap { dict in
+                    return Movie(dict: dict)
+                }
+                
+                return completion(.success(movies))
+        }
+    }
+    
+    func getTopRatedMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
+        var parameters = defaultParameters
+        parameters["page"] = "\(page)"
+        parameters["region"] = Locale.current.languageCode?.uppercased()
+        
+        Alamofire
+            .request("\(baseURL)/movie/top_rated", parameters: parameters)
+            .validate()
+            .responseJSON { (response) in
+                if response.error != nil {
+                    return completion(.failure(response.error!))
+                }
+                
+                guard
+                    let json = response.result.value as? [String: Any],
+                    let results = json["results"] as? [[String: Any]]
+                    else {
+                        return completion(.failure(AFError.responseSerializationFailed(reason: AFError.ResponseSerializationFailureReason.inputDataNilOrZeroLength)))
+                }
+                
+                let movies = results.compactMap { dict in
+                    return Movie(dict: dict)
+                }
+                
+                return completion(.success(movies))
+        }
+    }
+    
 }

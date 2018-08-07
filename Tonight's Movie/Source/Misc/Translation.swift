@@ -20,7 +20,6 @@ struct Translation {
         static let showMore = NSLocalizedString("Show more", comment: "")
         static let currently = NSLocalizedString("Currently", comment: "")
         static let upcoming = NSLocalizedString("Upcoming", comment: "")
-        static let lastly = NSLocalizedString("Lastly", comment: "")
         static let popular = NSLocalizedString("Popular", comment: "")
         static let topRated = NSLocalizedString("Top rated", comment: "")
     }

@@ -64,7 +64,7 @@ class DiscoverViewController: UIViewController {
 
 extension DiscoverViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return presenter.numberOfItems
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,16 +74,14 @@ extension DiscoverViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? DiscoverCell else { return }
-        
-        presenter.willDisplay(item: cell, viewController: self)
-    }
 }
 
 extension DiscoverViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? DiscoverCell else { return }
+        
+        presenter.willDisplay(item: cell, viewController: self, at: indexPath)
+    }
 }
 
 // MARK: - Display Logic -

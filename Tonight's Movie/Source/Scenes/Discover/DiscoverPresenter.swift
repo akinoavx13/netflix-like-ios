@@ -25,6 +25,13 @@ class DiscoverPresenter {
 // MARK: - User Events -
 
 extension DiscoverPresenter: DiscoverPresenterInput {
+    
+    // MARK: - Properties -
+    var numberOfItems: Int {
+        return ItemList.Section.allCases.count
+    }
+    
+    // MARK: - Methods -
     func viewCreated() {
         interactor.perform(Discover.Request.FetchPopularTVShows(page: 1))
     }
@@ -35,16 +42,22 @@ extension DiscoverPresenter: DiscoverPresenterInput {
         } else if indexPath.row == 1 {
             item.display(title: Translation.Discover.upcoming)
         } else if indexPath.row == 2 {
-            item.display(title: Translation.Discover.lastly)
-        } else if indexPath.row == 3 {
             item.display(title: Translation.Discover.popular)
-        } else if indexPath.row == 4 {
+        } else if indexPath.row == 3 {
             item.display(title: Translation.Discover.topRated)
         }
     }
     
-    func willDisplay(item: DiscoverCell, viewController: DiscoverViewController) {
-        coordinator?.showItemList(discoverViewController: viewController, discoverCell: item)
+    func willDisplay(item: DiscoverCell, viewController: DiscoverViewController, at indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            coordinator?.showItemList(discoverViewController: viewController, discoverCell: item, section: .Currently)
+        } else if indexPath.row == 1 {
+            coordinator?.showItemList(discoverViewController: viewController, discoverCell: item, section: .Upcoming)
+        } else if indexPath.row == 2 {
+            coordinator?.showItemList(discoverViewController: viewController, discoverCell: item, section: .Popular)
+        } else if indexPath.row == 3 {
+            coordinator?.showItemList(discoverViewController: viewController, discoverCell: item, section: .TopRated)
+        }
     }
 }
 
