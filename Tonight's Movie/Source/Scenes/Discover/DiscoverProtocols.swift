@@ -17,7 +17,7 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol DiscoverCoordinatorInput: class {
-
+    func showItemList(discoverViewController: DiscoverViewController, discoverCell: DiscoverCell)
 }
 
 // ======== Interactor ======== //
@@ -39,6 +39,7 @@ protocol DiscoverInteractorOutput: class {
 protocol DiscoverPresenterInput {
     func viewCreated()
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath)
+    func willDisplay(item: DiscoverCell, viewController: DiscoverViewController)
 }
 
 // PRESENTER -> VIEW

@@ -15,6 +15,13 @@
 		2025B118211980420032E3D1 /* DiscoverProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B111211980420032E3D1 /* DiscoverProtocols.swift */; };
 		2025B119211980420032E3D1 /* DiscoverInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B112211980420032E3D1 /* DiscoverInteractor.swift */; };
 		2025B11D211999590032E3D1 /* DiscoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B11C211999590032E3D1 /* DiscoverCell.swift */; };
+		2025B12A2119B5410032E3D1 /* ItemListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1232119B5410032E3D1 /* ItemListCoordinator.swift */; };
+		2025B12B2119B5410032E3D1 /* ItemListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1242119B5410032E3D1 /* ItemListPresenter.swift */; };
+		2025B12C2119B5410032E3D1 /* ItemListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2025B1252119B5410032E3D1 /* ItemListViewController.storyboard */; };
+		2025B12D2119B5410032E3D1 /* ItemListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1262119B5410032E3D1 /* ItemListModels.swift */; };
+		2025B12E2119B5410032E3D1 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1272119B5410032E3D1 /* ItemListViewController.swift */; };
+		2025B12F2119B5410032E3D1 /* ItemListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1282119B5410032E3D1 /* ItemListProtocols.swift */; };
+		2025B1302119B5410032E3D1 /* ItemListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1292119B5410032E3D1 /* ItemListInteractor.swift */; };
 		2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C4232118698D0096DAA8 /* Coordinator.swift */; };
 		2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C425211869970096DAA8 /* AppCoordinator.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
@@ -49,6 +56,13 @@
 		2025B111211980420032E3D1 /* DiscoverProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProtocols.swift; sourceTree = "<group>"; };
 		2025B112211980420032E3D1 /* DiscoverInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverInteractor.swift; sourceTree = "<group>"; };
 		2025B11C211999590032E3D1 /* DiscoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCell.swift; sourceTree = "<group>"; };
+		2025B1232119B5410032E3D1 /* ItemListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListCoordinator.swift; sourceTree = "<group>"; };
+		2025B1242119B5410032E3D1 /* ItemListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListPresenter.swift; sourceTree = "<group>"; };
+		2025B1252119B5410032E3D1 /* ItemListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemListViewController.storyboard; sourceTree = "<group>"; };
+		2025B1262119B5410032E3D1 /* ItemListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListModels.swift; sourceTree = "<group>"; };
+		2025B1272119B5410032E3D1 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
+		2025B1282119B5410032E3D1 /* ItemListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListProtocols.swift; sourceTree = "<group>"; };
+		2025B1292119B5410032E3D1 /* ItemListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListInteractor.swift; sourceTree = "<group>"; };
 		2055C4232118698D0096DAA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2055C425211869970096DAA8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2055C43821186A340096DAA8 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -106,6 +120,20 @@
 			path = Discover;
 			sourceTree = "<group>";
 		};
+		2025B1222119B5270032E3D1 /* Item List */ = {
+			isa = PBXGroup;
+			children = (
+				2025B1232119B5410032E3D1 /* ItemListCoordinator.swift */,
+				2025B1242119B5410032E3D1 /* ItemListPresenter.swift */,
+				2025B1252119B5410032E3D1 /* ItemListViewController.storyboard */,
+				2025B1262119B5410032E3D1 /* ItemListModels.swift */,
+				2025B1272119B5410032E3D1 /* ItemListViewController.swift */,
+				2025B1282119B5410032E3D1 /* ItemListProtocols.swift */,
+				2025B1292119B5410032E3D1 /* ItemListInteractor.swift */,
+			);
+			path = "Item List";
+			sourceTree = "<group>";
+		};
 		2055C41F211869500096DAA8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +183,7 @@
 		2055C427211869C20096DAA8 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2025B1222119B5270032E3D1 /* Item List */,
 				2055C43721186A260096DAA8 /* Tab Bar */,
 				2025B10B211980310032E3D1 /* Discover */,
 			);
@@ -313,6 +342,7 @@
 			files = (
 				2067A5FD2118AAA900E9B2C5 /* Localizable.strings in Resources */,
 				20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */,
+				2025B12C2119B5410032E3D1 /* ItemListViewController.storyboard in Resources */,
 				2025B115211980420032E3D1 /* DiscoverViewController.storyboard in Resources */,
 				20BEB6302118636600CA891E /* Assets.xcassets in Resources */,
 			);
@@ -349,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2055C44521186E060096DAA8 /* Icons.swift in Sources */,
+				2025B12B2119B5410032E3D1 /* ItemListPresenter.swift in Sources */,
 				20B9E42621187FE1002EACDA /* CacheRepository.swift in Sources */,
 				20B9E4332118935C002EACDA /* TVShow.swift in Sources */,
 				2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */,
@@ -361,18 +392,23 @@
 				20B9E41A21187D0D002EACDA /* Movie.swift in Sources */,
 				20B9E43121188F2D002EACDA /* Fonts.swift in Sources */,
 				20B9E42821187FFE002EACDA /* Dependencies.swift in Sources */,
+				2025B12E2119B5410032E3D1 /* ItemListViewController.swift in Sources */,
 				20B9E42421187FBC002EACDA /* RemoteRepository.swift in Sources */,
 				2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */,
 				2025B113211980420032E3D1 /* DiscoverCoordinator.swift in Sources */,
+				2025B1302119B5410032E3D1 /* ItemListInteractor.swift in Sources */,
 				20BEB6292118636500CA891E /* AppDelegate.swift in Sources */,
+				2025B12D2119B5410032E3D1 /* ItemListModels.swift in Sources */,
 				2055C43C21186A640096DAA8 /* UIWindow+RootViewController.swift in Sources */,
 				2025B116211980420032E3D1 /* DiscoverModels.swift in Sources */,
+				2025B12F2119B5410032E3D1 /* ItemListProtocols.swift in Sources */,
 				20B9E42221187F9A002EACDA /* Repository.swift in Sources */,
 				2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */,
 				2025B117211980420032E3D1 /* DiscoverViewController.swift in Sources */,
 				2025B119211980420032E3D1 /* DiscoverInteractor.swift in Sources */,
 				206741DE21189E7F00105AF4 /* String+DateFormat.swift in Sources */,
 				2055C44321186CC30096DAA8 /* Translation.swift in Sources */,
+				2025B12A2119B5410032E3D1 /* ItemListCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

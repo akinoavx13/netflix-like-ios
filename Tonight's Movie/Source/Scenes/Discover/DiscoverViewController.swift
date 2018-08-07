@@ -22,7 +22,7 @@ class DiscoverViewController: UIViewController {
             tableView.dataSource = self
             tableView.delegate = self
             tableView.separatorStyle = .none
-            tableView.rowHeight = 192
+            tableView.rowHeight = 251
         }
     }
     
@@ -73,6 +73,12 @@ extension DiscoverViewController: UITableViewDataSource {
         presenter.configure(item: cell, at: indexPath)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? DiscoverCell else { return }
+        
+        presenter.willDisplay(item: cell, viewController: self)
     }
 }
 

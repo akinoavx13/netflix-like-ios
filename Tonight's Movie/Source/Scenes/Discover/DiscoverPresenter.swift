@@ -42,6 +42,10 @@ extension DiscoverPresenter: DiscoverPresenterInput {
             item.display(title: Translation.Discover.topRated)
         }
     }
+    
+    func willDisplay(item: DiscoverCell, viewController: DiscoverViewController) {
+        coordinator?.showItemList(discoverViewController: viewController, discoverCell: item)
+    }
 }
 
 // MARK: - Presentation Logic -

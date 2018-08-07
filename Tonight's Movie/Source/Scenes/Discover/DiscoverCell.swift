@@ -23,6 +23,12 @@ final class DiscoverCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var contenairView: UIView! {
+        didSet {
+            contenairView.backgroundColor = .blue
+        }
+    }
+    
     // MARK: - Lifecycle -
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -36,26 +36,36 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscoverCell" rowHeight="192" id="QGb-r7-eXD" customClass="DiscoverCell" customModule="Tonight_s_Movie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="456" width="375" height="192"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscoverCell" rowHeight="251" id="QGb-r7-eXD" customClass="DiscoverCell" customModule="Tonight_s_Movie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="456" width="375" height="251"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QGb-r7-eXD" id="jrD-ZL-Z6e">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="191.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="250.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hy-Af-11y">
-                                                    <rect key="frame" x="15" y="27" width="33.333333333333336" height="21"/>
+                                                    <rect key="frame" x="15" y="27" width="337" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjq-jC-AwV">
+                                                    <rect key="frame" x="0.0" y="55.999999999999986" width="375" height="194.66666666666663"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="tjq-jC-AwV" firstAttribute="leading" secondItem="jrD-ZL-Z6e" secondAttribute="leading" id="AhD-c1-Bw7"/>
+                                                <constraint firstAttribute="bottom" secondItem="tjq-jC-AwV" secondAttribute="bottom" id="C2c-xE-y1d"/>
+                                                <constraint firstAttribute="trailing" secondItem="tjq-jC-AwV" secondAttribute="trailing" id="e24-T4-0F2"/>
                                                 <constraint firstItem="1Hy-Af-11y" firstAttribute="leading" secondItem="jrD-ZL-Z6e" secondAttribute="leadingMargin" id="m8U-Zr-Ct5"/>
+                                                <constraint firstItem="tjq-jC-AwV" firstAttribute="top" secondItem="1Hy-Af-11y" secondAttribute="bottom" constant="8" id="nsL-TM-Dd3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1Hy-Af-11y" secondAttribute="trailing" constant="8" id="oco-8v-hRp"/>
                                                 <constraint firstItem="1Hy-Af-11y" firstAttribute="top" secondItem="jrD-ZL-Z6e" secondAttribute="topMargin" constant="16" id="yPV-0E-tdn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="contenairView" destination="tjq-jC-AwV" id="WtP-A4-E8N"/>
                                             <outlet property="titleLabel" destination="1Hy-Af-11y" id="5XL-7e-1Fv"/>
                                         </connections>
                                     </tableViewCell>
