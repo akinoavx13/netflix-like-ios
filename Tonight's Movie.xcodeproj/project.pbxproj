@@ -23,6 +23,7 @@
 		2025B12F2119B5410032E3D1 /* ItemListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1282119B5410032E3D1 /* ItemListProtocols.swift */; };
 		2025B1302119B5410032E3D1 /* ItemListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1292119B5410032E3D1 /* ItemListInteractor.swift */; };
 		2025B1322119CA660032E3D1 /* ItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1312119CA660032E3D1 /* ItemListCell.swift */; };
+		2025B1332119D3BD0032E3D1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B9E41E21187F56002EACDA /* Alamofire.framework */; };
 		2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C4232118698D0096DAA8 /* Coordinator.swift */; };
 		2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C425211869970096DAA8 /* AppCoordinator.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
@@ -101,6 +102,7 @@
 			files = (
 				206BEEAC2118E26300CED785 /* Kingfisher.framework in Frameworks */,
 				20B9E42C21188997002EACDA /* Springbok.framework in Frameworks */,
+				2025B1332119D3BD0032E3D1 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +366,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Springbok.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (

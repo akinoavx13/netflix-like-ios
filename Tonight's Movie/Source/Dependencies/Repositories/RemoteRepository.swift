@@ -6,13 +6,13 @@
 //  Copyright © 2018 Maxime Maheo. All rights reserved.
 //
 
-import Springbok
+import Alamofire
 
 final class RemoteRepository: Repository {
     
     // MARK: - Properties -
     private let baseURL: String
-    private var defaultParameters: [String: String]
+    private var defaultParameters: Parameters
     private let requestsManager: RequestsManagerProtocol
     
     // MARK: - Lifecycle -
@@ -29,29 +29,55 @@ final class RemoteRepository: Repository {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
         
-        let request = Springbok
-            .request("\(baseURL)/tv/popular",
-                method: .get,
-                parameters: parameters
-            )
-            .unwrap("results")
-        
-        request.responseCodable(completion: completion)
+        Alamofire
+            .request("\(baseURL)/tv/popular", parameters: parameters)
+            .validate()
+            .responseJSON { (response) in
+                if response.error != nil {
+                    return completion(.failure(response.error!))
+                }
+                
+                guard
+                    let json = response.result.value as? [String: Any],
+                    let results = json["results"] as? [[String: Any]]
+                    else {
+                        return completion(.failure(AFError.responseSerializationFailed(reason: AFError.ResponseSerializationFailureReason.inputDataNilOrZeroLength)))
+                }
+                
+                let tvShows = results.compactMap { dict in
+                    return TVShow(dict: dict)
+                }
+                
+                return completion(.success(tvShows))
+        }
     }
     
     func getNowPlayingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
         parameters["region"] = Locale.current.languageCode?.uppercased()
-        
-        let request = Springbok
-            .request("\(baseURL)/movie/now_playing",
-                method: .get,
-                parameters: parameters
-            )
-            .unwrap("results")
-        
-        request.responseCodable(completion: completion)
+
+        Alamofire
+            .request("\(baseURL)/movie/now_playing", parameters: parameters)
+            .validate()
+            .responseJSON { (response) in
+                if response.error != nil {
+                    return completion(.failure(response.error!))
+                }
+                
+                guard
+                    let json = response.result.value as? [String: Any],
+                    let results = json["results"] as? [[String: Any]]
+                else {
+                    return completion(.failure(AFError.responseSerializationFailed(reason: AFError.ResponseSerializationFailureReason.inputDataNilOrZeroLength)))
+                }
+                
+                let movies = results.compactMap { dict in
+                    return Movie(dict: dict)
+                }
+                
+                return completion(.success(movies))
+        }
     }
     
     func getUpcomingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
@@ -59,14 +85,27 @@ final class RemoteRepository: Repository {
         parameters["page"] = "\(page)"
         parameters["region"] = Locale.current.languageCode?.uppercased()
         
-        let request = Springbok
-            .request("\(baseURL)/movie/upcoming",
-                method: .get,
-                parameters: parameters
-            )
-            .unwrap("results")
-        
-        request.responseCodable(completion: completion)
+        Alamofire
+            .request("\(baseURL)/movie/upcoming", parameters: parameters)
+            .validate()
+            .responseJSON { (response) in
+                if response.error != nil {
+                    return completion(.failure(response.error!))
+                }
+                
+                guard
+                    let json = response.result.value as? [String: Any],
+                    let results = json["results"] as? [[String: Any]]
+                    else {
+                        return completion(.failure(AFError.responseSerializationFailed(reason: AFError.ResponseSerializationFailureReason.inputDataNilOrZeroLength)))
+                }
+                
+                let movies = results.compactMap { dict in
+                    return Movie(dict: dict)
+                }
+                
+                return completion(.success(movies))
+        }
     }
     
 }

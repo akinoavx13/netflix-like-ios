@@ -6,7 +6,7 @@
 //  Copyright © 2018 Maxime Maheo. All rights reserved.
 //
 
-import Springbok
+import Alamofire
 
 final class CacheRepository {
     

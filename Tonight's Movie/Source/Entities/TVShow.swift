@@ -27,4 +27,14 @@ struct TVShow: Codable {
     var originalPictureUrl: String {
         return "https://image.tmdb.org/t/p/original\(pictureURL)"
     }
+    
+    // MARK: - Lifecycle -
+    init(dict: [String: Any]) {
+        self.id = dict["id"] as? Int ?? 0
+        self.name = dict["name"] as? String ?? ""
+        self.pictureURL = dict["poster_path"] as? String ?? ""
+        self.backgroundURL = dict["backdrop_path"] as? String ?? ""
+        self.date = dict["first_air_date"] as? String ?? ""
+        self.overview = dict["overview"] as? String ?? ""
+    }
 }
