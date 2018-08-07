@@ -15,7 +15,6 @@ class DiscoverPresenter {
     weak var coordinator: DiscoverCoordinatorInput?
     weak var output: DiscoverPresenterOutput?
 
-    
     // MARK: - Lifecycle -
     init(interactor: DiscoverInteractorInput, coordinator: DiscoverCoordinatorInput) {
         self.interactor = interactor
@@ -27,8 +26,21 @@ class DiscoverPresenter {
 
 extension DiscoverPresenter: DiscoverPresenterInput {
     func viewCreated() {
-        interactor.perform(Discover.Request.FetchPlayingMovies(page: 1))
-        interactor.perform(Discover.Request.FetchOnTheAirTVShows(page: 1))
+        interactor.perform(Discover.Request.FetchPopularTVShows(page: 1))
+    }
+    
+    func configure(item: DiscoverCellProtocol, at indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            item.display(title: Translation.Discover.currently)
+        } else if indexPath.row == 1 {
+            item.display(title: Translation.Discover.upcoming)
+        } else if indexPath.row == 2 {
+            item.display(title: Translation.Discover.lastly)
+        } else if indexPath.row == 3 {
+            item.display(title: Translation.Discover.popular)
+        } else if indexPath.row == 4 {
+            item.display(title: Translation.Discover.topRated)
+        }
     }
 }
 
@@ -36,15 +48,13 @@ extension DiscoverPresenter: DiscoverPresenterInput {
 
 // INTERACTOR -> PRESENTER (indirect)
 extension DiscoverPresenter: DiscoverInteractorOutput {
-    func present(_ response: Discover.Response.PlayingMoviesFetched) {
+    func present(_ response: Discover.Response.PopularTVShowsFetched) {
+        guard let forwardTvShow = response.tvShows.shuffled().first else { return}
         
-    }
-    
-    func present(_ response: Discover.Response.OnTheAirTVShowsFetched) {
-        
+        output?.display(Discover.DisplayData.ForwardTVShow(tvShow: forwardTvShow))
     }
     
     func present(_ response: Discover.Response.Error) {
-        
+        output?.display(Discover.DisplayData.Error(errorMessage: response.errorMessage))
     }
 }

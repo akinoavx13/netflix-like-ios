@@ -24,14 +24,12 @@ protocol DiscoverCoordinatorInput: class {
 
 // PRESENTER -> INTERACTOR
 protocol DiscoverInteractorInput {
-    func perform(_ request: Discover.Request.FetchPlayingMovies)
-    func perform(_ request: Discover.Request.FetchOnTheAirTVShows)
+    func perform(_ request: Discover.Request.FetchPopularTVShows)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
 protocol DiscoverInteractorOutput: class {
-    func present(_ response: Discover.Response.PlayingMoviesFetched)
-    func present(_ response: Discover.Response.OnTheAirTVShowsFetched)
+    func present(_ response: Discover.Response.PopularTVShowsFetched)
     func present(_ response: Discover.Response.Error)
 }
 
@@ -40,9 +38,11 @@ protocol DiscoverInteractorOutput: class {
 // VIEW -> PRESENTER
 protocol DiscoverPresenterInput {
     func viewCreated()
+    func configure(item: DiscoverCellProtocol, at indexPath: IndexPath)
 }
 
 // PRESENTER -> VIEW
 protocol DiscoverPresenterOutput: class {
-    // func display(_ displayModel: Discover.DisplayData.Work)
+    func display(_ displayModel: Discover.DisplayData.ForwardTVShow)
+    func display(_ displayModel: Discover.DisplayData.Error)
 }

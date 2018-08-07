@@ -14,6 +14,7 @@
 		2025B117211980420032E3D1 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B110211980420032E3D1 /* DiscoverViewController.swift */; };
 		2025B118211980420032E3D1 /* DiscoverProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B111211980420032E3D1 /* DiscoverProtocols.swift */; };
 		2025B119211980420032E3D1 /* DiscoverInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B112211980420032E3D1 /* DiscoverInteractor.swift */; };
+		2025B11D211999590032E3D1 /* DiscoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B11C211999590032E3D1 /* DiscoverCell.swift */; };
 		2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C4232118698D0096DAA8 /* Coordinator.swift */; };
 		2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C425211869970096DAA8 /* AppCoordinator.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
@@ -47,6 +48,7 @@
 		2025B110211980420032E3D1 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		2025B111211980420032E3D1 /* DiscoverProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProtocols.swift; sourceTree = "<group>"; };
 		2025B112211980420032E3D1 /* DiscoverInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverInteractor.swift; sourceTree = "<group>"; };
+		2025B11C211999590032E3D1 /* DiscoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCell.swift; sourceTree = "<group>"; };
 		2055C4232118698D0096DAA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2055C425211869970096DAA8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2055C43821186A340096DAA8 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				2025B110211980420032E3D1 /* DiscoverViewController.swift */,
 				2025B111211980420032E3D1 /* DiscoverProtocols.swift */,
 				2025B112211980420032E3D1 /* DiscoverInteractor.swift */,
+				2025B11C211999590032E3D1 /* DiscoverCell.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */,
 				2025B118211980420032E3D1 /* DiscoverProtocols.swift in Sources */,
 				2055C44721186EA20096DAA8 /* Colors.swift in Sources */,
+				2025B11D211999590032E3D1 /* DiscoverCell.swift in Sources */,
 				2025B114211980420032E3D1 /* DiscoverPresenter.swift in Sources */,
 				20B9E42A211881CD002EACDA /* UIViewController+Alert.swift in Sources */,
 				20B9E42F21188A12002EACDA /* RequestsManager.swift in Sources */,

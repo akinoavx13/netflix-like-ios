@@ -23,6 +23,8 @@ struct TVShow: Codable {
         
         case id, name, overview
     }
+
+    var originalPictureUrl: String {
+        return "https://image.tmdb.org/t/p/original\(pictureURL)"
+    }
 }
-
-

@@ -25,27 +25,12 @@ final class RemoteRepository: Repository {
     }
     
     // MARK: - Methods -
-    func getPlayingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
-        var parameters = defaultParameters
-        parameters["region"] = Locale.current.languageCode?.uppercased()
-        parameters["page"] = "\(page)"
-        
-        let request = Springbok
-            .request("\(baseURL)/movie/now_playing",
-                method: .get,
-                parameters: parameters
-            )
-            .unwrap("results")
-        
-        request.responseCodable(completion: completion)
-    }
-    
-    func getOnTheAirTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
+    func getPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
         
         let request = Springbok
-            .request("\(baseURL)/tv/on_the_air",
+            .request("\(baseURL)/tv/popular",
                 method: .get,
                 parameters: parameters
             )
