@@ -55,7 +55,6 @@ final class RemoteRepository: Repository {
     func getNowPlayingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
-        parameters["region"] = Locale.current.languageCode?.uppercased()
 
         Alamofire
             .request("\(baseURL)/movie/now_playing", parameters: parameters)
@@ -83,7 +82,6 @@ final class RemoteRepository: Repository {
     func getUpcomingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
-        parameters["region"] = Locale.current.languageCode?.uppercased()
         
         Alamofire
             .request("\(baseURL)/movie/upcoming", parameters: parameters)
@@ -111,7 +109,6 @@ final class RemoteRepository: Repository {
     func getPopularMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
-        parameters["region"] = Locale.current.languageCode?.uppercased()
         
         Alamofire
             .request("\(baseURL)/movie/popular", parameters: parameters)
@@ -139,7 +136,6 @@ final class RemoteRepository: Repository {
     func getTopRatedMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
-        parameters["region"] = Locale.current.languageCode?.uppercased()
         
         Alamofire
             .request("\(baseURL)/movie/top_rated", parameters: parameters)
