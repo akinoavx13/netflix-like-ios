@@ -27,5 +27,8 @@ protocol Repository {
     //MARK: - TVShows -
     func getHighestRatedTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void)
     func getOnTheAirTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void)
+    func getPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void)
+    func getTopRatedTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void)
+    func getTVShowDetails(id: Int, completion: @escaping (Result<TVShow>) -> Void)
 }
 

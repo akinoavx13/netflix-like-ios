@@ -55,5 +55,17 @@ extension CacheRepository: Repository {
     func getOnTheAirTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
         fallbackRepository.getOnTheAirTVShows(page: page, completion: completion)
     }
+    
+    func getPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
+        fallbackRepository.getPopularTVShows(page: page, completion: completion)
+    }
+    
+    func getTopRatedTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
+        fallbackRepository.getTopRatedTVShows(page: page, completion: completion)
+    }
+    
+    func getTVShowDetails(id: Int, completion: @escaping (Result<TVShow>) -> Void) {
+        fallbackRepository.getTVShowDetails(id: id, completion: completion)
+    }
 }
 

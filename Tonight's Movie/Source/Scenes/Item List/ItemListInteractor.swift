@@ -27,9 +27,7 @@ class ItemListInteractor {
 extension ItemListInteractor: ItemListInteractorInput {
     
     // MARK: - Movies -
-    func perform(_ request: ItemList.Request.FetchNowPlayingMovies) {
-        print("page : \(request.page)")
-        
+    func perform(_ request: ItemList.Request.FetchNowPlayingMovies) {        
         dependencies
             .repository
             .getNowPlayingMovies(page: request.page) { (result) in
@@ -83,7 +81,6 @@ extension ItemListInteractor: ItemListInteractorInput {
 
     // MARK: - TVShows -
     func perform(_ request: ItemList.Request.FetchOnTheAirTVShows) {
-        print("page : \(request.page)")
         dependencies
             .repository
             .getOnTheAirTVShows(page: request.page) { (result) in
