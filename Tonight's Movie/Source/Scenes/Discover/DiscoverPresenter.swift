@@ -50,13 +50,13 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     
     func willDisplay(item: DiscoverCell, viewController: DiscoverViewController, at indexPath: IndexPath) {
         if indexPath.row == 0 {
-            coordinator?.showItemList(discoverViewController: viewController, discoverCell: item, section: .Currently)
+            coordinator?.addItemList(discoverViewController: viewController, discoverCell: item, section: .Currently)
         } else if indexPath.row == 1 {
-            coordinator?.showItemList(discoverViewController: viewController, discoverCell: item, section: .Upcoming)
+            coordinator?.addItemList(discoverViewController: viewController, discoverCell: item, section: .Upcoming)
         } else if indexPath.row == 2 {
-            coordinator?.showItemList(discoverViewController: viewController, discoverCell: item, section: .Popular)
+            coordinator?.addItemList(discoverViewController: viewController, discoverCell: item, section: .Popular)
         } else if indexPath.row == 3 {
-            coordinator?.showItemList(discoverViewController: viewController, discoverCell: item, section: .TopRated)
+            coordinator?.addItemList(discoverViewController: viewController, discoverCell: item, section: .TopRated)
         }
     }
 }

@@ -17,7 +17,7 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol DiscoverCoordinatorInput: class {
-    func showItemList(discoverViewController: DiscoverViewController, discoverCell: DiscoverCell, section: ItemList.Section)
+    func addItemList(discoverViewController: DiscoverViewController, discoverCell: DiscoverCell, section: ItemList.Section)
 }
 
 // ======== Interactor ======== //
