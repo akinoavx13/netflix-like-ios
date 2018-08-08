@@ -6,8 +6,6 @@
 //  Copyright © 2018 Maxime Maheo. All rights reserved.
 //
 
-import Springbok
-
 protocol HasRequestsManager {
     var requestsManager: RequestsManagerProtocol { get }
 }

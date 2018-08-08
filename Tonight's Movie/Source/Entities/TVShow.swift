@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TVShow {
+struct TVShow: Codable {
     let id: Int
     let name: String
     let pictureURL: String

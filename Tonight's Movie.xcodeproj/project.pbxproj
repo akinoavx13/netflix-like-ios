@@ -34,6 +34,7 @@
 		202FEFBA211B092C00494133 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFB9211B092C00494133 /* UIView+Shadow.swift */; };
 		202FEFBC211B0A0800494133 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFBB211B0A0800494133 /* UIView+Gradient.swift */; };
 		202FEFBE211B1DF700494133 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFBD211B1DF700494133 /* Item.swift */; };
+		2034DBC1211B370E0072ACD4 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2034DBC0211B370E0072ACD4 /* Cache.framework */; };
 		2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C4232118698D0096DAA8 /* Coordinator.swift */; };
 		2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C425211869970096DAA8 /* AppCoordinator.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
@@ -50,7 +51,6 @@
 		20B9E42621187FE1002EACDA /* CacheRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E42521187FE1002EACDA /* CacheRepository.swift */; };
 		20B9E42821187FFE002EACDA /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E42721187FFE002EACDA /* Dependencies.swift */; };
 		20B9E42A211881CD002EACDA /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E429211881CD002EACDA /* UIViewController+Alert.swift */; };
-		20B9E42C21188997002EACDA /* Springbok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B9E42B21188997002EACDA /* Springbok.framework */; };
 		20B9E42F21188A12002EACDA /* RequestsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E42E21188A12002EACDA /* RequestsManager.swift */; };
 		20B9E43121188F2D002EACDA /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E43021188F2D002EACDA /* Fonts.swift */; };
 		20B9E4332118935C002EACDA /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E4322118935C002EACDA /* TVShow.swift */; };
@@ -86,6 +86,7 @@
 		202FEFB9211B092C00494133 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		202FEFBB211B0A0800494133 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		202FEFBD211B1DF700494133 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		2034DBC0211B370E0072ACD4 /* Cache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cache.framework; path = Carthage/Build/iOS/Cache.framework; sourceTree = "<group>"; };
 		2055C4232118698D0096DAA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2055C425211869970096DAA8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2055C43821186A340096DAA8 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -120,8 +121,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2034DBC1211B370E0072ACD4 /* Cache.framework in Frameworks */,
 				206BEEAC2118E26300CED785 /* Kingfisher.framework in Frameworks */,
-				20B9E42C21188997002EACDA /* Springbok.framework in Frameworks */,
 				2025B1332119D3BD0032E3D1 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +273,7 @@
 		20B9E41D21187F56002EACDA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2034DBC0211B370E0072ACD4 /* Cache.framework */,
 				206BEEAB2118E26300CED785 /* Kingfisher.framework */,
 				20B9E42B21188997002EACDA /* Springbok.framework */,
 				20B9E41E21187F56002EACDA /* Alamofire.framework */,
@@ -403,9 +405,9 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Springbok.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Cache.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -617,6 +619,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Tonight's Movie/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -640,6 +643,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Tonight's Movie/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

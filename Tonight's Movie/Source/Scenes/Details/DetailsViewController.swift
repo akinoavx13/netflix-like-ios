@@ -113,7 +113,7 @@ class DetailsViewController: UIViewController {
     }
     
     private func configureMarkLabel(voteAverage: Double) {
-        markLabel.text = "\(Translation.Details.mark) \(voteAverage * 10) %"
+        markLabel.text = "\(Translation.Details.mark) \(Int(voteAverage * 10)) %"
         if voteAverage >= 6.5 {
             markLabel.textColor = Colors.green
         } else if voteAverage < 6.5 && voteAverage > 5.0 {

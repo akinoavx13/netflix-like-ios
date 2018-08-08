@@ -40,6 +40,8 @@ class DiscoverViewController: UIViewController {
     @IBOutlet weak var gradientView: UIView! {
         didSet {
             gradientView.backgroundColor = .clear
+            gradientView.isUserInteractionEnabled = true
+            gradientView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(highestRatedMovieImageViewTapped)))
         }
     }
     

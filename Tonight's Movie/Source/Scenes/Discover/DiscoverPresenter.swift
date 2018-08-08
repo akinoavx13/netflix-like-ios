@@ -53,7 +53,6 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     }
     
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath) {
-        
         switch screen {
         case .Movies:
             if indexPath.row == 0 {
