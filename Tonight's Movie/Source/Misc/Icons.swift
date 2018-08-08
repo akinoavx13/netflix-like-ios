@@ -11,5 +11,5 @@ import UIKit
 struct Icons {
     
     static let discover = UIImage(named: "iconDiscover")
-    
+    static let close = UIImage(named: "iconClose")
 }

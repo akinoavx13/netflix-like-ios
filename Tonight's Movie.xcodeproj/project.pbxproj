@@ -31,6 +31,8 @@
 		202FEFB6211AFCD700494133 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFAF211AFCD700494133 /* DetailsViewController.swift */; };
 		202FEFB7211AFCD700494133 /* DetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFB0211AFCD700494133 /* DetailsProtocols.swift */; };
 		202FEFB8211AFCD700494133 /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFB1211AFCD700494133 /* DetailsInteractor.swift */; };
+		202FEFBA211B092C00494133 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFB9211B092C00494133 /* UIView+Shadow.swift */; };
+		202FEFBC211B0A0800494133 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFBB211B0A0800494133 /* UIView+Gradient.swift */; };
 		2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C4232118698D0096DAA8 /* Coordinator.swift */; };
 		2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C425211869970096DAA8 /* AppCoordinator.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
@@ -80,6 +82,8 @@
 		202FEFAF211AFCD700494133 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		202FEFB0211AFCD700494133 /* DetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsProtocols.swift; sourceTree = "<group>"; };
 		202FEFB1211AFCD700494133 /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
+		202FEFB9211B092C00494133 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		202FEFBB211B0A0800494133 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		2055C4232118698D0096DAA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2055C425211869970096DAA8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2055C43821186A340096DAA8 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -238,6 +242,8 @@
 				2055C43B21186A640096DAA8 /* UIWindow+RootViewController.swift */,
 				20B9E429211881CD002EACDA /* UIViewController+Alert.swift */,
 				206741DD21189E7F00105AF4 /* String+DateFormat.swift */,
+				202FEFB9211B092C00494133 /* UIView+Shadow.swift */,
+				202FEFBB211B0A0800494133 /* UIView+Gradient.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 				20B9E43121188F2D002EACDA /* Fonts.swift in Sources */,
 				20B9E42821187FFE002EACDA /* Dependencies.swift in Sources */,
 				2025B12E2119B5410032E3D1 /* ItemListViewController.swift in Sources */,
+				202FEFBC211B0A0800494133 /* UIView+Gradient.swift in Sources */,
 				20B9E42421187FBC002EACDA /* RemoteRepository.swift in Sources */,
 				2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */,
 				2025B113211980420032E3D1 /* DiscoverCoordinator.swift in Sources */,
@@ -442,6 +449,7 @@
 				202FEFB8211AFCD700494133 /* DetailsInteractor.swift in Sources */,
 				2055C43C21186A640096DAA8 /* UIWindow+RootViewController.swift in Sources */,
 				2025B116211980420032E3D1 /* DiscoverModels.swift in Sources */,
+				202FEFBA211B092C00494133 /* UIView+Shadow.swift in Sources */,
 				2025B12F2119B5410032E3D1 /* ItemListProtocols.swift in Sources */,
 				20B9E42221187F9A002EACDA /* Repository.swift in Sources */,
 				202FEFB7211AFCD700494133 /* DetailsProtocols.swift in Sources */,

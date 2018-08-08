@@ -40,5 +40,9 @@ extension CacheRepository: Repository {
     func getTopRatedMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
         fallbackRepository.getTopRatedMovies(page: page, completion: completion)
     }
+    
+    func getMovieDetails(id: Int, completion: @escaping (Result<Movie>) -> Void) {
+        fallbackRepository.getMovieDetails(id: id, completion: completion)
+    }
 }
 

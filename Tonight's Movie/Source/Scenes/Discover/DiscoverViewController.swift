@@ -105,10 +105,7 @@ extension DiscoverViewController: DiscoverPresenterOutput {
             self.highestRatedMovieImageView.kf.setImage(with: url)
         }
         
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = gradientView.bounds
-        gradientLayer.colors = [UIColor.clear.cgColor, Colors.black.cgColor]
-        gradientView.layer.addSublayer(gradientLayer)
+        gradientView.gradient(colors: [UIColor.clear.cgColor, Colors.black.cgColor])
     }
     
     func display(_ displayModel: Discover.DisplayData.Error) {

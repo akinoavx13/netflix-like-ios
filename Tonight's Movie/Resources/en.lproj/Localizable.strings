@@ -6,14 +6,12 @@
   Copyright © 2018 Maxime Maheo. All rights reserved.
 */
 
-// Default
 "Error" = "Error";
 "Ok" = "Ok";
-
-// Discover
 "Discover" = "Discover";
 "Show more" = "Show more";
 "Currently" = "Currently";
 "Upcoming" = "Upcoming";
 "Popular" = "Popular";
 "Top rated" = "Top rated";
+"Mark" = "Mark";

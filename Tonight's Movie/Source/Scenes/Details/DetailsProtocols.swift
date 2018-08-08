@@ -17,19 +17,20 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol DetailsCoordinatorInput: class {
-
+    func dismiss()
 }
 
 // ======== Interactor ======== //
 
 // PRESENTER -> INTERACTOR
 protocol DetailsInteractorInput {
-    // func perform(_ request: Details.Request.Work)
+    func perform(_ request: Details.Request.FetchMovieDetails)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
 protocol DetailsInteractorOutput: class {
-    // func present(_ response: Details.Response.Work)
+    func present(_ response: Details.Response.MovieDetailsFetched)
+    func present(_ response: Details.Response.Error)
 }
 
 // ======== Presenter ======== //
@@ -37,9 +38,11 @@ protocol DetailsInteractorOutput: class {
 // VIEW -> PRESENTER
 protocol DetailsPresenterInput {
     func viewCreated()
+    func closeButtonTapped()
 }
 
 // PRESENTER -> VIEW
 protocol DetailsPresenterOutput: class {
-    // func display(_ displayModel: Details.DisplayData.Work)
+    func display(_ displayModel: Details.DisplayData.MovieDetails)
+    func display(_ displayModel: Details.DisplayData.Error)
 }

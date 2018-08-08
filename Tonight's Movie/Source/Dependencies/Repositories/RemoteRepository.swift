@@ -165,4 +165,23 @@ final class RemoteRepository: Repository {
         }
     }
     
+    func getMovieDetails(id: Int, completion: @escaping (Result<Movie>) -> Void) {
+        Alamofire
+            .request("\(baseURL)/movie/\(id)", parameters: defaultParameters)
+            .validate()
+            .responseJSON { (response) in
+                if response.error != nil {
+                    return completion(.failure(response.error!))
+                }
+                
+                guard
+                    let results = response.result.value as? [String: Any]
+                    else {
+                        return completion(.failure(AFError.responseSerializationFailed(reason: AFError.ResponseSerializationFailureReason.inputDataNilOrZeroLength)))
+                }
+
+                return completion(.success(Movie(dict: results)))
+        }
+    }
+    
 }

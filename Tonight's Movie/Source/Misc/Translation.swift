@@ -23,5 +23,9 @@ struct Translation {
         static let popular = NSLocalizedString("Popular", comment: "")
         static let topRated = NSLocalizedString("Top rated", comment: "")
     }
+    
+    struct Details {
+        static let mark = NSLocalizedString("Mark", comment: "")
+    }
         
 }
