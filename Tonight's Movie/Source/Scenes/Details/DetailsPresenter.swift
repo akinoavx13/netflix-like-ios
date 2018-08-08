@@ -15,13 +15,13 @@ class DetailsPresenter {
     weak var coordinator: DetailsCoordinatorInput?
     weak var output: DetailsPresenterOutput?
 
-    private let movieId: Int
+    private let id: Int
     
     // MARK: - Lifecycle -
-    init(interactor: DetailsInteractorInput, coordinator: DetailsCoordinatorInput, movieId: Int) {
+    init(interactor: DetailsInteractorInput, coordinator: DetailsCoordinatorInput, id: Int) {
         self.interactor = interactor
         self.coordinator = coordinator
-        self.movieId = movieId
+        self.id = id
     }
 }
 
@@ -29,7 +29,7 @@ class DetailsPresenter {
 
 extension DetailsPresenter: DetailsPresenterInput {
     func viewCreated() {
-        interactor.perform(Details.Request.FetchMovieDetails(id: movieId))
+        interactor.perform(Details.Request.FetchMovieDetails(id: id))
     }
     
     func closeButtonTapped() {

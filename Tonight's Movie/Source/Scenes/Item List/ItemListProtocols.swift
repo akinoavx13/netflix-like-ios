@@ -17,7 +17,7 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol ItemListCoordinatorInput: class {
-    func showDetailsOf(movieId: Int)
+    func showDetailsOf(id: Int)
 }
 
 // ======== Interactor ======== //
@@ -30,6 +30,7 @@ protocol ItemListInteractorInput {
     func perform(_ request: ItemList.Request.FetchTopRatedMovies)
     
     func perform(_ request: ItemList.Request.FetchOnTheAirTVShows)
+    func perform(_ request: ItemList.Request.FetchPopularTVShows)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
@@ -40,6 +41,7 @@ protocol ItemListInteractorOutput: class {
     func present(_ response: ItemList.Response.TopRatedMoviesFetched)
     
     func present(_ response: ItemList.Response.OnTheAirTVShowsFetched)
+    func present(_ response: ItemList.Response.PopularTVShowsFetched)
     
     func present(_ response: ItemList.Response.Error)
 }

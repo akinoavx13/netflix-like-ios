@@ -92,4 +92,17 @@ extension ItemListInteractor: ItemListInteractorInput {
                 }
         }
     }
+    
+    func perform(_ request: ItemList.Request.FetchPopularTVShows) {
+        dependencies
+            .repository
+            .getPopularTVShows(page: request.page) { (result) in
+                switch result {
+                case .success(let tvShows):
+                    self.output?.present(ItemList.Response.PopularTVShowsFetched(tvShows: tvShows))
+                case .failure(let error):
+                    self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+    }
 }
