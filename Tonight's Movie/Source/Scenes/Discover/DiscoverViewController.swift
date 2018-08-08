@@ -22,24 +22,30 @@ class DiscoverViewController: UIViewController {
             tableView.dataSource = self
             tableView.delegate = self
             tableView.separatorStyle = .none
-            tableView.rowHeight = 191
+            tableView.rowHeight = 200
         }
     }
     
-    @IBOutlet weak var forwardTVShowImageView: UIImageView! {
+    @IBOutlet weak var highestRatedMovieImageView: UIImageView! {
         didSet {
-            forwardTVShowImageView.contentMode = .scaleAspectFill
-            forwardTVShowImageView.clipsToBounds = true
+            highestRatedMovieImageView.contentMode = .scaleAspectFill
+            highestRatedMovieImageView.clipsToBounds = true
         }
     }
     
-    @IBOutlet weak var forwardTVShowTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var highestRatedMovieTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var gradientView: UIView! {
+        didSet {
+            gradientView.backgroundColor = .clear
+        }
+    }
     
     // MARK: - Lifecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        forwardTVShowTopConstraint.constant = -UIApplication.shared.statusBarFrame.height
+        highestRatedMovieTopConstraint.constant = -UIApplication.shared.statusBarFrame.height
         
         presenter.viewCreated()
     }
@@ -47,7 +53,7 @@ class DiscoverViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        forwardTVShowImageView.kf.cancelDownloadTask()
+        highestRatedMovieImageView.kf.cancelDownloadTask()
     }
     
     // MARK: - Methods -
@@ -90,8 +96,13 @@ extension DiscoverViewController: UITableViewDelegate {
 extension DiscoverViewController: DiscoverPresenterOutput {
     func display(_ displayModel: Discover.DisplayData.HighestRatedMovie) {
         if let url = URL(string: displayModel.movie.smallPictureUrl) {
-            self.forwardTVShowImageView.kf.setImage(with: url)
+            self.highestRatedMovieImageView.kf.setImage(with: url)
         }
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = gradientView.bounds
+        gradientLayer.colors = [UIColor.clear.cgColor, Colors.black.cgColor]
+        gradientView.layer.addSublayer(gradientLayer)
     }
     
     func display(_ displayModel: Discover.DisplayData.Error) {

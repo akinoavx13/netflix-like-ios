@@ -27,20 +27,30 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xaR-Ww-yxH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="469"/>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9qG-AF-Dwe">
+                                            <rect key="frame" x="0.0" y="319" width="375" height="150"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="150" id="uv7-sB-BVk"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="9qG-AF-Dwe" firstAttribute="leading" secondItem="vNa-gb-8Y8" secondAttribute="leading" id="0tp-fp-O4O"/>
                                         <constraint firstAttribute="bottom" secondItem="xaR-Ww-yxH" secondAttribute="bottom" id="CIf-av-sg7"/>
                                         <constraint firstItem="xaR-Ww-yxH" firstAttribute="leading" secondItem="vNa-gb-8Y8" secondAttribute="leading" id="JBp-5I-Bcq"/>
+                                        <constraint firstAttribute="bottom" secondItem="9qG-AF-Dwe" secondAttribute="bottom" id="SMV-y4-uqx"/>
+                                        <constraint firstAttribute="trailing" secondItem="9qG-AF-Dwe" secondAttribute="trailing" id="YuT-cY-eSa"/>
                                         <constraint firstItem="xaR-Ww-yxH" firstAttribute="top" secondItem="vNa-gb-8Y8" secondAttribute="top" id="f9R-ou-7Ed"/>
                                         <constraint firstAttribute="trailing" secondItem="xaR-Ww-yxH" secondAttribute="trailing" id="vFe-Lp-Wmj"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscoverCell" rowHeight="191" id="QGb-r7-eXD" customClass="DiscoverCell" customModule="Tonight_s_Movie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="497" width="375" height="191"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscoverCell" rowHeight="200" id="QGb-r7-eXD" customClass="DiscoverCell" customModule="Tonight_s_Movie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="497" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QGb-r7-eXD" id="jrD-ZL-Z6e">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="190.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hy-Af-11y">
@@ -50,7 +60,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjq-jC-AwV">
-                                                    <rect key="frame" x="0.0" y="40" width="375" height="150.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="40" width="375" height="159.66666666666666"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
@@ -82,8 +92,9 @@
                         <viewLayoutGuide key="safeArea" id="Fhz-5B-qaF"/>
                     </view>
                     <connections>
-                        <outlet property="forwardTVShowImageView" destination="xaR-Ww-yxH" id="QlG-gV-6i1"/>
-                        <outlet property="forwardTVShowTopConstraint" destination="f9R-ou-7Ed" id="aCR-xS-X5J"/>
+                        <outlet property="gradientView" destination="9qG-AF-Dwe" id="che-Bz-LSO"/>
+                        <outlet property="highestRatedMovieImageView" destination="xaR-Ww-yxH" id="hdD-nP-bxJ"/>
+                        <outlet property="highestRatedMovieTopConstraint" destination="f9R-ou-7Ed" id="UEU-gV-bTG"/>
                         <outlet property="tableView" destination="fRZ-7W-QWL" id="iRU-21-E2X"/>
                     </connections>
                 </viewController>
