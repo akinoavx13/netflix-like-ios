@@ -10,6 +10,7 @@ import UIKit
 
 struct Icons {
     
-    static let discover = UIImage(named: "iconDiscover")
+    static let discoverMovies = UIImage(named: "iconDiscoverMovies")
+    static let discoverTVShows = UIImage(named: "iconDiscoverTVShows")
     static let close = UIImage(named: "iconClose")
 }

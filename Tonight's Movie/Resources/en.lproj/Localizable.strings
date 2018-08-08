@@ -8,7 +8,8 @@
 
 "Error" = "Error";
 "Ok" = "Ok";
-"Discover" = "Discover";
+"Discover movies" = "Discover movies";
+"Discover tv shows" = "Discover tv shows";
 "Show more" = "Show more";
 "Currently" = "Currently";
 "Upcoming" = "Upcoming";
