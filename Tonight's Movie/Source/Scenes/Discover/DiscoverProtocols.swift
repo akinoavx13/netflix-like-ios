@@ -28,11 +28,13 @@ protocol DiscoverCoordinatorInput: class {
 // PRESENTER -> INTERACTOR
 protocol DiscoverInteractorInput {
     func perform(_ request: Discover.Request.FetchHighestRatedMovies)
+    func perform(_ request: Discover.Request.FetchHighestRatedTVShow)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
 protocol DiscoverInteractorOutput: class {
     func present(_ response: Discover.Response.HighestRatedMoviesFetched)
+    func present(_ response: Discover.Response.HighestRatedTVShowsFetched)
     func present(_ response: Discover.Response.Error)
 }
 
@@ -54,6 +56,6 @@ protocol DiscoverPresenterInput {
 
 // PRESENTER -> VIEW
 protocol DiscoverPresenterOutput: class {
-    func display(_ displayModel: Discover.DisplayData.HighestRatedMovie)
+    func display(_ displayModel: Discover.DisplayData.HighestRatedItem)
     func display(_ displayModel: Discover.DisplayData.Error)
 }

@@ -15,17 +15,20 @@ class DiscoverCoordinator: Coordinator {
     var children: [Coordinator]
     
     private let navigationController: UINavigationController
+    private let screen: Discover.Screen
 
     // MARK: - Lifecycle -
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, screen: Discover.Screen) {
         self.navigationController = navigationController
-        self.children = []
+        self.screen = screen
+        
+        children = []
     }
 
     // MARK: - Methods -
     func start() {
         let interactor = DiscoverInteractor()
-        let presenter = DiscoverPresenter(interactor: interactor, coordinator: self)
+        let presenter = DiscoverPresenter(interactor: interactor, coordinator: self, screen: screen)
         let viewController = DiscoverViewController.instantiate(with: presenter)
 
         interactor.output = presenter

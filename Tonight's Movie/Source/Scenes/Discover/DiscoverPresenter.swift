@@ -15,12 +15,14 @@ class DiscoverPresenter {
     weak var coordinator: DiscoverCoordinatorInput?
     weak var output: DiscoverPresenterOutput?
 
-    private var highestRatedMovie: Movie?
-    
+    private var highestRatedItemId: Int?
+    private let screen: Discover.Screen
+
     // MARK: - Lifecycle -
-    init(interactor: DiscoverInteractorInput, coordinator: DiscoverCoordinatorInput) {
+    init(interactor: DiscoverInteractorInput, coordinator: DiscoverCoordinatorInput, screen: Discover.Screen) {
         self.interactor = interactor
         self.coordinator = coordinator
+        self.screen = screen
     }
 }
 
@@ -35,7 +37,12 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     
     // MARK: - Methods -
     func viewCreated() {
-        interactor.perform(Discover.Request.FetchHighestRatedMovies(page: 1))
+        switch screen {
+        case .Movies:
+            interactor.perform(Discover.Request.FetchHighestRatedMovies(page: 1))
+        case .TVshows:
+            interactor.perform(Discover.Request.FetchHighestRatedTVShow(page: 1))
+        }
         
         addCoordinators()
     }
@@ -61,9 +68,9 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     }
     
     func showHighestRatedMovieDetails() {
-        guard let highestRatedMovie = highestRatedMovie else { return }
+        guard let highestRatedItemId = highestRatedItemId else { return }
         
-        coordinator?.showHighestRatedMovieDetails(id: highestRatedMovie.id)
+        coordinator?.showHighestRatedMovieDetails(id: highestRatedItemId)
     }
     
     private func addCoordinators() {
@@ -79,9 +86,16 @@ extension DiscoverPresenter: DiscoverPresenterInput {
 extension DiscoverPresenter: DiscoverInteractorOutput {
     func present(_ response: Discover.Response.HighestRatedMoviesFetched) {
         guard let highestRatedMovie = response.movies.first else { return }
-        self.highestRatedMovie = highestRatedMovie
+        highestRatedItemId = highestRatedMovie.id
         
-        output?.display(Discover.DisplayData.HighestRatedMovie(movie: highestRatedMovie))
+        output?.display(Discover.DisplayData.HighestRatedItem(pictureURL: highestRatedMovie.originalPictureUrl))
+    }
+    
+    func present(_ response: Discover.Response.HighestRatedTVShowsFetched) {
+        guard let highestRatedTVShow = response.tvShows.first else { return }
+        highestRatedItemId = highestRatedTVShow.id
+        
+        output?.display(Discover.DisplayData.HighestRatedItem(pictureURL: highestRatedTVShow.originalPictureUrl))
     }
     
     func present(_ response: Discover.Response.Error) {

@@ -54,10 +54,10 @@ final class TabBarCoordinator: Coordinator {
         
         switch tab {
         case .DiscoverMovie:
-            coordinator = DiscoverCoordinator(navigationController: navigationController)
+            coordinator = DiscoverCoordinator(navigationController: navigationController, screen: .Movies)
             navigationController.tabBarItem = UITabBarItem(title: Translation.Discover.discoverMovies, image: Icons.discoverMovies, selectedImage: nil)
         case .DiscoverTVShow:
-            coordinator = DiscoverCoordinator(navigationController: navigationController)
+            coordinator = DiscoverCoordinator(navigationController: navigationController, screen: .TVshows)
             navigationController.tabBarItem = UITabBarItem(title: Translation.Discover.discoverTVShows, image: Icons.discoverTVShows, selectedImage: nil)
         }
         

@@ -16,11 +16,15 @@ protocol HasRepository {
 
 protocol Repository {
     
+    // MARK: - Movies -
     func getHighestRatedMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void)
     func getNowPlayingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void)
     func getUpcomingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void)
     func getPopularMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void)
     func getTopRatedMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void)
     func getMovieDetails(id: Int, completion: @escaping (Result<Movie>) -> Void)
+    
+    //MARK: - TVShows -
+    func getHighestRatedTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void)
 }
 

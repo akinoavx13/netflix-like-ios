@@ -21,6 +21,8 @@ final class CacheRepository {
 }
 
 extension CacheRepository: Repository {
+    
+    // MARK: - Movies -
     func getHighestRatedMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
         fallbackRepository.getHighestRatedMovies(page: page, completion: completion)
     }
@@ -43,6 +45,11 @@ extension CacheRepository: Repository {
     
     func getMovieDetails(id: Int, completion: @escaping (Result<Movie>) -> Void) {
         fallbackRepository.getMovieDetails(id: id, completion: completion)
+    }
+    
+    // MARK: - TVShows -
+    func getHighestRatedTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
+        fallbackRepository.getHighestRatedTVShows(page: page, completion: completion)
     }
 }
 

@@ -9,6 +9,9 @@
 import Foundation
 
 enum Discover {
+    enum Screen {
+        case Movies, TVshows
+    }
     enum Request { }
     enum Response { }
     enum DisplayData { }
@@ -16,14 +19,16 @@ enum Discover {
 
 extension Discover.Request {
     struct FetchHighestRatedMovies { let page: Int }
+    struct FetchHighestRatedTVShow { let page: Int }
 }
 
 extension Discover.Response {
     struct HighestRatedMoviesFetched { let movies: [Movie] }
+    struct HighestRatedTVShowsFetched { let tvShows: [TVShow] }
     struct Error { let errorMessage: String }
 }
 
 extension Discover.DisplayData {
-    struct HighestRatedMovie { let movie: Movie }
+    struct HighestRatedItem { let pictureURL: String }
     struct Error { let errorMessage: String }
 }

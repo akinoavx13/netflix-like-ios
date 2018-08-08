@@ -38,4 +38,17 @@ extension DiscoverInteractor: DiscoverInteractorInput {
                 }
         }
     }
+    
+    func perform(_ request: Discover.Request.FetchHighestRatedTVShow) {
+        dependencies
+            .repository
+            .getHighestRatedTVShows(page: request.page) { (result) in
+                switch result {
+                case .success(let tvShows):
+                    self.output?.present(Discover.Response.HighestRatedTVShowsFetched(tvShows: tvShows))
+                case .failure(let error):
+                    self.output?.present(Discover.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+    }
 }

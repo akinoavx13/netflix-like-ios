@@ -24,7 +24,7 @@ final class RemoteRepository: Repository {
         defaultParameters["language"] = "\(Locale.preferredLanguages.first ?? "en-US")"
     }
     
-    // MARK: - Methods -
+    // MARK: - Movies -
     func getHighestRatedMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
@@ -183,5 +183,36 @@ final class RemoteRepository: Repository {
                 return completion(.success(Movie(dict: results)))
         }
     }
-    
+
+    // MARK: - TVShows -
+    func getHighestRatedTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
+        var parameters = defaultParameters
+        parameters["page"] = "\(page)"
+        parameters["certification_country"] = Locale.current.languageCode?.uppercased()
+        parameters["certification"] = "R"
+        parameters["sort_by"] = "vote_average.desc"
+        
+        Alamofire
+            .request("\(baseURL)/discover/tv", parameters: parameters)
+            .validate()
+            .responseJSON { (response) in
+                if response.error != nil {
+                    return completion(.failure(response.error!))
+                }
+                
+                guard
+                    let json = response.result.value as? [String: Any],
+                    let results = json["results"] as? [[String: Any]]
+                    else {
+                        return completion(.failure(AFError.responseSerializationFailed(reason: AFError.ResponseSerializationFailureReason.inputDataNilOrZeroLength)))
+                }
+                
+                let tvShows = results.compactMap { dict in
+                    return TVShow(dict: dict)
+                }
+                
+                return completion(.success(tvShows))
+        }
+
+    }
 }
