@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ly-TL-bCd">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="0ly-TL-bCd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agH-gg-ctR">
@@ -49,7 +50,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsg-NB-8yf">
-                                                <rect key="frame" x="335" y="16" width="24" height="24"/>
+                                                <rect key="frame" x="335" y="32" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="iNS-Xl-PQW"/>
                                                     <constraint firstAttribute="width" constant="24" id="osD-ys-Ye5"/>
@@ -104,11 +105,9 @@
                                             <constraint firstItem="97v-Hf-NKX" firstAttribute="centerX" secondItem="5tW-3L-hpg" secondAttribute="centerX" id="cvi-5x-C6L"/>
                                             <constraint firstItem="gO7-Fd-ubR" firstAttribute="top" secondItem="agH-gg-ctR" secondAttribute="top" constant="80" id="dSl-Uo-Xmy"/>
                                             <constraint firstItem="ePa-RI-ayq" firstAttribute="width" secondItem="5tW-3L-hpg" secondAttribute="width" id="eOu-wX-mJW"/>
-                                            <constraint firstItem="xsg-NB-8yf" firstAttribute="top" secondItem="agH-gg-ctR" secondAttribute="top" constant="16" id="j1m-Z3-Juw"/>
                                             <constraint firstItem="ePa-RI-ayq" firstAttribute="centerY" secondItem="5tW-3L-hpg" secondAttribute="centerY" id="jye-yQ-ZDG"/>
                                             <constraint firstAttribute="bottom" secondItem="d45-gE-5At" secondAttribute="bottom" constant="8" id="kim-ca-umN"/>
                                             <constraint firstItem="d45-gE-5At" firstAttribute="top" secondItem="AJj-YH-41R" secondAttribute="bottom" constant="24" id="m5i-Na-Zep"/>
-                                            <constraint firstAttribute="trailing" secondItem="xsg-NB-8yf" secondAttribute="trailing" constant="16" id="mGd-H2-iyh"/>
                                             <constraint firstItem="ePa-RI-ayq" firstAttribute="centerX" secondItem="5tW-3L-hpg" secondAttribute="centerX" id="mgL-fq-w3K"/>
                                             <constraint firstItem="ePa-RI-ayq" firstAttribute="height" secondItem="5tW-3L-hpg" secondAttribute="height" id="qbL-Mf-AEy"/>
                                             <constraint firstItem="AJj-YH-41R" firstAttribute="centerX" secondItem="agH-gg-ctR" secondAttribute="centerX" id="tRh-cO-wNi"/>
@@ -117,6 +116,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="agH-gg-ctR" secondAttribute="trailing" id="B7j-cu-Kkj"/>
+                                    <constraint firstAttribute="trailing" secondItem="xsg-NB-8yf" secondAttribute="trailing" constant="16" id="Sak-3z-Iqb"/>
+                                    <constraint firstItem="xsg-NB-8yf" firstAttribute="top" secondItem="0ly-TL-bCd" secondAttribute="top" constant="32" id="Ucr-gl-QAa"/>
                                     <constraint firstItem="agH-gg-ctR" firstAttribute="leading" secondItem="0ly-TL-bCd" secondAttribute="leading" id="ran-ww-0hp"/>
                                     <constraint firstItem="agH-gg-ctR" firstAttribute="top" secondItem="0ly-TL-bCd" secondAttribute="top" id="scq-eo-FHs"/>
                                     <constraint firstAttribute="bottom" secondItem="agH-gg-ctR" secondAttribute="bottom" id="vU3-D5-L8p"/>
@@ -138,7 +139,6 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="5tW-3L-hpg" id="36J-LU-61t"/>
                         <outlet property="closeButton" destination="xsg-NB-8yf" id="Rxn-rG-zdC"/>
-                        <outlet property="closeButtonTopConstraint" destination="j1m-Z3-Juw" id="JN8-Rt-BE1"/>
                         <outlet property="contenairView" destination="agH-gg-ctR" id="bFg-R6-7D6"/>
                         <outlet property="dateLabel" destination="z2q-E0-YkD" id="qBw-NF-eUV"/>
                         <outlet property="durationLabel" destination="V3E-zA-8xQ" id="y3c-Ww-WkR"/>

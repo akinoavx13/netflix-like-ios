@@ -28,8 +28,6 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var closeButtonTopConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var pictureImageView: UIImageView! {
         didSet {
             pictureImageView.contentMode = .scaleAspectFill
@@ -89,7 +87,6 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = Colors.black
-        closeButtonTopConstraint.constant = UIApplication.shared.statusBarFrame.height
         
         presenter.viewCreated()
     }
