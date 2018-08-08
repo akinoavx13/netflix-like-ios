@@ -44,19 +44,13 @@ extension DiscoverCoordinator: DiscoverCoordinatorInput {
     }
     
     func startItemListCoordinator(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath) {
-        guard
-            children.count >= indexPath.row,
-            let coordinator = children[indexPath.row] as? ItemListCoordinator
-        else { return }
+        guard let coordinator = children[indexPath.row] as? ItemListCoordinator else { return }
         
         coordinator.show(viewController: viewController, for: cell)
     }
     
     func stopItemListCoordinator(at indexPath: IndexPath) {
-        guard
-            children.count >= indexPath.row,
-            let coordinator = children[indexPath.row] as? ItemListCoordinator
-        else { return }
+        guard let coordinator = children[indexPath.row] as? ItemListCoordinator else { return }
         
         coordinator.stop()
     }

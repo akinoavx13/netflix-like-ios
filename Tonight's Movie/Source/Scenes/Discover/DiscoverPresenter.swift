@@ -35,10 +35,7 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     func viewCreated() {
         interactor.perform(Discover.Request.FetchHighestRatedMovies(page: 1))
         
-        coordinator?.createItemList(section: .Currently)
-        coordinator?.createItemList(section: .Upcoming)
-        coordinator?.createItemList(section: .Popular)
-        coordinator?.createItemList(section: .TopRated)
+        addCoordinators()
     }
     
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath) {
@@ -59,6 +56,12 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     
     func didEndDisplaying(at indexPath: IndexPath) {
         coordinator?.stopItemListCoordinator(at: indexPath)
+    }
+    
+    private func addCoordinators() {
+        for section in ItemList.Section.allCases.enumerated() {
+            coordinator?.createItemList(section: section.element)
+        }
     }
 }
 
