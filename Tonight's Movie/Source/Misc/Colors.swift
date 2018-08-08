@@ -10,8 +10,7 @@ import UIKit
 
 struct Colors {
     
-    static let black = UIColor(red: 10 / 255, green: 10 / 255, blue: 10 / 255, alpha: 1)
-    static let blueNights = UIColor(red: 23 / 255, green: 25 / 255, blue: 29 / 255, alpha: 1)
+    static let black = UIColor(red: 24 / 255, green: 24 / 255, blue: 24 / 255, alpha: 1)
     
-    static let white = UIColor(red: 245 / 255, green: 246 / 255, blue: 250 / 255, alpha: 1)
+    static let white = UIColor(red: 226 / 255, green: 226 / 255, blue: 226 / 255, alpha: 1)
 }

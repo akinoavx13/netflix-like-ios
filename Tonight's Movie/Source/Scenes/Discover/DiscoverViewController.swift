@@ -22,7 +22,7 @@ class DiscoverViewController: UIViewController {
             tableView.dataSource = self
             tableView.delegate = self
             tableView.separatorStyle = .none
-            tableView.rowHeight = 251
+            tableView.rowHeight = 191
         }
     }
     

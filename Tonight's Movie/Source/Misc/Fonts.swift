@@ -10,7 +10,6 @@ import UIKit
 
 struct Fonts {
     
-    static let large = UIFont.systemFont(ofSize: 22, weight: .semibold)
-    static let small = UIFont.systemFont(ofSize: 12, weight: .regular)
+    static let large = UIFont.systemFont(ofSize: 15, weight: .heavy)
     
 }
