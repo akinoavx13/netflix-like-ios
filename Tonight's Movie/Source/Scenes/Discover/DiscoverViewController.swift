@@ -30,6 +30,8 @@ class DiscoverViewController: UIViewController {
         didSet {
             highestRatedMovieImageView.contentMode = .scaleAspectFill
             highestRatedMovieImageView.clipsToBounds = true
+            highestRatedMovieImageView.isUserInteractionEnabled = true
+            highestRatedMovieImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(highestRatedMovieImageViewTapped)))
         }
     }
     
@@ -65,6 +67,12 @@ class DiscoverViewController: UIViewController {
         viewController.presenter = presenter
         
         return viewController
+    }
+    
+    // MARK: - Actions -
+    @objc
+    private func highestRatedMovieImageViewTapped() {
+        presenter.showHighestRatedMovieDetails()
     }
 }
 

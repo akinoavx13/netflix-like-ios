@@ -17,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ly-TL-bCd">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ly-TL-bCd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agH-gg-ctR">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="368.66666666666669"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5tW-3L-hpg">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
@@ -98,7 +98,6 @@
                                             <constraint firstItem="d45-gE-5At" firstAttribute="leading" secondItem="agH-gg-ctR" secondAttribute="leading" constant="8" id="OJa-AD-DGv"/>
                                             <constraint firstItem="5tW-3L-hpg" firstAttribute="top" secondItem="agH-gg-ctR" secondAttribute="top" id="Pha-Qj-aY5"/>
                                             <constraint firstItem="gO7-Fd-ubR" firstAttribute="centerX" secondItem="agH-gg-ctR" secondAttribute="centerX" id="PxN-tx-B1m"/>
-                                            <constraint firstAttribute="height" constant="1000" id="Q7e-lK-25X"/>
                                             <constraint firstItem="97v-Hf-NKX" firstAttribute="width" secondItem="5tW-3L-hpg" secondAttribute="width" id="RGk-Xn-ceG"/>
                                             <constraint firstAttribute="trailing" secondItem="d45-gE-5At" secondAttribute="trailing" constant="8" id="aDN-W5-IBu"/>
                                             <constraint firstItem="AJj-YH-41R" firstAttribute="top" secondItem="gO7-Fd-ubR" secondAttribute="bottom" constant="24" id="cug-Aa-JxZ"/>
@@ -107,6 +106,7 @@
                                             <constraint firstItem="ePa-RI-ayq" firstAttribute="width" secondItem="5tW-3L-hpg" secondAttribute="width" id="eOu-wX-mJW"/>
                                             <constraint firstItem="xsg-NB-8yf" firstAttribute="top" secondItem="agH-gg-ctR" secondAttribute="top" constant="16" id="j1m-Z3-Juw"/>
                                             <constraint firstItem="ePa-RI-ayq" firstAttribute="centerY" secondItem="5tW-3L-hpg" secondAttribute="centerY" id="jye-yQ-ZDG"/>
+                                            <constraint firstAttribute="bottom" secondItem="d45-gE-5At" secondAttribute="bottom" constant="8" id="kim-ca-umN"/>
                                             <constraint firstItem="d45-gE-5At" firstAttribute="top" secondItem="AJj-YH-41R" secondAttribute="bottom" constant="24" id="m5i-Na-Zep"/>
                                             <constraint firstAttribute="trailing" secondItem="xsg-NB-8yf" secondAttribute="trailing" constant="16" id="mGd-H2-iyh"/>
                                             <constraint firstItem="ePa-RI-ayq" firstAttribute="centerX" secondItem="5tW-3L-hpg" secondAttribute="centerX" id="mgL-fq-w3K"/>

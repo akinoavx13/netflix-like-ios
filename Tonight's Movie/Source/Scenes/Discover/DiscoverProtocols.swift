@@ -20,6 +20,7 @@ protocol DiscoverCoordinatorInput: class {
     func createItemList(section: ItemList.Section)
     func startItemListCoordinator(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath)
     func stopItemListCoordinator(at indexPath: IndexPath)
+    func showHighestRatedMovieDetails(id: Int)
 }
 
 // ======== Interactor ======== //
@@ -48,6 +49,7 @@ protocol DiscoverPresenterInput {
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath)
     func willDisplay(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath)
     func didEndDisplaying(at indexPath: IndexPath)
+    func showHighestRatedMovieDetails()
 }
 
 // PRESENTER -> VIEW

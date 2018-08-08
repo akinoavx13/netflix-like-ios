@@ -15,6 +15,8 @@ class DiscoverPresenter {
     weak var coordinator: DiscoverCoordinatorInput?
     weak var output: DiscoverPresenterOutput?
 
+    private var highestRatedMovie: Movie?
+    
     // MARK: - Lifecycle -
     init(interactor: DiscoverInteractorInput, coordinator: DiscoverCoordinatorInput) {
         self.interactor = interactor
@@ -58,6 +60,12 @@ extension DiscoverPresenter: DiscoverPresenterInput {
         coordinator?.stopItemListCoordinator(at: indexPath)
     }
     
+    func showHighestRatedMovieDetails() {
+        guard let highestRatedMovie = highestRatedMovie else { return }
+        
+        coordinator?.showHighestRatedMovieDetails(id: highestRatedMovie.id)
+    }
+    
     private func addCoordinators() {
         for section in ItemList.Section.allCases.enumerated() {
             coordinator?.createItemList(section: section.element)
@@ -71,6 +79,7 @@ extension DiscoverPresenter: DiscoverPresenterInput {
 extension DiscoverPresenter: DiscoverInteractorOutput {
     func present(_ response: Discover.Response.HighestRatedMoviesFetched) {
         guard let highestRatedMovie = response.movies.first else { return }
+        self.highestRatedMovie = highestRatedMovie
         
         output?.display(Discover.DisplayData.HighestRatedMovie(movie: highestRatedMovie))
     }
