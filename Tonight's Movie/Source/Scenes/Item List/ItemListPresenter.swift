@@ -27,8 +27,8 @@ class ItemListPresenter {
     private var popular: [Item]
     private var popularPage: Int
     
-    private var topRatedMovies: [Movie]
-    private var topRatedMoviesPage: Int
+    private var topRated: [Item]
+    private var topRatedPage: Int
     
     // MARK: - Lifecycle -
     init(interactor: ItemListInteractorInput, coordinator: ItemListCoordinatorInput, section: ItemList.Section, screen: Discover.Screen) {
@@ -46,8 +46,8 @@ class ItemListPresenter {
         popular = []
         popularPage = 1
         
-        topRatedMovies = []
-        topRatedMoviesPage = 1
+        topRated = []
+        topRatedPage = 1
     }
 }
 
@@ -65,7 +65,7 @@ extension ItemListPresenter: ItemListPresenterInput {
         case .Popular:
             return popular.count
         case .TopRated:
-            return topRatedMovies.count
+            return topRated.count
         }
     }
     
@@ -89,7 +89,12 @@ extension ItemListPresenter: ItemListPresenterInput {
                 interactor.perform(ItemList.Request.FetchPopularTVShows(page: popularPage))
             }
         case .TopRated:
-            interactor.perform(ItemList.Request.FetchTopRatedMovies(page: topRatedMoviesPage))
+            switch screen {
+            case .Movies:
+                interactor.perform(ItemList.Request.FetchTopRatedMovies(page: topRatedPage))
+            case .TVShows:
+                interactor.perform(ItemList.Request.FetchTopRatedTVShows(page: topRatedPage))
+            }
         }
     }
     
@@ -108,9 +113,9 @@ extension ItemListPresenter: ItemListPresenterInput {
 
             item.display(pictureURL: itemToShow.smallPictureUrl)
         case .TopRated:
-            let movie = topRatedMovies[indexPath.row]
+            let itemToShow = topRated[indexPath.row]
 
-            item.display(pictureURL: movie.smallPictureUrl)
+            item.display(pictureURL: itemToShow.smallPictureUrl)
         }
     }
     
@@ -140,28 +145,32 @@ extension ItemListPresenter: ItemListPresenterInput {
                 interactor.perform(ItemList.Request.FetchPopularTVShows(page: popularPage))
             }
         case .TopRated:
-            topRatedMoviesPage += 1
-            interactor.perform(ItemList.Request.FetchTopRatedMovies(page: topRatedMoviesPage))
+            topRatedPage += 1
+            switch screen {
+            case .Movies:
+                interactor.perform(ItemList.Request.FetchTopRatedMovies(page: topRatedPage))
+            case .TVShows:
+                interactor.perform(ItemList.Request.FetchTopRatedTVShows(page: topRatedPage))
+            }
         }
     }
     
     func showDetails(at indexPath: IndexPath) {
-        let itemId: Int?
+        let id: Int?
         
         switch section {
         case .Currently:
-            itemId = nowPlaying[indexPath.row].id
+            id = nowPlaying[indexPath.row].id
         case .Upcoming:
-            itemId = 0
+            id = 0
 //            movie = upcomingMovies[indexPath.row]
         case .Popular:
-            itemId = popular[indexPath.row].id
+            id = popular[indexPath.row].id
         case .TopRated:
-            itemId = 0
-//            movie = topRatedMovies[indexPath.row]
+            id = topRated[indexPath.row].id
         }
         
-        coordinator?.showDetailsOf(id: itemId!)
+        coordinator?.showDetailsOf(id: id!)
     }
     
     private func convertMoviesIntoItems(movies: [Movie]) -> [Item] {
@@ -184,6 +193,12 @@ extension ItemListPresenter: ItemListPresenterInput {
     
     private func displayPopularItems(with items: [Item]) {
         popularPage == 1 ? popular = items : popular.append(contentsOf: items)
+        
+        output?.display(ItemList.DisplayData.Items())
+    }
+    
+    private func displayTopRatedItems(with items: [Item]) {
+        topRatedPage == 1 ? topRated = items : topRated.append(contentsOf: items)
         
         output?.display(ItemList.DisplayData.Items())
     }
@@ -214,9 +229,9 @@ extension ItemListPresenter: ItemListInteractorOutput {
     }
     
     func present(_ response: ItemList.Response.TopRatedMoviesFetched) {
-        topRatedMoviesPage == 1 ? topRatedMovies = response.movies : topRatedMovies.append(contentsOf: response.movies)
+        let items = convertMoviesIntoItems(movies: response.movies)
         
-        output?.display(ItemList.DisplayData.Items())
+        displayTopRatedItems(with: items)
     }
 
     // MARK: - TVShows -
@@ -230,6 +245,12 @@ extension ItemListPresenter: ItemListInteractorOutput {
         let items = convertTVShowIntoItems(tvShows: response.tvShows)
         
         displayPopularItems(with: items)
+    }
+    
+    func present(_ response: ItemList.Response.TopRatedTVShowsFetched) {
+        let items = convertTVShowIntoItems(tvShows: response.tvShows)
+        
+        displayTopRatedItems(with: items)
     }
     
     // MARK: - Error -

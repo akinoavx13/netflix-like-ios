@@ -105,4 +105,17 @@ extension ItemListInteractor: ItemListInteractorInput {
                 }
         }
     }
+    
+    func perform(_ request: ItemList.Request.FetchTopRatedTVShows) {
+        dependencies
+            .repository
+            .getTopRatedTVShows(page: request.page) { (result) in
+                switch result {
+                case .success(let tvShows):
+                    self.output?.present(ItemList.Response.TopRatedTVShowsFetched(tvShows: tvShows))
+                case .failure(let error):
+                    self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+    }
 }
