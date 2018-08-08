@@ -33,6 +33,7 @@
 		202FEFB8211AFCD700494133 /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFB1211AFCD700494133 /* DetailsInteractor.swift */; };
 		202FEFBA211B092C00494133 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFB9211B092C00494133 /* UIView+Shadow.swift */; };
 		202FEFBC211B0A0800494133 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFBB211B0A0800494133 /* UIView+Gradient.swift */; };
+		202FEFBE211B1DF700494133 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFBD211B1DF700494133 /* Item.swift */; };
 		2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C4232118698D0096DAA8 /* Coordinator.swift */; };
 		2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C425211869970096DAA8 /* AppCoordinator.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
@@ -84,6 +85,7 @@
 		202FEFB1211AFCD700494133 /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
 		202FEFB9211B092C00494133 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		202FEFBB211B0A0800494133 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
+		202FEFBD211B1DF700494133 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		2055C4232118698D0096DAA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2055C425211869970096DAA8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2055C43821186A340096DAA8 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			children = (
 				20B9E41921187D0D002EACDA /* Movie.swift */,
 				20B9E4322118935C002EACDA /* TVShow.swift */,
+				202FEFBD211B1DF700494133 /* Item.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				2055C44521186E060096DAA8 /* Icons.swift in Sources */,
 				2025B12B2119B5410032E3D1 /* ItemListPresenter.swift in Sources */,
 				20B9E42621187FE1002EACDA /* CacheRepository.swift in Sources */,
+				202FEFBE211B1DF700494133 /* Item.swift in Sources */,
 				20B9E4332118935C002EACDA /* TVShow.swift in Sources */,
 				2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */,
 				2025B118211980420032E3D1 /* DiscoverProtocols.swift in Sources */,

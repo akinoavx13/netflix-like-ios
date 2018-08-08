@@ -40,7 +40,7 @@ extension DiscoverPresenter: DiscoverPresenterInput {
         switch screen {
         case .Movies:
             interactor.perform(Discover.Request.FetchHighestRatedMovies(page: 1))
-        case .TVshows:
+        case .TVShows:
             interactor.perform(Discover.Request.FetchHighestRatedTVShow(page: 1))
         }
         
@@ -74,8 +74,15 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     }
     
     private func addCoordinators() {
-        for section in ItemList.Section.allCases.enumerated() {
-            coordinator?.createItemList(section: section.element)
+        switch screen {
+        case .Movies:
+            for section in ItemList.Section.allCases.enumerated() {
+                coordinator?.createItemList(section: section.element, screen: .Movies)
+            }
+        case .TVShows:
+            for section in ItemList.Section.allCases.enumerated() {
+                coordinator?.createItemList(section: section.element, screen: .TVShows)
+            }
         }
     }
 }

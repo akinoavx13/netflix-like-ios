@@ -40,8 +40,8 @@ class DiscoverCoordinator: Coordinator {
 
 // PRESENTER -> COORDINATOR
 extension DiscoverCoordinator: DiscoverCoordinatorInput {
-    func createItemList(section: ItemList.Section) {
-        let coodinator = ItemListCoordinator(navigationController: navigationController, section: section)
+    func createItemList(section: ItemList.Section, screen: Discover.Screen) {
+        let coodinator = ItemListCoordinator(navigationController: navigationController, section: section, screen: screen)
         children.append(coodinator)
         coodinator.start()
     }

@@ -17,7 +17,7 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol DiscoverCoordinatorInput: class {
-    func createItemList(section: ItemList.Section)
+    func createItemList(section: ItemList.Section, screen: Discover.Screen)
     func startItemListCoordinator(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath)
     func stopItemListCoordinator(at indexPath: IndexPath)
     func showHighestRatedMovieDetails(id: Int)

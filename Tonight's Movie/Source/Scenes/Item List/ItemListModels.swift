@@ -22,6 +22,8 @@ extension ItemList.Request {
     struct FetchUpcomingMovies { let page: Int }
     struct FetchPopularMovies { let page: Int }
     struct FetchTopRatedMovies { let page: Int }
+    
+    struct FetchOnTheAirTVShows { let page: Int }
 }
 
 extension ItemList.Response {
@@ -29,6 +31,9 @@ extension ItemList.Response {
     struct UpcomingMoviesFetched { let movies: [Movie] }
     struct PopularMoviesFetched { let movies: [Movie] }
     struct TopRatedMoviesFetched { let movies: [Movie] }
+    
+    struct OnTheAirTVShowsFetched { let tvShows: [TVShow] }
+    
     struct Error { let errorMessage: String }
 }
 

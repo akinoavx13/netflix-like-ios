@@ -28,6 +28,8 @@ protocol ItemListInteractorInput {
     func perform(_ request: ItemList.Request.FetchUpcomingMovies)
     func perform(_ request: ItemList.Request.FetchPopularMovies)
     func perform(_ request: ItemList.Request.FetchTopRatedMovies)
+    
+    func perform(_ request: ItemList.Request.FetchOnTheAirTVShows)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
@@ -36,6 +38,9 @@ protocol ItemListInteractorOutput: class {
     func present(_ response: ItemList.Response.UpcomingMoviesFetched)
     func present(_ response: ItemList.Response.PopularMoviesFetched)
     func present(_ response: ItemList.Response.TopRatedMoviesFetched)
+    
+    func present(_ response: ItemList.Response.OnTheAirTVShowsFetched)
+    
     func present(_ response: ItemList.Response.Error)
 }
 

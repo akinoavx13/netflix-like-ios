@@ -18,11 +18,13 @@ class ItemListCoordinator: Coordinator {
     
     private var itemListViewController: ItemListViewController?
     private var section: ItemList.Section
+    private var screen: Discover.Screen
     
     // MARK: - Lifecycle -
-    init(navigationController: UINavigationController, section: ItemList.Section) {
+    init(navigationController: UINavigationController, section: ItemList.Section, screen: Discover.Screen) {
         self.navigationController = navigationController
         self.section = section
+        self.screen = screen
         
         children = []
     }
@@ -30,7 +32,7 @@ class ItemListCoordinator: Coordinator {
     // MARK: - Methods -
     func start() {
         let interactor = ItemListInteractor()
-        let presenter = ItemListPresenter(interactor: interactor, coordinator: self, section: section)
+        let presenter = ItemListPresenter(interactor: interactor, coordinator: self, section: section, screen: screen)
         itemListViewController = ItemListViewController.instantiate(with: presenter)
 
         interactor.output = presenter

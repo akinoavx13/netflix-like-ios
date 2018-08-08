@@ -213,6 +213,32 @@ final class RemoteRepository: Repository {
                 
                 return completion(.success(tvShows))
         }
-
+    }
+    
+    func getOnTheAirTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
+        var parameters = defaultParameters
+        parameters["page"] = "\(page)"
+        
+        Alamofire
+            .request("\(baseURL)/tv/on_the_air", parameters: parameters)
+            .validate()
+            .responseJSON { (response) in
+                if response.error != nil {
+                    return completion(.failure(response.error!))
+                }
+                
+                guard
+                    let json = response.result.value as? [String: Any],
+                    let results = json["results"] as? [[String: Any]]
+                    else {
+                        return completion(.failure(AFError.responseSerializationFailed(reason: AFError.ResponseSerializationFailureReason.inputDataNilOrZeroLength)))
+                }
+                
+                let tvShows = results.compactMap { dict in
+                    return TVShow(dict: dict)
+                }
+                
+                return completion(.success(tvShows))
+        }
     }
 }

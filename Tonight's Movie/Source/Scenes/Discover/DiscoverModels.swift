@@ -10,7 +10,7 @@ import Foundation
 
 enum Discover {
     enum Screen {
-        case Movies, TVshows
+        case Movies, TVShows
     }
     enum Request { }
     enum Response { }

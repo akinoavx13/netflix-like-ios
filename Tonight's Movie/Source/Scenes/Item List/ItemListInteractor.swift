@@ -25,7 +25,11 @@ class ItemListInteractor {
 
 // PRESENTER -> INTERACTOR
 extension ItemListInteractor: ItemListInteractorInput {
+    
+    // MARK: - Movies -
     func perform(_ request: ItemList.Request.FetchNowPlayingMovies) {
+        print("page : \(request.page)")
+        
         dependencies
             .repository
             .getNowPlayingMovies(page: request.page) { (result) in
@@ -76,5 +80,19 @@ extension ItemListInteractor: ItemListInteractorInput {
                 }
         }
     }
-    
+
+    // MARK: - TVShows -
+    func perform(_ request: ItemList.Request.FetchOnTheAirTVShows) {
+        print("page : \(request.page)")
+        dependencies
+            .repository
+            .getOnTheAirTVShows(page: request.page) { (result) in
+                switch result {
+                case .success(let tvShows):
+                    self.output?.present(ItemList.Response.OnTheAirTVShowsFetched(tvShows: tvShows))
+                case .failure(let error):
+                    self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+    }
 }
