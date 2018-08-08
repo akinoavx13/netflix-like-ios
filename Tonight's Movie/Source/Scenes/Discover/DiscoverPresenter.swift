@@ -33,7 +33,7 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     
     // MARK: - Methods -
     func viewCreated() {
-        interactor.perform(Discover.Request.FetchPopularTVShows(page: 1))
+        interactor.perform(Discover.Request.FetchHighestRatedMovies(page: 1))
     }
     
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath) {
@@ -65,10 +65,10 @@ extension DiscoverPresenter: DiscoverPresenterInput {
 
 // INTERACTOR -> PRESENTER (indirect)
 extension DiscoverPresenter: DiscoverInteractorOutput {
-    func present(_ response: Discover.Response.PopularTVShowsFetched) {
-        guard let forwardTvShow = response.tvShows.shuffled().first else { return}
+    func present(_ response: Discover.Response.HighestRatedMoviesFetched) {
+        guard let highestRatedMovie = response.movies.first else { return }
         
-        output?.display(Discover.DisplayData.ForwardTVShow(tvShow: forwardTvShow))
+        output?.display(Discover.DisplayData.HighestRatedMovie(movie: highestRatedMovie))
     }
     
     func present(_ response: Discover.Response.Error) {

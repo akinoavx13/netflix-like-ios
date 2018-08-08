@@ -26,13 +26,13 @@ class DiscoverInteractor {
 // PRESENTER -> INTERACTOR
 extension DiscoverInteractor: DiscoverInteractorInput {
     
-    func perform(_ request: Discover.Request.FetchPopularTVShows) {
+    func perform(_ request: Discover.Request.FetchHighestRatedMovies) {
         dependencies
             .repository
-            .getPopularTVShows(page: request.page) { (result) in
+            .getHighestRatedMovies(page: request.page) { (result) in
                 switch result {
-                case .success(let tvShows):
-                    self.output?.present(Discover.Response.PopularTVShowsFetched(tvShows: tvShows))
+                case .success(let movies):
+                    self.output?.present(Discover.Response.HighestRatedMoviesFetched(movies: movies))
                 case .failure(let error):
                     self.output?.present(Discover.Response.Error(errorMessage: error.localizedDescription))
                 }

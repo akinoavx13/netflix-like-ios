@@ -16,7 +16,7 @@ protocol HasRepository {
 
 protocol Repository {
     
-    func getPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void)
+    func getHighestRatedMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void)
     func getNowPlayingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void)
     func getUpcomingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void)
     func getPopularMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void)

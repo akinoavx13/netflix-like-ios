@@ -15,15 +15,15 @@ enum Discover {
 }
 
 extension Discover.Request {
-    struct FetchPopularTVShows { let page: Int }
+    struct FetchHighestRatedMovies { let page: Int }
 }
 
 extension Discover.Response {
-    struct PopularTVShowsFetched { let tvShows: [TVShow] }
+    struct HighestRatedMoviesFetched { let movies: [Movie] }
     struct Error { let errorMessage: String }
 }
 
 extension Discover.DisplayData {
-    struct ForwardTVShow { let tvShow: TVShow }
+    struct HighestRatedMovie { let movie: Movie }
     struct Error { let errorMessage: String }
 }

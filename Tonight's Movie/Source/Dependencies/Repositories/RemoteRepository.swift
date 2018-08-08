@@ -25,12 +25,15 @@ final class RemoteRepository: Repository {
     }
     
     // MARK: - Methods -
-    func getPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
+    func getHighestRatedMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
+        parameters["certification_country"] = Locale.current.languageCode?.uppercased()
+        parameters["certification"] = "R"
+        parameters["sort_by"] = "vote_average.desc"
         
         Alamofire
-            .request("\(baseURL)/tv/popular", parameters: parameters)
+            .request("\(baseURL)/discover/movie", parameters: parameters)
             .validate()
             .responseJSON { (response) in
                 if response.error != nil {
@@ -44,11 +47,11 @@ final class RemoteRepository: Repository {
                         return completion(.failure(AFError.responseSerializationFailed(reason: AFError.ResponseSerializationFailureReason.inputDataNilOrZeroLength)))
                 }
                 
-                let tvShows = results.compactMap { dict in
-                    return TVShow(dict: dict)
+                let movies = results.compactMap { dict in
+                    return Movie(dict: dict)
                 }
                 
-                return completion(.success(tvShows))
+                return completion(.success(movies))
         }
     }
     
