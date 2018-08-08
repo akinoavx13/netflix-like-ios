@@ -17,7 +17,7 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol ItemListCoordinatorInput: class {
-    func showDetailsOf(id: Int)
+    func showDetailsOf(id: Int, type: Item.ContentType)
 }
 
 // ======== Interactor ======== //

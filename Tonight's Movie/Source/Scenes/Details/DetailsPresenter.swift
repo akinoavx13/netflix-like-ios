@@ -16,12 +16,14 @@ class DetailsPresenter {
     weak var output: DetailsPresenterOutput?
 
     private let id: Int
+    private let type: Item.ContentType
     
     // MARK: - Lifecycle -
-    init(interactor: DetailsInteractorInput, coordinator: DetailsCoordinatorInput, id: Int) {
+    init(interactor: DetailsInteractorInput, coordinator: DetailsCoordinatorInput, id: Int, type: Item.ContentType) {
         self.interactor = interactor
         self.coordinator = coordinator
         self.id = id
+        self.type = type
     }
 }
 
@@ -29,7 +31,12 @@ class DetailsPresenter {
 
 extension DetailsPresenter: DetailsPresenterInput {
     func viewCreated() {
-        interactor.perform(Details.Request.FetchMovieDetails(id: id))
+        switch type {
+        case .Movie:
+            interactor.perform(Details.Request.FetchMovieDetails(id: id))
+        case .TVShow:
+            interactor.perform(Details.Request.FetchTVShowDetails(id: id))
+        }
     }
     
     func closeButtonTapped() {
@@ -42,7 +49,25 @@ extension DetailsPresenter: DetailsPresenterInput {
 // INTERACTOR -> PRESENTER (indirect)
 extension DetailsPresenter: DetailsInteractorOutput {
     func present(_ response: Details.Response.MovieDetailsFetched) {
-        output?.display(Details.DisplayData.MovieDetails(movie: response.movie))
+        output?.display(Details.DisplayData.Details(
+            pictureURL: response.movie.smallPictureUrl,
+            backgroundURL: response.movie.smallBackgroundUrl,
+            mark: response.movie.voteAverage,
+            date: response.movie.formattedDate,
+            duration: response.movie.duration,
+            overview: response.movie.overview
+        ))
+    }
+    
+    func present(_ response: Details.Response.TVShowDetailsFetched) {
+        output?.display(Details.DisplayData.Details(
+            pictureURL: response.tvShow.smallPictureUrl,
+            backgroundURL: response.tvShow.smallbackgroundUrl,
+            mark: response.tvShow.voteAverage,
+            date: response.tvShow.formattedDate,
+            duration: response.tvShow.duration,
+            overview: response.tvShow.overview
+        ))
     }
     
     func present(_ response: Details.Response.Error) {

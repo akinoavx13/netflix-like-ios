@@ -49,10 +49,10 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsg-NB-8yf">
-                                                <rect key="frame" x="343" y="16" width="16" height="16"/>
+                                                <rect key="frame" x="335" y="16" width="24" height="24"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="16" id="iNS-Xl-PQW"/>
-                                                    <constraint firstAttribute="width" constant="16" id="osD-ys-Ye5"/>
+                                                    <constraint firstAttribute="height" constant="24" id="iNS-Xl-PQW"/>
+                                                    <constraint firstAttribute="width" constant="24" id="osD-ys-Ye5"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -127,6 +127,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="0ly-TL-bCd" secondAttribute="bottom" id="T2Y-7p-Vtb"/>
                             <constraint firstItem="Fhz-5B-qaF" firstAttribute="trailing" secondItem="0ly-TL-bCd" secondAttribute="trailing" id="aSM-Vb-mKp"/>
+                            <constraint firstItem="AJj-YH-41R" firstAttribute="width" relation="lessThanOrEqual" secondItem="2ev-QE-M02" secondAttribute="width" constant="-16" id="ami-Tq-25n"/>
                             <constraint firstItem="agH-gg-ctR" firstAttribute="width" secondItem="2ev-QE-M02" secondAttribute="width" id="epz-hw-zgt"/>
                             <constraint firstItem="0ly-TL-bCd" firstAttribute="top" secondItem="2ev-QE-M02" secondAttribute="top" id="wBF-YG-xEB"/>
                             <constraint firstItem="0ly-TL-bCd" firstAttribute="leading" secondItem="Fhz-5B-qaF" secondAttribute="leading" id="wcL-Ib-ZPJ"/>

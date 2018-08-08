@@ -17,11 +17,13 @@ class DetailsCoordinator: Coordinator {
     private let navigationController: UINavigationController
     
     private let id: Int
+    private let type: Item.ContentType
     
     // MARK: - Lifecycle -
-    init(navigationController: UINavigationController, id: Int) {
+    init(navigationController: UINavigationController, id: Int, type: Item.ContentType) {
         self.navigationController = navigationController
         self.id = id
+        self.type = type
         
         children = []
     }
@@ -29,7 +31,7 @@ class DetailsCoordinator: Coordinator {
     // MARK: - Methods -
     func start() {
         let interactor = DetailsInteractor()
-        let presenter = DetailsPresenter(interactor: interactor, coordinator: self, id: id)
+        let presenter = DetailsPresenter(interactor: interactor, coordinator: self, id: id, type: type)
         let viewController = DetailsViewController.instantiate(with: presenter)
 
         interactor.output = presenter

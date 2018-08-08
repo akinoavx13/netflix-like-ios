@@ -20,7 +20,7 @@ protocol DiscoverCoordinatorInput: class {
     func createItemList(section: ItemList.Section, screen: Discover.Screen)
     func startItemListCoordinator(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath)
     func stopItemListCoordinator(at indexPath: IndexPath)
-    func showHighestRatedMovieDetails(id: Int)
+    func showHighestRatedItemDetails(id: Int, type: Item.ContentType)
 }
 
 // ======== Interactor ======== //
@@ -28,13 +28,13 @@ protocol DiscoverCoordinatorInput: class {
 // PRESENTER -> INTERACTOR
 protocol DiscoverInteractorInput {
     func perform(_ request: Discover.Request.FetchHighestRatedMovies)
-    func perform(_ request: Discover.Request.FetchHighestRatedTVShow)
+    func perform(_ request: Discover.Request.FetchMostPopularTVShow)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
 protocol DiscoverInteractorOutput: class {
     func present(_ response: Discover.Response.HighestRatedMoviesFetched)
-    func present(_ response: Discover.Response.HighestRatedTVShowsFetched)
+    func present(_ response: Discover.Response.MostPopularTVShowsFetched)
     func present(_ response: Discover.Response.Error)
 }
 
@@ -56,6 +56,6 @@ protocol DiscoverPresenterInput {
 
 // PRESENTER -> VIEW
 protocol DiscoverPresenterOutput: class {
-    func display(_ displayModel: Discover.DisplayData.HighestRatedItem)
+    func display(_ displayModel: Discover.DisplayData.ForwardedItem)
     func display(_ displayModel: Discover.DisplayData.Error)
 }

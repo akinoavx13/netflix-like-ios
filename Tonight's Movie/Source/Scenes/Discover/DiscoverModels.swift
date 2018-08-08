@@ -19,16 +19,16 @@ enum Discover {
 
 extension Discover.Request {
     struct FetchHighestRatedMovies { let page: Int }
-    struct FetchHighestRatedTVShow { let page: Int }
+    struct FetchMostPopularTVShow { let page: Int }
 }
 
 extension Discover.Response {
     struct HighestRatedMoviesFetched { let movies: [Movie] }
-    struct HighestRatedTVShowsFetched { let tvShows: [TVShow] }
+    struct MostPopularTVShowsFetched { let tvShows: [TVShow] }
     struct Error { let errorMessage: String }
 }
 
 extension Discover.DisplayData {
-    struct HighestRatedItem { let pictureURL: String }
+    struct ForwardedItem { let pictureURL: String }
     struct Error { let errorMessage: String }
 }

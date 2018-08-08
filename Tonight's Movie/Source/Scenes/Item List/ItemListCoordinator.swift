@@ -60,8 +60,8 @@ class ItemListCoordinator: Coordinator {
 
 // PRESENTER -> COORDINATOR
 extension ItemListCoordinator: ItemListCoordinatorInput {
-    func showDetailsOf(id: Int) {
-        let coordinator = DetailsCoordinator(navigationController: navigationController, id: id)
+    func showDetailsOf(id: Int, type: Item.ContentType) {
+        let coordinator = DetailsCoordinator(navigationController: navigationController, id: id, type: type)
         children = [coordinator]
         coordinator.start()
     }

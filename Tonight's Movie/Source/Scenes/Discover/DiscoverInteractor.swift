@@ -39,13 +39,13 @@ extension DiscoverInteractor: DiscoverInteractorInput {
         }
     }
     
-    func perform(_ request: Discover.Request.FetchHighestRatedTVShow) {
+    func perform(_ request: Discover.Request.FetchMostPopularTVShow) {
         dependencies
             .repository
-            .getHighestRatedTVShows(page: request.page) { (result) in
+            .getMostPopularTVShows(page: request.page) { (result) in
                 switch result {
                 case .success(let tvShows):
-                    self.output?.present(Discover.Response.HighestRatedTVShowsFetched(tvShows: tvShows))
+                    self.output?.present(Discover.Response.MostPopularTVShowsFetched(tvShows: tvShows))
                 case .failure(let error):
                     self.output?.present(Discover.Response.Error(errorMessage: error.localizedDescription))
                 }

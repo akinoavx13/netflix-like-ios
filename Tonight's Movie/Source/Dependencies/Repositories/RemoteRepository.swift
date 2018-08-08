@@ -185,12 +185,12 @@ final class RemoteRepository: Repository {
     }
 
     // MARK: - TVShows -
-    func getHighestRatedTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
+    func getMostPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
         parameters["certification_country"] = Locale.current.languageCode?.uppercased()
         parameters["certification"] = "R"
-        parameters["sort_by"] = "vote_average.desc"
+        parameters["sort_by"] = "popularity.desc"
         
         Alamofire
             .request("\(baseURL)/discover/tv", parameters: parameters)

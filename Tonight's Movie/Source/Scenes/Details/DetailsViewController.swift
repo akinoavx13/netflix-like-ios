@@ -133,23 +133,23 @@ class DetailsViewController: UIViewController {
 
 // PRESENTER -> VIEW
 extension DetailsViewController: DetailsPresenterOutput {
-    func display(_ displayModel: Details.DisplayData.MovieDetails) {
-        if let smallPictureUrl = URL(string: displayModel.movie.smallPictureUrl) {
-            pictureImageView.kf.setImage(with: smallPictureUrl)
+    func display(_ displayModel: Details.DisplayData.Details) {
+        if let pictureURL = URL(string: displayModel.pictureURL) {
+            pictureImageView.kf.setImage(with: pictureURL)
         }
         
-        if let orignalBackgroundUrl = URL(string: displayModel.movie.orignalBackgroundUrl) {
-            backgroundImageView.kf.setImage(with: orignalBackgroundUrl)
+        if let backgroundURL = URL(string: displayModel.backgroundURL) {
+            backgroundImageView.kf.setImage(with: backgroundURL)
         }
         
         gradientView.gradient(colors: [UIColor.clear.cgColor, Colors.black.cgColor])
         
         UIView.animate(withDuration: 0.2) {
-            self.dateLabel.text = displayModel.movie.formattedDate
-            self.durationLabel.text = displayModel.movie.duration
-            self.configureMarkLabel(voteAverage: displayModel.movie.voteAverage)
+            self.dateLabel.text = displayModel.date
+            self.durationLabel.text = displayModel.duration
+            self.configureMarkLabel(voteAverage: displayModel.mark)
 
-            self.overviewLabel.text = displayModel.movie.overview
+            self.overviewLabel.text = displayModel.overview
             self.view.layoutIfNeeded()
         }
         

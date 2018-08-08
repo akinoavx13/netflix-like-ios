@@ -26,6 +26,10 @@ struct Movie {
         return "https://image.tmdb.org/t/p/original\(pictureURL)"
     }
     
+    var smallBackgroundUrl: String {
+        return "https://image.tmdb.org/t/p/w500\(backgroundURL)"
+    }
+    
     var orignalBackgroundUrl: String {
         return "https://image.tmdb.org/t/p/original\(backgroundURL)"
     }

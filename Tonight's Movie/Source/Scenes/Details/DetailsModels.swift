@@ -16,14 +16,23 @@ enum Details {
 
 extension Details.Request {
     struct FetchMovieDetails { let id: Int }
+    struct FetchTVShowDetails { let id: Int }
 }
 
 extension Details.Response {
     struct MovieDetailsFetched { let movie: Movie }
+    struct TVShowDetailsFetched { let tvShow: TVShow }
     struct Error { let errorMessage: String }
 }
 
 extension Details.DisplayData {
-    struct MovieDetails { let movie: Movie }
+    struct Details {
+        let pictureURL: String
+        let backgroundURL: String
+        let mark: Double
+        let date: String
+        let duration: String
+        let overview: String
+    }
     struct Error { let errorMessage: String }
 }

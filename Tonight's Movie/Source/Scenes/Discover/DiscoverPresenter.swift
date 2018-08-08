@@ -32,7 +32,12 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     
     // MARK: - Properties -
     var numberOfItems: Int {
-        return ItemList.Section.allCases.count
+        switch screen {
+        case .Movies:
+            return 4
+        case .TVShows:
+            return 3
+        }
     }
     
     // MARK: - Methods -
@@ -41,21 +46,33 @@ extension DiscoverPresenter: DiscoverPresenterInput {
         case .Movies:
             interactor.perform(Discover.Request.FetchHighestRatedMovies(page: 1))
         case .TVShows:
-            interactor.perform(Discover.Request.FetchHighestRatedTVShow(page: 1))
+            interactor.perform(Discover.Request.FetchMostPopularTVShow(page: 1))
         }
         
         addCoordinators()
     }
     
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            item.display(title: Translation.Discover.currently)
-        } else if indexPath.row == 1 {
-            item.display(title: Translation.Discover.upcoming)
-        } else if indexPath.row == 2 {
-            item.display(title: Translation.Discover.popular)
-        } else if indexPath.row == 3 {
-            item.display(title: Translation.Discover.topRated)
+        
+        switch screen {
+        case .Movies:
+            if indexPath.row == 0 {
+                item.display(title: Translation.Discover.currently)
+            } else if indexPath.row == 1 {
+                item.display(title: Translation.Discover.upcoming)
+            } else if indexPath.row == 2 {
+                item.display(title: Translation.Discover.popular)
+            } else if indexPath.row == 3 {
+                item.display(title: Translation.Discover.topRated)
+            }
+        case .TVShows:
+            if indexPath.row == 0 {
+                item.display(title: Translation.Discover.currently)
+            } else if indexPath.row == 1 {
+                item.display(title: Translation.Discover.popular)
+            } else if indexPath.row == 2 {
+                item.display(title: Translation.Discover.topRated)
+            }
         }
     }
 
@@ -70,19 +87,25 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     func showHighestRatedMovieDetails() {
         guard let highestRatedItemId = highestRatedItemId else { return }
         
-        coordinator?.showHighestRatedMovieDetails(id: highestRatedItemId)
+        switch screen {
+        case .Movies:
+            coordinator?.showHighestRatedItemDetails(id: highestRatedItemId, type: .Movie)
+        case .TVShows:
+            coordinator?.showHighestRatedItemDetails(id: highestRatedItemId, type: .TVShow)
+        }
     }
     
     private func addCoordinators() {
         switch screen {
         case .Movies:
-            for section in ItemList.Section.allCases.enumerated() {
-                coordinator?.createItemList(section: section.element, screen: .Movies)
-            }
+            coordinator?.createItemList(section: .Currently, screen: .Movies)
+            coordinator?.createItemList(section: .Upcoming, screen: .Movies)
+            coordinator?.createItemList(section: .Popular, screen: .Movies)
+            coordinator?.createItemList(section: .TopRated, screen: .Movies)
         case .TVShows:
-            for section in ItemList.Section.allCases.enumerated() {
-                coordinator?.createItemList(section: section.element, screen: .TVShows)
-            }
+            coordinator?.createItemList(section: .Currently, screen: .TVShows)
+            coordinator?.createItemList(section: .Popular, screen: .TVShows)
+            coordinator?.createItemList(section: .TopRated, screen: .TVShows)
         }
     }
 }
@@ -95,14 +118,14 @@ extension DiscoverPresenter: DiscoverInteractorOutput {
         guard let highestRatedMovie = response.movies.first else { return }
         highestRatedItemId = highestRatedMovie.id
         
-        output?.display(Discover.DisplayData.HighestRatedItem(pictureURL: highestRatedMovie.originalPictureUrl))
+        output?.display(Discover.DisplayData.ForwardedItem(pictureURL: highestRatedMovie.originalPictureUrl))
     }
     
-    func present(_ response: Discover.Response.HighestRatedTVShowsFetched) {
+    func present(_ response: Discover.Response.MostPopularTVShowsFetched) {
         guard let highestRatedTVShow = response.tvShows.first else { return }
         highestRatedItemId = highestRatedTVShow.id
         
-        output?.display(Discover.DisplayData.HighestRatedItem(pictureURL: highestRatedTVShow.originalPictureUrl))
+        output?.display(Discover.DisplayData.ForwardedItem(pictureURL: highestRatedTVShow.originalPictureUrl))
     }
     
     func present(_ response: Discover.Response.Error) {

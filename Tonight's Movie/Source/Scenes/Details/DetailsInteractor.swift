@@ -39,4 +39,17 @@ extension DetailsInteractor: DetailsInteractorInput {
         }
     }
     
+    func perform(_ request: Details.Request.FetchTVShowDetails) {
+        dependencies
+            .repository
+            .getTVShowDetails(id: request.id) { (result) in
+                switch result {
+                case .success(let tvShow):
+                    self.output?.present(Details.Response.TVShowDetailsFetched(tvShow: tvShow))
+                case .failure(let error):
+                    self.output?.present(Details.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+    }
+    
 }

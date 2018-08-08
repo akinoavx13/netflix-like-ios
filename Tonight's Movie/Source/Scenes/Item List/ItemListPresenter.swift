@@ -21,8 +21,8 @@ class ItemListPresenter {
     private var nowPlaying: [Item]
     private var nowPlayingPage: Int
 
-    private var upcomingMovies: [Movie]
-    private var upcomingMoviesPage: Int
+    private var upcoming: [Item]
+    private var upcomingPage: Int
     
     private var popular: [Item]
     private var popularPage: Int
@@ -40,8 +40,8 @@ class ItemListPresenter {
         nowPlaying = []
         nowPlayingPage = 1
         
-        upcomingMovies = []
-        upcomingMoviesPage = 1
+        upcoming = []
+        upcomingPage = 1
         
         popular = []
         popularPage = 1
@@ -61,7 +61,7 @@ extension ItemListPresenter: ItemListPresenterInput {
         case .Currently:
             return nowPlaying.count
         case .Upcoming:
-            return upcomingMovies.count
+            return upcoming.count
         case .Popular:
             return popular.count
         case .TopRated:
@@ -80,7 +80,12 @@ extension ItemListPresenter: ItemListPresenterInput {
                 interactor.perform(ItemList.Request.FetchOnTheAirTVShows(page: nowPlayingPage))
             }
         case .Upcoming:
-            interactor.perform(ItemList.Request.FetchUpcomingMovies(page: upcomingMoviesPage))
+            switch screen {
+            case .Movies:
+                interactor.perform(ItemList.Request.FetchUpcomingMovies(page: upcomingPage))
+            case .TVShows:
+                break
+            }
         case .Popular:
             switch screen {
             case .Movies:
@@ -105,9 +110,9 @@ extension ItemListPresenter: ItemListPresenterInput {
             
             item.display(pictureURL: itemToShow.smallPictureUrl)
         case .Upcoming:
-            let movie = upcomingMovies[indexPath.row]
+            let itemToShow = upcoming[indexPath.row]
             
-            item.display(pictureURL: movie.smallPictureUrl)
+            item.display(pictureURL: itemToShow.smallPictureUrl)
         case .Popular:
             let itemToShow = popular[indexPath.row]
 
@@ -134,8 +139,13 @@ extension ItemListPresenter: ItemListPresenterInput {
                 interactor.perform(ItemList.Request.FetchOnTheAirTVShows(page: nowPlayingPage))
             }
         case .Upcoming:
-            upcomingMoviesPage += 1
-            interactor.perform(ItemList.Request.FetchUpcomingMovies(page: upcomingMoviesPage))
+            upcomingPage += 1
+            switch screen {
+            case .Movies:
+                interactor.perform(ItemList.Request.FetchUpcomingMovies(page: upcomingPage))
+            case .TVShows:
+                break
+            }
         case .Popular:
             popularPage += 1
             switch screen {
@@ -162,15 +172,19 @@ extension ItemListPresenter: ItemListPresenterInput {
         case .Currently:
             id = nowPlaying[indexPath.row].id
         case .Upcoming:
-            id = 0
-//            movie = upcomingMovies[indexPath.row]
+            id = upcoming[indexPath.row].id
         case .Popular:
             id = popular[indexPath.row].id
         case .TopRated:
             id = topRated[indexPath.row].id
         }
         
-        coordinator?.showDetailsOf(id: id!)
+        switch screen {
+        case .Movies:
+            coordinator?.showDetailsOf(id: id!, type: .Movie)
+        case .TVShows:
+            coordinator?.showDetailsOf(id: id!, type: .TVShow)
+        }
     }
     
     private func convertMoviesIntoItems(movies: [Movie]) -> [Item] {
@@ -202,6 +216,12 @@ extension ItemListPresenter: ItemListPresenterInput {
         
         output?.display(ItemList.DisplayData.Items())
     }
+    
+    private func displayUpcomingItems(with items: [Item]) {
+        upcomingPage == 1 ? upcoming = items : upcoming.append(contentsOf: items)
+        
+        output?.display(ItemList.DisplayData.Items())
+    }
 }
 
 // MARK: - Presentation Logic -
@@ -217,9 +237,9 @@ extension ItemListPresenter: ItemListInteractorOutput {
     }
     
     func present(_ response: ItemList.Response.UpcomingMoviesFetched) {
-        upcomingMoviesPage == 1 ? upcomingMovies = response.movies : upcomingMovies.append(contentsOf: response.movies)
+        let items = convertMoviesIntoItems(movies: response.movies)
         
-        output?.display(ItemList.DisplayData.Items())
+        displayUpcomingItems(with: items)
     }
     
     func present(_ response: ItemList.Response.PopularMoviesFetched) {

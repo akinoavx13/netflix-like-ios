@@ -108,7 +108,7 @@ extension DiscoverViewController: UITableViewDelegate {
 
 // PRESENTER -> VIEW
 extension DiscoverViewController: DiscoverPresenterOutput {
-    func display(_ displayModel: Discover.DisplayData.HighestRatedItem) {
+    func display(_ displayModel: Discover.DisplayData.ForwardedItem) {
         if let url = URL(string: displayModel.pictureURL) {
             self.highestRatedMovieImageView.kf.setImage(with: url)
         }

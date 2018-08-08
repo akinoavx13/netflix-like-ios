@@ -58,8 +58,8 @@ extension DiscoverCoordinator: DiscoverCoordinatorInput {
         coordinator.stop()
     }
     
-    func showHighestRatedMovieDetails(id: Int) {
-        let coodinator = DetailsCoordinator(navigationController: navigationController, id: id)
+    func showHighestRatedItemDetails(id: Int, type: Item.ContentType) {
+        let coodinator = DetailsCoordinator(navigationController: navigationController, id: id, type: type)
         children.append(coodinator)
         coodinator.start()
     }
