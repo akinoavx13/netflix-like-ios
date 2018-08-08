@@ -85,8 +85,14 @@ extension DiscoverViewController: UITableViewDataSource {
 extension DiscoverViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? DiscoverCell else { return }
+
+        presenter.willDisplay(viewController: self, for: cell, at: indexPath)
+    }
+
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if !cell.isKind(of: DiscoverCell.self) { return }
         
-        presenter.willDisplay(item: cell, viewController: self, at: indexPath)
+        presenter.didEndDisplaying(at: indexPath)
     }
 }
 

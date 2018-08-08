@@ -34,6 +34,11 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     // MARK: - Methods -
     func viewCreated() {
         interactor.perform(Discover.Request.FetchHighestRatedMovies(page: 1))
+        
+        coordinator?.createItemList(section: .Currently)
+        coordinator?.createItemList(section: .Upcoming)
+        coordinator?.createItemList(section: .Popular)
+        coordinator?.createItemList(section: .TopRated)
     }
     
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath) {
@@ -47,17 +52,13 @@ extension DiscoverPresenter: DiscoverPresenterInput {
             item.display(title: Translation.Discover.topRated)
         }
     }
+
+    func willDisplay(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath) {
+        coordinator?.startItemListCoordinator(viewController: viewController, for: cell, at: indexPath)
+    }
     
-    func willDisplay(item: DiscoverCell, viewController: DiscoverViewController, at indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            coordinator?.addItemList(discoverViewController: viewController, discoverCell: item, section: .Currently)
-        } else if indexPath.row == 1 {
-            coordinator?.addItemList(discoverViewController: viewController, discoverCell: item, section: .Upcoming)
-        } else if indexPath.row == 2 {
-            coordinator?.addItemList(discoverViewController: viewController, discoverCell: item, section: .Popular)
-        } else if indexPath.row == 3 {
-            coordinator?.addItemList(discoverViewController: viewController, discoverCell: item, section: .TopRated)
-        }
+    func didEndDisplaying(at indexPath: IndexPath) {
+        coordinator?.stopItemListCoordinator(at: indexPath)
     }
 }
 

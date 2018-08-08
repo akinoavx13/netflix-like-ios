@@ -31,8 +31,7 @@ final class DiscoverCell: UITableViewCell {
         
         selectionStyle = .none
         backgroundColor = Colors.black
-    }
-    
+    }    
 }
 
 extension DiscoverCell: DiscoverCellProtocol {

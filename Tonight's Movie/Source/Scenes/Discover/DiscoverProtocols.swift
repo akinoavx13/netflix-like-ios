@@ -17,7 +17,9 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol DiscoverCoordinatorInput: class {
-    func addItemList(discoverViewController: DiscoverViewController, discoverCell: DiscoverCell, section: ItemList.Section)
+    func createItemList(section: ItemList.Section)
+    func startItemListCoordinator(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath)
+    func stopItemListCoordinator(at indexPath: IndexPath)
 }
 
 // ======== Interactor ======== //
@@ -44,7 +46,8 @@ protocol DiscoverPresenterInput {
     // MARK: - Methods -
     func viewCreated()
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath)
-    func willDisplay(item: DiscoverCell, viewController: DiscoverViewController, at indexPath: IndexPath)
+    func willDisplay(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath)
+    func didEndDisplaying(at indexPath: IndexPath)
 }
 
 // PRESENTER -> VIEW

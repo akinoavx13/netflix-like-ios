@@ -15,22 +15,18 @@ class ItemListCoordinator: Coordinator {
     var children: [Coordinator]
 
     private let navigationController: UINavigationController
-    private let discoverViewController: DiscoverViewController
-    private let discoverCell: DiscoverCell
     
     private var itemListViewController: ItemListViewController?
     private var section: ItemList.Section
     
     // MARK: - Lifecycle -
-    init(navigationController: UINavigationController, discoverViewController: DiscoverViewController, discoverCell: DiscoverCell, section: ItemList.Section) {
+    init(navigationController: UINavigationController, section: ItemList.Section) {
         self.navigationController = navigationController
-        self.discoverViewController = discoverViewController
-        self.discoverCell = discoverCell
         self.section = section
         
         children = []
     }
-
+    
     // MARK: - Methods -
     func start() {
         let interactor = ItemListInteractor()
@@ -39,14 +35,16 @@ class ItemListCoordinator: Coordinator {
 
         interactor.output = presenter
         presenter.output = itemListViewController
-
+    }
+    
+    func show(viewController: DiscoverViewController, for cell: DiscoverCell) {
         guard let itemListViewController = itemListViewController else { return }
-        
-        discoverViewController.addChild(itemListViewController)
-        itemListViewController.view.frame = discoverCell.contenairView.bounds
-        discoverCell.contenairView.addSubview(itemListViewController.view)
-        discoverViewController.didMove(toParent: itemListViewController)
-        discoverCell.contenairView.layoutIfNeeded()
+
+        viewController.addChild(itemListViewController)
+        itemListViewController.view.frame = cell.contenairView.bounds
+        cell.contenairView.addSubview(itemListViewController.view)
+        viewController.didMove(toParent: itemListViewController)
+        cell.contenairView.layoutIfNeeded()
     }
     
     func stop() {

@@ -37,11 +37,27 @@ class DiscoverCoordinator: Coordinator {
 
 // PRESENTER -> COORDINATOR
 extension DiscoverCoordinator: DiscoverCoordinatorInput {
-    func addItemList(discoverViewController: DiscoverViewController, discoverCell: DiscoverCell, section: ItemList.Section) {
-        guard children.count < ItemList.Section.allCases.count else { return }
+    func createItemList(section: ItemList.Section) {
+        let coodinator = ItemListCoordinator(navigationController: navigationController, section: section)
+        children.append(coodinator)
+        coodinator.start()
+    }
+    
+    func startItemListCoordinator(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath) {
+        guard
+            children.count >= indexPath.row,
+            let coordinator = children[indexPath.row] as? ItemListCoordinator
+        else { return }
         
-        let coordinator = ItemListCoordinator(navigationController: navigationController, discoverViewController: discoverViewController, discoverCell: discoverCell, section: section)
-        children.append(coordinator)
-        coordinator.start()
+        coordinator.show(viewController: viewController, for: cell)
+    }
+    
+    func stopItemListCoordinator(at indexPath: IndexPath) {
+        guard
+            children.count >= indexPath.row,
+            let coordinator = children[indexPath.row] as? ItemListCoordinator
+        else { return }
+        
+        coordinator.stop()
     }
 }
