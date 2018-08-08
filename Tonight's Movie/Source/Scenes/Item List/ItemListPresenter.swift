@@ -122,6 +122,25 @@ extension ItemListPresenter: ItemListPresenterInput {
             interactor.perform(ItemList.Request.FetchTopRatedMovies(page: topRatedMoviesPage))
         }
     }
+    
+    func showDetails(at indexPath: IndexPath) {
+        let movie: Movie?
+        
+        switch section {
+        case .Currently:
+            movie = nowPlayingMovies[indexPath.row]
+        case .Upcoming:
+            movie = upcomingMovies[indexPath.row]
+        case .Popular:
+            movie = popularMovies[indexPath.row]
+        case .TopRated:
+            movie = topRatedMovies[indexPath.row]
+        }
+        
+        guard movie != nil else { return }
+        
+        coordinator?.showDetailsOf(movieId: movie!.id)
+    }
 }
 
 // MARK: - Presentation Logic -

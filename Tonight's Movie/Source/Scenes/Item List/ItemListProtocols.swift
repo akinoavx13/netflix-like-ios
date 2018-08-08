@@ -17,7 +17,7 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol ItemListCoordinatorInput: class {
-
+    func showDetailsOf(movieId: Int)
 }
 
 // ======== Interactor ======== //
@@ -52,6 +52,7 @@ protocol ItemListPresenterInput {
     func configure(item: ItemListCellProtocol, at indexPath: IndexPath)
     func didEndDisplaying(item: ItemListCellProtocol, at indexPath: IndexPath)
     func displayNext()
+    func showDetails(at indexPath: IndexPath)
 }
 
 // PRESENTER -> VIEW

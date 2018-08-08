@@ -24,6 +24,13 @@
 		2025B1302119B5410032E3D1 /* ItemListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1292119B5410032E3D1 /* ItemListInteractor.swift */; };
 		2025B1322119CA660032E3D1 /* ItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1312119CA660032E3D1 /* ItemListCell.swift */; };
 		2025B1332119D3BD0032E3D1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B9E41E21187F56002EACDA /* Alamofire.framework */; };
+		202FEFB2211AFCD700494133 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFAB211AFCD700494133 /* DetailsCoordinator.swift */; };
+		202FEFB3211AFCD700494133 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFAC211AFCD700494133 /* DetailsPresenter.swift */; };
+		202FEFB4211AFCD700494133 /* DetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 202FEFAD211AFCD700494133 /* DetailsViewController.storyboard */; };
+		202FEFB5211AFCD700494133 /* DetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFAE211AFCD700494133 /* DetailsModels.swift */; };
+		202FEFB6211AFCD700494133 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFAF211AFCD700494133 /* DetailsViewController.swift */; };
+		202FEFB7211AFCD700494133 /* DetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFB0211AFCD700494133 /* DetailsProtocols.swift */; };
+		202FEFB8211AFCD700494133 /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFB1211AFCD700494133 /* DetailsInteractor.swift */; };
 		2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C4232118698D0096DAA8 /* Coordinator.swift */; };
 		2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C425211869970096DAA8 /* AppCoordinator.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
@@ -66,6 +73,13 @@
 		2025B1282119B5410032E3D1 /* ItemListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListProtocols.swift; sourceTree = "<group>"; };
 		2025B1292119B5410032E3D1 /* ItemListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListInteractor.swift; sourceTree = "<group>"; };
 		2025B1312119CA660032E3D1 /* ItemListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListCell.swift; sourceTree = "<group>"; };
+		202FEFAB211AFCD700494133 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
+		202FEFAC211AFCD700494133 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
+		202FEFAD211AFCD700494133 /* DetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsViewController.storyboard; sourceTree = "<group>"; };
+		202FEFAE211AFCD700494133 /* DetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModels.swift; sourceTree = "<group>"; };
+		202FEFAF211AFCD700494133 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		202FEFB0211AFCD700494133 /* DetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsProtocols.swift; sourceTree = "<group>"; };
+		202FEFB1211AFCD700494133 /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
 		2055C4232118698D0096DAA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2055C425211869970096DAA8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2055C43821186A340096DAA8 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -139,6 +153,20 @@
 			path = "Item List";
 			sourceTree = "<group>";
 		};
+		202FEFAA211AFCC700494133 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				202FEFAB211AFCD700494133 /* DetailsCoordinator.swift */,
+				202FEFAC211AFCD700494133 /* DetailsPresenter.swift */,
+				202FEFAD211AFCD700494133 /* DetailsViewController.storyboard */,
+				202FEFAE211AFCD700494133 /* DetailsModels.swift */,
+				202FEFAF211AFCD700494133 /* DetailsViewController.swift */,
+				202FEFB0211AFCD700494133 /* DetailsProtocols.swift */,
+				202FEFB1211AFCD700494133 /* DetailsInteractor.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		2055C41F211869500096DAA8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				2055C43721186A260096DAA8 /* Tab Bar */,
+				202FEFAA211AFCC700494133 /* Details */,
 				2025B1222119B5270032E3D1 /* Item List */,
 				2025B10B211980310032E3D1 /* Discover */,
 			);
@@ -345,6 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				202FEFB4211AFCD700494133 /* DetailsViewController.storyboard in Resources */,
 				2067A5FD2118AAA900E9B2C5 /* Localizable.strings in Resources */,
 				20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */,
 				2025B12C2119B5410032E3D1 /* ItemListViewController.storyboard in Resources */,
@@ -391,8 +421,11 @@
 				2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */,
 				2025B118211980420032E3D1 /* DiscoverProtocols.swift in Sources */,
 				2055C44721186EA20096DAA8 /* Colors.swift in Sources */,
+				202FEFB2211AFCD700494133 /* DetailsCoordinator.swift in Sources */,
 				2025B11D211999590032E3D1 /* DiscoverCell.swift in Sources */,
+				202FEFB3211AFCD700494133 /* DetailsPresenter.swift in Sources */,
 				2025B114211980420032E3D1 /* DiscoverPresenter.swift in Sources */,
+				202FEFB6211AFCD700494133 /* DetailsViewController.swift in Sources */,
 				20B9E42A211881CD002EACDA /* UIViewController+Alert.swift in Sources */,
 				20B9E42F21188A12002EACDA /* RequestsManager.swift in Sources */,
 				20B9E41A21187D0D002EACDA /* Movie.swift in Sources */,
@@ -406,13 +439,16 @@
 				20BEB6292118636500CA891E /* AppDelegate.swift in Sources */,
 				2025B1322119CA660032E3D1 /* ItemListCell.swift in Sources */,
 				2025B12D2119B5410032E3D1 /* ItemListModels.swift in Sources */,
+				202FEFB8211AFCD700494133 /* DetailsInteractor.swift in Sources */,
 				2055C43C21186A640096DAA8 /* UIWindow+RootViewController.swift in Sources */,
 				2025B116211980420032E3D1 /* DiscoverModels.swift in Sources */,
 				2025B12F2119B5410032E3D1 /* ItemListProtocols.swift in Sources */,
 				20B9E42221187F9A002EACDA /* Repository.swift in Sources */,
+				202FEFB7211AFCD700494133 /* DetailsProtocols.swift in Sources */,
 				2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */,
 				2025B117211980420032E3D1 /* DiscoverViewController.swift in Sources */,
 				2025B119211980420032E3D1 /* DiscoverInteractor.swift in Sources */,
+				202FEFB5211AFCD700494133 /* DetailsModels.swift in Sources */,
 				206741DE21189E7F00105AF4 /* String+DateFormat.swift in Sources */,
 				2055C44321186CC30096DAA8 /* Translation.swift in Sources */,
 				2025B12A2119B5410032E3D1 /* ItemListCoordinator.swift in Sources */,

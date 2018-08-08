@@ -58,5 +58,9 @@ class ItemListCoordinator: Coordinator {
 
 // PRESENTER -> COORDINATOR
 extension ItemListCoordinator: ItemListCoordinatorInput {
-
+    func showDetailsOf(movieId: Int) {
+        let coordinator = DetailsCoordinator(navigationController: navigationController)
+        children = [coordinator]
+        coordinator.start()
+    }
 }

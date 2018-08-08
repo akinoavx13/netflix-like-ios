@@ -56,6 +56,10 @@ extension ItemListViewController: UICollectionViewDataSource {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.showDetails(at: indexPath)
+    }
 }
 
 extension ItemListViewController: UICollectionViewDelegate {
