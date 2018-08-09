@@ -120,6 +120,32 @@ final class RemoteRepository {
     
         return request
     }
+    
+    private func send(request: DataRequest, completion: @escaping (Result<[Video]>) -> Void) -> Request {
+        request
+            .validate()
+            .responseJSON { (response) in
+                if response.error != nil {
+                    if (response.error! as NSError).code == NSURLErrorCancelled { return }
+                    return completion(.failure(response.error!))
+                }
+                
+                guard
+                    let json = response.result.value as? [String: Any],
+                    let results = json["results"] as? [[String: Any]]
+                    else {
+                        return completion(.failure(AFError.responseSerializationFailed(reason: AFError.ResponseSerializationFailureReason.inputDataNilOrZeroLength)))
+                }
+                
+                let videos = results.compactMap { dict in
+                    return Video(dict: dict)
+                }
+                
+                return completion(.success(videos))
+        }
+        
+        return request
+    }
 }
 
 extension RemoteRepository: Repository {
@@ -246,6 +272,17 @@ extension RemoteRepository: Repository {
         parameters["page"] = "\(page)"
 
         return send(request: manager.request("\(baseURL)/tv/\(id)/recommendations", parameters: parameters),
+                    completion: completion)
+    }
+    
+    // MARK: - Videos -
+    func getMovieVideos(id: Int, completion: @escaping (Result<[Video]>) -> Void) -> Request {
+        return send(request: manager.request("\(baseURL)/movie/\(id)/videos", parameters: defaultParameters),
+                    completion: completion)
+    }
+    
+    func getTVShowVideos(id: Int, completion: @escaping (Result<[Video]>) -> Void) -> Request {
+        return send(request: manager.request("\(baseURL)/tv/\(id)/videos", parameters: defaultParameters),
                     completion: completion)
     }
 }

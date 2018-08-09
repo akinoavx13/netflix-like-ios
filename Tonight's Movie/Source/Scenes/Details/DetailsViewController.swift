@@ -93,6 +93,26 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var trailerTitle: UILabel! {
+        didSet {
+            trailerTitle.text = Translation.Details.trailer
+            trailerTitle.textColor = Colors.white
+            trailerTitle.font = Fonts.large
+            trailerTitle.alpha = 0
+        }
+    }
+    
+    @IBOutlet weak var trailerWebView: UIWebView! {
+        didSet {
+            trailerWebView.backgroundColor = Colors.black
+            trailerWebView.scrollView.isScrollEnabled = false
+            trailerWebView.scrollView.bounces = false
+            trailerWebView.isOpaque = false
+            trailerWebView.alpha = 0
+            trailerWebView.scalesPageToFit = false
+        }
+    }
+    
     // MARK: - Lifecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -158,34 +178,46 @@ extension DetailsViewController: DetailsPresenterOutput {
         
         gradientView.gradient(colors: [UIColor.clear.cgColor, Colors.black.cgColor])
         
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: Style.Animation.duration) {
             self.dateLabel.text = displayModel.date
             self.durationLabel.text = displayModel.duration
             self.configureMarkLabel(voteAverage: displayModel.mark)
             self.overviewLabel.text = displayModel.overview
             self.pictureImageView.alpha = 1
-            
+        
             self.view.layoutIfNeeded()
         }
     }
     
     func display(_ displayModel: Details.DisplayData.IsItemSaved) {
         if displayModel.isSaved {
-            UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: Style.Animation.duration) {
                 self.addButton.setTitle(Translation.Details.removeFromList, for: .normal)
                 self.addButton.alpha = 1
                 
                 self.view.layoutIfNeeded()
             }
         } else {
-            UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: Style.Animation.duration) {
                 self.addButton.setTitle(Translation.Details.addToList, for: .normal)
                 self.addButton.alpha = 1
                 
                 self.view.layoutIfNeeded()
             }
         }
-        
+    }
+    
+    func display(_ displayModel: Details.DisplayData.Trailer) {
+        if let trailerUrl = URL(string: displayModel.url) {
+            trailerWebView.loadRequest(URLRequest(url: trailerUrl))
+            
+            UIView.animate(withDuration: Style.Animation.duration) {
+                self.trailerTitle.alpha = 1
+                self.trailerWebView.alpha = 1
+                
+                self.view.layoutIfNeeded()
+            }
+        }
     }
     
     func display(_ displayModel: Details.DisplayData.Error) {

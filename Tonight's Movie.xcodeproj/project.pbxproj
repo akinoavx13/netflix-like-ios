@@ -77,6 +77,7 @@
 		20BEB6302118636600CA891E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB62F2118636600CA891E /* Assets.xcassets */; };
 		20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB6312118636600CA891E /* LaunchScreen.storyboard */; };
 		20F07185211CD27800F59192 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F07184211CD27800F59192 /* Style.swift */; };
+		20F07187211CE15800F59192 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F07186211CE15800F59192 /* Video.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,6 +155,7 @@
 		20BEB6322118636600CA891E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20BEB6342118636600CA891E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20F07184211CD27800F59192 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		20F07186211CE15800F59192 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +334,7 @@
 				20B9E41921187D0D002EACDA /* Movie.swift */,
 				20B9E4322118935C002EACDA /* TVShow.swift */,
 				202FEFBD211B1DF700494133 /* Item.swift */,
+				20F07186211CE15800F59192 /* Video.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				20B9E42F21188A12002EACDA /* RequestsManager.swift in Sources */,
 				20B9E41A21187D0D002EACDA /* Movie.swift in Sources */,
 				2046D8D3211C5D8000124E93 /* BookmarksInteractor.swift in Sources */,
+				20F07187211CE15800F59192 /* Video.swift in Sources */,
 				20B9E43121188F2D002EACDA /* Fonts.swift in Sources */,
 				20B9E42821187FFE002EACDA /* Dependencies.swift in Sources */,
 				2025B12E2119B5410032E3D1 /* ItemListViewController.swift in Sources */,

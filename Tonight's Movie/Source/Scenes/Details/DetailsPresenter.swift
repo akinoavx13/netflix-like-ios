@@ -36,8 +36,10 @@ extension DetailsPresenter: DetailsPresenterInput {
         switch type {
         case .Movie:
             interactor.perform(Details.Request.FetchMovieDetails(id: id))
+            interactor.perform(Details.Request.FetchMovieVideos(id: id))
         case .TVShow:
             interactor.perform(Details.Request.FetchTVShowDetails(id: id))
+            interactor.perform(Details.Request.FetchTVShowVideos(id: id))
         }
     }
     
@@ -100,6 +102,16 @@ extension DetailsPresenter: DetailsInteractorOutput {
     func present(_ response: Details.Response.IsItemSavedFetch) {
         isItemSaved = response.isSaved
         output?.display(Details.DisplayData.IsItemSaved(isSaved: response.isSaved))
+    }
+    
+    func present(_ response: Details.Response.VideosFetched) {
+        guard
+            let video = response.videos.first,
+            video.iscomingFromYoutube,
+            video.isTrailer
+        else { return }
+        
+        output?.display(Details.DisplayData.Trailer(url: "https://www.youtube.com/embed/\(video.key)"))
     }
     
     func present(_ response: Details.Response.Error) {

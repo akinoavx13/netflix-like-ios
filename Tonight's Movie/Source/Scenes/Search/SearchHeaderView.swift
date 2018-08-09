@@ -26,7 +26,7 @@ final class SearchHeaderView: UICollectionReusableView {
 
 extension SearchHeaderView: SearchHeaderViewProtocol {
     func display(title: String) {
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: Style.Animation.duration) {
             self.titleLabel.text = title
             
             self.layoutIfNeeded()

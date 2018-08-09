@@ -26,7 +26,7 @@ protocol Repository {
     func searchMovies(page: Int, query: String, completion: @escaping (Result<[Movie]>) -> Void) -> Request
     func getRecommendationsMovies(page: Int, id: Int, completion: @escaping (Result<[Movie]>) -> Void) -> Request
     
-    //MARK: - TVShows -
+    // MARK: - TVShows -
     func getMostPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) -> Request
     func getOnTheAirTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) -> Request
     func getPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) -> Request
@@ -34,5 +34,9 @@ protocol Repository {
     func getTVShowDetails(id: Int, completion: @escaping (Result<TVShow>) -> Void) -> Request
     func searchTVShows(page: Int, query: String, completion: @escaping (Result<[TVShow]>) -> Void) -> Request
     func getRecommendationsTVShows(page: Int, id: Int, completion: @escaping (Result<[TVShow]>) -> Void) -> Request
+    
+    // MARK: - Videos -
+    func getMovieVideos(id: Int, completion: @escaping (Result<[Video]>) -> Void) -> Request
+    func getTVShowVideos(id: Int, completion: @escaping (Result<[Video]>) -> Void) -> Request
 }
 

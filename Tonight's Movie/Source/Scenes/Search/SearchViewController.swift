@@ -138,7 +138,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: Style.Animation.duration) {
             searchBar.showsCancelButton = true
             
             self.view.layoutIfNeeded()
@@ -148,7 +148,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: Style.Animation.duration) {
             searchBar.showsCancelButton = false
             
             self.view.layoutIfNeeded()
@@ -182,14 +182,14 @@ extension SearchViewController: SearchPresenterOutput {
         collectionView.reloadData()
         
         if !(searchBar.text?.isEmpty ?? false) && presenter.numberOfMovies + presenter.numberOfTVShows == 0 {
-            UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: Style.Animation.duration) {
                 self.emptyStateLabel.alpha = 1
                 self.emptyStateLabel.text = Translation.Search.noResult
                 
                 self.view.layoutIfNeeded()
             }
         } else {
-            UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: Style.Animation.duration) {
                 self.emptyStateLabel.alpha = 0
                 
                 self.view.layoutIfNeeded()
@@ -197,7 +197,7 @@ extension SearchViewController: SearchPresenterOutput {
         }
         
         if searchBar.text?.isEmpty ?? false {
-            UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: Style.Animation.duration) {
                 self.emptyStateLabel.alpha = 1
                 self.emptyStateLabel.text = Translation.Search.searchMovieOrTVShow
                 

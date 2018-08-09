@@ -137,13 +137,13 @@ extension BookmarksViewController: BookmarksPresenterOutput {
         collectionView.reloadData()
         
         if presenter.numberOfSavedItems == 0 {
-            UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: Style.Animation.duration) {
                 self.emptyStateLabel.alpha = 1
                 
                 self.view.layoutIfNeeded()
             }
         } else {
-            UIView.animate(withDuration: 0.2) {
+            UIView.animate(withDuration: Style.Animation.duration) {
                 self.emptyStateLabel.alpha = 0
                 
                 self.view.layoutIfNeeded()

@@ -10,6 +10,10 @@ import UIKit
 
 struct Style {
     
+    struct Animation {
+        static var duration = 0.2
+    }
+    
     struct Cell {
         
         static var getItemSizeLarge: CGSize {

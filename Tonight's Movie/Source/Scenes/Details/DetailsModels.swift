@@ -25,12 +25,16 @@ extension Details.Request {
     struct SaveItem { let item: Item }
     struct FetchIsItemSaved { let item: Item }
     struct RemoveItem { let item: Item }
+    struct FetchMovieVideos { let id: Int }
+    struct FetchTVShowVideos { let id: Int }
 }
 
 extension Details.Response {
     struct MovieDetailsFetched { let movie: Movie }
     struct TVShowDetailsFetched { let tvShow: TVShow }
     struct IsItemSavedFetch { let isSaved: Bool }
+    struct VideosFetched { let videos: [Video] }
+    
     struct Error { let errorMessage: String }
 }
 
@@ -44,5 +48,6 @@ extension Details.DisplayData {
         let overview: String
     }
     struct IsItemSaved { let isSaved: Bool }
+    struct Trailer { let url: String }
     struct Error { let errorMessage: String }
 }

@@ -80,6 +80,40 @@ extension DetailsInteractor: DetailsInteractorInput {
             .remove(item: request.item)
     }
     
+    func perform(_ request: Details.Request.FetchMovieVideos) {
+        let request = dependencies
+            .repository
+            .getMovieVideos(id: request.id) { (result) in
+                switch result {
+                case .success(let videos):
+                    self.output?.present(Details.Response.VideosFetched(videos: videos))
+                case .failure(let error):
+                    self.output?.present(Details.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .Details, request: request)
+    }
+    
+    func perform(_ request: Details.Request.FetchTVShowVideos) {
+        let request = dependencies
+            .repository
+            .getTVShowVideos(id: request.id) { (result) in
+                switch result {
+                case .success(let videos):
+                    self.output?.present(Details.Response.VideosFetched(videos: videos))
+                case .failure(let error):
+                    self.output?.present(Details.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .Details, request: request)
+    }
+    
     func cancel(_ request: Details.Cancel.Requests) {
         dependencies
             .requestsManager

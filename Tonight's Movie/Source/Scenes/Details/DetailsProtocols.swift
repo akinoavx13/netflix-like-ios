@@ -29,6 +29,8 @@ protocol DetailsInteractorInput {
     func perform(_ request: Details.Request.SaveItem)
     func perform(_ request: Details.Request.FetchIsItemSaved)
     func perform(_ request: Details.Request.RemoveItem)
+    func perform(_ request: Details.Request.FetchMovieVideos)
+    func perform(_ request: Details.Request.FetchTVShowVideos)
     
     func cancel(_ request: Details.Cancel.Requests)
 }
@@ -38,6 +40,8 @@ protocol DetailsInteractorOutput: class {
     func present(_ response: Details.Response.MovieDetailsFetched)
     func present(_ response: Details.Response.TVShowDetailsFetched)
     func present(_ response: Details.Response.IsItemSavedFetch)
+    func present(_ response: Details.Response.VideosFetched)
+    
     func present(_ response: Details.Response.Error)
 }
 
@@ -55,5 +59,7 @@ protocol DetailsPresenterInput {
 protocol DetailsPresenterOutput: class {
     func display(_ displayModel: Details.DisplayData.Details)
     func display(_ displayModel: Details.DisplayData.IsItemSaved)
+    func display(_ displayModel: Details.DisplayData.Trailer)
+    
     func display(_ displayModel: Details.DisplayData.Error)
 }
