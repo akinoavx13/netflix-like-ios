@@ -17,6 +17,7 @@ class DetailsPresenter {
 
     private let id: Int
     private let type: Item.ContentType
+    private var item: Item?
     
     // MARK: - Lifecycle -
     init(interactor: DetailsInteractorInput, coordinator: DetailsCoordinatorInput, id: Int, type: Item.ContentType) {
@@ -42,6 +43,12 @@ extension DetailsPresenter: DetailsPresenterInput {
     func closeButtonTapped() {
         coordinator?.dismiss()
     }
+    
+    func addButtonTapped() {
+        guard let item = item else { return }
+        
+        interactor.perform(Details.Request.SaveItem(item: item))
+    }
 }
 
 // MARK: - Presentation Logic -
@@ -49,6 +56,8 @@ extension DetailsPresenter: DetailsPresenterInput {
 // INTERACTOR -> PRESENTER (indirect)
 extension DetailsPresenter: DetailsInteractorOutput {
     func present(_ response: Details.Response.MovieDetailsFetched) {
+        item = Item(id: id, pictureURL: response.movie.smallPictureUrl, contentType: .Movie)
+        
         output?.display(Details.DisplayData.Details(
             pictureURL: response.movie.smallPictureUrl,
             backgroundURL: response.movie.smallBackgroundUrl,
@@ -60,6 +69,8 @@ extension DetailsPresenter: DetailsInteractorOutput {
     }
     
     func present(_ response: Details.Response.TVShowDetailsFetched) {
+        item = Item(id: id, pictureURL: response.tvShow.smallPictureUrl, contentType: .TVShow)
+        
         output?.display(Details.DisplayData.Details(
             pictureURL: response.tvShow.smallPictureUrl,
             backgroundURL: response.tvShow.smallbackgroundUrl,

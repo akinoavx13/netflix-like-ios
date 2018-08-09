@@ -17,6 +17,7 @@ enum Details {
 extension Details.Request {
     struct FetchMovieDetails { let id: Int }
     struct FetchTVShowDetails { let id: Int }
+    struct SaveItem { let item: Item }
 }
 
 extension Details.Response {

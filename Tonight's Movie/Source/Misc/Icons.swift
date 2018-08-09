@@ -14,4 +14,5 @@ struct Icons {
     static let discoverMovies = UIImage(named: "iconDiscoverMovies")
     static let discoverTVShows = UIImage(named: "iconDiscoverTVShows")
     static let close = UIImage(named: "iconClose")
+    static let bookmark = UIImage(named: "iconBookmark")
 }

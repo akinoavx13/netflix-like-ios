@@ -30,6 +30,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var pictureImageView: UIImageView! {
         didSet {
+            pictureImageView.alpha = 0
             pictureImageView.contentMode = .scaleAspectFill
             pictureImageView.clipsToBounds = true
             pictureImageView.dropShadow(offsetX: 4, offsetY: 4, color: UIColor.black, opacity: 1, radius: 4)
@@ -70,6 +71,17 @@ class DetailsViewController: UIViewController {
             durationLabel.text = ""
             durationLabel.textColor = Colors.grey
             durationLabel.font = Fonts.small
+        }
+    }
+    
+    @IBOutlet weak var addButton: UIButton! {
+        didSet {
+            addButton.setTitle(Translation.Details.addToList, for: .normal)
+            addButton.setTitleColor(Colors.white, for: .normal)
+            addButton.backgroundColor = Colors.red
+            addButton.layer.cornerRadius = 2
+            addButton.titleLabel?.font = Fonts.smallBold
+            addButton.alpha = 0
         }
     }
     
@@ -124,6 +136,10 @@ class DetailsViewController: UIViewController {
     @IBAction func closeButtonTapped(_ sender: UIButton) {
         presenter.closeButtonTapped()
     }
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        presenter.addButtonTapped()
+    }
 }
 
 // MARK: - Display Logic -
@@ -145,8 +161,10 @@ extension DetailsViewController: DetailsPresenterOutput {
             self.dateLabel.text = displayModel.date
             self.durationLabel.text = displayModel.duration
             self.configureMarkLabel(voteAverage: displayModel.mark)
-
             self.overviewLabel.text = displayModel.overview
+            self.addButton.alpha = 1
+            self.pictureImageView.alpha = 1
+            
             self.view.layoutIfNeeded()
         }
         

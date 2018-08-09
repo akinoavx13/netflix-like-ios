@@ -8,8 +8,6 @@
 
 "Error" = "Error";
 "Ok" = "Ok";
-"Discover movies" = "Discover movies";
-"Discover tv shows" = "Discover tv shows";
 "Show more" = "Show more";
 "Currently" = "Currently";
 "Upcoming" = "Upcoming";
@@ -22,3 +20,5 @@
 "TVShows" = "TV shows";
 "Your search returned no results" = "Your search returned no results";
 "Search a movie or a tv show" = "Search a movie or a tv show";
+"Add to my list" = "Add to my list";
+"Bookmarks" = "Bookmarks";

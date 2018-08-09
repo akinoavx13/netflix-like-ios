@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agH-gg-ctR">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="368.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="416.66666666666669"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5tW-3L-hpg">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
@@ -83,8 +83,18 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSj-67-jjo">
+                                                <rect key="frame" x="8" y="340.33333333333331" width="359" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="0H5-NX-V3y"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="addButtonTapped:" destination="F2H-rH-Lsj" eventType="touchUpInside" id="CV6-Zh-Yl2"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d45-gE-5At">
-                                                <rect key="frame" x="8" y="340.33333333333331" width="359" height="20.333333333333314"/>
+                                                <rect key="frame" x="8" y="388.33333333333331" width="359" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -92,6 +102,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="d45-gE-5At" firstAttribute="top" secondItem="oSj-67-jjo" secondAttribute="bottom" constant="8" id="5DK-FI-y0o"/>
                                             <constraint firstAttribute="trailing" secondItem="5tW-3L-hpg" secondAttribute="trailing" id="5m2-IE-6EH"/>
                                             <constraint firstItem="5tW-3L-hpg" firstAttribute="leading" secondItem="agH-gg-ctR" secondAttribute="leading" id="6ns-tR-j3e"/>
                                             <constraint firstItem="97v-Hf-NKX" firstAttribute="bottom" secondItem="5tW-3L-hpg" secondAttribute="bottom" id="DYD-wG-vtH"/>
@@ -105,9 +116,11 @@
                                             <constraint firstItem="97v-Hf-NKX" firstAttribute="centerX" secondItem="5tW-3L-hpg" secondAttribute="centerX" id="cvi-5x-C6L"/>
                                             <constraint firstItem="gO7-Fd-ubR" firstAttribute="top" secondItem="agH-gg-ctR" secondAttribute="top" constant="80" id="dSl-Uo-Xmy"/>
                                             <constraint firstItem="ePa-RI-ayq" firstAttribute="width" secondItem="5tW-3L-hpg" secondAttribute="width" id="eOu-wX-mJW"/>
+                                            <constraint firstAttribute="trailing" secondItem="oSj-67-jjo" secondAttribute="trailing" constant="8" id="gfk-yy-qAZ"/>
+                                            <constraint firstItem="oSj-67-jjo" firstAttribute="top" secondItem="AJj-YH-41R" secondAttribute="bottom" constant="24" id="iBO-AL-ajj"/>
                                             <constraint firstItem="ePa-RI-ayq" firstAttribute="centerY" secondItem="5tW-3L-hpg" secondAttribute="centerY" id="jye-yQ-ZDG"/>
                                             <constraint firstAttribute="bottom" secondItem="d45-gE-5At" secondAttribute="bottom" constant="8" id="kim-ca-umN"/>
-                                            <constraint firstItem="d45-gE-5At" firstAttribute="top" secondItem="AJj-YH-41R" secondAttribute="bottom" constant="24" id="m5i-Na-Zep"/>
+                                            <constraint firstItem="oSj-67-jjo" firstAttribute="leading" secondItem="agH-gg-ctR" secondAttribute="leading" constant="8" id="lyf-gM-Mbx"/>
                                             <constraint firstItem="ePa-RI-ayq" firstAttribute="centerX" secondItem="5tW-3L-hpg" secondAttribute="centerX" id="mgL-fq-w3K"/>
                                             <constraint firstItem="ePa-RI-ayq" firstAttribute="height" secondItem="5tW-3L-hpg" secondAttribute="height" id="qbL-Mf-AEy"/>
                                             <constraint firstItem="AJj-YH-41R" firstAttribute="centerX" secondItem="agH-gg-ctR" secondAttribute="centerX" id="tRh-cO-wNi"/>
@@ -137,6 +150,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="addButton" destination="oSj-67-jjo" id="SnK-x0-vIV"/>
                         <outlet property="backgroundImageView" destination="5tW-3L-hpg" id="36J-LU-61t"/>
                         <outlet property="closeButton" destination="xsg-NB-8yf" id="Rxn-rG-zdC"/>
                         <outlet property="contenairView" destination="agH-gg-ctR" id="bFg-R6-7D6"/>

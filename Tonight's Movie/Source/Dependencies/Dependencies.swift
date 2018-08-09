@@ -6,7 +6,7 @@
 //  Copyright © 2018 Maxime Maheo. All rights reserved.
 //
 
-typealias FullDependencies = HasRepository & HasRequestsManager
+typealias FullDependencies = HasRepository & HasRequestsManager & HasLocalManager
 
 final class Dependencies {
     
@@ -15,12 +15,14 @@ final class Dependencies {
     
     private(set) var repository: Repository
     private(set) var requestsManager: RequestsManagerProtocol
+    private(set) var localManager: LocalManagerProtocol
 
     // MARK: - Lifecycle -
     private init() {
         requestsManager = RequestsManager()
+        localManager = LocalManager()
         repository = CacheRepository(fallbackRepository: RemoteRepository(requestsManager: requestsManager))
     }
 }
 
-extension Dependencies: HasRepository & HasRequestsManager { }
+extension Dependencies: HasRepository & HasRequestsManager & HasLocalManager { }

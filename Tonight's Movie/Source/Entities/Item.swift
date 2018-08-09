@@ -6,7 +6,7 @@
 //  Copyright © 2018 Maxime Maheo. All rights reserved.
 //
 
-struct Item {
+struct Item: Codable {
     let id: Int
     let pictureURL: String
     let contentType: Item.ContentType
@@ -19,7 +19,7 @@ struct Item {
         return "https://image.tmdb.org/t/p/original\(pictureURL)"
     }
     
-    enum ContentType {
+    enum ContentType: String, Codable {
         case Movie, TVShow
     }
 }

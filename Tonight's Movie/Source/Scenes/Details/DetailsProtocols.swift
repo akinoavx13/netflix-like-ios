@@ -26,6 +26,7 @@ protocol DetailsCoordinatorInput: class {
 protocol DetailsInteractorInput {
     func perform(_ request: Details.Request.FetchMovieDetails)
     func perform(_ request: Details.Request.FetchTVShowDetails)
+    func perform(_ request: Details.Request.SaveItem)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
@@ -41,6 +42,7 @@ protocol DetailsInteractorOutput: class {
 protocol DetailsPresenterInput {
     func viewCreated()
     func closeButtonTapped()
+    func addButtonTapped()
 }
 
 // PRESENTER -> VIEW

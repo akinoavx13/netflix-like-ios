@@ -8,8 +8,6 @@
 
 "Error" = "Erreur";
 "Ok" = "Ok";
-"Discover movies" = "Découvrir les films";
-"Discover tv shows" = "Découvrir les séries";
 "Show more" = "Afficher plus";
 "Currently" = "En ce moment";
 "Upcoming" = "À venir";
@@ -22,3 +20,5 @@
 "TVShows" = "Séries";
 "Your search returned no results" = "Votre recherche n'a donnée aucun résultat";
 "Search a movie or a tv show" = "Recherchez un film ou une série";
+"Add to my list" = "Ajouter à ma liste";
+"Bookmarks" = "Sauvegardés";

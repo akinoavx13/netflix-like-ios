@@ -52,4 +52,10 @@ extension DetailsInteractor: DetailsInteractorInput {
         }
     }
     
+    func perform(_ request: Details.Request.SaveItem) {
+        dependencies
+            .localManager
+            .save(item: request.item)
+    }
+    
 }

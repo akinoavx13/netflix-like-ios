@@ -17,7 +17,7 @@ final class TabBarCoordinator: Coordinator {
     private let tabBarController: UITabBarController
     
     private enum Tab {
-        case DiscoverMovies, DiscoverTVShows, Search
+        case DiscoverMovies, DiscoverTVShows, Search, Bookmarks
     }
     
     // MARK: - Lifecycle -
@@ -34,6 +34,7 @@ final class TabBarCoordinator: Coordinator {
         addScene(with: .DiscoverMovies)
         addScene(with: .DiscoverTVShows)
         addScene(with: .Search)
+        addScene(with: .Bookmarks)
         
         window.updateRootViewController(with: tabBarController)
     }
@@ -56,13 +57,16 @@ final class TabBarCoordinator: Coordinator {
         switch tab {
         case .DiscoverMovies:
             coordinator = DiscoverCoordinator(navigationController: navigationController, screen: .Movies)
-            navigationController.tabBarItem = UITabBarItem(title: Translation.Discover.discoverMovies, image: Icons.discoverMovies, selectedImage: nil)
+            navigationController.tabBarItem = UITabBarItem(title: Translation.Default.movies, image: Icons.discoverMovies, selectedImage: nil)
         case .DiscoverTVShows:
             coordinator = DiscoverCoordinator(navigationController: navigationController, screen: .TVShows)
-            navigationController.tabBarItem = UITabBarItem(title: Translation.Discover.discoverTVShows, image: Icons.discoverTVShows, selectedImage: nil)
+            navigationController.tabBarItem = UITabBarItem(title: Translation.Default.tvShows, image: Icons.discoverTVShows, selectedImage: nil)
         case .Search:
             coordinator = SearchCoordinator(navigationController: navigationController)
             navigationController.tabBarItem = UITabBarItem(title: Translation.Search.search, image: Icons.search, selectedImage: nil)
+        case .Bookmarks:
+            coordinator = BookmarksCoordinator(navigationController: navigationController)
+            navigationController.tabBarItem = UITabBarItem(title: Translation.Bookmarks.bookmarks, image: Icons.bookmark, selectedImage: nil)
         }
         
         children.append(coordinator)
