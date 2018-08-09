@@ -26,16 +26,16 @@ class DiscoverViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var highestRatedMovieImageView: UIImageView! {
+    @IBOutlet weak var forwardedItemImageView: UIImageView! {
         didSet {
-            highestRatedMovieImageView.contentMode = .scaleAspectFill
-            highestRatedMovieImageView.clipsToBounds = true
-            highestRatedMovieImageView.isUserInteractionEnabled = true
-            highestRatedMovieImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(highestRatedMovieImageViewTapped)))
+            forwardedItemImageView.contentMode = .scaleAspectFill
+            forwardedItemImageView.clipsToBounds = true
+            forwardedItemImageView.isUserInteractionEnabled = true
+            forwardedItemImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(highestRatedMovieImageViewTapped)))
         }
     }
     
-    @IBOutlet weak var highestRatedMovieTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var forwardedItemTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var gradientView: UIView! {
         didSet {
@@ -49,7 +49,7 @@ class DiscoverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        highestRatedMovieTopConstraint.constant = -UIApplication.shared.statusBarFrame.height
+        forwardedItemTopConstraint.constant = -UIApplication.shared.statusBarFrame.height
         
         presenter.viewCreated()
     }
@@ -57,7 +57,7 @@ class DiscoverViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        highestRatedMovieImageView.kf.cancelDownloadTask()
+        forwardedItemImageView.kf.cancelDownloadTask()
         
         presenter.viewWillDisappear()
     }
@@ -114,7 +114,7 @@ extension DiscoverViewController: UITableViewDelegate {
 extension DiscoverViewController: DiscoverPresenterOutput {
     func display(_ displayModel: Discover.DisplayData.ForwardedItem) {
         if let url = URL(string: displayModel.pictureURL) {
-            self.highestRatedMovieImageView.kf.setImage(with: url)
+            self.forwardedItemImageView.kf.setImage(with: url)
         }
         
         gradientView.gradient(colors: [UIColor.clear.cgColor, Colors.black.cgColor])

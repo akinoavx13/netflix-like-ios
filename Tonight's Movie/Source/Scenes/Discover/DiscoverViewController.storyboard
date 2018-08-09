@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -54,13 +55,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hy-Af-11y">
-                                                    <rect key="frame" x="7" y="19" width="345" height="21"/>
+                                                    <rect key="frame" x="7" y="19" width="290" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjq-jC-AwV">
-                                                    <rect key="frame" x="0.0" y="40" width="375" height="159.5"/>
+                                                    <rect key="frame" x="0.0" y="40" width="320" height="159.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
@@ -92,9 +93,9 @@
                         <viewLayoutGuide key="safeArea" id="Fhz-5B-qaF"/>
                     </view>
                     <connections>
+                        <outlet property="forwardedItemImageView" destination="xaR-Ww-yxH" id="9IM-qP-OEt"/>
+                        <outlet property="forwardedItemTopConstraint" destination="f9R-ou-7Ed" id="Xcb-9O-0NT"/>
                         <outlet property="gradientView" destination="9qG-AF-Dwe" id="che-Bz-LSO"/>
-                        <outlet property="highestRatedMovieImageView" destination="xaR-Ww-yxH" id="hdD-nP-bxJ"/>
-                        <outlet property="highestRatedMovieTopConstraint" destination="f9R-ou-7Ed" id="UEU-gV-bTG"/>
                         <outlet property="tableView" destination="fRZ-7W-QWL" id="iRU-21-E2X"/>
                     </connections>
                 </viewController>

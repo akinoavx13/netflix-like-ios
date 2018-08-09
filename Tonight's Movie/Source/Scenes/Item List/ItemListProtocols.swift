@@ -32,8 +32,6 @@ protocol ItemListInteractorInput {
     func perform(_ request: ItemList.Request.FetchOnTheAirTVShows)
     func perform(_ request: ItemList.Request.FetchPopularTVShows)
     func perform(_ request: ItemList.Request.FetchTopRatedTVShows)
-    
-    func cancel(_ request: ItemList.Cancel.Requests)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
@@ -60,7 +58,6 @@ protocol ItemListPresenterInput {
     
     // MARK: - Methods -
     func viewCreated()
-    func viewWillDisappear()
     func configure(item: ItemListCellProtocol, at indexPath: IndexPath)
     func didEndDisplaying(item: ItemListCellProtocol, at indexPath: IndexPath)
     func displayNext()

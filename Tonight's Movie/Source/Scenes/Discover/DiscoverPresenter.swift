@@ -44,9 +44,9 @@ extension DiscoverPresenter: DiscoverPresenterInput {
     func viewCreated() {
         switch screen {
         case .Movies:
-            interactor.perform(Discover.Request.FetchHighestRatedMovies(page: 1))
+            interactor.perform(Discover.Request.FetchMostPopularMovies(page: 1))
         case .TVShows:
-            interactor.perform(Discover.Request.FetchMostPopularTVShow(page: 1))
+            interactor.perform(Discover.Request.FetchMostPopularTVShows(page: 1))
         }
         
         addCoordinators()
@@ -117,7 +117,7 @@ extension DiscoverPresenter: DiscoverPresenterInput {
 
 // INTERACTOR -> PRESENTER (indirect)
 extension DiscoverPresenter: DiscoverInteractorOutput {
-    func present(_ response: Discover.Response.HighestRatedMoviesFetched) {
+    func present(_ response: Discover.Response.MostPopularMoviesFetched) {
         guard let highestRatedMovie = response.movies.first else { return }
         highestRatedItemId = highestRatedMovie.id
         

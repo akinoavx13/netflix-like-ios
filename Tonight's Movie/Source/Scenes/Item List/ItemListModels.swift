@@ -9,17 +9,12 @@
 import Foundation
 
 enum ItemList {
-    enum Cancel { }
     enum Section: CaseIterable {
         case Currently, Upcoming, Popular, TopRated
     }
     enum Request { }
     enum Response { }
     enum DisplayData { }
-}
-
-extension ItemList.Cancel {
-    struct Requests { let screen: Discover.Screen }
 }
 
 extension ItemList.Request {

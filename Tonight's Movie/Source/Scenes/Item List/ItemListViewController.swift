@@ -31,12 +31,6 @@ class ItemListViewController: UIViewController {
         presenter.viewCreated()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        presenter.viewWillDisappear()
-    }
-    
     // MARK: - Methods -
     class func instantiate(with presenter: ItemListPresenterInput) -> ItemListViewController {
         let name = "\(ItemListViewController.self)"

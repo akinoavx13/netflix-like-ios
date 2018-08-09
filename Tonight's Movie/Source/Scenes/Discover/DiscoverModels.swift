@@ -23,12 +23,12 @@ extension Discover.Cancel {
 }
 
 extension Discover.Request {
-    struct FetchHighestRatedMovies { let page: Int }
-    struct FetchMostPopularTVShow { let page: Int }
+    struct FetchMostPopularMovies { let page: Int }
+    struct FetchMostPopularTVShows { let page: Int }
 }
 
 extension Discover.Response {
-    struct HighestRatedMoviesFetched { let movies: [Movie] }
+    struct MostPopularMoviesFetched { let movies: [Movie] }
     struct MostPopularTVShowsFetched { let tvShows: [TVShow] }
     struct Error { let errorMessage: String }
 }

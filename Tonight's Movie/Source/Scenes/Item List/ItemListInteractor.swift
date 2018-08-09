@@ -146,17 +146,4 @@ extension ItemListInteractor: ItemListInteractorInput {
             .requestsManager
             .registerRequest(with: .DiscoverTVShows, request: request)
     }
-    
-    func cancel(_ request: ItemList.Cancel.Requests) {
-        switch request.screen {
-        case .Movies:
-            dependencies
-                .requestsManager
-                .cancelRequests(of: .DiscoverMovies)
-        case .TVShows:
-            dependencies
-                .requestsManager
-                .cancelRequests(of: .DiscoverTVShows)
-        }
-    }
 }
