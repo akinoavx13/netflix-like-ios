@@ -17,7 +17,7 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol BookmarksCoordinatorInput: class {
-
+    func showDetailsOf(id: Int, type: Item.ContentType)
 }
 
 // ======== Interactor ======== //
@@ -46,6 +46,7 @@ protocol BookmarksPresenterInput {
     func configure(item: ItemListCellProtocol, at indexPath: IndexPath)
     func configure(item: SearchHeaderViewProtocol, at indexPath: IndexPath)
     func didEndDisplaying(item: ItemListCellProtocol, at indexPath: IndexPath)
+    func showDetails(at indexPath: IndexPath)
 }
 
 // PRESENTER -> VIEW

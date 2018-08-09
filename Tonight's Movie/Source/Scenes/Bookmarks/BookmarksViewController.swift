@@ -90,6 +90,10 @@ extension BookmarksViewController: UICollectionViewDataSource {
             fatalError("Unexpected element kind")
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.showDetails(at: indexPath)
+    }
 }
 
 extension BookmarksViewController: UICollectionViewDelegate {

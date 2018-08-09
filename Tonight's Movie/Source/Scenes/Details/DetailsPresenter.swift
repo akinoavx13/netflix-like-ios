@@ -18,6 +18,7 @@ class DetailsPresenter {
     private let id: Int
     private let type: Item.ContentType
     private var item: Item?
+    private var isItemSaved: Bool?
     
     // MARK: - Lifecycle -
     init(interactor: DetailsInteractorInput, coordinator: DetailsCoordinatorInput, id: Int, type: Item.ContentType) {
@@ -45,9 +46,18 @@ extension DetailsPresenter: DetailsPresenterInput {
     }
     
     func addButtonTapped() {
-        guard let item = item else { return }
+        guard
+            let item = item,
+            let isItemSaved = isItemSaved
+        else { return }
         
-        interactor.perform(Details.Request.SaveItem(item: item))
+        if isItemSaved {
+            interactor.perform(Details.Request.RemoveItem(item: item))
+        } else {
+            interactor.perform(Details.Request.SaveItem(item: item))
+        }
+        
+        interactor.perform(Details.Request.FetchIsItemSaved(item: item))
     }
 }
 
@@ -57,6 +67,7 @@ extension DetailsPresenter: DetailsPresenterInput {
 extension DetailsPresenter: DetailsInteractorOutput {
     func present(_ response: Details.Response.MovieDetailsFetched) {
         item = Item(id: id, pictureURL: response.movie.smallPictureUrl, contentType: .Movie)
+        interactor.perform(Details.Request.FetchIsItemSaved(item: item!))
         
         output?.display(Details.DisplayData.Details(
             pictureURL: response.movie.smallPictureUrl,
@@ -70,6 +81,7 @@ extension DetailsPresenter: DetailsInteractorOutput {
     
     func present(_ response: Details.Response.TVShowDetailsFetched) {
         item = Item(id: id, pictureURL: response.tvShow.smallPictureUrl, contentType: .TVShow)
+        interactor.perform(Details.Request.FetchIsItemSaved(item: item!))
         
         output?.display(Details.DisplayData.Details(
             pictureURL: response.tvShow.smallPictureUrl,
@@ -79,6 +91,11 @@ extension DetailsPresenter: DetailsInteractorOutput {
             duration: response.tvShow.duration,
             overview: response.tvShow.overview
         ))
+    }
+    
+    func present(_ response: Details.Response.IsItemSavedFetch) {
+        isItemSaved = response.isSaved
+        output?.display(Details.DisplayData.IsItemSaved(isSaved: response.isSaved))
     }
     
     func present(_ response: Details.Response.Error) {

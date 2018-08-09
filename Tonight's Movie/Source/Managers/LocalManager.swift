@@ -15,6 +15,8 @@ protocol HasLocalManager {
 protocol LocalManagerProtocol {
     func save(item: Item)
     func getItems() -> [Item]
+    func isPresent(item: Item) -> Bool
+    func remove(item: Item)
 }
 
 final class LocalManager {
@@ -58,6 +60,23 @@ extension LocalManager: LocalManagerProtocol {
             return try storage.object(forKey: "items")
         } catch {
             return []
+        }
+    }
+    
+    func isPresent(item: Item) -> Bool {
+        return itemExists(item: item, items: getItems())
+    }
+    
+    func remove(item: Item) {
+        guard let storage = storage else { return }
+        
+        let items = getItems()
+        try? storage.removeAll()
+        
+        _ = items.filter {
+            return $0.id != item.id
+        }.map{
+            return save(item: $0)
         }
     }
 }

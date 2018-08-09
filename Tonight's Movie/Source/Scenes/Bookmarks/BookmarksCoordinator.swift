@@ -37,5 +37,9 @@ class BookmarksCoordinator: Coordinator {
 
 // PRESENTER -> COORDINATOR
 extension BookmarksCoordinator: BookmarksCoordinatorInput {
-
+    func showDetailsOf(id: Int, type: Item.ContentType) {
+        let coordinator = DetailsCoordinator(navigationController: navigationController, id: id, type: type)
+        children = [coordinator]
+        coordinator.start()
+    }
 }

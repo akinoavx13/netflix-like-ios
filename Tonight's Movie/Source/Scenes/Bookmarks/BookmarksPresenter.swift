@@ -59,6 +59,13 @@ extension BookmarksPresenter: BookmarksPresenterInput {
     func didEndDisplaying(item: ItemListCellProtocol, at indexPath: IndexPath) {
         item.didEndDisplaying()
     }
+    
+    func showDetails(at indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let item = savedItems[indexPath.row]
+            coordinator?.showDetailsOf(id: item.id, type: item.contentType)
+        }
+    }
 }
 
 // MARK: - Presentation Logic -

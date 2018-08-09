@@ -58,4 +58,18 @@ extension DetailsInteractor: DetailsInteractorInput {
             .save(item: request.item)
     }
     
+    func perform(_ request: Details.Request.FetchIsItemSaved) {
+        let isSaved = dependencies
+            .localManager
+            .isPresent(item: request.item)
+        
+        self.output?.present(Details.Response.IsItemSavedFetch(isSaved: isSaved))
+    }
+    
+    func perform(_ request: Details.Request.RemoveItem) {
+        dependencies
+            .localManager
+            .remove(item: request.item)
+    }
+    
 }

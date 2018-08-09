@@ -76,7 +76,6 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIButton! {
         didSet {
-            addButton.setTitle(Translation.Details.addToList, for: .normal)
             addButton.setTitleColor(Colors.white, for: .normal)
             addButton.backgroundColor = Colors.red
             addButton.layer.cornerRadius = 2
@@ -162,10 +161,27 @@ extension DetailsViewController: DetailsPresenterOutput {
             self.durationLabel.text = displayModel.duration
             self.configureMarkLabel(voteAverage: displayModel.mark)
             self.overviewLabel.text = displayModel.overview
-            self.addButton.alpha = 1
             self.pictureImageView.alpha = 1
             
             self.view.layoutIfNeeded()
+        }
+    }
+    
+    func display(_ displayModel: Details.DisplayData.IsItemSaved) {
+        if displayModel.isSaved {
+            UIView.animate(withDuration: 0.2) {
+                self.addButton.setTitle(Translation.Details.removeFromList, for: .normal)
+                self.addButton.alpha = 1
+                
+                self.view.layoutIfNeeded()
+            }
+        } else {
+            UIView.animate(withDuration: 0.2) {
+                self.addButton.setTitle(Translation.Details.addToList, for: .normal)
+                self.addButton.alpha = 1
+                
+                self.view.layoutIfNeeded()
+            }
         }
         
     }

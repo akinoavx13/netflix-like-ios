@@ -27,12 +27,16 @@ protocol DetailsInteractorInput {
     func perform(_ request: Details.Request.FetchMovieDetails)
     func perform(_ request: Details.Request.FetchTVShowDetails)
     func perform(_ request: Details.Request.SaveItem)
+    func perform(_ request: Details.Request.FetchIsItemSaved)
+    func perform(_ request: Details.Request.RemoveItem)
+    
 }
 
 // INTERACTOR -> PRESENTER (indirect)
 protocol DetailsInteractorOutput: class {
     func present(_ response: Details.Response.MovieDetailsFetched)
     func present(_ response: Details.Response.TVShowDetailsFetched)
+    func present(_ response: Details.Response.IsItemSavedFetch)
     func present(_ response: Details.Response.Error)
 }
 
@@ -48,5 +52,6 @@ protocol DetailsPresenterInput {
 // PRESENTER -> VIEW
 protocol DetailsPresenterOutput: class {
     func display(_ displayModel: Details.DisplayData.Details)
+    func display(_ displayModel: Details.DisplayData.IsItemSaved)
     func display(_ displayModel: Details.DisplayData.Error)
 }

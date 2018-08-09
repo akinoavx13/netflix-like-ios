@@ -29,6 +29,7 @@ struct Translation {
         static let mark = NSLocalizedString("Mark", comment: "")
         static let seasons = NSLocalizedString("Seasons", comment: "")
         static let addToList = NSLocalizedString("Add to my list", comment: "")
+        static let removeFromList = NSLocalizedString("Remove from my list", comment: "")
     }
     
     struct Search {
