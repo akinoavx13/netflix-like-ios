@@ -21,12 +21,24 @@ extension Bookmarks.Cancel {
 
 extension Bookmarks.Request {
     struct FetchSavedItems { }
+    struct FetchRecommendationsMovies {
+        let page: Int
+        let id: Int
+    }
+    struct FetchRecommendationsTVShows {
+        let page: Int
+        let id: Int
+    }
 }
 
 extension Bookmarks.Response {
     struct SavedItemsFetched { let items: [Item] }
+    struct RecommendationsMoviesFetched { let movies: [Movie] }
+    struct RecommendationsTVShowsFetched { let tvShows: [TVShow] }
+    struct Error { let errorMessage: String }
 }
 
 extension Bookmarks.DisplayData {
     struct Items { }
+    struct Error { let errorMessage: String }
 }

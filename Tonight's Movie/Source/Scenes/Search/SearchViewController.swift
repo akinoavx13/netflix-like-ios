@@ -80,17 +80,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        var numberOfSections = 0
-        
-        if presenter.numberOfMovies > 0 {
-            numberOfSections += 1
-        }
-        
-        if presenter.numberOfTVShows > 0 {
-            numberOfSections += 1
-        }
-        
-        return numberOfSections
+        return presenter.numberOfMovies + presenter.numberOfTVShows == 0 ? 0 : 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

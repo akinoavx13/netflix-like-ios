@@ -68,12 +68,21 @@ class BookmarksViewController: UIViewController {
 }
 
 extension BookmarksViewController: UICollectionViewDataSource {
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return presenter.numberOfItems == 0 ? 0 : 1
+        return presenter.numberOfSavedItems == 0 ? 0 : 3
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.numberOfItems
+        if section == 0 {
+            return presenter.numberOfSavedItems
+        } else if section == 1 {
+            return presenter.numberOfRecommendedMovies
+        } else if section == 2 {
+            return presenter.numberOfRecommendedTVShows
+        }
+        
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -129,7 +138,7 @@ extension BookmarksViewController: BookmarksPresenterOutput {
     func display(_ displayModel: Bookmarks.DisplayData.Items) {
         collectionView.reloadData()
         
-        if presenter.numberOfItems == 0 {
+        if presenter.numberOfSavedItems == 0 {
             UIView.animate(withDuration: 0.2) {
                 self.emptyStateLabel.alpha = 1
                 
@@ -142,5 +151,9 @@ extension BookmarksViewController: BookmarksPresenterOutput {
                 self.view.layoutIfNeeded()
             }
         }
+    }
+    
+    func display(_ displayModel: Bookmarks.DisplayData.Error) {
+        showAlertError(message: displayModel.errorMessage)
     }
 }

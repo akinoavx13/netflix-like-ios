@@ -41,6 +41,8 @@ struct Translation {
     struct Bookmarks {
         static let bookmarks = NSLocalizedString("Bookmarks", comment: "")
         static let noBookmark = NSLocalizedString("No movie or tv show saved", comment: "")
+        static let recommendedMovies = NSLocalizedString("Recommended movies", comment: "")
+        static let recommendedTVShows = NSLocalizedString("Recommended tv shows", comment: "")
     }
         
 }

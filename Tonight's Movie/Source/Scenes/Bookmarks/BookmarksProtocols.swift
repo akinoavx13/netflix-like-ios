@@ -25,12 +25,19 @@ protocol BookmarksCoordinatorInput: class {
 // PRESENTER -> INTERACTOR
 protocol BookmarksInteractorInput {
     func perform(_ request: Bookmarks.Request.FetchSavedItems)
+    func perform(_ request: Bookmarks.Request.FetchRecommendationsMovies)
+    func perform(_ request: Bookmarks.Request.FetchRecommendationsTVShows)
+    
     func cancel(_ request: Bookmarks.Cancel.Requests)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
 protocol BookmarksInteractorOutput: class {
     func present(_ response: Bookmarks.Response.SavedItemsFetched)
+    func present(_ response: Bookmarks.Response.RecommendationsMoviesFetched)
+    func present(_ response: Bookmarks.Response.RecommendationsTVShowsFetched)
+    
+    func present(_ response: Bookmarks.Response.Error)
 }
 
 // ======== Presenter ======== //
@@ -39,7 +46,9 @@ protocol BookmarksInteractorOutput: class {
 protocol BookmarksPresenterInput {
     
     // MARK: - Properties -
-    var numberOfItems: Int { get }
+    var numberOfSavedItems: Int { get }
+    var numberOfRecommendedMovies: Int { get }
+    var numberOfRecommendedTVShows: Int { get }
     
     // MARK: - Methods -
     func viewCreated()
@@ -54,4 +63,5 @@ protocol BookmarksPresenterInput {
 // PRESENTER -> VIEW
 protocol BookmarksPresenterOutput: class {
     func display(_ displayModel: Bookmarks.DisplayData.Items)
+    func display(_ displayModel: Bookmarks.DisplayData.Error)
 }
