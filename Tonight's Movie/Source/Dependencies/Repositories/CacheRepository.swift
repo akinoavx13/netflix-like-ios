@@ -219,6 +219,33 @@ extension CacheRepository: Repository {
         fallbackRepository.searchMovies(page: page, query: query, completion: completion)
     }
     
+    func getRecommendationsMovies(page: Int, id: Int, completion: @escaping (Alamofire.Result<[Movie]>) -> Void) {
+        guard let storage = moviesStorage else {
+            fallbackRepository.getRecommendationsMovies(page: page, id: id, completion: completion)
+            
+            return
+        }
+        
+        do {
+            let movies = try storage.object(forKey: "getRecommendationsMovies/\(page)/\(id)")
+            
+            completion(Alamofire.Result.success(movies))
+            fallbackRepository.getRecommendationsMovies(page: page, id: id) { (result) in
+                if case let .success(movies) = result {
+                    try? storage.setObject(movies, forKey: "getRecommendationsMovies/\(page)/\(id)")
+                }
+                completion(result)
+            }
+        } catch {
+            fallbackRepository.getRecommendationsMovies(page: page, id: id) { (result) in
+                if case let .success(movies) = result {
+                    try? storage.setObject(movies, forKey: "getRecommendationsMovies/\(page)/\(id)")
+                }
+                completion(result)
+            }
+        }
+    }
+    
     // MARK: - TVShows -
     func getMostPopularTVShows(page: Int, completion: @escaping (Alamofire.Result<[TVShow]>) -> Void) {
         guard let storage = tvShowsStorage else {
@@ -357,6 +384,33 @@ extension CacheRepository: Repository {
     
     func searchTVShows(page: Int, query: String, completion: @escaping (Alamofire.Result<[TVShow]>) -> Void) {
         fallbackRepository.searchTVShows(page: page, query: query, completion: completion)
+    }
+    
+    func getRecommendationsTVShows(page: Int, id: Int, completion: @escaping (Alamofire.Result<[TVShow]>) -> Void) {
+        guard let storage = tvShowsStorage else {
+            fallbackRepository.getRecommendationsTVShows(page: page, id: id, completion: completion)
+            
+            return
+        }
+        
+        do {
+            let tvShows = try storage.object(forKey: "getRecommendationsTVShows/\(page)/\(id)")
+            
+            completion(Alamofire.Result.success(tvShows))
+            fallbackRepository.getRecommendationsTVShows(page: page, id: id) { (result) in
+                if case let .success(tvShows) = result {
+                    try? storage.setObject(tvShows, forKey: "getRecommendationsTVShows/\(page)/\(id)")
+                }
+                completion(result)
+            }
+        } catch {
+            fallbackRepository.getRecommendationsTVShows(page: page, id: id) { (result) in
+                if case let .success(tvShows) = result {
+                    try? storage.setObject(tvShows, forKey: "getRecommendationsTVShows/\(page)/\(id)")
+                }
+                completion(result)
+            }
+        }
     }
 }
 

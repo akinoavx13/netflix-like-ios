@@ -211,6 +211,33 @@ final class RemoteRepository: Repository {
                 return completion(.success(movies))
         }
     }
+    
+    func getRecommendationsMovies(page: Int, id: Int, completion: @escaping (Result<[Movie]>) -> Void) {
+        var parameters = defaultParameters
+        parameters["page"] = "\(page)"
+        
+        Alamofire
+            .request("\(baseURL)/movie/\(id)/recommendations", parameters: parameters)
+            .validate()
+            .responseJSON { (response) in
+                if response.error != nil {
+                    return completion(.failure(response.error!))
+                }
+                
+                guard
+                    let json = response.result.value as? [String: Any],
+                    let results = json["results"] as? [[String: Any]]
+                    else {
+                        return completion(.failure(AFError.responseSerializationFailed(reason: AFError.ResponseSerializationFailureReason.inputDataNilOrZeroLength)))
+                }
+                
+                let movies = results.compactMap { dict in
+                    return Movie(dict: dict)
+                }
+                
+                return completion(.success(movies))
+        }
+    }
 
     // MARK: - TVShows -
     func getMostPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
@@ -350,6 +377,33 @@ final class RemoteRepository: Repository {
         
         Alamofire
             .request("\(baseURL)/search/tv", parameters: parameters)
+            .validate()
+            .responseJSON { (response) in
+                if response.error != nil {
+                    return completion(.failure(response.error!))
+                }
+                
+                guard
+                    let json = response.result.value as? [String: Any],
+                    let results = json["results"] as? [[String: Any]]
+                    else {
+                        return completion(.failure(AFError.responseSerializationFailed(reason: AFError.ResponseSerializationFailureReason.inputDataNilOrZeroLength)))
+                }
+                
+                let tvShows = results.compactMap { dict in
+                    return TVShow(dict: dict)
+                }
+                
+                return completion(.success(tvShows))
+        }
+    }
+    
+    func getRecommendationsTVShows(page: Int, id: Int, completion: @escaping (Result<[TVShow]>) -> Void) {
+        var parameters = defaultParameters
+        parameters["page"] = "\(page)"
+        
+        Alamofire
+            .request("\(baseURL)/tv/\(id)/recommendations", parameters: parameters)
             .validate()
             .responseJSON { (response) in
                 if response.error != nil {
