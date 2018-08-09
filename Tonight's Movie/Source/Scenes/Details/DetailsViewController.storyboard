@@ -50,7 +50,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsg-NB-8yf">
-                                                <rect key="frame" x="335" y="32" width="24" height="24"/>
+                                                <rect key="frame" x="335" y="48" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="iNS-Xl-PQW"/>
                                                     <constraint firstAttribute="width" constant="24" id="osD-ys-Ye5"/>
@@ -117,7 +117,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="agH-gg-ctR" secondAttribute="trailing" id="B7j-cu-Kkj"/>
                                     <constraint firstAttribute="trailing" secondItem="xsg-NB-8yf" secondAttribute="trailing" constant="16" id="Sak-3z-Iqb"/>
-                                    <constraint firstItem="xsg-NB-8yf" firstAttribute="top" secondItem="0ly-TL-bCd" secondAttribute="top" constant="32" id="Ucr-gl-QAa"/>
+                                    <constraint firstItem="xsg-NB-8yf" firstAttribute="top" secondItem="0ly-TL-bCd" secondAttribute="top" constant="48" id="Ucr-gl-QAa"/>
                                     <constraint firstItem="agH-gg-ctR" firstAttribute="leading" secondItem="0ly-TL-bCd" secondAttribute="leading" id="ran-ww-0hp"/>
                                     <constraint firstItem="agH-gg-ctR" firstAttribute="top" secondItem="0ly-TL-bCd" secondAttribute="top" id="scq-eo-FHs"/>
                                     <constraint firstAttribute="bottom" secondItem="agH-gg-ctR" secondAttribute="bottom" id="vU3-D5-L8p"/>
