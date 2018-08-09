@@ -20,13 +20,52 @@ platform :ios do
   desc "Fastlane Match"
   lane :match_all do
     match_development
+    match_appstore
   end
   
+  desc "Fastlane Beta - Testflight"
+  lane :beta do
+    ensure_git_status_clean
+    increment_build_number
+    match_appstore
+    build_app(scheme: "Tonight's Movie")
+    upload_to_testflight(
+      username: "maxime.maheo@gmail.com",
+      beta_app_description: "New beta of Tonight's Movie app available.",
+      beta_app_feedback_email: "maxime.maheo@gmail.com",
+      changelog: "Bug Fixes, Changes and Improvements.",
+      reject_build_waiting_for_review: true,
+      first_name: "Maxime",
+      last_name: "Maheo",
+      email: "maxime.maheo@gmail.com",
+    )
+    git_add
+    git_commit(
+      path: "*",
+      message: "Beta released"
+    )
+    add_git_tag(
+      build_number: get_build_number
+    )
+    push_to_git_remote
+  end
+
   desc "Fastlane Match - Development"
   private_lane :match_development do
     match(
       app_identifier: "maxime.maheo.free.fr.Tonight-s-Movie",
       type: "development",
+      git_url: "git@github.com:mmaheo/certificates.git",
+      username: "maxime.maheo@gmail.com",
+      force_for_new_devices: true
+    )
+  end
+
+  desc "Fastlane Match - AppStore"
+  private_lane :match_appstore do
+    match(
+      app_identifier: "maxime.maheo.free.fr.Tonight-s-Movie",
+      type: "appstore",
       git_url: "git@github.com:mmaheo/certificates.git",
       username: "maxime.maheo@gmail.com",
       force_for_new_devices: true

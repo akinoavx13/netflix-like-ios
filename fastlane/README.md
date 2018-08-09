@@ -21,6 +21,11 @@ or alternatively using `brew cask install fastlane`
 fastlane ios match_all
 ```
 Fastlane Match
+### ios beta
+```
+fastlane ios beta
+```
+Fastlane Beta - Testflight
 
 ----
 
