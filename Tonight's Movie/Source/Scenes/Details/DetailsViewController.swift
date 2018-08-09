@@ -107,6 +107,8 @@ class DetailsViewController: UIViewController {
         
         pictureImageView.kf.cancelDownloadTask()
         backgroundImageView.kf.cancelDownloadTask()
+        
+        presenter.viewWillDisappear()
     }
     
     // MARK: - Methods -

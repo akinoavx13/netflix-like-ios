@@ -9,9 +9,14 @@
 import Foundation
 
 enum Search {
+    enum Cancel { }
     enum Request { }
     enum Response { }
     enum DisplayData { }
+}
+
+extension Search.Cancel {
+    struct Requests { }
 }
 
 extension Search.Request {

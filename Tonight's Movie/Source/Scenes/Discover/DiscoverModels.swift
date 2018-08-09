@@ -12,9 +12,14 @@ enum Discover {
     enum Screen {
         case Movies, TVShows
     }
+    enum Cancel { }
     enum Request { }
     enum Response { }
     enum DisplayData { }
+}
+
+extension Discover.Cancel {
+    struct Requests { let screen: Discover.Screen }
 }
 
 extension Discover.Request {

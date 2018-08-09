@@ -21,7 +21,7 @@ final class Dependencies {
     private init() {
         requestsManager = RequestsManager()
         localManager = LocalManager()
-        repository = CacheRepository(fallbackRepository: RemoteRepository(requestsManager: requestsManager))
+        repository = CacheRepository(fallbackRepository: RemoteRepository())
     }
 }
 

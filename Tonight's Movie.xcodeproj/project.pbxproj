@@ -46,6 +46,7 @@
 		2046D8D3211C5D8000124E93 /* BookmarksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046D8CC211C5D8000124E93 /* BookmarksInteractor.swift */; };
 		2046D8D5211C635900124E93 /* SearchHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2046D8D4211C635900124E93 /* SearchHeaderView.xib */; };
 		2046D8D7211C64A400124E93 /* ItemListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2046D8D6211C64A400124E93 /* ItemListCell.xib */; };
+		2046D8D9211C7FB700124E93 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046D8D8211C7FB600124E93 /* Screen.swift */; };
 		2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C4232118698D0096DAA8 /* Coordinator.swift */; };
 		2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C425211869970096DAA8 /* AppCoordinator.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
@@ -116,6 +117,7 @@
 		2046D8CC211C5D8000124E93 /* BookmarksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksInteractor.swift; sourceTree = "<group>"; };
 		2046D8D4211C635900124E93 /* SearchHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeaderView.xib; sourceTree = "<group>"; };
 		2046D8D6211C64A400124E93 /* ItemListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListCell.xib; sourceTree = "<group>"; };
+		2046D8D8211C7FB600124E93 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		2055C4232118698D0096DAA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2055C425211869970096DAA8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2055C43821186A340096DAA8 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				2055C44421186E060096DAA8 /* Icons.swift */,
 				2055C44621186EA20096DAA8 /* Colors.swift */,
 				20B9E43021188F2D002EACDA /* Fonts.swift */,
+				2046D8D8211C7FB600124E93 /* Screen.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */,
 				2025B118211980420032E3D1 /* DiscoverProtocols.swift in Sources */,
 				20644D0D211C26D300DD6E91 /* SearchModels.swift in Sources */,
+				2046D8D9211C7FB700124E93 /* Screen.swift in Sources */,
 				2055C44721186EA20096DAA8 /* Colors.swift in Sources */,
 				2046D8CD211C5D8000124E93 /* BookmarksCoordinator.swift in Sources */,
 				202FEFB2211AFCD700494133 /* DetailsCoordinator.swift in Sources */,

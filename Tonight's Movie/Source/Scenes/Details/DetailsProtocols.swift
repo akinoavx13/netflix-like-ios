@@ -30,6 +30,7 @@ protocol DetailsInteractorInput {
     func perform(_ request: Details.Request.FetchIsItemSaved)
     func perform(_ request: Details.Request.RemoveItem)
     
+    func cancel(_ request: Details.Cancel.Requests)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
@@ -45,6 +46,7 @@ protocol DetailsInteractorOutput: class {
 // VIEW -> PRESENTER
 protocol DetailsPresenterInput {
     func viewCreated()
+    func viewWillDisappear()
     func closeButtonTapped()
     func addButtonTapped()
 }

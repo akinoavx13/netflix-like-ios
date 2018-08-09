@@ -41,6 +41,10 @@ extension DetailsPresenter: DetailsPresenterInput {
         }
     }
     
+    func viewWillDisappear() {
+        interactor.cancel(Details.Cancel.Requests())
+    }
+    
     func closeButtonTapped() {
         coordinator?.dismiss()
     }

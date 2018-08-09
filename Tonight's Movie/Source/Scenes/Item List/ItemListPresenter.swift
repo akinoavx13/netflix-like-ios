@@ -103,6 +103,10 @@ extension ItemListPresenter: ItemListPresenterInput {
         }
     }
     
+    func viewWillDisappear() {
+        interactor.cancel(ItemList.Cancel.Requests(screen: screen))
+    }
+    
     func configure(item: ItemListCellProtocol, at indexPath: IndexPath) {
         switch section {
         case .Currently:

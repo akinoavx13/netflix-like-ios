@@ -58,6 +58,8 @@ class DiscoverViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         highestRatedMovieImageView.kf.cancelDownloadTask()
+        
+        presenter.viewWillDisappear()
     }
     
     // MARK: - Methods -

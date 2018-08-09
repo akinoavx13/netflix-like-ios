@@ -27,7 +27,7 @@ class DiscoverInteractor {
 extension DiscoverInteractor: DiscoverInteractorInput {
     
     func perform(_ request: Discover.Request.FetchHighestRatedMovies) {
-        dependencies
+        let request = dependencies
             .repository
             .getHighestRatedMovies(page: request.page) { (result) in
                 switch result {
@@ -37,10 +37,14 @@ extension DiscoverInteractor: DiscoverInteractorInput {
                     self.output?.present(Discover.Response.Error(errorMessage: error.localizedDescription))
                 }
         }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .DiscoverMovies, request: request)
     }
     
     func perform(_ request: Discover.Request.FetchMostPopularTVShow) {
-        dependencies
+        let request = dependencies
             .repository
             .getMostPopularTVShows(page: request.page) { (result) in
                 switch result {
@@ -49,6 +53,23 @@ extension DiscoverInteractor: DiscoverInteractorInput {
                 case .failure(let error):
                     self.output?.present(Discover.Response.Error(errorMessage: error.localizedDescription))
                 }
+        }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .DiscoverTVShows, request: request)
+    }
+    
+    func cancel(_ request: Discover.Cancel.Requests) {
+        switch request.screen {
+        case .Movies:
+            dependencies
+                .requestsManager
+                .cancelRequests(of: .DiscoverMovies)
+        case .TVShows:
+            dependencies
+                .requestsManager
+                .cancelRequests(of: .DiscoverTVShows)
         }
     }
 }

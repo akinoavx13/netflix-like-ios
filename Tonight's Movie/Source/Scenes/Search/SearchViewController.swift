@@ -54,8 +54,13 @@ class SearchViewController: UIViewController {
         
         view.backgroundColor = Colors.black
         
-        
         presenter.viewCreated()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        presenter.viewWillDisappear()
     }
     
     // MARK: - Methods -

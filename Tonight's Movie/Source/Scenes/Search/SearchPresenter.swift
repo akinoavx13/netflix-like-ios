@@ -46,7 +46,12 @@ extension SearchPresenter: SearchPresenterInput {
         
     }
     
+    func viewWillDisappear() {
+        interactor.cancel(Search.Cancel.Requests())
+    }
+    
     func search(with query: String) {
+        interactor.cancel(Search.Cancel.Requests())
         interactor.perform(Search.Request.SearchMovies(page: 1, query: query))
         interactor.perform(Search.Request.SearchTVShows(page: 1, query: query))
     }

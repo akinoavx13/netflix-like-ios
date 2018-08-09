@@ -47,6 +47,12 @@ class BookmarksViewController: UIViewController {
         presenter.viewWillAppear()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        presenter.viewWillDisappear()
+    }
+    
     // MARK: - Methods -
     class func instantiate(with presenter: BookmarksPresenterInput) -> BookmarksViewController {
         let name = "\(BookmarksViewController.self)"

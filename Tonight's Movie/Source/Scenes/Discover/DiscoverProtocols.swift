@@ -29,6 +29,8 @@ protocol DiscoverCoordinatorInput: class {
 protocol DiscoverInteractorInput {
     func perform(_ request: Discover.Request.FetchHighestRatedMovies)
     func perform(_ request: Discover.Request.FetchMostPopularTVShow)
+    
+    func cancel(_ request: Discover.Cancel.Requests)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
@@ -48,6 +50,7 @@ protocol DiscoverPresenterInput {
     
     // MARK: - Methods -
     func viewCreated()
+    func viewWillDisappear()
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath)
     func willDisplay(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath)
     func didEndDisplaying(at indexPath: IndexPath)

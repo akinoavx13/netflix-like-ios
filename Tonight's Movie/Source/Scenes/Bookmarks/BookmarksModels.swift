@@ -9,9 +9,14 @@
 import Foundation
 
 enum Bookmarks {
+    enum Cancel { }
     enum Request { }
     enum Response { }
     enum DisplayData { }
+}
+
+extension Bookmarks.Cancel {
+    struct Requests { }
 }
 
 extension Bookmarks.Request {

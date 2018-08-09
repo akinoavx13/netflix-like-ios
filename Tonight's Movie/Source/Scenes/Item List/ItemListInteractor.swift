@@ -28,7 +28,7 @@ extension ItemListInteractor: ItemListInteractorInput {
     
     // MARK: - Movies -
     func perform(_ request: ItemList.Request.FetchNowPlayingMovies) {        
-        dependencies
+        let request = dependencies
             .repository
             .getNowPlayingMovies(page: request.page) { (result) in
                 switch result {
@@ -38,10 +38,14 @@ extension ItemListInteractor: ItemListInteractorInput {
                     self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
                 }
         }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .DiscoverMovies, request: request)
     }
     
     func perform(_ request: ItemList.Request.FetchUpcomingMovies) {
-        dependencies
+        let request = dependencies
             .repository
             .getUpcomingMovies(page: request.page) { (result) in
                 switch result {
@@ -51,10 +55,14 @@ extension ItemListInteractor: ItemListInteractorInput {
                     self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
                 }
         }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .DiscoverMovies, request: request)
     }
     
     func perform(_ request: ItemList.Request.FetchPopularMovies) {
-        dependencies
+        let request = dependencies
             .repository
             .getPopularMovies(page: request.page) { (result) in
                 switch result {
@@ -64,10 +72,14 @@ extension ItemListInteractor: ItemListInteractorInput {
                     self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
                 }
         }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .DiscoverMovies, request: request)
     }
     
     func perform(_ request: ItemList.Request.FetchTopRatedMovies) {
-        dependencies
+        let request = dependencies
             .repository
             .getTopRatedMovies(page: request.page) { (result) in
                 switch result {
@@ -77,11 +89,15 @@ extension ItemListInteractor: ItemListInteractorInput {
                     self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
                 }
         }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .DiscoverMovies, request: request)
     }
 
     // MARK: - TVShows -
     func perform(_ request: ItemList.Request.FetchOnTheAirTVShows) {
-        dependencies
+        let request = dependencies
             .repository
             .getOnTheAirTVShows(page: request.page) { (result) in
                 switch result {
@@ -91,10 +107,14 @@ extension ItemListInteractor: ItemListInteractorInput {
                     self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
                 }
         }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .DiscoverTVShows, request: request)
     }
     
     func perform(_ request: ItemList.Request.FetchPopularTVShows) {
-        dependencies
+        let request = dependencies
             .repository
             .getPopularTVShows(page: request.page) { (result) in
                 switch result {
@@ -104,10 +124,14 @@ extension ItemListInteractor: ItemListInteractorInput {
                     self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
                 }
         }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .DiscoverTVShows, request: request)
     }
     
     func perform(_ request: ItemList.Request.FetchTopRatedTVShows) {
-        dependencies
+        let request = dependencies
             .repository
             .getTopRatedTVShows(page: request.page) { (result) in
                 switch result {
@@ -116,6 +140,23 @@ extension ItemListInteractor: ItemListInteractorInput {
                 case .failure(let error):
                     self.output?.present(ItemList.Response.Error(errorMessage: error.localizedDescription))
                 }
+        }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .DiscoverTVShows, request: request)
+    }
+    
+    func cancel(_ request: ItemList.Cancel.Requests) {
+        switch request.screen {
+        case .Movies:
+            dependencies
+                .requestsManager
+                .cancelRequests(of: .DiscoverMovies)
+        case .TVShows:
+            dependencies
+                .requestsManager
+                .cancelRequests(of: .DiscoverTVShows)
         }
     }
 }

@@ -27,7 +27,7 @@ class DetailsInteractor {
 extension DetailsInteractor: DetailsInteractorInput {
     
     func perform(_ request: Details.Request.FetchMovieDetails) {
-        dependencies
+        let request = dependencies
             .repository
             .getMovieDetails(id: request.id) { (result) in
                 switch result {
@@ -37,10 +37,14 @@ extension DetailsInteractor: DetailsInteractorInput {
                     self.output?.present(Details.Response.Error(errorMessage: error.localizedDescription))
                 }
         }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .Details, request: request)
     }
     
     func perform(_ request: Details.Request.FetchTVShowDetails) {
-        dependencies
+        let request = dependencies
             .repository
             .getTVShowDetails(id: request.id) { (result) in
                 switch result {
@@ -50,6 +54,10 @@ extension DetailsInteractor: DetailsInteractorInput {
                     self.output?.present(Details.Response.Error(errorMessage: error.localizedDescription))
                 }
         }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .Details, request: request)
     }
     
     func perform(_ request: Details.Request.SaveItem) {
@@ -70,6 +78,12 @@ extension DetailsInteractor: DetailsInteractorInput {
         dependencies
             .localManager
             .remove(item: request.item)
+    }
+    
+    func cancel(_ request: Details.Cancel.Requests) {
+        dependencies
+            .requestsManager
+            .cancelRequests(of: .Details)
     }
     
 }

@@ -27,7 +27,7 @@ class SearchInteractor {
 extension SearchInteractor: SearchInteractorInput {
     
     func perform(_ request: Search.Request.SearchMovies) {
-        dependencies
+        let request = dependencies
             .repository
             .searchMovies(page: request.page, query: request.query) { (result) in
                 switch result {
@@ -37,10 +37,14 @@ extension SearchInteractor: SearchInteractorInput {
                     self.output?.present(Search.Response.Error(errorMessage: error.localizedDescription))
                 }
         }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .Search, request: request)
     }
     
     func perform(_ request: Search.Request.SearchTVShows) {
-        dependencies
+        let request = dependencies
             .repository
             .searchTVShows(page: request.page, query: request.query) { (result) in
                 switch result {
@@ -50,6 +54,16 @@ extension SearchInteractor: SearchInteractorInput {
                     self.output?.present(Search.Response.Error(errorMessage: error.localizedDescription))
                 }
         }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .Search, request: request)
+    }
+    
+    func cancel(_ request: Search.Cancel.Requests) {
+        dependencies
+            .requestsManager
+            .cancelRequests(of: .Search)
     }
     
 }

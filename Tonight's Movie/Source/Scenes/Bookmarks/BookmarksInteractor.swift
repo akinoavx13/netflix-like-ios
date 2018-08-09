@@ -34,4 +34,10 @@ extension BookmarksInteractor: BookmarksInteractorInput {
         self.output?.present(Bookmarks.Response.SavedItemsFetched(items: items))
     }
     
+    func cancel(_ request: Bookmarks.Cancel.Requests) {
+        dependencies
+            .requestsManager
+            .cancelRequests(of: .Bookmarks)
+    }
+    
 }

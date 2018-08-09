@@ -26,6 +26,8 @@ protocol SearchCoordinatorInput: class {
 protocol SearchInteractorInput {
     func perform(_ request: Search.Request.SearchMovies)
     func perform(_ request: Search.Request.SearchTVShows)
+    
+    func cancel(_ request: Search.Cancel.Requests)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
@@ -46,6 +48,7 @@ protocol SearchPresenterInput {
     
     // MARK: - Methods -
     func viewCreated()
+    func viewWillDisappear()
     func search(with query: String)
     func configure(item: ItemListCellProtocol, at indexPath: IndexPath)
     func configure(item: SearchHeaderViewProtocol, at indexPath: IndexPath)

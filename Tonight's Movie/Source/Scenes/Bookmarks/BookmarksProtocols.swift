@@ -25,6 +25,7 @@ protocol BookmarksCoordinatorInput: class {
 // PRESENTER -> INTERACTOR
 protocol BookmarksInteractorInput {
     func perform(_ request: Bookmarks.Request.FetchSavedItems)
+    func cancel(_ request: Bookmarks.Cancel.Requests)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
@@ -43,6 +44,7 @@ protocol BookmarksPresenterInput {
     // MARK: - Methods -
     func viewCreated()
     func viewWillAppear()
+    func viewWillDisappear()
     func configure(item: ItemListCellProtocol, at indexPath: IndexPath)
     func configure(item: SearchHeaderViewProtocol, at indexPath: IndexPath)
     func didEndDisplaying(item: ItemListCellProtocol, at indexPath: IndexPath)

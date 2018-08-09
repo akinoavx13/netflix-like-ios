@@ -52,6 +52,10 @@ extension DiscoverPresenter: DiscoverPresenterInput {
         addCoordinators()
     }
     
+    func viewWillDisappear() {
+        interactor.cancel(Discover.Cancel.Requests(screen: screen))
+    }
+    
     func configure(item: DiscoverCellProtocol, at indexPath: IndexPath) {
         switch screen {
         case .Movies:

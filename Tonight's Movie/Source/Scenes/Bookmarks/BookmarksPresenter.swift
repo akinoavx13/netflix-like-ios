@@ -44,6 +44,10 @@ extension BookmarksPresenter: BookmarksPresenterInput {
         interactor.perform(Bookmarks.Request.FetchSavedItems())
     }
     
+    func viewWillDisappear() {
+        interactor.cancel(Bookmarks.Cancel.Requests())
+    }
+    
     func configure(item: ItemListCellProtocol, at indexPath: IndexPath) {
         let savedItem = savedItems[indexPath.row]
         
