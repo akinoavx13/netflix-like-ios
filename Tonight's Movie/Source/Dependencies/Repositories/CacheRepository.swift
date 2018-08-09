@@ -26,25 +26,25 @@ final class CacheRepository {
         
         moviesStorage = try? Storage(
             diskConfig: DiskConfig(name: "movies"),
-            memoryConfig: MemoryConfig(expiry: .never, countLimit: 25, totalCostLimit: 25),
+            memoryConfig: MemoryConfig(expiry: .seconds(10 * 60), countLimit: 25, totalCostLimit: 25),
             transformer: TransformerFactory.forCodable(ofType: [Movie].self)
         )
         
         movieStorage = try? Storage(
             diskConfig: DiskConfig(name: "movie"),
-            memoryConfig: MemoryConfig(expiry: .never, countLimit: 10, totalCostLimit: 10),
+            memoryConfig: MemoryConfig(expiry: .seconds(10 * 60), countLimit: 10, totalCostLimit: 10),
             transformer: TransformerFactory.forCodable(ofType: Movie.self)
         )
         
         tvShowsStorage = try? Storage(
             diskConfig: DiskConfig(name: "tvshows"),
-            memoryConfig: MemoryConfig(expiry: .never, countLimit: 25, totalCostLimit: 25),
+            memoryConfig: MemoryConfig(expiry: .seconds(10 * 60), countLimit: 25, totalCostLimit: 25),
             transformer: TransformerFactory.forCodable(ofType: [TVShow].self)
         )
         
         tvShowStorage = try? Storage(
             diskConfig: DiskConfig(name: "tvshow"),
-            memoryConfig: MemoryConfig(expiry: .never, countLimit: 10, totalCostLimit: 10),
+            memoryConfig: MemoryConfig(expiry: .seconds(10 * 60), countLimit: 10, totalCostLimit: 10),
             transformer: TransformerFactory.forCodable(ofType: TVShow.self)
         )
     }
