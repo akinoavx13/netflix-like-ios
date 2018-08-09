@@ -15,13 +15,18 @@ enum Search {
 }
 
 extension Search.Request {
-
+    struct SearchMovies {
+        let page: Int
+        let query: String
+    }
 }
 
 extension Search.Response {
-
+    struct MoviesFound { let movies: [Movie] }
+    struct Error { let errorMessage: String }
 }
 
 extension Search.DisplayData {
-    
+    struct Movies { let movies: [Movie] }
+    struct Error { let errorMessage: String }
 }

@@ -19,6 +19,7 @@ class SearchViewController: UIViewController {
             searchBar.barTintColor = Colors.black
             searchBar.tintColor = Colors.grey
             searchBar.delegate = self
+            searchBar.placeholder = Translation.Search.search
             
             let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
             
@@ -30,6 +31,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.backgroundColor = Colors.black
+            collectionView.dataSource = self
+            collectionView.delegate = self
         }
     }
     
@@ -56,12 +59,41 @@ class SearchViewController: UIViewController {
     // MARK: - Actions -
 }
 
+extension SearchViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return presenter.numberOfMovies
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ItemListCell.self)", for: indexPath) as? ItemListCell else { return UICollectionViewCell() }
+        
+        presenter.configure(item: cell, at: indexPath)
+        
+        return cell
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? ItemListCell else { return }
+        
+        presenter.didEndDisplaying(item: cell, at: indexPath)
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let witdh = UIScreen.main.bounds.width / 3 - 8
+        
+        return CGSize(width: witdh, height: witdh * 1.5)
+    }
+}
+
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         UIView.animate(withDuration: 0.2) {
             searchBar.showsCancelButton = true
-            searchBar.text = ""
             
             self.view.layoutIfNeeded()
         }
@@ -72,7 +104,6 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
         UIView.animate(withDuration: 0.2) {
             searchBar.showsCancelButton = false
-            searchBar.text = ""
             
             self.view.layoutIfNeeded()
         }
@@ -81,9 +112,13 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        if searchText.count > 3 {
+            presenter.search(with: searchText)
+        } else {
+            presenter.displayEmptyState()
+        }
     }
-    
+        
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
@@ -97,5 +132,11 @@ extension SearchViewController: UISearchBarDelegate {
 
 // PRESENTER -> VIEW
 extension SearchViewController: SearchPresenterOutput {
-
+    func display(_ displayModel: Search.DisplayData.Movies) {
+        collectionView.reloadData()
+    }
+    
+    func display(_ displayModel: Search.DisplayData.Error) {
+        showAlertError(message: displayModel.errorMessage)
+    }
 }

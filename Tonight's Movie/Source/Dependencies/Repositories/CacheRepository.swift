@@ -215,6 +215,10 @@ extension CacheRepository: Repository {
         }
     }
     
+    func searchMovies(page: Int, query: String, completion: @escaping (Alamofire.Result<[Movie]>) -> Void) {
+        fallbackRepository.searchMovies(page: page, query: query, completion: completion)
+    }
+    
     // MARK: - TVShows -
     func getMostPopularTVShows(page: Int, completion: @escaping (Alamofire.Result<[TVShow]>) -> Void) {
         guard let storage = tvShowsStorage else {
