@@ -64,7 +64,6 @@ extension ItemListViewController: UICollectionViewDataSource {
 }
 
 extension ItemListViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == presenter.numberOfItems - 5 {
             presenter.displayNext()
@@ -76,7 +75,12 @@ extension ItemListViewController: UICollectionViewDelegate {
         
         presenter.didEndDisplaying(item: cell, at: indexPath)
     }
-    
+}
+
+extension ItemListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return Style.Cell.getItemSizeDefault
+    }
 }
 
 // MARK: - Display Logic -

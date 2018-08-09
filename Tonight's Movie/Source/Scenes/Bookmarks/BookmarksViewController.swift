@@ -121,9 +121,7 @@ extension BookmarksViewController: UICollectionViewDelegate {
 
 extension BookmarksViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let witdh = UIScreen.main.bounds.width / 3 - 8
-        
-        return CGSize(width: witdh, height: witdh * 1.5)
+        return Style.Cell.getItemSizeLarge
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

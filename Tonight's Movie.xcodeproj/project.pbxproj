@@ -76,6 +76,7 @@
 		20BEB6292118636500CA891E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEB6282118636500CA891E /* AppDelegate.swift */; };
 		20BEB6302118636600CA891E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB62F2118636600CA891E /* Assets.xcassets */; };
 		20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB6312118636600CA891E /* LaunchScreen.storyboard */; };
+		20F07185211CD27800F59192 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F07184211CD27800F59192 /* Style.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +153,7 @@
 		20BEB62F2118636600CA891E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20BEB6322118636600CA891E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20BEB6342118636600CA891E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20F07184211CD27800F59192 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				2055C44621186EA20096DAA8 /* Colors.swift */,
 				20B9E43021188F2D002EACDA /* Fonts.swift */,
 				2046D8D8211C7FB600124E93 /* Screen.swift */,
+				20F07184211CD27800F59192 /* Style.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2055C44521186E060096DAA8 /* Icons.swift in Sources */,
+				20F07185211CD27800F59192 /* Style.swift in Sources */,
 				2046D8CE211C5D8000124E93 /* BookmarksPresenter.swift in Sources */,
 				2025B12B2119B5410032E3D1 /* ItemListPresenter.swift in Sources */,
 				20B9E42621187FE1002EACDA /* CacheRepository.swift in Sources */,
