@@ -36,6 +36,15 @@ class SearchViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var emptyStateLabel: UILabel! {
+        didSet {
+            emptyStateLabel.text = Translation.Search.searchMovieOrTVShow
+            emptyStateLabel.textColor = Colors.white
+            emptyStateLabel.font = Fonts.small
+            emptyStateLabel.numberOfLines = 2
+        }
+    }
+    
     // MARK: - Lifecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,6 +120,10 @@ extension SearchViewController: UICollectionViewDelegate {
         
         presenter.didEndDisplaying(item: cell, at: indexPath)
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
@@ -166,6 +179,30 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: SearchPresenterOutput {
     func display(_ displayModel: Search.DisplayData.Items) {
         collectionView.reloadData()
+        
+        if !(searchBar.text?.isEmpty ?? false) && presenter.numberOfMovies + presenter.numberOfTVShows == 0 {
+            UIView.animate(withDuration: 0.2) {
+                self.emptyStateLabel.alpha = 1
+                self.emptyStateLabel.text = Translation.Search.noResult
+                
+                self.view.layoutIfNeeded()
+            }
+        } else {
+            UIView.animate(withDuration: 0.2) {
+                self.emptyStateLabel.alpha = 0
+                
+                self.view.layoutIfNeeded()
+            }
+        }
+        
+        if searchBar.text?.isEmpty ?? false {
+            UIView.animate(withDuration: 0.2) {
+                self.emptyStateLabel.alpha = 1
+                self.emptyStateLabel.text = Translation.Search.searchMovieOrTVShow
+                
+                self.view.layoutIfNeeded()
+            }
+        }
     }
     
     func display(_ displayModel: Search.DisplayData.Error) {

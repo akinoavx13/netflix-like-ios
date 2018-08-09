@@ -76,13 +76,22 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGI-0K-nEy">
+                                <rect key="frame" x="163" y="395.66666666666669" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="iJY-0e-HNB" secondAttribute="bottom" id="6hh-MJ-tWs"/>
                             <constraint firstItem="dMA-9I-qqh" firstAttribute="leading" secondItem="Fhz-5B-qaF" secondAttribute="leading" id="BvO-HZ-5uU"/>
+                            <constraint firstItem="zGI-0K-nEy" firstAttribute="width" relation="lessThanOrEqual" secondItem="2ev-QE-M02" secondAttribute="width" constant="32" id="MLN-R3-ewC"/>
+                            <constraint firstItem="zGI-0K-nEy" firstAttribute="centerY" secondItem="2ev-QE-M02" secondAttribute="centerY" id="QsU-jZ-oRP"/>
                             <constraint firstItem="Fhz-5B-qaF" firstAttribute="trailing" secondItem="iJY-0e-HNB" secondAttribute="trailing" id="cXY-RL-TPw"/>
                             <constraint firstItem="iJY-0e-HNB" firstAttribute="top" secondItem="dMA-9I-qqh" secondAttribute="bottom" id="g84-4B-Jul"/>
+                            <constraint firstItem="zGI-0K-nEy" firstAttribute="centerX" secondItem="2ev-QE-M02" secondAttribute="centerX" id="kk9-v7-kqz"/>
                             <constraint firstItem="dMA-9I-qqh" firstAttribute="trailing" secondItem="Fhz-5B-qaF" secondAttribute="trailing" id="q1r-iw-S7p"/>
                             <constraint firstItem="iJY-0e-HNB" firstAttribute="leading" secondItem="Fhz-5B-qaF" secondAttribute="leading" id="urb-Ht-iR7"/>
                             <constraint firstItem="dMA-9I-qqh" firstAttribute="top" secondItem="Fhz-5B-qaF" secondAttribute="top" id="vgb-8x-Wkw"/>
@@ -91,6 +100,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="iJY-0e-HNB" id="W40-my-VhH"/>
+                        <outlet property="emptyStateLabel" destination="zGI-0K-nEy" id="lDA-7k-tPO"/>
                         <outlet property="searchBar" destination="dMA-9I-qqh" id="RvW-XL-fHV"/>
                     </connections>
                 </viewController>

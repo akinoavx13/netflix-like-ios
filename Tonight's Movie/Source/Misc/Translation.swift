@@ -34,6 +34,8 @@ struct Translation {
     
     struct Search {
         static let search = NSLocalizedString("Search", comment: "")
+        static let noResult = NSLocalizedString("Your search returned no results", comment: "")
+        static let searchMovieOrTVShow = NSLocalizedString("Search a movie or a tv show", comment: "")
     }
         
 }
