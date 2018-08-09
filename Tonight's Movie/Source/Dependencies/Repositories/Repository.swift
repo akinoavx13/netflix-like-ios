@@ -31,5 +31,6 @@ protocol Repository {
     func getPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void)
     func getTopRatedTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void)
     func getTVShowDetails(id: Int, completion: @escaping (Result<TVShow>) -> Void)
+    func searchTVShows(page: Int, query: String, completion: @escaping (Result<[TVShow]>) -> Void)
 }
 

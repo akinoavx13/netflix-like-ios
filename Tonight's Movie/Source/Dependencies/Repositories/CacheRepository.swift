@@ -354,5 +354,9 @@ extension CacheRepository: Repository {
             }
         }
     }
+    
+    func searchTVShows(page: Int, query: String, completion: @escaping (Alamofire.Result<[TVShow]>) -> Void) {
+        fallbackRepository.searchTVShows(page: page, query: query, completion: completion)
+    }
 }
 

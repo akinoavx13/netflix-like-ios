@@ -35,6 +35,7 @@
 		202FEFBC211B0A0800494133 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFBB211B0A0800494133 /* UIView+Gradient.swift */; };
 		202FEFBE211B1DF700494133 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFBD211B1DF700494133 /* Item.swift */; };
 		2034DBC1211B370E0072ACD4 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2034DBC0211B370E0072ACD4 /* Cache.framework */; };
+		2046D8B2211C448600124E93 /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046D8B1211C448600124E93 /* SearchHeaderView.swift */; };
 		2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C4232118698D0096DAA8 /* Coordinator.swift */; };
 		2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C425211869970096DAA8 /* AppCoordinator.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
@@ -94,6 +95,7 @@
 		202FEFBB211B0A0800494133 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		202FEFBD211B1DF700494133 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		2034DBC0211B370E0072ACD4 /* Cache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cache.framework; path = Carthage/Build/iOS/Cache.framework; sourceTree = "<group>"; };
+		2046D8B1211C448600124E93 /* SearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderView.swift; sourceTree = "<group>"; };
 		2055C4232118698D0096DAA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2055C425211869970096DAA8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2055C43821186A340096DAA8 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				20644D07211C26D300DD6E91 /* SearchViewController.swift */,
 				20644D08211C26D300DD6E91 /* SearchProtocols.swift */,
 				20644D09211C26D300DD6E91 /* SearchInteractor.swift */,
+				2046D8B1211C448600124E93 /* SearchHeaderView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				20644D0D211C26D300DD6E91 /* SearchModels.swift in Sources */,
 				2055C44721186EA20096DAA8 /* Colors.swift in Sources */,
 				202FEFB2211AFCD700494133 /* DetailsCoordinator.swift in Sources */,
+				2046D8B2211C448600124E93 /* SearchHeaderView.swift in Sources */,
 				2025B11D211999590032E3D1 /* DiscoverCell.swift in Sources */,
 				202FEFB3211AFCD700494133 /* DetailsPresenter.swift in Sources */,
 				2025B114211980420032E3D1 /* DiscoverPresenter.swift in Sources */,

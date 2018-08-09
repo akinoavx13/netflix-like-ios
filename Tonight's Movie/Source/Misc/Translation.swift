@@ -13,6 +13,8 @@ struct Translation {
     struct Default {
         static let error = NSLocalizedString("Error", comment: "")
         static let ok = NSLocalizedString("Ok", comment: "")
+        static let movies = NSLocalizedString("Movies", comment: "")
+        static let tvShows = NSLocalizedString("TVShows", comment: "")
     }
     
     struct Discover {

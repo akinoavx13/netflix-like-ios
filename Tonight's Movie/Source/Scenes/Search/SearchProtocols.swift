@@ -17,7 +17,7 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol SearchCoordinatorInput: class {
-
+    func showDetailsOf(id: Int, type: Item.ContentType)
 }
 
 // ======== Interactor ======== //
@@ -25,11 +25,13 @@ protocol SearchCoordinatorInput: class {
 // PRESENTER -> INTERACTOR
 protocol SearchInteractorInput {
     func perform(_ request: Search.Request.SearchMovies)
+    func perform(_ request: Search.Request.SearchTVShows)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
 protocol SearchInteractorOutput: class {
     func present(_ response: Search.Response.MoviesFound)
+    func present(_ response: Search.Response.TVShowsFound)
     func present(_ response: Search.Response.Error)
 }
 
@@ -40,17 +42,20 @@ protocol SearchPresenterInput {
     
     // MARK: - Properties -
     var numberOfMovies: Int { get }
+    var numberOfTVShows: Int { get }
     
     // MARK: - Methods -
     func viewCreated()
     func search(with query: String)
     func configure(item: ItemListCellProtocol, at indexPath: IndexPath)
+    func configure(item: SearchHeaderViewProtocol, at indexPath: IndexPath)
     func didEndDisplaying(item: ItemListCellProtocol, at indexPath: IndexPath)
     func displayEmptyState()
+    func showDetails(at indexPath: IndexPath)
 }
 
 // PRESENTER -> VIEW
 protocol SearchPresenterOutput: class {
-    func display(_ displayModel: Search.DisplayData.Movies)
+    func display(_ displayModel: Search.DisplayData.Items)
     func display(_ displayModel: Search.DisplayData.Error)
 }

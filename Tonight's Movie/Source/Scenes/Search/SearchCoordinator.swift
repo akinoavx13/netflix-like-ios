@@ -39,5 +39,9 @@ class SearchCoordinator: Coordinator {
 
 // PRESENTER -> COORDINATOR
 extension SearchCoordinator: SearchCoordinatorInput {
-
+    func showDetailsOf(id: Int, type: Item.ContentType) {
+        let coordinator = DetailsCoordinator(navigationController: navigationController, id: id, type: type)
+        children = [coordinator]
+        coordinator.start()
+    }
 }

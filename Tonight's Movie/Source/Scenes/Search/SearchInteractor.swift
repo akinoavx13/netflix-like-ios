@@ -39,4 +39,17 @@ extension SearchInteractor: SearchInteractorInput {
         }
     }
     
+    func perform(_ request: Search.Request.SearchTVShows) {
+        dependencies
+            .repository
+            .searchTVShows(page: request.page, query: request.query) { (result) in
+                switch result {
+                case .success(let tvShows):
+                    self.output?.present(Search.Response.TVShowsFound(tvShows: tvShows))
+                case .failure(let error):
+                    self.output?.present(Search.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+    }
+    
 }

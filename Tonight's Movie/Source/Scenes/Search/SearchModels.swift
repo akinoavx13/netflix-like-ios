@@ -19,14 +19,19 @@ extension Search.Request {
         let page: Int
         let query: String
     }
+    struct SearchTVShows {
+        let page: Int
+        let query: String
+    }
 }
 
 extension Search.Response {
     struct MoviesFound { let movies: [Movie] }
+    struct TVShowsFound { let tvShows: [TVShow] }
     struct Error { let errorMessage: String }
 }
 
 extension Search.DisplayData {
-    struct Movies { let movies: [Movie] }
+    struct Items { }
     struct Error { let errorMessage: String }
 }

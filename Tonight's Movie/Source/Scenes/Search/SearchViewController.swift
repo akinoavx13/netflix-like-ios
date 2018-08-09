@@ -60,8 +60,23 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        var numberOfSections = 0
+        
+        if presenter.numberOfMovies > 0 {
+            numberOfSections += 1
+        }
+        
+        if presenter.numberOfTVShows > 0 {
+            numberOfSections += 1
+        }
+        
+        return numberOfSections
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.numberOfMovies
+        return section == 0 ? presenter.numberOfMovies : presenter.numberOfTVShows
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -70,6 +85,23 @@ extension SearchViewController: UICollectionViewDataSource {
         presenter.configure(item: cell, at: indexPath)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "\(SearchHeaderView.self)", for: indexPath) as? SearchHeaderView else { return UICollectionReusableView() }
+            
+            presenter.configure(item: headerView, at: indexPath)
+            
+            return headerView
+        default:
+            fatalError("Unexpected element kind")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.showDetails(at: indexPath)
     }
 }
 
@@ -112,13 +144,13 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.count > 3 {
+        if !searchText.isEmpty {
             presenter.search(with: searchText)
         } else {
             presenter.displayEmptyState()
         }
     }
-        
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
@@ -132,7 +164,7 @@ extension SearchViewController: UISearchBarDelegate {
 
 // PRESENTER -> VIEW
 extension SearchViewController: SearchPresenterOutput {
-    func display(_ displayModel: Search.DisplayData.Movies) {
+    func display(_ displayModel: Search.DisplayData.Items) {
         collectionView.reloadData()
     }
     
