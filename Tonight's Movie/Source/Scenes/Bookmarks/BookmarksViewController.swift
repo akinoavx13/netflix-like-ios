@@ -19,6 +19,9 @@ class BookmarksViewController: UIViewController {
             collectionView.backgroundColor = Colors.black
             collectionView.dataSource = self
             collectionView.delegate = self
+            collectionView.showsVerticalScrollIndicator = false
+            collectionView.register(UINib(nibName: "ItemListCell", bundle: nil), forCellWithReuseIdentifier: "\(ItemListCell.self)")
+            collectionView.register(UINib(nibName: "SearchHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(SearchHeaderView.self)")
         }
     }
     
@@ -89,6 +92,10 @@ extension BookmarksViewController: UICollectionViewDelegateFlowLayout {
         let witdh = UIScreen.main.bounds.width / 3 - 8
         
         return CGSize(width: witdh, height: witdh * 1.5)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 50)
     }
 }
 

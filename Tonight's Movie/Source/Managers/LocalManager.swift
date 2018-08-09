@@ -48,14 +48,12 @@ extension LocalManager: LocalManagerProtocol {
         if !itemExists(item: item, items: items) {
             items.append(item)
             try? storage.setObject(items, forKey: "items")
-        }
-        
-        print(getItems().count)
+        }        
     }
     
     func getItems() -> [Item] {
         guard let storage = storage else { return [] }
-        
+                
         do {
             return try storage.object(forKey: "items")
         } catch {

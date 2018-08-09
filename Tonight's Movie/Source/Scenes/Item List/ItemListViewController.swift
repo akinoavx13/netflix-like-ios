@@ -20,6 +20,7 @@ class ItemListViewController: UIViewController {
             collectionView.dataSource = self
             collectionView.delegate = self
             collectionView.showsHorizontalScrollIndicator = false
+            collectionView.register(UINib(nibName: "ItemListCell", bundle: nil), forCellWithReuseIdentifier: "\(ItemListCell.self)")
         }
     }
     

@@ -44,6 +44,8 @@
 		2046D8D1211C5D8000124E93 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046D8CA211C5D8000124E93 /* BookmarksViewController.swift */; };
 		2046D8D2211C5D8000124E93 /* BookmarksProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046D8CB211C5D8000124E93 /* BookmarksProtocols.swift */; };
 		2046D8D3211C5D8000124E93 /* BookmarksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046D8CC211C5D8000124E93 /* BookmarksInteractor.swift */; };
+		2046D8D5211C635900124E93 /* SearchHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2046D8D4211C635900124E93 /* SearchHeaderView.xib */; };
+		2046D8D7211C64A400124E93 /* ItemListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2046D8D6211C64A400124E93 /* ItemListCell.xib */; };
 		2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C4232118698D0096DAA8 /* Coordinator.swift */; };
 		2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C425211869970096DAA8 /* AppCoordinator.swift */; };
 		2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C43821186A340096DAA8 /* TabBarCoordinator.swift */; };
@@ -112,6 +114,8 @@
 		2046D8CA211C5D8000124E93 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		2046D8CB211C5D8000124E93 /* BookmarksProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksProtocols.swift; sourceTree = "<group>"; };
 		2046D8CC211C5D8000124E93 /* BookmarksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksInteractor.swift; sourceTree = "<group>"; };
+		2046D8D4211C635900124E93 /* SearchHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeaderView.xib; sourceTree = "<group>"; };
+		2046D8D6211C64A400124E93 /* ItemListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListCell.xib; sourceTree = "<group>"; };
 		2055C4232118698D0096DAA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2055C425211869970096DAA8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2055C43821186A340096DAA8 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 				2025B1282119B5410032E3D1 /* ItemListProtocols.swift */,
 				2025B1292119B5410032E3D1 /* ItemListInteractor.swift */,
 				2025B1312119CA660032E3D1 /* ItemListCell.swift */,
+				2046D8D6211C64A400124E93 /* ItemListCell.xib */,
 			);
 			path = "Item List";
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				20644D08211C26D300DD6E91 /* SearchProtocols.swift */,
 				20644D09211C26D300DD6E91 /* SearchInteractor.swift */,
 				2046D8B1211C448600124E93 /* SearchHeaderView.swift */,
+				2046D8D4211C635900124E93 /* SearchHeaderView.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -449,11 +455,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2046D8D5211C635900124E93 /* SearchHeaderView.xib in Resources */,
 				202FEFB4211AFCD700494133 /* DetailsViewController.storyboard in Resources */,
 				2067A5FD2118AAA900E9B2C5 /* Localizable.strings in Resources */,
 				20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */,
 				20644D0C211C26D300DD6E91 /* SearchViewController.storyboard in Resources */,
 				2025B12C2119B5410032E3D1 /* ItemListViewController.storyboard in Resources */,
+				2046D8D7211C64A400124E93 /* ItemListCell.xib in Resources */,
 				2046D8CF211C5D8000124E93 /* BookmarksViewController.storyboard in Resources */,
 				2025B115211980420032E3D1 /* DiscoverViewController.storyboard in Resources */,
 				20BEB6302118636600CA891E /* Assets.xcassets in Resources */,
