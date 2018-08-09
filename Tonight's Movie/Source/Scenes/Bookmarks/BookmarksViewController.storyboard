@@ -29,10 +29,19 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJf-Kf-P8e">
+                                <rect key="frame" x="163" y="395.66666666666669" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cJf-Kf-P8e" firstAttribute="centerY" secondItem="2ev-QE-M02" secondAttribute="centerY" id="7Y1-4B-UsI"/>
                             <constraint firstItem="TnI-yq-KVi" firstAttribute="top" secondItem="2ev-QE-M02" secondAttribute="top" id="BYt-TN-HMG"/>
+                            <constraint firstItem="cJf-Kf-P8e" firstAttribute="width" relation="lessThanOrEqual" secondItem="2ev-QE-M02" secondAttribute="width" constant="32" id="Cd1-dt-2rn"/>
+                            <constraint firstItem="cJf-Kf-P8e" firstAttribute="centerX" secondItem="2ev-QE-M02" secondAttribute="centerX" id="GNO-tz-avq"/>
                             <constraint firstItem="TnI-yq-KVi" firstAttribute="leading" secondItem="Fhz-5B-qaF" secondAttribute="leading" id="KB0-np-Zgv"/>
                             <constraint firstAttribute="bottom" secondItem="TnI-yq-KVi" secondAttribute="bottom" id="UYn-id-GpJ"/>
                             <constraint firstItem="Fhz-5B-qaF" firstAttribute="trailing" secondItem="TnI-yq-KVi" secondAttribute="trailing" id="pKS-Vy-RL0"/>
@@ -41,6 +50,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="TnI-yq-KVi" id="fDd-oB-qKJ"/>
+                        <outlet property="emptyStateLabel" destination="cJf-Kf-P8e" id="OPO-Wb-xfI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FyU-Lz-LgX" userLabel="First Responder" sceneMemberID="firstResponder"/>

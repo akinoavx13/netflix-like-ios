@@ -25,6 +25,15 @@ class BookmarksViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var emptyStateLabel: UILabel! {
+        didSet {
+            emptyStateLabel.text = Translation.Bookmarks.noBookmark
+            emptyStateLabel.textColor = Colors.white
+            emptyStateLabel.font = Fonts.small
+            emptyStateLabel.numberOfLines = 2
+        }
+    }
+    
     // MARK: - Lifecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +62,10 @@ class BookmarksViewController: UIViewController {
 }
 
 extension BookmarksViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return presenter.numberOfItems == 0 ? 0 : 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.numberOfItems
     }
@@ -105,5 +118,19 @@ extension BookmarksViewController: UICollectionViewDelegateFlowLayout {
 extension BookmarksViewController: BookmarksPresenterOutput {
     func display(_ displayModel: Bookmarks.DisplayData.Items) {
         collectionView.reloadData()
+        
+        if presenter.numberOfItems == 0 {
+            UIView.animate(withDuration: 0.2) {
+                self.emptyStateLabel.alpha = 1
+                
+                self.view.layoutIfNeeded()
+            }
+        } else {
+            UIView.animate(withDuration: 0.2) {
+                self.emptyStateLabel.alpha = 0
+                
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 }
