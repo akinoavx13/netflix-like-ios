@@ -40,7 +40,7 @@ struct TVShow: Codable {
     }
     
     var duration: String {
-        return "\(numberOfSeasons) \(Translation.Details.seasons), \(numberOfEpisodes) \(Translation.Details.episodes)"
+        return "\(numberOfSeasons) \(Translation.Details.seasons), \(numberOfEpisodes) Ep."
     }
     
     // MARK: - Lifecycle -

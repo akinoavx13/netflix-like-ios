@@ -17,7 +17,7 @@ final class TabBarCoordinator: Coordinator {
     private let tabBarController: UITabBarController
     
     private enum Tab {
-        case DiscoverMovies, DiscoverTVShows
+        case DiscoverMovies, DiscoverTVShows, Search
     }
     
     // MARK: - Lifecycle -
@@ -33,6 +33,7 @@ final class TabBarCoordinator: Coordinator {
     func start() {
         addScene(with: .DiscoverMovies)
         addScene(with: .DiscoverTVShows)
+        addScene(with: .Search)
         
         window.updateRootViewController(with: tabBarController)
     }
@@ -59,6 +60,9 @@ final class TabBarCoordinator: Coordinator {
         case .DiscoverTVShows:
             coordinator = DiscoverCoordinator(navigationController: navigationController, screen: .TVShows)
             navigationController.tabBarItem = UITabBarItem(title: Translation.Discover.discoverTVShows, image: Icons.discoverTVShows, selectedImage: nil)
+        case .Search:
+            coordinator = SearchCoordinator(navigationController: navigationController)
+            navigationController.tabBarItem = UITabBarItem(title: Translation.Search.search, image: Icons.search, selectedImage: nil)
         }
         
         children.append(coordinator)

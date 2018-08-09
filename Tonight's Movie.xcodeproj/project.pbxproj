@@ -42,6 +42,13 @@
 		2055C44321186CC30096DAA8 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C44221186CC30096DAA8 /* Translation.swift */; };
 		2055C44521186E060096DAA8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C44421186E060096DAA8 /* Icons.swift */; };
 		2055C44721186EA20096DAA8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2055C44621186EA20096DAA8 /* Colors.swift */; };
+		20644D0A211C26D300DD6E91 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20644D03211C26D300DD6E91 /* SearchCoordinator.swift */; };
+		20644D0B211C26D300DD6E91 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20644D04211C26D300DD6E91 /* SearchPresenter.swift */; };
+		20644D0C211C26D300DD6E91 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20644D05211C26D300DD6E91 /* SearchViewController.storyboard */; };
+		20644D0D211C26D300DD6E91 /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20644D06211C26D300DD6E91 /* SearchModels.swift */; };
+		20644D0E211C26D300DD6E91 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20644D07211C26D300DD6E91 /* SearchViewController.swift */; };
+		20644D0F211C26D300DD6E91 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20644D08211C26D300DD6E91 /* SearchProtocols.swift */; };
+		20644D10211C26D300DD6E91 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20644D09211C26D300DD6E91 /* SearchInteractor.swift */; };
 		206741DE21189E7F00105AF4 /* String+DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206741DD21189E7F00105AF4 /* String+DateFormat.swift */; };
 		2067A5FD2118AAA900E9B2C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2067A5FB2118AAA900E9B2C5 /* Localizable.strings */; };
 		206BEEAC2118E26300CED785 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206BEEAB2118E26300CED785 /* Kingfisher.framework */; };
@@ -94,6 +101,13 @@
 		2055C44221186CC30096DAA8 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		2055C44421186E060096DAA8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		2055C44621186EA20096DAA8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		20644D03211C26D300DD6E91 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		20644D04211C26D300DD6E91 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		20644D05211C26D300DD6E91 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		20644D06211C26D300DD6E91 /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
+		20644D07211C26D300DD6E91 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		20644D08211C26D300DD6E91 /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
+		20644D09211C26D300DD6E91 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		206741DD21189E7F00105AF4 /* String+DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateFormat.swift"; sourceTree = "<group>"; };
 		2067A5FC2118AAA900E9B2C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2067A5FE2118AAB200E9B2C5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -224,9 +238,10 @@
 			isa = PBXGroup;
 			children = (
 				2055C43721186A260096DAA8 /* Tab Bar */,
-				202FEFAA211AFCC700494133 /* Details */,
-				2025B1222119B5270032E3D1 /* Item List */,
 				2025B10B211980310032E3D1 /* Discover */,
+				2025B1222119B5270032E3D1 /* Item List */,
+				202FEFAA211AFCC700494133 /* Details */,
+				20644D02211C26B700DD6E91 /* Search */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -249,6 +264,20 @@
 				202FEFBB211B0A0800494133 /* UIView+Gradient.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		20644D02211C26B700DD6E91 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				20644D03211C26D300DD6E91 /* SearchCoordinator.swift */,
+				20644D04211C26D300DD6E91 /* SearchPresenter.swift */,
+				20644D05211C26D300DD6E91 /* SearchViewController.storyboard */,
+				20644D06211C26D300DD6E91 /* SearchModels.swift */,
+				20644D07211C26D300DD6E91 /* SearchViewController.swift */,
+				20644D08211C26D300DD6E91 /* SearchProtocols.swift */,
+				20644D09211C26D300DD6E91 /* SearchInteractor.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		20B9E41821187CFE002EACDA /* Entities */ = {
@@ -388,6 +417,7 @@
 				202FEFB4211AFCD700494133 /* DetailsViewController.storyboard in Resources */,
 				2067A5FD2118AAA900E9B2C5 /* Localizable.strings in Resources */,
 				20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */,
+				20644D0C211C26D300DD6E91 /* SearchViewController.storyboard in Resources */,
 				2025B12C2119B5410032E3D1 /* ItemListViewController.storyboard in Resources */,
 				2025B115211980420032E3D1 /* DiscoverViewController.storyboard in Resources */,
 				20BEB6302118636600CA891E /* Assets.xcassets in Resources */,
@@ -428,10 +458,12 @@
 				2055C44521186E060096DAA8 /* Icons.swift in Sources */,
 				2025B12B2119B5410032E3D1 /* ItemListPresenter.swift in Sources */,
 				20B9E42621187FE1002EACDA /* CacheRepository.swift in Sources */,
+				20644D0F211C26D300DD6E91 /* SearchProtocols.swift in Sources */,
 				202FEFBE211B1DF700494133 /* Item.swift in Sources */,
 				20B9E4332118935C002EACDA /* TVShow.swift in Sources */,
 				2055C426211869970096DAA8 /* AppCoordinator.swift in Sources */,
 				2025B118211980420032E3D1 /* DiscoverProtocols.swift in Sources */,
+				20644D0D211C26D300DD6E91 /* SearchModels.swift in Sources */,
 				2055C44721186EA20096DAA8 /* Colors.swift in Sources */,
 				202FEFB2211AFCD700494133 /* DetailsCoordinator.swift in Sources */,
 				2025B11D211999590032E3D1 /* DiscoverCell.swift in Sources */,
@@ -447,18 +479,22 @@
 				202FEFBC211B0A0800494133 /* UIView+Gradient.swift in Sources */,
 				20B9E42421187FBC002EACDA /* RemoteRepository.swift in Sources */,
 				2055C4242118698D0096DAA8 /* Coordinator.swift in Sources */,
+				20644D10211C26D300DD6E91 /* SearchInteractor.swift in Sources */,
 				2025B113211980420032E3D1 /* DiscoverCoordinator.swift in Sources */,
 				2025B1302119B5410032E3D1 /* ItemListInteractor.swift in Sources */,
 				20BEB6292118636500CA891E /* AppDelegate.swift in Sources */,
 				2025B1322119CA660032E3D1 /* ItemListCell.swift in Sources */,
 				2025B12D2119B5410032E3D1 /* ItemListModels.swift in Sources */,
 				202FEFB8211AFCD700494133 /* DetailsInteractor.swift in Sources */,
+				20644D0B211C26D300DD6E91 /* SearchPresenter.swift in Sources */,
+				20644D0E211C26D300DD6E91 /* SearchViewController.swift in Sources */,
 				2055C43C21186A640096DAA8 /* UIWindow+RootViewController.swift in Sources */,
 				2025B116211980420032E3D1 /* DiscoverModels.swift in Sources */,
 				202FEFBA211B092C00494133 /* UIView+Shadow.swift in Sources */,
 				2025B12F2119B5410032E3D1 /* ItemListProtocols.swift in Sources */,
 				20B9E42221187F9A002EACDA /* Repository.swift in Sources */,
 				202FEFB7211AFCD700494133 /* DetailsProtocols.swift in Sources */,
+				20644D0A211C26D300DD6E91 /* SearchCoordinator.swift in Sources */,
 				2055C43921186A340096DAA8 /* TabBarCoordinator.swift in Sources */,
 				2025B117211980420032E3D1 /* DiscoverViewController.swift in Sources */,
 				2025B119211980420032E3D1 /* DiscoverInteractor.swift in Sources */,
