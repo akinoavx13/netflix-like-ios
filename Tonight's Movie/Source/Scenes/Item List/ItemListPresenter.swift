@@ -188,13 +188,19 @@ extension ItemListPresenter: ItemListPresenterInput {
     }
     
     private func convertMoviesIntoItems(movies: [Movie]) -> [Item] {
-        return movies.compactMap { (movie) in
+        return movies.filter {
+            return $0.pictureURL != ""
+        }
+        .compactMap { (movie) in
             return Item(id: movie.id, pictureURL: movie.pictureURL, contentType: .Movie)
         }
     }
     
     private func convertTVShowIntoItems(tvShows: [TVShow]) -> [Item] {
-        return tvShows.compactMap { (tvShow) in
+        return tvShows.filter {
+            return $0.pictureURL != ""
+        }
+        .compactMap { (tvShow) in
             return Item(id: tvShow.id, pictureURL: tvShow.pictureURL, contentType: .TVShow)
         }
     }
