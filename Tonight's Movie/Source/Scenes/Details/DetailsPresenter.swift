@@ -45,6 +45,7 @@ extension DetailsPresenter: DetailsPresenterInput {
         case .TVShow:
             interactor.perform(Details.Request.FetchTVShowDetails(id: id))
             interactor.perform(Details.Request.FetchTVShowVideos(id: id))
+            interactor.perform(Details.Request.FetchTVShowsRecommendations(page: 1, id: id))
         }
     }
     
@@ -114,6 +115,12 @@ extension DetailsPresenter: DetailsInteractorOutput {
             duration: response.tvShow.duration,
             overview: response.tvShow.overview
         ))
+    }
+    
+    func present(_ response: Details.Response.TVShowRecommendationsFetched) {
+        recommendationItems = Convert.convertIntoItems(tvShows: response.tvShows)
+        
+        output?.display(Details.DisplayData.Recommendations())
     }
     
     // MARK: - Local -

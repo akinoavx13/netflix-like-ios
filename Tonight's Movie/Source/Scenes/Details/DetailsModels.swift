@@ -29,6 +29,10 @@ extension Details.Request {
     
     // MARK: - TVShows -
     struct FetchTVShowDetails { let id: Int }
+    struct FetchTVShowsRecommendations {
+        let page: Int
+        let id: Int
+    }
     
     // MARK: - Videos -
     struct FetchMovieVideos { let id: Int }
@@ -47,6 +51,7 @@ extension Details.Response {
     
     // MARK: - TVShows -
     struct TVShowDetailsFetched { let tvShow: TVShow }
+    struct TVShowRecommendationsFetched { let tvShows: [TVShow] }
     
     // MARK: - Videos -
     struct VideosFetched { let videos: [Video] }

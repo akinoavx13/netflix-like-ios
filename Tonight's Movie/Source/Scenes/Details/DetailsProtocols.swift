@@ -31,6 +31,7 @@ protocol DetailsInteractorInput {
     
     // MARK: - TVShows -
     func perform(_ request: Details.Request.FetchTVShowDetails)
+    func perform(_ request: Details.Request.FetchTVShowsRecommendations)
     
     // MARK: - Videos -
     func perform(_ request: Details.Request.FetchMovieVideos)
@@ -53,6 +54,7 @@ protocol DetailsInteractorOutput: class {
     
     // MARK: - TVShows -
     func present(_ response: Details.Response.TVShowDetailsFetched)
+    func present(_ response: Details.Response.TVShowRecommendationsFetched)
     
     // MARK: - Videos -
     func present(_ response: Details.Response.VideosFetched)

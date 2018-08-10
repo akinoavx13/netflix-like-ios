@@ -79,6 +79,23 @@ extension DetailsInteractor: DetailsInteractorInput {
             .registerRequest(with: .Details, request: request)
     }
     
+    func perform(_ request: Details.Request.FetchTVShowsRecommendations) {
+        let request = dependencies
+            .repository
+            .getRecommendationsTVShows(page: request.page, id: request.id) { (result) in
+                switch result {
+                case .success(let tvShows):
+                    self.output?.present(Details.Response.TVShowRecommendationsFetched(tvShows: tvShows))
+                case .failure(let error):
+                    self.output?.present(Details.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .Details, request: request)
+    }
+    
     // MARK: - Local -
     func perform(_ request: Details.Request.SaveItem) {
         dependencies
