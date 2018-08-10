@@ -177,6 +177,8 @@ extension DiscoverPresenter: DiscoverPresenterInput {
         switch screen {
         case .Movies:
             Discover.Sections.Movies.allCases.forEach {
+                coordinator?.createItemList()
+                
                 switch $0 {
                 case .NowPlaying:
                     interactor.perform(Discover.Request.FetchNowPlayingMovies(page: nowPlayingPage))
@@ -187,11 +189,11 @@ extension DiscoverPresenter: DiscoverPresenterInput {
                 case .Upcoming:
                     interactor.perform(Discover.Request.FetchUpcomingMovies(page: upcomingPage))
                 }
-                
-                coordinator?.createItemList()
             }
         case .TVShows:
             Discover.Sections.TVShows.allCases.forEach {
+                coordinator?.createItemList()
+                
                 switch $0 {
                 case .OnTheAir:
                     interactor.perform(Discover.Request.FetchOnTheAirTVShows(page: nowPlayingPage))
@@ -200,8 +202,6 @@ extension DiscoverPresenter: DiscoverPresenterInput {
                 case .TopRated:
                     interactor.perform(Discover.Request.FetchTopRatedTVShows(page: topRatedPage))
                 }
-                
-                coordinator?.createItemList()
             }
         }
     }
