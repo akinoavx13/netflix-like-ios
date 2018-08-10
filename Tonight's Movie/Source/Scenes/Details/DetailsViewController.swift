@@ -24,7 +24,8 @@ class DetailsViewController: UIViewController {
         didSet {
             closeButton.setTitle("", for: .normal)
             closeButton.tintColor = Colors.white
-            closeButton.setImage(Icons.close?.withRenderingMode(.alwaysTemplate), for: .normal)
+            closeButton.setImage(Icons.close, for: .normal)
+            closeButton.imageView?.contentMode = .scaleAspectFit
         }
     }
     
@@ -81,6 +82,9 @@ class DetailsViewController: UIViewController {
             addButton.layer.cornerRadius = 2
             addButton.titleLabel?.font = Fonts.smallBold
             addButton.alpha = 0
+            addButton.tintColor = Colors.white
+            addButton.imageView?.contentMode = .scaleAspectFit
+            addButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0)
         }
     }
     
@@ -194,6 +198,7 @@ extension DetailsViewController: DetailsPresenterOutput {
             UIView.animate(withDuration: Style.Animation.duration) {
                 self.addButton.setTitle(Translation.Details.removeFromList, for: .normal)
                 self.addButton.alpha = 1
+                self.addButton.setImage(nil, for: .normal)
                 
                 self.view.layoutIfNeeded()
             }
@@ -201,6 +206,7 @@ extension DetailsViewController: DetailsPresenterOutput {
             UIView.animate(withDuration: Style.Animation.duration) {
                 self.addButton.setTitle(Translation.Details.addToList, for: .normal)
                 self.addButton.alpha = 1
+                self.addButton.setImage(Icons.bookmark, for: .normal)
                 
                 self.view.layoutIfNeeded()
             }

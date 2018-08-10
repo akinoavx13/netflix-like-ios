@@ -10,9 +10,9 @@ import UIKit
 
 struct Icons {
     
-    static let search = UIImage(named: "iconSearch")
-    static let discoverMovies = UIImage(named: "iconDiscoverMovies")
-    static let discoverTVShows = UIImage(named: "iconDiscoverTVShows")
-    static let close = UIImage(named: "iconClose")
-    static let bookmark = UIImage(named: "iconBookmark")
+    static let search = UIImage(named: "iconSearch")?.withRenderingMode(.alwaysTemplate)
+    static let discoverMovies = UIImage(named: "iconDiscoverMovies")?.withRenderingMode(.alwaysTemplate)
+    static let discoverTVShows = UIImage(named: "iconDiscoverTVShows")?.withRenderingMode(.alwaysTemplate)
+    static let close = UIImage(named: "iconClose")?.withRenderingMode(.alwaysTemplate)
+    static let bookmark = UIImage(named: "iconBookmark")?.withRenderingMode(.alwaysTemplate)
 }
