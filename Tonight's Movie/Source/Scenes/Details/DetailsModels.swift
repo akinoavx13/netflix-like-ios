@@ -20,21 +20,41 @@ extension Details.Cancel {
 }
 
 extension Details.Request {
+    // MARK: - Movies -
     struct FetchMovieDetails { let id: Int }
+    struct FetchMovieRecommendations {
+        let page: Int
+        let id: Int
+    }
+    
+    // MARK: - TVShows -
     struct FetchTVShowDetails { let id: Int }
+    
+    // MARK: - Videos -
+    struct FetchMovieVideos { let id: Int }
+    struct FetchTVShowVideos { let id: Int }
+    
+    // MARK: - Local -
     struct SaveItem { let item: Item }
     struct FetchIsItemSaved { let item: Item }
     struct RemoveItem { let item: Item }
-    struct FetchMovieVideos { let id: Int }
-    struct FetchTVShowVideos { let id: Int }
 }
 
 extension Details.Response {
+    // MARK: - Movies -
     struct MovieDetailsFetched { let movie: Movie }
+    struct MovieRecommendationsFetched { let movies: [Movie] }
+    
+    // MARK: - TVShows -
     struct TVShowDetailsFetched { let tvShow: TVShow }
-    struct IsItemSavedFetch { let isSaved: Bool }
+    
+    // MARK: - Videos -
     struct VideosFetched { let videos: [Video] }
     
+    // MARK: - Local -
+    struct IsItemSavedFetch { let isSaved: Bool }
+    
+    // MARK: - Error -
     struct Error { let errorMessage: String }
 }
 
@@ -47,6 +67,7 @@ extension Details.DisplayData {
         let duration: String
         let overview: String
     }
+    struct Recommendations { }
     struct IsItemSaved { let isSaved: Bool }
     struct Trailer { let url: String }
     struct Error { let errorMessage: String }

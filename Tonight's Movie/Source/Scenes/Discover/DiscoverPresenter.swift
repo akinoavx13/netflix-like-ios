@@ -206,22 +206,6 @@ extension DiscoverPresenter: DiscoverPresenterInput {
         }
     }
     
-    private func convertIntoItems(movies: [Movie]) -> [Item] {
-        return movies.filter {
-            return !$0.pictureURL.isEmpty
-        }.map {
-            return Item(id: $0.id, pictureURL: $0.pictureURL, contentType: .Movie)
-        }
-    }
-    
-    private func convertIntoItems(tvShows: [TVShow]) -> [Item] {
-        return tvShows.filter {
-            return !$0.pictureURL.isEmpty
-        }.map {
-            return Item(id: $0.id, pictureURL: $0.pictureURL, contentType: .TVShow)
-        }
-    }
-    
     private func getMoviesSection(with indexPath: IndexPath) -> Discover.Sections.Movies {
         if indexPath.row == 0 {
             return .NowPlaying
@@ -283,28 +267,28 @@ extension DiscoverPresenter: DiscoverInteractorOutput {
     }
     
     func present(_ response: Discover.Response.NowPlayingMoviesFetched) {
-        let items = convertIntoItems(movies: response.movies)
+        let items = Convert.convertIntoItems(movies: response.movies)
         nowPlayingPage == 1 ? nowPlayingItems = items : nowPlayingItems.append(contentsOf: items)
         
         coordinator?.updateItemListCoordinator(at: getIndexPath(for: Discover.Sections.Movies.NowPlaying), with: nowPlayingItems)
     }
     
     func present(_ response: Discover.Response.PopularMoviesFetched) {
-        let items = convertIntoItems(movies: response.movies)
+        let items = Convert.convertIntoItems(movies: response.movies)
         popularPage == 1 ? popularItems = items : popularItems.append(contentsOf: items)
         
         coordinator?.updateItemListCoordinator(at: getIndexPath(for: Discover.Sections.Movies.Popular), with: popularItems)
     }
     
     func present(_ response: Discover.Response.TopRatedMoviesFetched) {
-        let items = convertIntoItems(movies: response.movies)
+        let items = Convert.convertIntoItems(movies: response.movies)
         topRatedPage == 1 ? topRatedItems = items : topRatedItems.append(contentsOf: items)
         
         coordinator?.updateItemListCoordinator(at: getIndexPath(for: Discover.Sections.Movies.TopRated), with: topRatedItems)
     }
     
     func present(_ response: Discover.Response.UpcomingMoviesFetched) {
-        let items = convertIntoItems(movies: response.movies)
+        let items = Convert.convertIntoItems(movies: response.movies)
         upcomingPage == 1 ? upcomingItems = items : upcomingItems.append(contentsOf: items)
         
         coordinator?.updateItemListCoordinator(at: getIndexPath(for: Discover.Sections.Movies.Upcoming), with: upcomingItems)
@@ -319,21 +303,21 @@ extension DiscoverPresenter: DiscoverInteractorOutput {
     }
     
     func present(_ response: Discover.Response.OnTheAirTVShowsFetched) {
-        let items = convertIntoItems(tvShows: response.tvShows)
+        let items = Convert.convertIntoItems(tvShows: response.tvShows)
         nowPlayingPage == 1 ? nowPlayingItems = items : nowPlayingItems.append(contentsOf: items)
         
         coordinator?.updateItemListCoordinator(at: getIndexPath(for: Discover.Sections.TVShows.OnTheAir), with: nowPlayingItems)
     }
     
     func present(_ response: Discover.Response.PopularTVShowsFetched) {
-        let items = convertIntoItems(tvShows: response.tvShows)
+        let items = Convert.convertIntoItems(tvShows: response.tvShows)
         popularPage == 1 ? popularItems = items : popularItems.append(contentsOf: items)
         
         coordinator?.updateItemListCoordinator(at: getIndexPath(for: Discover.Sections.TVShows.Popular), with: popularItems)
     }
     
     func present(_ response: Discover.Response.TopRatedTVShowsFetched) {
-        let items = convertIntoItems(tvShows: response.tvShows)
+        let items = Convert.convertIntoItems(tvShows: response.tvShows)
         topRatedPage == 1 ? topRatedItems = items : topRatedItems.append(contentsOf: items)
         
         coordinator?.updateItemListCoordinator(at: getIndexPath(for: Discover.Sections.TVShows.TopRated), with: topRatedItems)

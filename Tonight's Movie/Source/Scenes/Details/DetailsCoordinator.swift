@@ -46,4 +46,13 @@ extension DetailsCoordinator: DetailsCoordinatorInput {
     func dismiss() {
         navigationController.dismiss(animated: true, completion: nil)
     }
+    
+    func showRecommendations(with viewController: UIViewController, into view: UIView, with items: [Item]) {
+        let coodinator = ItemListCoordinator(navigationController: navigationController)
+        children.append(coodinator)
+        coodinator.start()
+        
+        coodinator.show(viewController: viewController, into: view)
+        coodinator.update(with: items)
+    }
 }

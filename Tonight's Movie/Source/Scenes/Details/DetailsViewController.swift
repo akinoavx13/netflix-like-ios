@@ -97,12 +97,12 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var trailerTitle: UILabel! {
+    @IBOutlet weak var trailerTitleLabel: UILabel! {
         didSet {
-            trailerTitle.text = Translation.Details.trailer
-            trailerTitle.textColor = Colors.white
-            trailerTitle.font = Fonts.large
-            trailerTitle.alpha = 0
+            trailerTitleLabel.text = Translation.Details.trailer
+            trailerTitleLabel.textColor = Colors.white
+            trailerTitleLabel.font = Fonts.large
+            trailerTitleLabel.alpha = 0
         }
     }
     
@@ -114,6 +114,21 @@ class DetailsViewController: UIViewController {
             trailerWebView.isOpaque = false
             trailerWebView.alpha = 0
             trailerWebView.scalesPageToFit = false
+        }
+    }
+    
+    @IBOutlet weak var recommendationsTitleLabel: UILabel! {
+        didSet {
+            recommendationsTitleLabel.text = Translation.Details.recommendations
+            recommendationsTitleLabel.textColor = Colors.white
+            recommendationsTitleLabel.font = Fonts.large
+            recommendationsTitleLabel.alpha = 0
+        }
+    }
+    
+    @IBOutlet weak var recommendationsContenairView: UIView! {
+        didSet {
+            recommendationsContenairView.alpha = 0
         }
     }
     
@@ -218,11 +233,22 @@ extension DetailsViewController: DetailsPresenterOutput {
             trailerWebView.loadRequest(URLRequest(url: trailerUrl))
             
             UIView.animate(withDuration: Style.Animation.duration) {
-                self.trailerTitle.alpha = 1
+                self.trailerTitleLabel.alpha = 1
                 self.trailerWebView.alpha = 1
                 
                 self.view.layoutIfNeeded()
             }
+        }
+    }
+    
+    func display(_ displayModel: Details.DisplayData.Recommendations) {
+        presenter.showRecommendations(with: self, into: recommendationsContenairView)
+        
+        UIView.animate(withDuration: Style.Animation.duration) {
+            self.recommendationsTitleLabel.alpha = 1
+            self.recommendationsContenairView.alpha = 1
+            
+            self.view.layoutIfNeeded()
         }
     }
     

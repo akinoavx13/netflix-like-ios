@@ -76,6 +76,7 @@
 		20BEB6292118636500CA891E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEB6282118636500CA891E /* AppDelegate.swift */; };
 		20BEB6302118636600CA891E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB62F2118636600CA891E /* Assets.xcassets */; };
 		20BEB6332118636600CA891E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BEB6312118636600CA891E /* LaunchScreen.storyboard */; };
+		20C776FA211DCCDD00865DD4 /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C776F9211DCCDD00865DD4 /* Convert.swift */; };
 		20F07185211CD27800F59192 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F07184211CD27800F59192 /* Style.swift */; };
 		20F07187211CE15800F59192 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F07186211CE15800F59192 /* Video.swift */; };
 /* End PBXBuildFile section */
@@ -154,6 +155,7 @@
 		20BEB62F2118636600CA891E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20BEB6322118636600CA891E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20BEB6342118636600CA891E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20C776F9211DCCDD00865DD4 /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 		20F07184211CD27800F59192 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		20F07186211CE15800F59192 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -275,6 +277,7 @@
 				20B9E43021188F2D002EACDA /* Fonts.swift */,
 				2046D8D8211C7FB600124E93 /* Screen.swift */,
 				20F07184211CD27800F59192 /* Style.swift */,
+				20C776F9211DCCDD00865DD4 /* Convert.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				2025B1322119CA660032E3D1 /* ItemListCell.swift in Sources */,
 				2025B12D2119B5410032E3D1 /* ItemListModels.swift in Sources */,
 				202FEFB8211AFCD700494133 /* DetailsInteractor.swift in Sources */,
+				20C776FA211DCCDD00865DD4 /* Convert.swift in Sources */,
 				20644D0B211C26D300DD6E91 /* SearchPresenter.swift in Sources */,
 				20644D0E211C26D300DD6E91 /* SearchViewController.swift in Sources */,
 				2046D8D2211C5D8000124E93 /* BookmarksProtocols.swift in Sources */,

@@ -26,6 +26,7 @@ class DetailsInteractor {
 // PRESENTER -> INTERACTOR
 extension DetailsInteractor: DetailsInteractorInput {
     
+    // MARK: - Movies -
     func perform(_ request: Details.Request.FetchMovieDetails) {
         let request = dependencies
             .repository
@@ -43,6 +44,24 @@ extension DetailsInteractor: DetailsInteractorInput {
             .registerRequest(with: .Details, request: request)
     }
     
+    func perform(_ request: Details.Request.FetchMovieRecommendations) {
+        let request = dependencies
+            .repository
+            .getRecommendationsMovies(page: request.page, id: request.id) { (result) in
+                switch result {
+                case .success(let movies):
+                    self.output?.present(Details.Response.MovieRecommendationsFetched(movies: movies))
+                case .failure(let error):
+                    self.output?.present(Details.Response.Error(errorMessage: error.localizedDescription))
+                }
+        }
+        
+        dependencies
+            .requestsManager
+            .registerRequest(with: .Details, request: request)
+    }
+    
+    // MARK: - TVShows -
     func perform(_ request: Details.Request.FetchTVShowDetails) {
         let request = dependencies
             .repository
@@ -60,6 +79,7 @@ extension DetailsInteractor: DetailsInteractorInput {
             .registerRequest(with: .Details, request: request)
     }
     
+    // MARK: - Local -
     func perform(_ request: Details.Request.SaveItem) {
         dependencies
             .localManager
@@ -80,6 +100,7 @@ extension DetailsInteractor: DetailsInteractorInput {
             .remove(item: request.item)
     }
     
+    // MARK: - Videos -
     func perform(_ request: Details.Request.FetchMovieVideos) {
         let request = dependencies
             .repository
@@ -114,6 +135,7 @@ extension DetailsInteractor: DetailsInteractorInput {
             .registerRequest(with: .Details, request: request)
     }
     
+    // MARK: - Cancel -
     func cancel(_ request: Details.Cancel.Requests) {
         dependencies
             .requestsManager

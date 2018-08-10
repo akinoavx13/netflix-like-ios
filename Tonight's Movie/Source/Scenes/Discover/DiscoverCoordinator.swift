@@ -49,7 +49,7 @@ extension DiscoverCoordinator: DiscoverCoordinatorInput {
     func startItemListCoordinator(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath, with items: [Item]) {
         guard let coordinator = children[indexPath.row] as? ItemListCoordinator else { return }
         
-        coordinator.show(viewController: viewController, for: cell)
+        coordinator.show(viewController: viewController, into: cell.contenairView)
         updateItemListCoordinator(at: indexPath, with: items)
     }
     

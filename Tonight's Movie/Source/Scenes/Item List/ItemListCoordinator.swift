@@ -38,15 +38,15 @@ class ItemListCoordinator: Coordinator {
         presenter.output = itemListViewController
     }
     
-    func show(viewController: DiscoverViewController, for cell: DiscoverCell) {
+    func show(viewController: UIViewController, into view: UIView) {
         guard let itemListViewController = itemListViewController else { return }
 
-        itemListViewController.delegate = viewController
+        itemListViewController.delegate = viewController as? ItemListViewControllerDelegate
         viewController.addChild(itemListViewController)
-        itemListViewController.view.frame = cell.contenairView.bounds
-        cell.contenairView.addSubview(itemListViewController.view)
+        itemListViewController.view.frame = view.bounds
+        view.addSubview(itemListViewController.view)
         viewController.didMove(toParent: itemListViewController)
-        cell.contenairView.layoutIfNeeded()
+        view.layoutIfNeeded()
     }
     
     func stop() {

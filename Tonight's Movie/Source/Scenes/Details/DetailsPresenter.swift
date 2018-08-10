@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class DetailsPresenter {
     
@@ -19,6 +20,7 @@ class DetailsPresenter {
     private let type: Item.ContentType
     private var item: Item?
     private var isItemSaved: Bool?
+    private var recommendationItems: [Item]
     
     // MARK: - Lifecycle -
     init(interactor: DetailsInteractorInput, coordinator: DetailsCoordinatorInput, id: Int, type: Item.ContentType) {
@@ -26,6 +28,8 @@ class DetailsPresenter {
         self.coordinator = coordinator
         self.id = id
         self.type = type
+        
+        recommendationItems = []
     }
 }
 
@@ -37,6 +41,7 @@ extension DetailsPresenter: DetailsPresenterInput {
         case .Movie:
             interactor.perform(Details.Request.FetchMovieDetails(id: id))
             interactor.perform(Details.Request.FetchMovieVideos(id: id))
+            interactor.perform(Details.Request.FetchMovieRecommendations(page: 1, id: id))
         case .TVShow:
             interactor.perform(Details.Request.FetchTVShowDetails(id: id))
             interactor.perform(Details.Request.FetchTVShowVideos(id: id))
@@ -65,12 +70,17 @@ extension DetailsPresenter: DetailsPresenterInput {
         
         interactor.perform(Details.Request.FetchIsItemSaved(item: item))
     }
+    
+    func showRecommendations(with viewController: UIViewController, into view: UIView) {
+        coordinator?.showRecommendations(with: viewController, into: view, with: recommendationItems)
+    }
 }
 
 // MARK: - Presentation Logic -
 
 // INTERACTOR -> PRESENTER (indirect)
 extension DetailsPresenter: DetailsInteractorOutput {
+    // MARK: - Movies -
     func present(_ response: Details.Response.MovieDetailsFetched) {
         item = Item(id: id, pictureURL: response.movie.smallPictureUrl, contentType: .Movie)
         interactor.perform(Details.Request.FetchIsItemSaved(item: item!))
@@ -85,6 +95,13 @@ extension DetailsPresenter: DetailsInteractorOutput {
         ))
     }
     
+    func present(_ response: Details.Response.MovieRecommendationsFetched) {
+        recommendationItems = Convert.convertIntoItems(movies: response.movies)
+        
+        output?.display(Details.DisplayData.Recommendations())
+    }
+    
+    // MARK: - TVShows -
     func present(_ response: Details.Response.TVShowDetailsFetched) {
         item = Item(id: id, pictureURL: response.tvShow.smallPictureUrl, contentType: .TVShow)
         interactor.perform(Details.Request.FetchIsItemSaved(item: item!))
@@ -99,11 +116,14 @@ extension DetailsPresenter: DetailsInteractorOutput {
         ))
     }
     
+    // MARK: - Local -
     func present(_ response: Details.Response.IsItemSavedFetch) {
         isItemSaved = response.isSaved
+        
         output?.display(Details.DisplayData.IsItemSaved(isSaved: response.isSaved))
     }
     
+    // MARK: - Videos -
     func present(_ response: Details.Response.VideosFetched) {
         guard
             let video = response.videos.first,
@@ -114,6 +134,7 @@ extension DetailsPresenter: DetailsInteractorOutput {
         output?.display(Details.DisplayData.Trailer(url: "https://www.youtube.com/embed/\(video.key)"))
     }
     
+    // MARK: - Error -
     func present(_ response: Details.Response.Error) {
         output?.display(Details.DisplayData.Error(errorMessage: response.errorMessage))
     }
