@@ -39,15 +39,6 @@ platform :ios do
       last_name: "Maheo",
       email: "maxime.maheo@gmail.com",
     )
-    git_add
-    git_commit(
-      path: "*",
-      message: "Beta released"
-    )
-    add_git_tag(
-      build_number: get_build_number
-    )
-    push_to_git_remote
   end
 
   desc "Fastlane Match - Development"
