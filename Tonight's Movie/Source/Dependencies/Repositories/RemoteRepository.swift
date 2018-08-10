@@ -153,7 +153,7 @@ extension RemoteRepository: Repository {
     func getHighestRatedMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) -> Request {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
-        parameters["certification_country"] = Locale.current.languageCode?.uppercased()
+        parameters["certification_country"] = Locale.current.regionCode?.uppercased()
         parameters["certification"] = "R"
         parameters["sort_by"] = "vote_average.desc"
         
@@ -164,7 +164,7 @@ extension RemoteRepository: Repository {
     func getNowPlayingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) -> Request {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
-        parameters["region"] = Locale.current.languageCode?.uppercased()
+        parameters["region"] = Locale.current.regionCode?.uppercased()
 
         return send(request: manager.request("\(baseURL)/movie/now_playing", parameters: parameters),
                     completion: completion)
@@ -173,7 +173,7 @@ extension RemoteRepository: Repository {
     func getUpcomingMovies(page: Int, completion: @escaping (Result<[Movie]>) -> Void) -> Request {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
-        parameters["region"] = Locale.current.languageCode?.uppercased()
+        parameters["region"] = Locale.current.regionCode?.uppercased()
 
         return send(request: manager.request("\(baseURL)/movie/upcoming", parameters: parameters),
                     completion: completion)
@@ -221,7 +221,7 @@ extension RemoteRepository: Repository {
     func getMostPopularTVShows(page: Int, completion: @escaping (Result<[TVShow]>) -> Void) -> Request {
         var parameters = defaultParameters
         parameters["page"] = "\(page)"
-        parameters["certification_country"] = Locale.current.languageCode?.uppercased()
+        parameters["certification_country"] = Locale.current.regionCode?.uppercased()
         parameters["certification"] = "R"
         parameters["sort_by"] = "popularity.desc"
         
