@@ -15,16 +15,12 @@ class ItemListCoordinator: Coordinator {
     var children: [Coordinator]
 
     private let navigationController: UINavigationController
-    
     private var itemListViewController: ItemListViewController?
-    private var section: ItemList.Section
-    private var screen: Discover.Screen
+    private var presenter: ItemListPresenter?
     
     // MARK: - Lifecycle -
-    init(navigationController: UINavigationController, section: ItemList.Section, screen: Discover.Screen) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.section = section
-        self.screen = screen
         
         children = []
     }
@@ -32,7 +28,10 @@ class ItemListCoordinator: Coordinator {
     // MARK: - Methods -
     func start() {
         let interactor = ItemListInteractor()
-        let presenter = ItemListPresenter(interactor: interactor, coordinator: self, section: section, screen: screen)
+        presenter = ItemListPresenter(interactor: interactor, coordinator: self)
+        
+        guard let presenter = presenter else { return }
+        
         itemListViewController = ItemListViewController.instantiate(with: presenter)
 
         interactor.output = presenter
@@ -42,6 +41,7 @@ class ItemListCoordinator: Coordinator {
     func show(viewController: DiscoverViewController, for cell: DiscoverCell) {
         guard let itemListViewController = itemListViewController else { return }
 
+        itemListViewController.delegate = viewController
         viewController.addChild(itemListViewController)
         itemListViewController.view.frame = cell.contenairView.bounds
         cell.contenairView.addSubview(itemListViewController.view)
@@ -52,15 +52,20 @@ class ItemListCoordinator: Coordinator {
     func stop() {
         guard let itemListViewController = itemListViewController else { return }
         
+        itemListViewController.delegate = nil
         itemListViewController.view.removeFromSuperview()
         itemListViewController.willMove(toParent: nil)
         itemListViewController.removeFromParent()
+    }
+    
+    func update(with items: [Item]) {
+        presenter?.update(items: items)
     }
 }
 
 // PRESENTER -> COORDINATOR
 extension ItemListCoordinator: ItemListCoordinatorInput {
-    func showDetailsOf(id: Int, type: Item.ContentType) {
+    func showDetailsOf(id: Int, of type: Item.ContentType) {
         let coordinator = DetailsCoordinator(navigationController: navigationController, id: id, type: type)
         children = [coordinator]
         coordinator.start()

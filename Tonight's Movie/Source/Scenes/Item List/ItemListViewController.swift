@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol ItemListViewControllerDelegate: class {
+    func fetchNextItems(_ itemListViewController: ItemListViewController)
+}
+
 class ItemListViewController: UIViewController {
 
     // MARK: - Properties -
     private var presenter: ItemListPresenterInput!
+    
+    weak var delegate: ItemListViewControllerDelegate?
 
     // MARK: - Outlets -
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -60,7 +66,7 @@ extension ItemListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ItemListCell.self)", for: indexPath) as? ItemListCell else { return UICollectionViewCell() }
         
-        presenter.configure(item: cell, at: indexPath)
+        presenter.configure(cell, at: indexPath)
         
         return cell
     }
@@ -73,14 +79,14 @@ extension ItemListViewController: UICollectionViewDataSource {
 extension ItemListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == presenter.numberOfItems - 5 {
-            presenter.displayNext()
+            delegate?.fetchNextItems(self)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? ItemListCell else { return }
         
-        presenter.didEndDisplaying(item: cell, at: indexPath)
+        presenter.didEndDisplaying(cell)
     }
 }
 
@@ -96,9 +102,5 @@ extension ItemListViewController: UICollectionViewDelegateFlowLayout {
 extension ItemListViewController: ItemListPresenterOutput {
     func display(_ displayModel: ItemList.DisplayData.Items) {
         collectionView.reloadData()
-    }
-    
-    func display(_ displayModel: ItemList.DisplayData.Error) {
-        showAlertError(message: displayModel.errorMessage)
     }
 }

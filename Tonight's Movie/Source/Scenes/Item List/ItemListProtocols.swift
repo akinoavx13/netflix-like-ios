@@ -17,35 +17,19 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol ItemListCoordinatorInput: class {
-    func showDetailsOf(id: Int, type: Item.ContentType)
+    func showDetailsOf(id: Int, of type: Item.ContentType)
 }
 
 // ======== Interactor ======== //
 
 // PRESENTER -> INTERACTOR
 protocol ItemListInteractorInput {
-    func perform(_ request: ItemList.Request.FetchNowPlayingMovies)
-    func perform(_ request: ItemList.Request.FetchUpcomingMovies)
-    func perform(_ request: ItemList.Request.FetchPopularMovies)
-    func perform(_ request: ItemList.Request.FetchTopRatedMovies)
     
-    func perform(_ request: ItemList.Request.FetchOnTheAirTVShows)
-    func perform(_ request: ItemList.Request.FetchPopularTVShows)
-    func perform(_ request: ItemList.Request.FetchTopRatedTVShows)
 }
 
 // INTERACTOR -> PRESENTER (indirect)
 protocol ItemListInteractorOutput: class {
-    func present(_ response: ItemList.Response.NowPlayingMoviesFetched)
-    func present(_ response: ItemList.Response.UpcomingMoviesFetched)
-    func present(_ response: ItemList.Response.PopularMoviesFetched)
-    func present(_ response: ItemList.Response.TopRatedMoviesFetched)
     
-    func present(_ response: ItemList.Response.OnTheAirTVShowsFetched)
-    func present(_ response: ItemList.Response.PopularTVShowsFetched)
-    func present(_ response: ItemList.Response.TopRatedTVShowsFetched)
-    
-    func present(_ response: ItemList.Response.Error)
 }
 
 // ======== Presenter ======== //
@@ -58,14 +42,12 @@ protocol ItemListPresenterInput {
     
     // MARK: - Methods -
     func viewCreated()
-    func configure(item: ItemListCellProtocol, at indexPath: IndexPath)
-    func didEndDisplaying(item: ItemListCellProtocol, at indexPath: IndexPath)
-    func displayNext()
+    func configure(_ cell: ItemListCellProtocol, at indexPath: IndexPath)
+    func didEndDisplaying(_ cell: ItemListCellProtocol)
     func showDetails(at indexPath: IndexPath)
 }
 
 // PRESENTER -> VIEW
 protocol ItemListPresenterOutput: class {
     func display(_ displayModel: ItemList.DisplayData.Items)
-    func display(_ displayModel: ItemList.DisplayData.Error)
 }

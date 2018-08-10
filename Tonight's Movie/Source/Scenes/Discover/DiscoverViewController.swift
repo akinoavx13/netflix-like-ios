@@ -31,7 +31,7 @@ class DiscoverViewController: UIViewController {
             forwardedItemImageView.contentMode = .scaleAspectFill
             forwardedItemImageView.clipsToBounds = true
             forwardedItemImageView.isUserInteractionEnabled = true
-            forwardedItemImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(highestRatedMovieImageViewTapped)))
+            forwardedItemImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(forwardedItemTapped)))
         }
     }
     
@@ -41,7 +41,7 @@ class DiscoverViewController: UIViewController {
         didSet {
             gradientView.backgroundColor = .clear
             gradientView.isUserInteractionEnabled = true
-            gradientView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(highestRatedMovieImageViewTapped)))
+            gradientView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(forwardedItemTapped)))
         }
     }
     
@@ -75,8 +75,8 @@ class DiscoverViewController: UIViewController {
     
     // MARK: - Actions -
     @objc
-    private func highestRatedMovieImageViewTapped() {
-        presenter.showHighestRatedMovieDetails()
+    private func forwardedItemTapped() {
+        presenter.showForwardedItemDetails()
     }
 }
 
@@ -105,6 +105,17 @@ extension DiscoverViewController: UITableViewDelegate {
         if !cell.isKind(of: DiscoverCell.self) { return }
         
         presenter.didEndDisplaying(at: indexPath)
+    }
+}
+
+
+extension DiscoverViewController: ItemListViewControllerDelegate {
+    func fetchNextItems(_ itemListViewController: ItemListViewController) {
+        for (index, child) in children.enumerated() {
+            if child == itemListViewController {
+                presenter.fetchNextItems(at: IndexPath(row: index, section: 0))
+            }
+        }
     }
 }
 

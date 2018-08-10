@@ -40,16 +40,17 @@ class DiscoverCoordinator: Coordinator {
 
 // PRESENTER -> COORDINATOR
 extension DiscoverCoordinator: DiscoverCoordinatorInput {
-    func createItemList(section: ItemList.Section, screen: Discover.Screen) {
-        let coodinator = ItemListCoordinator(navigationController: navigationController, section: section, screen: screen)
+    func createItemList() {
+        let coodinator = ItemListCoordinator(navigationController: navigationController)
         children.append(coodinator)
         coodinator.start()
     }
     
-    func startItemListCoordinator(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath) {
+    func startItemListCoordinator(viewController: DiscoverViewController, for cell: DiscoverCell, at indexPath: IndexPath, with items: [Item]) {
         guard let coordinator = children[indexPath.row] as? ItemListCoordinator else { return }
         
         coordinator.show(viewController: viewController, for: cell)
+        updateItemListCoordinator(at: indexPath, with: items)
     }
     
     func stopItemListCoordinator(at indexPath: IndexPath) {
@@ -58,7 +59,13 @@ extension DiscoverCoordinator: DiscoverCoordinatorInput {
         coordinator.stop()
     }
     
-    func showHighestRatedItemDetails(id: Int, type: Item.ContentType) {
+    func updateItemListCoordinator(at indexPath: IndexPath, with items: [Item]) {
+        guard let coordinator = children[indexPath.row] as? ItemListCoordinator else { return }
+        
+        coordinator.update(with: items)
+    }
+    
+    func showDetailsOf(id: Int, type: Item.ContentType) {
         let coodinator = DetailsCoordinator(navigationController: navigationController, id: id, type: type)
         children.append(coodinator)
         coodinator.start()
