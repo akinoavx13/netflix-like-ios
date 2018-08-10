@@ -117,6 +117,12 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var trailerWebViewHeightConstraint: NSLayoutConstraint! {
+        didSet {
+            trailerWebViewHeightConstraint.constant = 0
+        }
+    }
+    
     @IBOutlet weak var recommendationsTitleLabel: UILabel! {
         didSet {
             recommendationsTitleLabel.text = Translation.Details.recommendations
@@ -235,6 +241,7 @@ extension DetailsViewController: DetailsPresenterOutput {
             UIView.animate(withDuration: Style.Animation.duration) {
                 self.trailerTitleLabel.alpha = 1
                 self.trailerWebView.alpha = 1
+                self.trailerWebViewHeightConstraint.constant = UIScreen.main.bounds.width * 0.9
                 
                 self.view.layoutIfNeeded()
             }
