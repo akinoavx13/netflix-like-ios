@@ -37,16 +37,12 @@ class DetailsCoordinator: Coordinator {
         interactor.output = presenter
         presenter.output = viewController
 
-        navigationController.showDetailViewController(viewController, sender: nil)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
 
 // PRESENTER -> COORDINATOR
-extension DetailsCoordinator: DetailsCoordinatorInput {
-    func dismiss() {
-        navigationController.dismiss(animated: true, completion: nil)
-    }
-    
+extension DetailsCoordinator: DetailsCoordinatorInput {    
     func showRecommendations(with viewController: UIViewController, into view: UIView, with items: [Item]) {
         let coodinator = ItemListCoordinator(navigationController: navigationController)
         children.append(coodinator)

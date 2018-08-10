@@ -71,6 +71,7 @@ extension Details.DisplayData {
         let date: String
         let duration: String
         let overview: String
+        let title: String
     }
     struct Recommendations { }
     struct IsItemSaved { let isSaved: Bool }

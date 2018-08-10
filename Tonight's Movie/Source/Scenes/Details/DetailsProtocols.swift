@@ -17,7 +17,6 @@ import UIKit
 
 // PRESENTER -> COORDINATOR
 protocol DetailsCoordinatorInput: class {
-    func dismiss()
     func showRecommendations(with viewController: UIViewController, into view: UIView, with items: [Item])
 }
 
@@ -72,7 +71,6 @@ protocol DetailsInteractorOutput: class {
 protocol DetailsPresenterInput {
     func viewCreated()
     func viewWillDisappear()
-    func closeButtonTapped()
     func addButtonTapped()
     func showRecommendations(with viewController: UIViewController, into view: UIView)
 }

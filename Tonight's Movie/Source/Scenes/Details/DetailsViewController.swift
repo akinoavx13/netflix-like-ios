@@ -20,15 +20,6 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var closeButton: UIButton! {
-        didSet {
-            closeButton.setTitle("", for: .normal)
-            closeButton.tintColor = Colors.white
-            closeButton.setImage(Icons.close, for: .normal)
-            closeButton.imageView?.contentMode = .scaleAspectFit
-        }
-    }
-    
     @IBOutlet weak var pictureImageView: UIImageView! {
         didSet {
             pictureImageView.alpha = 0
@@ -143,8 +134,14 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = Colors.black
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+     
         presenter.viewCreated()
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -152,6 +149,7 @@ class DetailsViewController: UIViewController {
         
         pictureImageView.kf.cancelDownloadTask()
         backgroundImageView.kf.cancelDownloadTask()
+        trailerWebView.stopLoading()
         
         presenter.viewWillDisappear()
     }
@@ -178,11 +176,7 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    // MARK: - Actions -
-    @IBAction func closeButtonTapped(_ sender: UIButton) {
-        presenter.closeButtonTapped()
-    }
-    
+    // MARK: - Actions -    
     @IBAction func addButtonTapped(_ sender: Any) {
         presenter.addButtonTapped()
     }
@@ -209,7 +203,8 @@ extension DetailsViewController: DetailsPresenterOutput {
             self.configureMarkLabel(voteAverage: displayModel.mark)
             self.overviewLabel.text = displayModel.overview
             self.pictureImageView.alpha = 1
-        
+            self.title = displayModel.title
+            
             self.view.layoutIfNeeded()
         }
     }

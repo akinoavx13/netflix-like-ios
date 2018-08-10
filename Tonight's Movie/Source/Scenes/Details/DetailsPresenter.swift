@@ -53,10 +53,6 @@ extension DetailsPresenter: DetailsPresenterInput {
         interactor.cancel(Details.Cancel.Requests())
     }
     
-    func closeButtonTapped() {
-        coordinator?.dismiss()
-    }
-    
     func addButtonTapped() {
         guard
             let item = item,
@@ -92,7 +88,8 @@ extension DetailsPresenter: DetailsInteractorOutput {
             mark: response.movie.voteAverage,
             date: response.movie.formattedDate,
             duration: response.movie.duration,
-            overview: response.movie.overview
+            overview: response.movie.overview,
+            title: response.movie.title
         ))
     }
     
@@ -113,7 +110,8 @@ extension DetailsPresenter: DetailsInteractorOutput {
             mark: response.tvShow.voteAverage,
             date: response.tvShow.formattedDate,
             duration: response.tvShow.duration,
-            overview: response.tvShow.overview
+            overview: response.tvShow.overview,
+            title: response.tvShow.name
         ))
     }
     

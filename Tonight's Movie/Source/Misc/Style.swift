@@ -33,4 +33,15 @@ struct Style {
         }
     }
     
+    struct NavigationController {
+        static func edit(_ navigationController: UINavigationController) {
+            navigationController.navigationBar.tintColor = Colors.white
+            navigationController.navigationBar.barTintColor = Colors.black
+            navigationController.navigationBar.isTranslucent = true
+            navigationController.navigationBar.titleTextAttributes = [
+                .foregroundColor: Colors.white,
+                .font: Fonts.large
+            ]
+        }
+    }
 }
