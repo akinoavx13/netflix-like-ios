@@ -31,6 +31,7 @@ class DiscoverViewController: UIViewController {
             forwardedItemImageView.contentMode = .scaleAspectFill
             forwardedItemImageView.clipsToBounds = true
             forwardedItemImageView.isUserInteractionEnabled = true
+            forwardedItemImageView.alpha = 0
             forwardedItemImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(forwardedItemTapped)))
         }
     }
@@ -131,7 +132,15 @@ extension DiscoverViewController: ItemListViewControllerDelegate {
 extension DiscoverViewController: DiscoverPresenterOutput {
     func display(_ displayModel: Discover.DisplayData.ForwardedItem) {
         if let url = URL(string: displayModel.pictureURL) {
-            self.forwardedItemImageView.kf.setImage(with: url)
+            forwardedItemImageView.kf.setImage(with: url) { image, error, _, _ in
+                if image != nil && error == nil {
+                    UIView.animate(withDuration: Style.Animation.duration) {
+                        self.forwardedItemImageView.alpha = 1
+                        
+                        self.view.layoutIfNeeded()
+                    }
+                }
+            }
         }
         
         gradientView.gradient(colors: [UIColor.clear.cgColor, Colors.black.cgColor])

@@ -20,6 +20,7 @@ final class ItemListCell: UICollectionViewCell {
         didSet {
             pictureImageView.contentMode = .scaleAspectFill
             pictureImageView.clipsToBounds = true
+            pictureImageView.alpha = 0
         }
     }
     
@@ -34,7 +35,15 @@ final class ItemListCell: UICollectionViewCell {
 extension ItemListCell: ItemListCellProtocol {
     func display(pictureURL: String) {
         if let url = URL(string: pictureURL) {
-            pictureImageView.kf.setImage(with: url)
+            pictureImageView.kf.setImage(with: url) { image, error, _, _ in
+                if image != nil && error == nil {
+                    UIView.animate(withDuration: Style.Animation.duration) {
+                        self.pictureImageView.alpha = 1
+                        
+                        self.layoutIfNeeded()
+                    }
+                }
+            }
         }
     }
     
