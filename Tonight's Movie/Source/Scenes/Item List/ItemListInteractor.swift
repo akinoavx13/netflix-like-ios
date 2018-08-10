@@ -12,13 +12,6 @@ class ItemListInteractor {
     
     // MARK: - Properties -
     weak var output: ItemListInteractorOutput?
-    
-    private let dependencies: FullDependencies
-    
-    // MARK: - Lifecycle -
-    init(dependencies: FullDependencies = Dependencies.shared) {
-        self.dependencies = dependencies
-    }
 }
 
 // MARK: - Business Logic -

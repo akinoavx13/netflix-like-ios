@@ -32,6 +32,8 @@ class ItemListViewController: UIViewController {
             layout.minimumLineSpacing = Style.CollectionView.offset
             layout.minimumInteritemSpacing = Style.CollectionView.offset
             layout.scrollDirection = .horizontal
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+            layout.itemSize = Style.Cell.getItemSizeDefault
             
             collectionView.collectionViewLayout = layout
         }
@@ -87,12 +89,6 @@ extension ItemListViewController: UICollectionViewDelegate {
         guard let cell = cell as? ItemListCell else { return }
         
         presenter.didEndDisplaying(cell)
-    }
-}
-
-extension ItemListViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return Style.Cell.getItemSizeDefault
     }
 }
 

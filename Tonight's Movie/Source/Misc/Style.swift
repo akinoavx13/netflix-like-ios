@@ -17,7 +17,7 @@ struct Style {
     struct Cell {
         static var getItemSizeLarge: CGSize {
             let numberOfItemPerRow: CGFloat = UIDevice.current.userInterfaceIdiom == .phone ? 3 : 5
-            let witdh = UIScreen.main.bounds.width / numberOfItemPerRow - (numberOfItemPerRow - 1) * Style.CollectionView.offset / 2
+            let witdh = UIScreen.main.bounds.width / numberOfItemPerRow - (numberOfItemPerRow - 1) * Style.CollectionView.offset
             
             return CGSize(width: witdh, height: witdh * 1.5)
         }

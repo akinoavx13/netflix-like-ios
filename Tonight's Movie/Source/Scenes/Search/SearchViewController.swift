@@ -42,7 +42,10 @@ class SearchViewController: UIViewController {
             layout.minimumLineSpacing = Style.CollectionView.offset
             layout.minimumInteritemSpacing = Style.CollectionView.offset
             layout.scrollDirection = .vertical
-            
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+            layout.itemSize = Style.Cell.getItemSizeLarge
+            layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 50)
+
             collectionView.collectionViewLayout = layout
         }
     }
@@ -130,16 +133,6 @@ extension SearchViewController: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         searchBar.resignFirstResponder()
-    }
-}
-
-extension SearchViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return Style.Cell.getItemSizeLarge
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 50)
     }
 }
 
