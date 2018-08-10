@@ -15,24 +15,9 @@ struct Style {
     }
     
     struct Cell {
-        
         static var getItemSizeLarge: CGSize {
-            var numberOfItemPerRow: CGFloat
-            var offset: CGFloat
-            
-            switch UIDevice.current.userInterfaceIdiom {
-            case .phone :
-                numberOfItemPerRow = 3
-                offset = 4
-            case .pad:
-                numberOfItemPerRow = 5
-                offset = 2
-            default:
-                numberOfItemPerRow = 3
-                offset = 4
-            }
-            
-            let witdh = UIScreen.main.bounds.width / numberOfItemPerRow - (numberOfItemPerRow - 1) * offset
+            let numberOfItemPerRow: CGFloat = UIDevice.current.userInterfaceIdiom == .phone ? 3 : 5
+            let witdh = UIScreen.main.bounds.width / numberOfItemPerRow - (numberOfItemPerRow - 1) * Style.CollectionView.offset / 2
             
             return CGSize(width: witdh, height: witdh * 1.5)
         }
@@ -40,7 +25,12 @@ struct Style {
         static var getItemSizeDefault: CGSize {
             return CGSize(width: 106, height: 159)
         }
-        
+    }
+    
+    struct CollectionView {
+        static var offset: CGFloat {
+            return 4
+        }
     }
     
 }

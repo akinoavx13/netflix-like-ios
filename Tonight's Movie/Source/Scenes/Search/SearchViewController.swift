@@ -36,6 +36,14 @@ class SearchViewController: UIViewController {
             collectionView.showsVerticalScrollIndicator = false
             collectionView.register(UINib(nibName: "ItemListCell", bundle: nil), forCellWithReuseIdentifier: "\(ItemListCell.self)")
             collectionView.register(UINib(nibName: "SearchHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(SearchHeaderView.self)")
+            
+            
+            let layout = UICollectionViewFlowLayout()
+            layout.minimumLineSpacing = Style.CollectionView.offset
+            layout.minimumInteritemSpacing = Style.CollectionView.offset
+            layout.scrollDirection = .vertical
+            
+            collectionView.collectionViewLayout = layout
         }
     }
     

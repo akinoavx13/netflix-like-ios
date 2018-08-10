@@ -21,6 +21,13 @@ class ItemListViewController: UIViewController {
             collectionView.delegate = self
             collectionView.showsHorizontalScrollIndicator = false
             collectionView.register(UINib(nibName: "ItemListCell", bundle: nil), forCellWithReuseIdentifier: "\(ItemListCell.self)")
+            
+            let layout = UICollectionViewFlowLayout()
+            layout.minimumLineSpacing = Style.CollectionView.offset
+            layout.minimumInteritemSpacing = Style.CollectionView.offset
+            layout.scrollDirection = .horizontal
+            
+            collectionView.collectionViewLayout = layout
         }
     }
     
