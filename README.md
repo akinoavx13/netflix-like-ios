@@ -1,13 +1,13 @@
-# Tonight's Movie
+# Netflix like
 
 [![Language](https://img.shields.io/badge/Swift-4.2-brightgreen.svg)](http://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-10.0-brightgreen.svg)](https://developer.apple.com/download/more/)
 
 ## 📖 Project description
-iOS Application to search the next movie to watch
+Application to demonstrate how I develop an iOS App
 
 ## 🔧 Installation
-1. `git clone git@github.com:mmaheo/tonights-movie-ios.git`
+1. `git clone git@github.com:mmaheo/netflix-like-ios.git`
 2. Run `carthage update --platform ios`
 
 ## 🌲 Branches
