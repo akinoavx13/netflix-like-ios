@@ -31,7 +31,7 @@ Application to demonstrate how I develop an iOS App
     * [LinkedIn](https://www.linkedin.com/in/maxime-maheo-120907a8/)
     * Feel free to send me a message on LinkedIn if you want to discuss about our future 🤝
 
-## How to generate demo Gif
+## 🌄 How to generate demo Gif
 1. `brew install ffmpeg`
 2. `brew install gifsicle`
 3. Record your demo `xcrun simctl io booted recordVideo Demo.mov`
