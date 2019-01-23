@@ -3,6 +3,8 @@
 [![Language](https://img.shields.io/badge/Swift-4.2-brightgreen.svg)](http://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-10.0-brightgreen.svg)](https://developer.apple.com/download/more/)
 
+![Demo](https://raw.githubusercontent.com/mmaheo/netflix-like-ios/develop/Demo.gif)
+
 ## 📖 Project description
 Application to demonstrate how I develop an iOS App
 
