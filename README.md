@@ -6,7 +6,7 @@
 ![Demo](Demo.gif)
 
 ## 📖 Project description
-Application to demonstrate how I develop an iOS App
+Application to demonstrate how I develop an iOS App in 5 days
 
 ## 🔧 Installation
 1. `git clone git@github.com:mmaheo/netflix-like-ios.git`
