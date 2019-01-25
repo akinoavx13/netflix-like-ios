@@ -18,7 +18,9 @@ Application to demonstrate how I develop an iOS App in 5 days
 
 ## 🛒 Dependencies
 
-- [Springbok](https://github.com/nodes-ios/Springbok)
+- [Kingfisher](https://github.com/onevcat/Kingfisher)
+- [Alamofire](https://github.com/Alamofire/Alamofire)
+- [hyperoslo/Cache](https://github.com/hyperoslo/Cache)
 
 ## ⚠️ Things to know
 * I use fastlane to automatic code sign-in, deploy to testflight and app store.
