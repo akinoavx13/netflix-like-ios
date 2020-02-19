@@ -1,0 +1,45 @@
+# List of rules: https://github.com/realm/SwiftLint/blob/master/Rules.md
+
+# Paths to include during linting.
+included:
+  - Netflix
+
+excluded:
+
+# Disable some of them:
+disabled_rules:
+
+# Enable rules
+opt_in_rules:
+  - empty_count
+  - explicit_init
+  - operator_usage_whitespace
+  - overridden_super_call
+  - prohibited_super_call
+  - redundant_nil_coalescing
+  - sorted_first_last
+  - contains_over_first_not_nil
+  - first_where
+  - implicit_return
+  - literal_expression_end_indentation
+  - private_action
+  - private_outlet
+
+# Customize:
+trailing_whitespace:
+  ignores_empty_lines: true
+line_length: 180
+type_body_length:
+  - 600 # warning
+  - 600 # error
+file_length:
+  warning: 1000
+  error: 1000
+type_name:
+  min_length: 0
+  max_length:
+    warning: 60
+    error: 60
+identifier_name:
+  excluded: # excluded via string array
+    - id
