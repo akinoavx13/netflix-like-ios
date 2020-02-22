@@ -8,6 +8,8 @@ excluded:
 
 # Disable some of them:
 disabled_rules:
+  - opening_brace
+  - colon
 
 # Enable rules
 opt_in_rules:
