@@ -16,13 +16,10 @@ final class MoviesViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .red
     }
 
     // MARK: - Methods
     func bind(to viewModel: MoviesViewModelContract) {
         self.viewModel = viewModel
     }
-
 }
