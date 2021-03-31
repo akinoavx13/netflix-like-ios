@@ -3,6 +3,8 @@
 [![Language](https://img.shields.io/badge/Swift-4.2-brightgreen.svg)](http://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-10.0-brightgreen.svg)](https://developer.apple.com/download/more/)
 
+🚨 Créé par Maxime Mahéo en juillet 2018 - droits afférents à ce code cédés, à titre exclusif, à TAKTIK® S.A. de droit belge le 31 mars 2021 qui dispose à présent du ©.
+
 ![Demo](Demo.gif)
 
 ## 📖 Project description
