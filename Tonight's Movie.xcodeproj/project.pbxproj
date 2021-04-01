@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,7 +23,6 @@
 		2025B12F2119B5410032E3D1 /* ItemListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1282119B5410032E3D1 /* ItemListProtocols.swift */; };
 		2025B1302119B5410032E3D1 /* ItemListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1292119B5410032E3D1 /* ItemListInteractor.swift */; };
 		2025B1322119CA660032E3D1 /* ItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025B1312119CA660032E3D1 /* ItemListCell.swift */; };
-		2025B1332119D3BD0032E3D1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B9E41E21187F56002EACDA /* Alamofire.framework */; };
 		202FEFB2211AFCD700494133 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFAB211AFCD700494133 /* DetailsCoordinator.swift */; };
 		202FEFB3211AFCD700494133 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFAC211AFCD700494133 /* DetailsPresenter.swift */; };
 		202FEFB4211AFCD700494133 /* DetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 202FEFAD211AFCD700494133 /* DetailsViewController.storyboard */; };
@@ -34,7 +33,6 @@
 		202FEFBA211B092C00494133 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFB9211B092C00494133 /* UIView+Shadow.swift */; };
 		202FEFBC211B0A0800494133 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFBB211B0A0800494133 /* UIView+Gradient.swift */; };
 		202FEFBE211B1DF700494133 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FEFBD211B1DF700494133 /* Item.swift */; };
-		2034DBC1211B370E0072ACD4 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2034DBC0211B370E0072ACD4 /* Cache.framework */; };
 		2046D8B2211C448600124E93 /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046D8B1211C448600124E93 /* SearchHeaderView.swift */; };
 		2046D8B4211C583300124E93 /* LocalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046D8B3211C583300124E93 /* LocalManager.swift */; };
 		2046D8CD211C5D8000124E93 /* BookmarksCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046D8C6211C5D8000124E93 /* BookmarksCoordinator.swift */; };
@@ -63,7 +61,6 @@
 		20644D10211C26D300DD6E91 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20644D09211C26D300DD6E91 /* SearchInteractor.swift */; };
 		206741DE21189E7F00105AF4 /* String+DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206741DD21189E7F00105AF4 /* String+DateFormat.swift */; };
 		2067A5FD2118AAA900E9B2C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2067A5FB2118AAA900E9B2C5 /* Localizable.strings */; };
-		206BEEAC2118E26300CED785 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206BEEAB2118E26300CED785 /* Kingfisher.framework */; };
 		20B9E41A21187D0D002EACDA /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E41921187D0D002EACDA /* Movie.swift */; };
 		20B9E42221187F9A002EACDA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E42121187F9A002EACDA /* Repository.swift */; };
 		20B9E42421187FBC002EACDA /* RemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9E42321187FBC002EACDA /* RemoteRepository.swift */; };
@@ -79,7 +76,29 @@
 		20C776FA211DCCDD00865DD4 /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C776F9211DCCDD00865DD4 /* Convert.swift */; };
 		20F07185211CD27800F59192 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F07184211CD27800F59192 /* Style.swift */; };
 		20F07187211CE15800F59192 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F07186211CE15800F59192 /* Video.swift */; };
+		A50619DA2615AA2700B321CF /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50619D52615A9EB00B321CF /* Alamofire.xcframework */; };
+		A50619DB2615AA2700B321CF /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A50619D52615A9EB00B321CF /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A50619DD2615AA2900B321CF /* Cache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50619D42615A9EB00B321CF /* Cache.xcframework */; };
+		A50619DE2615AA2900B321CF /* Cache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A50619D42615A9EB00B321CF /* Cache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A50619DF2615AA2B00B321CF /* Kingfisher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50619D32615A9EB00B321CF /* Kingfisher.xcframework */; };
+		A50619E02615AA2B00B321CF /* Kingfisher.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A50619D32615A9EB00B321CF /* Kingfisher.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A50619DC2615AA2700B321CF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A50619E02615AA2B00B321CF /* Kingfisher.xcframework in Embed Frameworks */,
+				A50619DE2615AA2900B321CF /* Cache.xcframework in Embed Frameworks */,
+				A50619DB2615AA2700B321CF /* Alamofire.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2025B10C211980420032E3D1 /* DiscoverCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCoordinator.swift; sourceTree = "<group>"; };
@@ -108,7 +127,6 @@
 		202FEFB9211B092C00494133 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		202FEFBB211B0A0800494133 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		202FEFBD211B1DF700494133 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		2034DBC0211B370E0072ACD4 /* Cache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cache.framework; path = Carthage/Build/iOS/Cache.framework; sourceTree = "<group>"; };
 		2046D8B1211C448600124E93 /* SearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderView.swift; sourceTree = "<group>"; };
 		2046D8B3211C583300124E93 /* LocalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalManager.swift; sourceTree = "<group>"; };
 		2046D8C6211C5D8000124E93 /* BookmarksCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCoordinator.swift; sourceTree = "<group>"; };
@@ -138,15 +156,12 @@
 		206741DD21189E7F00105AF4 /* String+DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateFormat.swift"; sourceTree = "<group>"; };
 		2067A5FC2118AAA900E9B2C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2067A5FE2118AAB200E9B2C5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		206BEEAB2118E26300CED785 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		20B9E41921187D0D002EACDA /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		20B9E41E21187F56002EACDA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		20B9E42121187F9A002EACDA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		20B9E42321187FBC002EACDA /* RemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRepository.swift; sourceTree = "<group>"; };
 		20B9E42521187FE1002EACDA /* CacheRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheRepository.swift; sourceTree = "<group>"; };
 		20B9E42721187FFE002EACDA /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		20B9E429211881CD002EACDA /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
-		20B9E42B21188997002EACDA /* Springbok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Springbok.framework; path = Carthage/Build/iOS/Springbok.framework; sourceTree = "<group>"; };
 		20B9E42E21188A12002EACDA /* RequestsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsManager.swift; sourceTree = "<group>"; };
 		20B9E43021188F2D002EACDA /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		20B9E4322118935C002EACDA /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
@@ -158,6 +173,9 @@
 		20C776F9211DCCDD00865DD4 /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 		20F07184211CD27800F59192 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		20F07186211CE15800F59192 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		A50619D32615A9EB00B321CF /* Kingfisher.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Kingfisher.xcframework; path = Carthage/Build/Kingfisher.xcframework; sourceTree = "<group>"; };
+		A50619D42615A9EB00B321CF /* Cache.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Cache.xcframework; path = Carthage/Build/Cache.xcframework; sourceTree = "<group>"; };
+		A50619D52615A9EB00B321CF /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,9 +183,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2034DBC1211B370E0072ACD4 /* Cache.framework in Frameworks */,
-				206BEEAC2118E26300CED785 /* Kingfisher.framework in Frameworks */,
-				2025B1332119D3BD0032E3D1 /* Alamofire.framework in Frameworks */,
+				A50619DF2615AA2B00B321CF /* Kingfisher.xcframework in Frameworks */,
+				A50619DA2615AA2700B321CF /* Alamofire.xcframework in Frameworks */,
+				A50619DD2615AA2900B321CF /* Cache.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,10 +372,9 @@
 		20B9E41D21187F56002EACDA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2034DBC0211B370E0072ACD4 /* Cache.framework */,
-				206BEEAB2118E26300CED785 /* Kingfisher.framework */,
-				20B9E42B21188997002EACDA /* Springbok.framework */,
-				20B9E41E21187F56002EACDA /* Alamofire.framework */,
+				A50619D52615A9EB00B321CF /* Alamofire.xcframework */,
+				A50619D42615A9EB00B321CF /* Cache.xcframework */,
+				A50619D32615A9EB00B321CF /* Kingfisher.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -417,7 +434,7 @@
 				20BEB6212118636500CA891E /* Sources */,
 				20BEB6222118636500CA891E /* Frameworks */,
 				20BEB6232118636500CA891E /* Resources */,
-				20B9E41C21187F31002EACDA /* Carthage */,
+				A50619DC2615AA2700B321CF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -481,30 +498,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		20B9E41C21187F31002EACDA /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Cache.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		20BEB6212118636500CA891E /* Sources */ = {
@@ -735,7 +728,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development maxime.maheo.free.fr.Tonight-s-Movie";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -761,7 +754,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development maxime.maheo.free.fr.Tonight-s-Movie";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

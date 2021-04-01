@@ -12,7 +12,7 @@ Application to demonstrate how I develop an iOS App in 5 days
 
 ## 🔧 Installation
 1. `git clone git@github.com:mmaheo/netflix-like-ios.git`
-2. Run `carthage update --platform ios`
+2. Run `carthage update --platform ios --use-xcframeworks`
 
 ## 🌲 Branches
 * `master` - with the latest version submitted for App Store release.
