@@ -21,7 +21,7 @@ protocol LocalManagerProtocol {
 final class LocalManager {
     
     // MARK: - Properties -
-    private let storage: Storage<[Item]>?
+    private let storage: Storage<String, [Item]>?
     
     // MARK: - Lifecycle -
     init() {
